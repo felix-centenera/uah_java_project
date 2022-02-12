@@ -3,12 +3,12 @@
 1. Introducción, objetivos y justificación del proyecto
 2. Metodologías utilizadas.
 3. Arquitectura y desarrollo:
-  - Diagrama de la arquitectura del sistema.
-  - Tecnologías utilizadas.
-  - Flujos de información.
-  - Lenguajes utilizados.
-  - Herramientas.
-  - Pruebas.
+   - Diagrama de la arquitectura del sistema.
+   - Tecnologías utilizadas.
+   - Flujos de información.
+   - Lenguajes utilizados.
+   - Herramientas.
+   - Pruebas.
 4. Características
 5. Bibliografía
 
