@@ -23,7 +23,7 @@
    -Aprendizaje básico de Git.
          <p>- https://openlibra.com/es/book/download/git-fundamentos</p>
    -Programa de modelado UML.
-      https://www.diagrams.net/
+      <p> https://www.diagrams.net/ </p>
       
 
 
