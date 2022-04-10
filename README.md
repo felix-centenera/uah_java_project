@@ -13,15 +13,15 @@
 5. Bibliografía:
 
    -Aprendizaje de Markdown:
-         <p> https://www.youtube.com/watch?v=oxaH9CFpeEE </p>
-         - https://markdown.es/
-         - https://openlibra.com/es/book/download/multimarkdown-users-guide
+         <p>- https://www.youtube.com/watch?v=oxaH9CFpeEE </p>
+         <p>- https://markdown.es/ </p>
+         <p>- https://openlibra.com/es/book/download/multimarkdown-users-guide</p>
          
    -Tutoriales básicos de la libreria Swing, para hacer interfaces modernos:
-         - https://openlibra.com/es/book/download/multimarkdown-users-guide
+         <p>- https://openlibra.com/es/book/download/multimarkdown-users-guide</p>
          
    -Aprendizaje básico de Git.
-         - https://openlibra.com/es/book/download/git-fundamentos
+         <p>- https://openlibra.com/es/book/download/git-fundamentos</p>
 
 
 Ejemplos sintaxis básicos markdown:
