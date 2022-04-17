@@ -14,10 +14,12 @@
 
 5. ULM Diagrama de clases
 
-
 ![alt text](https://github.com/felix-centenera/uah_java_project/blob/main/ULM/DiagramPNG/ulmDiagramV1.png)
 
 6. ULM Diagrama de casos de uso
+
+![alt text](https://github.com/felix-centenera/uah_java_project/blob/main/DiagramPNG/Diagrama sin título.png)
+
 
 7. Bibliografía:
 
