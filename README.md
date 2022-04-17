@@ -18,7 +18,7 @@
 
 6. ULM Diagrama de casos de uso
 
-![alt text](https://github.com/felix-centenera/uah_java_project/blob/main/DiagramPNG/Diagrama sin título.png)
+![alt text](https://github.com/felix-centenera/uah_java_project/blob/main/DiagramPNG/ulmCasoDeUso.png)
 
 
 7. Bibliografía:
