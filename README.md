@@ -21,8 +21,8 @@
 
 ![alt text](https://github.com/felix-centenera/uah_java_project/blob/main/UlmCasoDeUso/DiagramPNG/ulmCasoDeUso.png)
 
-**Esta un poquillo Chapuzilla pero es un boceto a ver que te parece, he coloreado en rojo la clase registro por que no se si deberia ir ahí, te pongo en contesto: **
-   * **si tu vas a loggearte por primera vez y metemos ese metodo ahi, auntomaticamente tendria que haber un objeto Cliente, con un contructor sobrecargado con la siguiente instanciacion: **
+** Esta un poquillo Chapuzilla pero es un boceto a ver que te parece, he coloreado en rojo la clase registro por que no se si deberia ir ahí, te pongo en contesto: **
+   * ** si tu vas a loggearte por primera vez y metemos ese metodo ahi, auntomaticamente tendria que haber un objeto Cliente, con un contructor sobrecargado con la siguiente instanciacion: **
    ```Java
       Cliente UsuarioResgistrida = new Cliente();
 ``` 
