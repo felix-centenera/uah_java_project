@@ -21,7 +21,7 @@
 **Esta un poquillo Chapuzilla pero es un boceto a ver que te parece, he coloreado en rojo la clase registro por que no se si deberia ir ahí, te pongo en contesto:**
    * **si tu vas a loggearte por primera vez y metemos ese metodo ahi, auntomaticamente tendria que haber un objeto Cliente, con un contructor sobrecargado con la siguiente instanciacion:**
    ```Java
-      Cliente UsuarioResgistrida = new Cliente();
+      Cliente UsuarioResgistrado = new Cliente();
 ``` 
    
 6. ULM Diagrama de casos de uso
