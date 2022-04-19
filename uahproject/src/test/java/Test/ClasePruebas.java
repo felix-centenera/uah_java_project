@@ -2,10 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package usuario;
-
+package Test;
+//importaciones API JAVA
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+/**
+ * importaciones creadas por @author rauldelolmo
+ * @author felixcentenera
+ */
+import DatosUsuario.*;
+import CarritoDeCompra.*;
+import usuario.*;
 
 /**
  *
