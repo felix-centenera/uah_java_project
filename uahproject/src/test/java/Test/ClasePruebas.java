@@ -4,14 +4,15 @@
  */
 package Test;
 //importaciones API JAVA
+import Tienda.*;
+import usuario.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 /**
  * importaciones creadas por @author rauldelolmo
  * @author felixcentenera
  */
-import DatosUsuario.*;
-import CarritoDeCompra.*;
+
 import usuario.*;
 
 /**

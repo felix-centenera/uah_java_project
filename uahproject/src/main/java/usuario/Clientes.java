@@ -3,8 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package usuario;
-import CarritoDeCompra.CarritoCompra;
-import DatosUsuario.*;
+import Tienda.*;
 /**
  *
  * @author felixcentenera
