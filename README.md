@@ -16,7 +16,7 @@
 
 ![alt text](https://github.com/felix-centenera/uah_java_project/blob/main/ULM/DiagramPNG/ulmDiagramV1.png)
    1.ULM V3 con metodos.
-      ![alt text](https://raw.githubusercontent.com/felix-centenera/uah_java_project/1.0.1.1/ULM/DiagramPNG/ulmDiagramV3.drawio.png)
+      ![alt text](https://raw.githubusercontent.com/felix-centenera/uah_java_project/1.0.1.1/UML/DiagramPNG/umlDiagramV3.drawio.png)
 
    
 6. ULM Diagrama de casos de uso
