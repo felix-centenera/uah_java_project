@@ -9,7 +9,7 @@
    - Lenguajes utilizados.
    - Herramientas.
    - Pruebas.
-4. Características
+4. Característicaskj
 
 
 5. ULM Diagrama de clases
