@@ -31,7 +31,7 @@ public class RandomHomeProductos {
 //        return RandomProductsHome;
 //    } 
     
-     public static ArrayList<Producto> seleccionarImagenes(Inventario i){
+     public static ArrayList<Producto> seleccionarProductos(Inventario i){
         ArrayList<Producto> RandomProductsHome;
         RandomProductsHome = new ArrayList<>();
         

@@ -34,3 +34,14 @@
       - https://openlibra.com/es/book/download/git-fundamentos
    - Programa de modelado UML.
       - https://www.diagrams.net/
+
+
+      //    /** Creates new form WindowProduct */
+//    public WindowsProduct(Home ventana) {
+//        //Ocultamos la ventana principal
+//        principal = ventana;
+//        principal.setVisible(false);
+//        initComponents();
+//        this.setVisible(true);
+//    }
+//

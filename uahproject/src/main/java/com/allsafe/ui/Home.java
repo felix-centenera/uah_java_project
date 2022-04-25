@@ -13,6 +13,7 @@ import com.allsafe.service.RandomHomeProductos;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -579,7 +580,7 @@ public class Home extends javax.swing.JFrame {
         jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/AllSafe.png")); // NOI18N
         jPanel3.add(jLabelHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jButtonHomeIcon1.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/shopping-cart (2).png")); // NOI18N
+        jButtonHomeIcon1.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/shopping-cart.png")); // NOI18N
         jButtonHomeIcon1.setText("Mi Carrito");
         jButtonHomeIcon1.setBorderPainted(false);
         jButtonHomeIcon1.setContentAreaFilled(false);
@@ -590,13 +591,12 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel3.add(jButtonHomeIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 120, 60));
 
-        jButtonHomeIcon2.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/user (2).png")); // NOI18N
+        jButtonHomeIcon2.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/user.png")); // NOI18N
         jButtonHomeIcon2.setText("Mi Cuenta");
         jButtonHomeIcon2.setBorderPainted(false);
         jButtonHomeIcon2.setContentAreaFilled(false);
         jPanel3.add(jButtonHomeIcon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 50, 120, 60));
 
-        jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/search (3).png")); // NOI18N
         jButtonHomeIcon4.setBorderPainted(false);
         jButtonHomeIcon4.setContentAreaFilled(false);
         jPanel3.add(jButtonHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
@@ -617,7 +617,6 @@ public class Home extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/home (2).png")); // NOI18N
         jButtonHomeIconsGround5.setBorderPainted(false);
         jButtonHomeIconsGround5.setContentAreaFilled(false);
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 40, 40));
@@ -680,8 +679,8 @@ private void createHomePageProductos(){
     RandomProductsHome = new ArrayList<>();
     
     //RandomHomeProductos.seleccionarImagenes(i1);
-    RandomProductsHome = RandomHomeProductos.seleccionarImagenes(i1);
-    jTextFieldProducts1.setText(RandomProductsHome.get(0).getTitulo());
+    RandomProductsHome = RandomHomeProductos.seleccionarProductos(i1);
+    //jTextFieldProducts1.setText(RandomProductsHome.get(0).getTitulo());
     javax.swing.JButton[] jButtonProductsArray = new javax.swing.JButton[]{jButtonProducts1,jButtonProducts2,jButtonProducts3,jButtonProducts4,jButtonProducts5,jButtonProducts6,jButtonProducts7,jButtonProducts8};
     javax.swing.JTextField[] jTextFieldProducts = new javax.swing.JTextField[]{jTextFieldProducts1,jTextFieldProducts2,jTextFieldProducts3,jTextFieldProducts4,jTextFieldProducts5,jTextFieldProducts6,jTextFieldProducts7,jTextFieldProducts8};
     javax.swing.JLabel[] jLabelFieldStarts = new javax.swing.JLabel[]{jLabel1Stars,jLabel2Stars,jLabel3Stars,jLabel4Stars,jLabel5Stars,jLabel6Stars,jLabel7Stars,jLabel8Stars};
@@ -757,8 +756,14 @@ private void createHomePageProductos(){
         System.out.println("Estas entrando en el carrito");
     }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
 
+    private JFrame getFrame(){
+     return this;
+    }
+    
     private void jButtonProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts1ActionPerformed
         // TODO add your handling code here:
+        WindowsProduct windowsproduct = new WindowsProduct(this);
+        
     }//GEN-LAST:event_jButtonProducts1ActionPerformed
 
     private void jButtonProducts3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts3ActionPerformed
