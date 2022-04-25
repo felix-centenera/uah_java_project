@@ -216,6 +216,9 @@ public class WindowsProduct extends javax.swing.JFrame {
 
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        principal.setVisible(true);
+        
       
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
 
