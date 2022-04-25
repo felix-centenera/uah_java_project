@@ -7,6 +7,7 @@ package com.allsafe.ui;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
 import com.allsafe.model.Inventario;
+import com.allsafe.model.Opinion;
 import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.service.RandomHomeProductos;
@@ -652,6 +653,9 @@ LocalDate fecha = LocalDate.of(2023, 9, 18);
 Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookAirM1.png", 1);
 Producto p2 = new Producto("MacBookProM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookProM1.png", 1);
 Producto p3 = new Producto("Dell XPS","Dell", "Portatiles",1000,"Img/laptops/dell/dellXps13.png", 1);
+Opinion  o1 = new Opinion(3, "Satisfecho con la compra"); 
+Opinion  o2 = new Opinion(0, "No comprar, malisimo"); 
+Opinion  o3 = new Opinion(5, "Una maravilla");
 
 //Crear inventario y añadir productos a inventario
 Inventario i1 = new Inventario();
@@ -673,8 +677,9 @@ private void createHomePageProductos(){
     i1.introducirProducto(p1, 4);
     i1.introducirProducto(p2, 4);
     i1.introducirProducto(p3, 4);
-    p1.setEstrella(5);
-    p2.setEstrella(3);
+    p1.introducirOpinion(o1);
+    p1.introducirOpinion(o2);
+    p1.introducirOpinion(o3);
     ArrayList<Producto> RandomProductsHome;
     RandomProductsHome = new ArrayList<>();
     
