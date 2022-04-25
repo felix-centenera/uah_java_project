@@ -26,7 +26,10 @@ public class Producto {
     
     private LocalDateTime fechaEntradaTienda;
     
+    private int estrellas ;
+    
     private ArrayList<Opinion> opinion ;
+    
 
     public Producto(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock) {
         this.titulo = titulo;
@@ -37,6 +40,7 @@ public class Producto {
         this.stock = stock;
         this.fechaEntradaTienda = LocalDateTime.now();
         opinion = new ArrayList<>();
+        estrellas = 0;
     }
      
     
@@ -100,6 +104,14 @@ public class Producto {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+    
+    public int getEstrella() {
+        return estrellas;
+    }
+
+    public void setEstrella(int estrellas) {
+        this.estrellas = estrellas;
     }
 
     @Override

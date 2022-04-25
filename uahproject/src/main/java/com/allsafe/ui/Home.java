@@ -26,6 +26,7 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
         createHomePageProductos();
+        createHomePage();
     }
 
     /**
@@ -40,42 +41,48 @@ public class Home extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         jPanel1 = new javax.swing.JPanel();
-        jPanel1Products = new javax.swing.JPanel();
-        jTextFieldProducts1 = new javax.swing.JTextField();
-        jButtonProducts1 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jPanel2Products = new javax.swing.JPanel();
-        jTextFieldProducts2 = new javax.swing.JTextField();
-        jButtonProducts2 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jPanelProducts3 = new javax.swing.JPanel();
-        jTextFieldProducts3 = new javax.swing.JTextField();
-        jButtonProducts3 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jPanelProducts4 = new javax.swing.JPanel();
         jTextFieldProducts4 = new javax.swing.JTextField();
-        jButtonProducts4 = new javax.swing.JButton();
         jButton24 = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
         jButton27 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
+        jButtonProducts4 = new javax.swing.JButton();
+        jLabel4Stars = new javax.swing.JLabel();
+        jPanelProducts3 = new javax.swing.JPanel();
+        jTextFieldProducts3 = new javax.swing.JTextField();
+        jButtonProducts3 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
+        jLabel3Stars = new javax.swing.JLabel();
+        jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        jPanelProducts7 = new javax.swing.JPanel();
+        jTextFieldProducts7 = new javax.swing.JTextField();
+        jButtonProducts7 = new javax.swing.JButton();
+        jButton39 = new javax.swing.JButton();
+        jLabel7Stars = new javax.swing.JLabel();
+        jButton40 = new javax.swing.JButton();
+        jButton41 = new javax.swing.JButton();
+        jButton42 = new javax.swing.JButton();
+        jButton43 = new javax.swing.JButton();
+        jPanel1Products = new javax.swing.JPanel();
+        jTextFieldProducts1 = new javax.swing.JTextField();
+        jButtonProducts1 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jLabel1Stars = new javax.swing.JLabel();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
         jPanelProducts5 = new javax.swing.JPanel();
         jTextFieldProducts5 = new javax.swing.JTextField();
         jButtonProducts5 = new javax.swing.JButton();
         jButton29 = new javax.swing.JButton();
+        jLabel5Stars = new javax.swing.JLabel();
         jButton30 = new javax.swing.JButton();
         jButton31 = new javax.swing.JButton();
         jButton32 = new javax.swing.JButton();
@@ -85,41 +92,42 @@ public class Home extends javax.swing.JFrame {
         jButtonProducts6 = new javax.swing.JButton();
         jButton34 = new javax.swing.JButton();
         jButton35 = new javax.swing.JButton();
+        jLabel6Stars = new javax.swing.JLabel();
         jButton36 = new javax.swing.JButton();
         jButton37 = new javax.swing.JButton();
         jButton38 = new javax.swing.JButton();
-        jPanelProducts7 = new javax.swing.JPanel();
-        jTextFieldProducts7 = new javax.swing.JTextField();
-        jButtonProducts7 = new javax.swing.JButton();
-        jButton39 = new javax.swing.JButton();
-        jButton40 = new javax.swing.JButton();
-        jButton41 = new javax.swing.JButton();
-        jButton42 = new javax.swing.JButton();
-        jButton43 = new javax.swing.JButton();
+        jPanel2Products = new javax.swing.JPanel();
+        jTextFieldProducts2 = new javax.swing.JTextField();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButtonProducts2 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jLabel2Stars = new javax.swing.JLabel();
+        jButton18 = new javax.swing.JButton();
         jPanelProducts8 = new javax.swing.JPanel();
         jTextFieldProducts8 = new javax.swing.JTextField();
         jButtonProducts8 = new javax.swing.JButton();
         jButton44 = new javax.swing.JButton();
         jButton45 = new javax.swing.JButton();
+        jLabel8Stars = new javax.swing.JLabel();
         jButton46 = new javax.swing.JButton();
         jButton47 = new javax.swing.JButton();
         jButton48 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jLabelHomeIcon4 = new javax.swing.JLabel();
+        jButtonHomeIcon1 = new javax.swing.JButton();
+        jButtonHomeIcon2 = new javax.swing.JButton();
+        jButtonHomeIcon4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabelTimeline8 = new javax.swing.JLabel();
+        jLabelTimeline7 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        jButtonHomeIconsGround5 = new javax.swing.JButton();
+        jButtonHomeIconsGround6 = new javax.swing.JButton();
+        jButtonHomeIconsGround7 = new javax.swing.JButton();
+        jButtonHomeIconsGround8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -128,159 +136,13 @@ public class Home extends javax.swing.JFrame {
         jPanel1.setToolTipText("");
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1Products.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldProducts1.setText("jTextField2");
-        jTextFieldProducts1.setBorder(null);
-        jTextFieldProducts1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldProducts1ActionPerformed(evt);
-            }
-        });
-        jPanel1Products.add(jTextFieldProducts1);
-
-        jButtonProducts1.setBorder(null);
-        jButtonProducts1.setBorderPainted(false);
-        jButtonProducts1.setContentAreaFilled(false);
-        jButtonProducts1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonProducts1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProducts1ActionPerformed(evt);
-            }
-        });
-        jPanel1Products.add(jButtonProducts1);
-
-        jButton9.setBorder(null);
-        jButton9.setBorderPainted(false);
-        jButton9.setContentAreaFilled(false);
-        jPanel1Products.add(jButton9);
-
-        jButton10.setBorder(null);
-        jButton10.setBorderPainted(false);
-        jButton10.setContentAreaFilled(false);
-        jPanel1Products.add(jButton10);
-
-        jButton11.setBorder(null);
-        jButton11.setBorderPainted(false);
-        jButton11.setContentAreaFilled(false);
-        jPanel1Products.add(jButton11);
-
-        jButton12.setBorder(null);
-        jButton12.setBorderPainted(false);
-        jButton12.setContentAreaFilled(false);
-        jPanel1Products.add(jButton12);
-
-        jButton13.setBorder(null);
-        jButton13.setBorderPainted(false);
-        jButton13.setContentAreaFilled(false);
-        jPanel1Products.add(jButton13);
-
-        jPanel1.add(jPanel1Products, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 210, 180));
-
-        jPanel2Products.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldProducts2.setText("jTextField2");
-        jTextFieldProducts2.setBorder(null);
-        jPanel2Products.add(jTextFieldProducts2);
-
-        jButtonProducts2.setBorder(null);
-        jButtonProducts2.setBorderPainted(false);
-        jButtonProducts2.setContentAreaFilled(false);
-        jButtonProducts2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonProducts2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProducts2ActionPerformed(evt);
-            }
-        });
-        jPanel2Products.add(jButtonProducts2);
-
-        jButton14.setBorder(null);
-        jButton14.setBorderPainted(false);
-        jButton14.setContentAreaFilled(false);
-        jPanel2Products.add(jButton14);
-
-        jButton15.setBorder(null);
-        jButton15.setBorderPainted(false);
-        jButton15.setContentAreaFilled(false);
-        jPanel2Products.add(jButton15);
-
-        jButton16.setBorder(null);
-        jButton16.setBorderPainted(false);
-        jButton16.setContentAreaFilled(false);
-        jPanel2Products.add(jButton16);
-
-        jButton17.setBorder(null);
-        jButton17.setBorderPainted(false);
-        jButton17.setContentAreaFilled(false);
-        jPanel2Products.add(jButton17);
-
-        jButton18.setBorder(null);
-        jButton18.setBorderPainted(false);
-        jButton18.setContentAreaFilled(false);
-        jPanel2Products.add(jButton18);
-
-        jPanel1.add(jPanel2Products, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 210, 190));
-
-        jPanelProducts3.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldProducts3.setText("jTextField2");
-        jTextFieldProducts3.setBorder(null);
-        jPanelProducts3.add(jTextFieldProducts3);
-
-        jButtonProducts3.setBorder(null);
-        jButtonProducts3.setBorderPainted(false);
-        jButtonProducts3.setContentAreaFilled(false);
-        jButtonProducts3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonProducts3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProducts3ActionPerformed(evt);
-            }
-        });
-        jPanelProducts3.add(jButtonProducts3);
-
-        jButton19.setBorder(null);
-        jButton19.setBorderPainted(false);
-        jButton19.setContentAreaFilled(false);
-        jPanelProducts3.add(jButton19);
-
-        jButton20.setBorder(null);
-        jButton20.setBorderPainted(false);
-        jButton20.setContentAreaFilled(false);
-        jPanelProducts3.add(jButton20);
-
-        jButton21.setBorder(null);
-        jButton21.setBorderPainted(false);
-        jButton21.setContentAreaFilled(false);
-        jPanelProducts3.add(jButton21);
-
-        jButton22.setBorder(null);
-        jButton22.setBorderPainted(false);
-        jButton22.setContentAreaFilled(false);
-        jPanelProducts3.add(jButton22);
-
-        jButton23.setBorder(null);
-        jButton23.setBorderPainted(false);
-        jButton23.setContentAreaFilled(false);
-        jPanelProducts3.add(jButton23);
-
-        jPanel1.add(jPanelProducts3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 210, 180));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanelProducts4.setBackground(new java.awt.Color(255, 255, 255));
 
         jTextFieldProducts4.setText("jTextField2");
         jTextFieldProducts4.setBorder(null);
         jPanelProducts4.add(jTextFieldProducts4);
-
-        jButtonProducts4.setBorder(null);
-        jButtonProducts4.setBorderPainted(false);
-        jButtonProducts4.setContentAreaFilled(false);
-        jButtonProducts4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonProducts4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProducts4ActionPerformed(evt);
-            }
-        });
-        jPanelProducts4.add(jButtonProducts4);
 
         jButton24.setBorder(null);
         jButton24.setBorderPainted(false);
@@ -307,95 +169,71 @@ public class Home extends javax.swing.JFrame {
         jButton28.setContentAreaFilled(false);
         jPanelProducts4.add(jButton28);
 
-        jPanel1.add(jPanelProducts4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 70, 210, 180));
-
-        jPanelProducts5.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldProducts5.setText("jTextField2");
-        jTextFieldProducts5.setBorder(null);
-        jPanelProducts5.add(jTextFieldProducts5);
-
-        jButtonProducts5.setBorder(null);
-        jButtonProducts5.setBorderPainted(false);
-        jButtonProducts5.setContentAreaFilled(false);
-        jButtonProducts5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonProducts5.addActionListener(new java.awt.event.ActionListener() {
+        jButtonProducts4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png")); // NOI18N
+        jButtonProducts4.setBorderPainted(false);
+        jButtonProducts4.setContentAreaFilled(false);
+        jButtonProducts4.setMaximumSize(new java.awt.Dimension(219, 134));
+        jButtonProducts4.setMinimumSize(new java.awt.Dimension(219, 134));
+        jButtonProducts4.setPreferredSize(new java.awt.Dimension(219, 134));
+        jButtonProducts4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProducts5ActionPerformed(evt);
+                jButtonProducts4ActionPerformed(evt);
             }
         });
-        jPanelProducts5.add(jButtonProducts5);
+        jPanelProducts4.add(jButtonProducts4);
 
-        jButton29.setBorder(null);
-        jButton29.setBorderPainted(false);
-        jButton29.setContentAreaFilled(false);
-        jPanelProducts5.add(jButton29);
+        jLabel4Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanelProducts4.add(jLabel4Stars);
 
-        jButton30.setBorder(null);
-        jButton30.setBorderPainted(false);
-        jButton30.setContentAreaFilled(false);
-        jPanelProducts5.add(jButton30);
+        jPanelProducts3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton31.setBorder(null);
-        jButton31.setBorderPainted(false);
-        jButton31.setContentAreaFilled(false);
-        jPanelProducts5.add(jButton31);
-
-        jButton32.setBorder(null);
-        jButton32.setBorderPainted(false);
-        jButton32.setContentAreaFilled(false);
-        jPanelProducts5.add(jButton32);
-
-        jButton33.setBorder(null);
-        jButton33.setBorderPainted(false);
-        jButton33.setContentAreaFilled(false);
-        jPanelProducts5.add(jButton33);
-
-        jPanel1.add(jPanelProducts5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 210, 180));
-
-        jPanel6Products.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldProducts6.setText("jTextField2");
-        jTextFieldProducts6.setBorder(null);
-        jPanel6Products.add(jTextFieldProducts6);
-
-        jButtonProducts6.setBorder(null);
-        jButtonProducts6.setBorderPainted(false);
-        jButtonProducts6.setContentAreaFilled(false);
-        jButtonProducts6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonProducts6.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldProducts3.setText("jTextField2");
+        jTextFieldProducts3.setBorder(null);
+        jTextFieldProducts3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProducts6ActionPerformed(evt);
+                jTextFieldProducts3ActionPerformed(evt);
             }
         });
-        jPanel6Products.add(jButtonProducts6);
+        jPanelProducts3.add(jTextFieldProducts3);
 
-        jButton34.setBorder(null);
-        jButton34.setBorderPainted(false);
-        jButton34.setContentAreaFilled(false);
-        jPanel6Products.add(jButton34);
+        jButtonProducts3.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookAirM1.png")); // NOI18N
+        jButtonProducts3.setBorderPainted(false);
+        jButtonProducts3.setContentAreaFilled(false);
+        jButtonProducts3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProducts3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProducts3ActionPerformed(evt);
+            }
+        });
+        jPanelProducts3.add(jButtonProducts3);
 
-        jButton35.setBorder(null);
-        jButton35.setBorderPainted(false);
-        jButton35.setContentAreaFilled(false);
-        jPanel6Products.add(jButton35);
+        jButton19.setBorder(null);
+        jButton19.setBorderPainted(false);
+        jButton19.setContentAreaFilled(false);
+        jPanelProducts3.add(jButton19);
 
-        jButton36.setBorder(null);
-        jButton36.setBorderPainted(false);
-        jButton36.setContentAreaFilled(false);
-        jPanel6Products.add(jButton36);
+        jLabel3Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanelProducts3.add(jLabel3Stars);
 
-        jButton37.setBorder(null);
-        jButton37.setBorderPainted(false);
-        jButton37.setContentAreaFilled(false);
-        jPanel6Products.add(jButton37);
+        jButton20.setBorder(null);
+        jButton20.setBorderPainted(false);
+        jButton20.setContentAreaFilled(false);
+        jPanelProducts3.add(jButton20);
 
-        jButton38.setBorder(null);
-        jButton38.setBorderPainted(false);
-        jButton38.setContentAreaFilled(false);
-        jPanel6Products.add(jButton38);
+        jButton21.setBorder(null);
+        jButton21.setBorderPainted(false);
+        jButton21.setContentAreaFilled(false);
+        jPanelProducts3.add(jButton21);
 
-        jPanel1.add(jPanel6Products, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 210, 180));
+        jButton22.setBorder(null);
+        jButton22.setBorderPainted(false);
+        jButton22.setContentAreaFilled(false);
+        jPanelProducts3.add(jButton22);
+
+        jButton23.setBorder(null);
+        jButton23.setBorderPainted(false);
+        jButton23.setContentAreaFilled(false);
+        jPanelProducts3.add(jButton23);
 
         jPanelProducts7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -403,7 +241,7 @@ public class Home extends javax.swing.JFrame {
         jTextFieldProducts7.setBorder(null);
         jPanelProducts7.add(jTextFieldProducts7);
 
-        jButtonProducts7.setBorder(null);
+        jButtonProducts7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookAirM1.png")); // NOI18N
         jButtonProducts7.setBorderPainted(false);
         jButtonProducts7.setContentAreaFilled(false);
         jButtonProducts7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -418,6 +256,10 @@ public class Home extends javax.swing.JFrame {
         jButton39.setBorderPainted(false);
         jButton39.setContentAreaFilled(false);
         jPanelProducts7.add(jButton39);
+
+        jLabel7Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jLabel7Stars.setToolTipText("");
+        jPanelProducts7.add(jLabel7Stars);
 
         jButton40.setBorder(null);
         jButton40.setBorderPainted(false);
@@ -439,7 +281,189 @@ public class Home extends javax.swing.JFrame {
         jButton43.setContentAreaFilled(false);
         jPanelProducts7.add(jButton43);
 
-        jPanel1.add(jPanelProducts7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 280, 210, 180));
+        jPanel1Products.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextFieldProducts1.setText("jTextField2");
+        jTextFieldProducts1.setBorder(null);
+        jTextFieldProducts1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldProducts1ActionPerformed(evt);
+            }
+        });
+        jPanel1Products.add(jTextFieldProducts1);
+
+        jButtonProducts1.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png")); // NOI18N
+        jButtonProducts1.setBorderPainted(false);
+        jButtonProducts1.setContentAreaFilled(false);
+        jButtonProducts1.setPreferredSize(new java.awt.Dimension(219, 134));
+        jButtonProducts1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProducts1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProducts1ActionPerformed(evt);
+            }
+        });
+        jPanel1Products.add(jButtonProducts1);
+
+        jButton9.setBorder(null);
+        jButton9.setBorderPainted(false);
+        jButton9.setContentAreaFilled(false);
+        jPanel1Products.add(jButton9);
+
+        jLabel1Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanel1Products.add(jLabel1Stars);
+
+        jButton10.setBorder(null);
+        jButton10.setBorderPainted(false);
+        jButton10.setContentAreaFilled(false);
+        jPanel1Products.add(jButton10);
+
+        jButton11.setBorder(null);
+        jButton11.setBorderPainted(false);
+        jButton11.setContentAreaFilled(false);
+        jPanel1Products.add(jButton11);
+
+        jButton12.setBorder(null);
+        jButton12.setBorderPainted(false);
+        jButton12.setContentAreaFilled(false);
+        jPanel1Products.add(jButton12);
+
+        jButton13.setBorder(null);
+        jButton13.setBorderPainted(false);
+        jButton13.setContentAreaFilled(false);
+        jPanel1Products.add(jButton13);
+
+        jPanelProducts5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextFieldProducts5.setText("jTextField2");
+        jTextFieldProducts5.setBorder(null);
+        jPanelProducts5.add(jTextFieldProducts5);
+
+        jButtonProducts5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png")); // NOI18N
+        jButtonProducts5.setBorderPainted(false);
+        jButtonProducts5.setContentAreaFilled(false);
+        jButtonProducts5.setMaximumSize(new java.awt.Dimension(219, 134));
+        jButtonProducts5.setMinimumSize(new java.awt.Dimension(219, 134));
+        jButtonProducts5.setPreferredSize(new java.awt.Dimension(219, 134));
+        jButtonProducts5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProducts5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProducts5ActionPerformed(evt);
+            }
+        });
+        jPanelProducts5.add(jButtonProducts5);
+
+        jButton29.setBorder(null);
+        jButton29.setBorderPainted(false);
+        jButton29.setContentAreaFilled(false);
+        jPanelProducts5.add(jButton29);
+
+        jLabel5Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanelProducts5.add(jLabel5Stars);
+
+        jButton30.setBorder(null);
+        jButton30.setBorderPainted(false);
+        jButton30.setContentAreaFilled(false);
+        jPanelProducts5.add(jButton30);
+
+        jButton31.setBorder(null);
+        jButton31.setBorderPainted(false);
+        jButton31.setContentAreaFilled(false);
+        jPanelProducts5.add(jButton31);
+
+        jButton32.setBorder(null);
+        jButton32.setBorderPainted(false);
+        jButton32.setContentAreaFilled(false);
+        jPanelProducts5.add(jButton32);
+
+        jButton33.setBorder(null);
+        jButton33.setBorderPainted(false);
+        jButton33.setContentAreaFilled(false);
+        jPanelProducts5.add(jButton33);
+
+        jPanel6Products.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextFieldProducts6.setText("sdvsdvsdv");
+        jTextFieldProducts6.setBorder(null);
+        jPanel6Products.add(jTextFieldProducts6);
+
+        jButtonProducts6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookProM1.png")); // NOI18N
+        jButtonProducts6.setBorderPainted(false);
+        jButtonProducts6.setContentAreaFilled(false);
+        jButtonProducts6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProducts6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProducts6ActionPerformed(evt);
+            }
+        });
+        jPanel6Products.add(jButtonProducts6);
+
+        jButton34.setBorder(null);
+        jButton34.setBorderPainted(false);
+        jButton34.setContentAreaFilled(false);
+        jPanel6Products.add(jButton34);
+
+        jButton35.setBorder(null);
+        jButton35.setBorderPainted(false);
+        jButton35.setContentAreaFilled(false);
+        jPanel6Products.add(jButton35);
+
+        jLabel6Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanel6Products.add(jLabel6Stars);
+
+        jButton36.setBorder(null);
+        jButton36.setBorderPainted(false);
+        jButton36.setContentAreaFilled(false);
+        jPanel6Products.add(jButton36);
+
+        jButton37.setBorder(null);
+        jButton37.setBorderPainted(false);
+        jButton37.setContentAreaFilled(false);
+        jPanel6Products.add(jButton37);
+
+        jButton38.setBorder(null);
+        jButton38.setBorderPainted(false);
+        jButton38.setContentAreaFilled(false);
+        jPanel6Products.add(jButton38);
+
+        jPanel2Products.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextFieldProducts2.setText("jTextField2");
+        jTextFieldProducts2.setBorder(null);
+        jPanel2Products.add(jTextFieldProducts2);
+
+        jButton15.setBorder(null);
+        jButton15.setBorderPainted(false);
+        jButton15.setContentAreaFilled(false);
+        jPanel2Products.add(jButton15);
+
+        jButton16.setBorder(null);
+        jButton16.setBorderPainted(false);
+        jButton16.setContentAreaFilled(false);
+        jPanel2Products.add(jButton16);
+
+        jButtonProducts2.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookProM1.png")); // NOI18N
+        jButtonProducts2.setBorderPainted(false);
+        jButtonProducts2.setContentAreaFilled(false);
+        jButtonProducts2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProducts2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProducts2ActionPerformed(evt);
+            }
+        });
+        jPanel2Products.add(jButtonProducts2);
+
+        jButton17.setBorder(null);
+        jButton17.setBorderPainted(false);
+        jButton17.setContentAreaFilled(false);
+        jPanel2Products.add(jButton17);
+
+        jLabel2Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanel2Products.add(jLabel2Stars);
+
+        jButton18.setBorder(null);
+        jButton18.setBorderPainted(false);
+        jButton18.setContentAreaFilled(false);
+        jPanel2Products.add(jButton18);
 
         jPanelProducts8.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -447,9 +471,12 @@ public class Home extends javax.swing.JFrame {
         jTextFieldProducts8.setBorder(null);
         jPanelProducts8.add(jTextFieldProducts8);
 
-        jButtonProducts8.setBorder(null);
+        jButtonProducts8.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png")); // NOI18N
         jButtonProducts8.setBorderPainted(false);
         jButtonProducts8.setContentAreaFilled(false);
+        jButtonProducts8.setMaximumSize(new java.awt.Dimension(219, 134));
+        jButtonProducts8.setMinimumSize(new java.awt.Dimension(219, 134));
+        jButtonProducts8.setPreferredSize(new java.awt.Dimension(219, 134));
         jButtonProducts8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButtonProducts8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -468,6 +495,9 @@ public class Home extends javax.swing.JFrame {
         jButton45.setContentAreaFilled(false);
         jPanelProducts8.add(jButton45);
 
+        jLabel8Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanelProducts8.add(jLabel8Stars);
+
         jButton46.setBorder(null);
         jButton46.setBorderPainted(false);
         jButton46.setContentAreaFilled(false);
@@ -483,10 +513,54 @@ public class Home extends javax.swing.JFrame {
         jButton48.setContentAreaFilled(false);
         jPanelProducts8.add(jButton48);
 
-        jPanel1.add(jPanelProducts8, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 280, 210, 180));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1Products, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelProducts5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2Products, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel6Products, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(76, 76, 76)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jPanelProducts7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanelProducts3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(78, 78, 78)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanelProducts4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelProducts8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(81, 81, 81))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel1Products, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelProducts5, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanelProducts4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel2Products, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelProducts3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanelProducts7, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelProducts8, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel6Products, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 1170, 440));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1170, 480));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 1240, 520));
 
@@ -502,65 +576,66 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 350, 20));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/AllSafe.png")); // NOI18N
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/AllSafe.png")); // NOI18N
+        jPanel3.add(jLabelHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/shopping-cart (2).png")); // NOI18N
-        jButton1.setText("Mi Carrito");
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonHomeIcon1.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/shopping-cart (2).png")); // NOI18N
+        jButtonHomeIcon1.setText("Mi Carrito");
+        jButtonHomeIcon1.setBorderPainted(false);
+        jButtonHomeIcon1.setContentAreaFilled(false);
+        jButtonHomeIcon1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonHomeIcon1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 120, 60));
+        jPanel3.add(jButtonHomeIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 120, 60));
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/user (2).png")); // NOI18N
-        jButton2.setText("Mi Cuenta");
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 50, 120, 60));
+        jButtonHomeIcon2.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/user (2).png")); // NOI18N
+        jButtonHomeIcon2.setText("Mi Cuenta");
+        jButtonHomeIcon2.setBorderPainted(false);
+        jButtonHomeIcon2.setContentAreaFilled(false);
+        jPanel3.add(jButtonHomeIcon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 50, 120, 60));
 
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
+        jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/search (3).png")); // NOI18N
+        jButtonHomeIcon4.setBorderPainted(false);
+        jButtonHomeIcon4.setContentAreaFilled(false);
+        jPanel3.add(jButtonHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 100));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/TimelineCoversA.jpg")); // NOI18N
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 660, 150));
+        jLabelTimeline8.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/TimelineCoversA.jpg")); // NOI18N
+        jPanel4.add(jLabelTimeline8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 660, 150));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/TimelineCoversB.jpg")); // NOI18N
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 630, 140));
+        jLabelTimeline7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/TimelineCoversB.jpg")); // NOI18N
+        jPanel4.add(jLabelTimeline7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 630, 140));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1240, 140));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/home (2).png")); // NOI18N
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jPanel6.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 40, 40));
+        jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/home (2).png")); // NOI18N
+        jButtonHomeIconsGround5.setBorderPainted(false);
+        jButtonHomeIconsGround5.setContentAreaFilled(false);
+        jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 40, 40));
 
-        jButton6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/mail.png")); // NOI18N
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
-        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 40, 40));
+        jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/mail.png")); // NOI18N
+        jButtonHomeIconsGround6.setBorderPainted(false);
+        jButtonHomeIconsGround6.setContentAreaFilled(false);
+        jPanel6.add(jButtonHomeIconsGround6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 40, 40));
 
-        jButton7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/ArrowDown.png")); // NOI18N
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jPanel6.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 40, 40));
+        jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/ArrowDown.png")); // NOI18N
+        jButtonHomeIconsGround7.setBorderPainted(false);
+        jButtonHomeIconsGround7.setContentAreaFilled(false);
+        jPanel6.add(jButtonHomeIconsGround7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 40, 40));
 
-        jButton8.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/arrowUp.png")); // NOI18N
-        jButton8.setBorderPainted(false);
-        jButton8.setContentAreaFilled(false);
-        jPanel6.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 40, 40));
+        jButtonHomeIconsGround8.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/arrowUp.png")); // NOI18N
+        jButtonHomeIconsGround8.setBorderPainted(false);
+        jButtonHomeIconsGround8.setContentAreaFilled(false);
+        jPanel6.add(jButtonHomeIconsGround8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 40, 40));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
 
@@ -577,6 +652,7 @@ LocalDate fecha = LocalDate.of(2023, 9, 18);
 //(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock)
 Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookAirM1.png", 1);
 Producto p2 = new Producto("MacBookProM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookProM1.png", 1);
+Producto p3 = new Producto("Dell XPS","Dell", "Portatiles",1000,"Img/laptops/dell/dellXps13.png", 1);
 
 //Crear inventario y añadir productos a inventario
 Inventario i1 = new Inventario();
@@ -597,26 +673,19 @@ ClienteParticular c1 = new ClienteParticular("20120000-F", "Manolo", d1,t1,"91-2
 private void createHomePageProductos(){
     i1.introducirProducto(p1, 4);
     i1.introducirProducto(p2, 4);
+    i1.introducirProducto(p3, 4);
+    p1.setEstrella(5);
+    p2.setEstrella(3);
     ArrayList<Producto> RandomProductsHome;
     RandomProductsHome = new ArrayList<>();
     
     //RandomHomeProductos.seleccionarImagenes(i1);
     RandomProductsHome = RandomHomeProductos.seleccionarImagenes(i1);
     jTextFieldProducts1.setText(RandomProductsHome.get(0).getTitulo());
-    //jButton9.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/Img/laptops/macbook/appleMacbookProM1.png"));
-    //jButtonProducts1.setIcon(new javax.swing.ImageIcon("Img/laptops/macbook/appleMacbookProM1.png"));
     javax.swing.JButton[] jButtonProductsArray = new javax.swing.JButton[]{jButtonProducts1,jButtonProducts2,jButtonProducts3,jButtonProducts4,jButtonProducts5,jButtonProducts6,jButtonProducts7,jButtonProducts8};
     javax.swing.JTextField[] jTextFieldProducts = new javax.swing.JTextField[]{jTextFieldProducts1,jTextFieldProducts2,jTextFieldProducts3,jTextFieldProducts4,jTextFieldProducts5,jTextFieldProducts6,jTextFieldProducts7,jTextFieldProducts8};
-//    for(int i=0; i <8 ; i++) {
-//        jTextField1Products.setText(RandomProductsHome.get(0).getTitulo());
-//    }javax.swing.JTextField
-//    for (javax.swing.JButton f : buttonsArray  ) {
-//        //f.setIcon(new javax.swing.ImageIcon("Img/laptops/macbook/appleMacbookProM1.png"));
-//        
-//        f.setIcon(new javax.swing.ImageIcon(RandomProductsHome.get(0).getFotografia()));
-//        f.setText(RandomProductsHome.get(0).getTitulo());
-//        
-//    }
+    javax.swing.JLabel[] jLabelFieldStarts = new javax.swing.JLabel[]{jLabel1Stars,jLabel2Stars,jLabel3Stars,jLabel4Stars,jLabel5Stars,jLabel6Stars,jLabel7Stars,jLabel8Stars};
+    
      System.out.println(RandomProductsHome);  
      int i=0;
      for (javax.swing.JButton f : jButtonProductsArray  ) {
@@ -627,24 +696,66 @@ private void createHomePageProductos(){
        for (javax.swing.JTextField f : jTextFieldProducts  ) {
         System.out.println(i);
         System.out.println(RandomProductsHome.get(i).getTitulo());
-        f.setText(RandomProductsHome.get(i).getTitulo());
+        f.setText(RandomProductsHome.get(i).getTitulo() + "-" +RandomProductsHome.get(i).getPrecio() + "€");
+        i++;
+    }
+       i=0;
+       for (javax.swing.JLabel f : jLabelFieldStarts  ) {
+        System.out.println(i);
+        System.out.println(RandomProductsHome.get(i).getTitulo());
+        //f.setIcon(RandomProductsHome.get(i).getTitulo() + "-" +RandomProductsHome.get(i).getPrecio() + "€");
+        int opcion = RandomProductsHome.get(i).getEstrella();
+        switch (opcion) {
+            case 0 : f.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                break;
+            case 1 : f.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                break;
+            case 2 : f.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                break;
+            case 3: f.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                break;
+            case 4: f.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                break;
+            case 5: f.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+        break;
+
+                }
+        
         i++;
     }
     
     
-    
-    
-    
 }
+
+    private void createHomePage() {
+        try {
+            //jLabelImg.setSize(130, 100);
+            jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/AllSafe.png"));
+            jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
+            jButtonHomeIcon1.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
+            jButtonHomeIcon2.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
+            jLabelTimeline8.setIcon(new javax.swing.ImageIcon("Icons/png/TimelineCoversA.jpg"));
+            jLabelTimeline7.setIcon(new javax.swing.ImageIcon("Icons/png/TimelineCoversB.jpg"));
+            jButtonHomeIconsGround8.setIcon(new javax.swing.ImageIcon("Icons/png/arrowUp.png"));
+            jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("Icons/png/ArrowDown.png"));
+            jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("Icons/png/home.png"));
+            jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
+                    
+        } 
+        catch (Exception e) {
+            System.out.println("Error: " + e.toString()); }
+    } 
+
+
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonHomeIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIcon1ActionPerformed
         // TODO add your handling code here:
         System.out.println("Estas entrando en el carrito");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
 
     private void jButtonProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts1ActionPerformed
         // TODO add your handling code here:
@@ -681,6 +792,10 @@ private void createHomePageProductos(){
     private void jTextFieldProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProducts1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProducts1ActionPerformed
+
+    private void jTextFieldProducts3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProducts3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldProducts3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -719,18 +834,15 @@ private void createHomePageProductos(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
@@ -751,7 +863,6 @@ private void createHomePageProductos(){
     private javax.swing.JButton jButton37;
     private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton39;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
@@ -761,11 +872,14 @@ private void createHomePageProductos(){
     private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton48;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButtonHomeIcon1;
+    private javax.swing.JButton jButtonHomeIcon2;
+    private javax.swing.JButton jButtonHomeIcon4;
+    private javax.swing.JButton jButtonHomeIconsGround5;
+    private javax.swing.JButton jButtonHomeIconsGround6;
+    private javax.swing.JButton jButtonHomeIconsGround7;
+    private javax.swing.JButton jButtonHomeIconsGround8;
     private javax.swing.JButton jButtonProducts1;
     private javax.swing.JButton jButtonProducts2;
     private javax.swing.JButton jButtonProducts3;
@@ -774,9 +888,17 @@ private void createHomePageProductos(){
     private javax.swing.JButton jButtonProducts6;
     private javax.swing.JButton jButtonProducts7;
     private javax.swing.JButton jButtonProducts8;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel1Stars;
+    private javax.swing.JLabel jLabel2Stars;
+    private javax.swing.JLabel jLabel3Stars;
+    private javax.swing.JLabel jLabel4Stars;
+    private javax.swing.JLabel jLabel5Stars;
+    private javax.swing.JLabel jLabel6Stars;
+    private javax.swing.JLabel jLabel7Stars;
+    private javax.swing.JLabel jLabel8Stars;
+    private javax.swing.JLabel jLabelHomeIcon4;
+    private javax.swing.JLabel jLabelTimeline7;
+    private javax.swing.JLabel jLabelTimeline8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1Products;
     private javax.swing.JPanel jPanel2;
