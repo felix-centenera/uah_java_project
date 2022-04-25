@@ -36,12 +36,5 @@
       - https://www.diagrams.net/
 
 
-      //    /** Creates new form WindowProduct */
-//    public WindowsProduct(Home ventana) {
-//        //Ocultamos la ventana principal
-//        principal = ventana;
-//        principal.setVisible(false);
-//        initComponents();
-//        this.setVisible(true);
-//    }
-//
+Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookAirM1.png", 1);
+          public Producto(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock)
