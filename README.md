@@ -29,6 +29,7 @@
       - https://openlibra.com/es/book/download/multimarkdown-users-guide
    - Tutoriales básicos de la libreria Swing, para hacer interfaces modernos:
       - https://www.youtube.com/watch?v=xGzeEUHcsj8&t=765s
+      - https://www.youtube.com/watch?v=cSpDN_th3TY
       - Aprendizaje básico de Git.
       - https://openlibra.com/es/book/download/git-fundamentos
    - Programa de modelado UML.
