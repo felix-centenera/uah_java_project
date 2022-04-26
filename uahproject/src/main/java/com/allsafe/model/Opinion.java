@@ -17,11 +17,16 @@ public class Opinion {
     private String comentario;
     
     private LocalDateTime fecha;
+    
+    private Clientes cliente;
+    
+    
 
-    public Opinion(int calificacion, String comentario) {
+    public Opinion(int calificacion, String comentario, Clientes cliente) {
         this.calificacion = calificacion;
         this.comentario = comentario;
         this.fecha = LocalDateTime.now();
+        this.cliente =cliente;
     }
     
     public LocalDateTime getFecha() {
@@ -44,10 +49,15 @@ public class Opinion {
     public void setCalificacion(int calificacion) {
         this.calificacion = calificacion;
     }
+    
+     public String getCliente() {
+        return cliente.getNombre();
+    }
+
 
     @Override
     public String toString() {
-        return super.toString() + "Opnion{" + "calificacion=" + calificacion + ", comentario=" + comentario + ", fecha=" + fecha + '}';
+        return  "Opnion{" + "calificacion=" + calificacion + ", comentario=" + comentario + ", fecha=" + fecha + '}';
     }
     
 }
