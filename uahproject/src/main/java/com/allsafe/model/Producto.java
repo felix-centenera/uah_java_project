@@ -117,7 +117,6 @@ public class Producto {
 
     public void introducirOpinion(Opinion o){
                opiniones.add(o);
-               int estrellas=0;
                for (int i=0; i < opiniones.size(); i++ ){
                    estrellas= estrellas + opiniones.get(i).getCalificacion();
                }

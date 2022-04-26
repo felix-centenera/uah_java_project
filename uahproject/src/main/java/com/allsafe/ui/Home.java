@@ -653,17 +653,10 @@ LocalDate fecha = LocalDate.of(2023, 9, 18);
 Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookAirM1.png", 1);
 Producto p2 = new Producto("MacBookProM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookProM1.png", 1);
 Producto p3 = new Producto("Dell XPS","Dell", "Portatiles",1000,"Img/laptops/dell/dellXps13.png", 1);
-Opinion  o1 = new Opinion(3, "Satisfecho con la compra"); 
-Opinion  o2 = new Opinion(0, "No comprar, malisimo"); 
-Opinion  o3 = new Opinion(5, "Una maravilla");
-
-//Crear inventario y añadir productos a inventario
-Inventario i1 = new Inventario();
 
 //Crear Dirección
 //(String calle, int numero, int cp, String ciudad)
 Direccion d1 = new Direccion("calleEjemplo",2,28829,"Madrid");
-
 
 //Crear TarjetaCredito
 //(String nombreTitular, long numeroTarjetaCredito, LocalDate fechaCaducidad)
@@ -672,6 +665,22 @@ TarjetaDeCredito t1 = new TarjetaDeCredito("Manolo",1234_1234_1234_1234L,fecha);
 //Crear clienteParticular
 // (String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo)
 ClienteParticular c1 = new ClienteParticular("20120000-F", "Manolo", d1,t1,"91-2240234","pass","manolo@miempresa.com");
+ClienteParticular c2 = new ClienteParticular("201200d0-F", "Pepe", d1,t1,"91-2240234","pass","pepe@miempresa.com");
+ClienteParticular c3 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com");
+
+
+Opinion  o1 = new Opinion(3, "Satisfecho con la compra",c1); 
+Opinion  o2 = new Opinion(0, "No comprar, malisimo",c2); 
+Opinion  o3 = new Opinion(5, "Una maravilla",c3);
+
+//Crear inventario y añadir productos a inventario
+Inventario i1 = new Inventario();
+
+
+
+
+
+ArrayList<Producto> RandomProductsHome;
 
 private void createHomePageProductos(){
     i1.introducirProducto(p1, 4);
@@ -679,11 +688,16 @@ private void createHomePageProductos(){
     i1.introducirProducto(p3, 4);
     p1.introducirOpinion(o1);
     p1.introducirOpinion(o2);
-    p1.introducirOpinion(o3);
-    ArrayList<Producto> RandomProductsHome;
+    p1.introducirOpinion(o2);
+    p2.introducirOpinion(o2);
+    p2.introducirOpinion(o3);
+    p3.introducirOpinion(o3);
+    p3.introducirOpinion(o1);
+    p3.introducirOpinion(o2);
+    //ArrayList<Producto> RandomProductsHome;
     RandomProductsHome = new ArrayList<>();
     
-    //RandomHomeProductos.seleccionarImagenes(i1);
+    
     RandomProductsHome = RandomHomeProductos.seleccionarProductos(i1);
     //jTextFieldProducts1.setText(RandomProductsHome.get(0).getTitulo());
     javax.swing.JButton[] jButtonProductsArray = new javax.swing.JButton[]{jButtonProducts1,jButtonProducts2,jButtonProducts3,jButtonProducts4,jButtonProducts5,jButtonProducts6,jButtonProducts7,jButtonProducts8};
@@ -744,7 +758,6 @@ private void createHomePageProductos(){
             jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("Icons/png/ArrowDown.png"));
             jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("Icons/png/home.png"));
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
-                    
         } 
         catch (Exception e) {
             System.out.println("Error: " + e.toString()); }
@@ -765,9 +778,11 @@ private void createHomePageProductos(){
      return this;
     }
     
+    
     private void jButtonProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts1ActionPerformed
         // TODO add your handling code here:
-        WindowsProduct windowsproduct = new WindowsProduct(this);
+        //RandomProductsHome.get(0);
+        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(0));
         
     }//GEN-LAST:event_jButtonProducts1ActionPerformed
 
