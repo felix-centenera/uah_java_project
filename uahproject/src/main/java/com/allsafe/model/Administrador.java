@@ -10,9 +10,9 @@ package com.allsafe.model;
  */
 public class Administrador extends Usuario {
 
-    public Administrador(String clave, String correo) {
-        super(clave, correo);
+    public Administrador(String clave, String correo, Token token) {
+        super(clave, correo, token);
+        this.setAdministrador(true);
     }
-    
-    
+       
 }
