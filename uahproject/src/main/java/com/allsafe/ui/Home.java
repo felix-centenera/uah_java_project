@@ -10,8 +10,11 @@ import com.allsafe.model.Inventario;
 import com.allsafe.model.Opinion;
 import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
+import com.allsafe.model.Token;
+import com.allsafe.model.Usuario;
 import com.allsafe.service.RandomHomeProductos;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -643,10 +646,15 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
+//atributos customs para proyecto:
+    
+Usuario user = null;
+    
 // Inicialización de objetos para pruebas:
     
 //Fecha prueba.
 LocalDate fecha = LocalDate.of(2023, 9, 18); 
+LocalDateTime fechaTime = LocalDateTime.now();
 
 //Crear producto
 //(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock)
@@ -661,18 +669,26 @@ Direccion d1 = new Direccion("calleEjemplo",2,28829,"Madrid");
 //Crear TarjetaCredito
 //(String nombreTitular, long numeroTarjetaCredito, LocalDate fechaCaducidad)
 TarjetaDeCredito t1 = new TarjetaDeCredito("Manolo",1234_1234_1234_1234L,fecha);
-        
+
+//Crear token LocalDateTime
+Token to1 = new Token("asdaskldjdasa",fechaTime);
+Token to2 = new Token("asdaskldjdasa",fechaTime);
+Token to3 = new Token("asdaskldjdasa",fechaTime);
+
 //Crear clienteParticular
 // (String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo)
-ClienteParticular c1 = new ClienteParticular("20120000-F", "Manolo", d1,t1,"91-2240234","pass","manolo@miempresa.com");
-ClienteParticular c2 = new ClienteParticular("201200d0-F", "Pepe", d1,t1,"91-2240234","pass","pepe@miempresa.com");
-ClienteParticular c3 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com");
+//(String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo, Token token)
+ClienteParticular c1 = new ClienteParticular("20120000-F", "Manolo", d1,t1,"91-2240234","pass","manolo@miempresa.com",to1);
+ClienteParticular c2 = new ClienteParticular("201200d0-F", "Pepe", d1,t1,"91-2240234","pass","pepe@miempresa.com",to2);
+ClienteParticular c3 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com",to3);
 
 
 Opinion  o1 = new Opinion(3, "Satisfecho con la compra",c1); 
-Opinion  o2 = new Opinion(0, "No comprar, malisimo",c2); 
-Opinion  o3 = new Opinion(5, "Una maravilla",c3);
-
+Opinion  o2 = new Opinion(0, "No comprar, malisimo, por ese precido debería hacerme la cama",c2); 
+Opinion  o3 = new Opinion(5, "Estoy muy contenta con la compra realizada, tanto por el artículo como por la atención de la plataforma. Fue muy sencillo realizar la selección y el pago ya que el poder financiar un producto da mucho que decir sobre PcComponentes. Para mí, es un punto a favor ya que no siempre viene bien hacer un pago entero. En cuanto al MacBook Air es un encanto, vino muy bien embalado y protegido. El paquete me llegó en menos de 48 horas, una cosa increíble ya que en otras plataformas te tarda mucho más y si lo necesitas urgentemente, no lo puedes usar, pero en caso de PcComponentes sí. Esto es otro punto positivo que reflejo con mi compra ya que no esperaba que llegase tan pronto. El portátil funciona perfectamente y además, con la opción Aplazame de PcComponentes, puedes cambiar hasta tres veces la forma de tu financiación, o directamente, puedes pagar toda la cantidad que queda en el momento que tú quieras. Estoy muy contenta y sé que voy a seguir comprando artículos de tecnología aquí. :)!",c3);
+Opinion  o4 = new Opinion(3, "Ni fu ni fa, esperaba más la verdad",c1); 
+Opinion  o5 = new Opinion(0, "Es un autentico timo",c2); 
+Opinion  o6 = new Opinion(5, "INcreible, va como una bala",c3);
 //Crear inventario y añadir productos a inventario
 Inventario i1 = new Inventario();
 
@@ -688,12 +704,16 @@ private void createHomePageProductos(){
     i1.introducirProducto(p3, 4);
     p1.introducirOpinion(o1);
     p1.introducirOpinion(o2);
-    p1.introducirOpinion(o2);
+    p1.introducirOpinion(o4);
+    p1.introducirOpinion(o6);
     p2.introducirOpinion(o2);
     p2.introducirOpinion(o3);
+    p2.introducirOpinion(o5);
+    p2.introducirOpinion(o6);
     p3.introducirOpinion(o3);
     p3.introducirOpinion(o1);
     p3.introducirOpinion(o2);
+    p3.introducirOpinion(o4);
     //ArrayList<Producto> RandomProductsHome;
     RandomProductsHome = new ArrayList<>();
     
@@ -704,7 +724,7 @@ private void createHomePageProductos(){
     javax.swing.JTextField[] jTextFieldProducts = new javax.swing.JTextField[]{jTextFieldProducts1,jTextFieldProducts2,jTextFieldProducts3,jTextFieldProducts4,jTextFieldProducts5,jTextFieldProducts6,jTextFieldProducts7,jTextFieldProducts8};
     javax.swing.JLabel[] jLabelFieldStarts = new javax.swing.JLabel[]{jLabel1Stars,jLabel2Stars,jLabel3Stars,jLabel4Stars,jLabel5Stars,jLabel6Stars,jLabel7Stars,jLabel8Stars};
     
-     System.out.println(RandomProductsHome);  
+     //System.out.println(RandomProductsHome);  
      int i=0;
      for (javax.swing.JButton f : jButtonProductsArray  ) {
         f.setIcon(new javax.swing.ImageIcon(RandomProductsHome.get(i).getFotografia()));
@@ -712,15 +732,15 @@ private void createHomePageProductos(){
     }
      i=0;
        for (javax.swing.JTextField f : jTextFieldProducts  ) {
-        System.out.println(i);
-        System.out.println(RandomProductsHome.get(i).getTitulo());
+        //System.out.println(i);
+        //System.out.println(RandomProductsHome.get(i).getTitulo());
         f.setText(RandomProductsHome.get(i).getTitulo() + "-" +RandomProductsHome.get(i).getPrecio() + "€");
         i++;
     }
        i=0;
        for (javax.swing.JLabel f : jLabelFieldStarts  ) {
-        System.out.println(i);
-        System.out.println(RandomProductsHome.get(i).getTitulo());
+        //System.out.println(i);
+        //System.out.println(RandomProductsHome.get(i).getTitulo());
         //f.setIcon(RandomProductsHome.get(i).getTitulo() + "-" +RandomProductsHome.get(i).getPrecio() + "€");
         int opcion = RandomProductsHome.get(i).getEstrella();
         switch (opcion) {
@@ -771,7 +791,7 @@ private void createHomePageProductos(){
 
     private void jButtonHomeIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIcon1ActionPerformed
         // TODO add your handling code here:
-        System.out.println("Estas entrando en el carrito");
+        System.out.println("INFO: Estas entrando en el carrito");
     }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
 
     private JFrame getFrame(){
