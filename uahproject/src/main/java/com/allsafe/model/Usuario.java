@@ -10,25 +10,46 @@ import java.util.Random;
  *
  * @author felixcentenera
  */
-public abstract class  Usuario {
+public class  Usuario {
     
     private String clave;
     private String correo;
     private final String idUser;
     private static int generatorId = 0;
+    private Token token;//Asociacion Token token
+    private boolean administrador = false;
     
     
 
-    public Usuario(String clave, String correo) {
+    public Usuario(String clave, String correo, Token token) {
         this.clave = clave;
         this.correo = correo;
         this.idUser = generatorId + "-"+ generateRandomNumber() ;
+        //llamamos al constructor token 
+        this.token = token;
+        
         incrementaId();
     } 
+
+    public boolean isAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(boolean administrador) {
+        this.administrador = administrador;
+    }
     
     private int incrementaId() {
         generatorId++;
         return generatorId;
+    }
+
+    public Token getToken() {
+        return token;
+    }
+
+    public void setToken(Token token) {
+        this.token = token;
     }
     
     public static int getGeneratorId() {

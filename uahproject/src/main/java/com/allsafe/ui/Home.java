@@ -9,6 +9,7 @@ import com.allsafe.model.Direccion;
 import com.allsafe.model.Inventario;
 import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
+import com.allsafe.model.Usuario;
 import com.allsafe.service.RandomHomeProductos;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -170,7 +171,6 @@ public class Home extends javax.swing.JFrame {
         jButton28.setContentAreaFilled(false);
         jPanelProducts4.add(jButton28);
 
-        jButtonProducts4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png")); // NOI18N
         jButtonProducts4.setBorderPainted(false);
         jButtonProducts4.setContentAreaFilled(false);
         jButtonProducts4.setMaximumSize(new java.awt.Dimension(219, 134));
@@ -182,8 +182,6 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanelProducts4.add(jButtonProducts4);
-
-        jLabel4Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
         jPanelProducts4.add(jLabel4Stars);
 
         jPanelProducts3.setBackground(new java.awt.Color(255, 255, 255));
@@ -197,7 +195,6 @@ public class Home extends javax.swing.JFrame {
         });
         jPanelProducts3.add(jTextFieldProducts3);
 
-        jButtonProducts3.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookAirM1.png")); // NOI18N
         jButtonProducts3.setBorderPainted(false);
         jButtonProducts3.setContentAreaFilled(false);
         jButtonProducts3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -212,8 +209,6 @@ public class Home extends javax.swing.JFrame {
         jButton19.setBorderPainted(false);
         jButton19.setContentAreaFilled(false);
         jPanelProducts3.add(jButton19);
-
-        jLabel3Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
         jPanelProducts3.add(jLabel3Stars);
 
         jButton20.setBorder(null);
@@ -242,7 +237,6 @@ public class Home extends javax.swing.JFrame {
         jTextFieldProducts7.setBorder(null);
         jPanelProducts7.add(jTextFieldProducts7);
 
-        jButtonProducts7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookAirM1.png")); // NOI18N
         jButtonProducts7.setBorderPainted(false);
         jButtonProducts7.setContentAreaFilled(false);
         jButtonProducts7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -258,7 +252,6 @@ public class Home extends javax.swing.JFrame {
         jButton39.setContentAreaFilled(false);
         jPanelProducts7.add(jButton39);
 
-        jLabel7Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
         jLabel7Stars.setToolTipText("");
         jPanelProducts7.add(jLabel7Stars);
 
@@ -293,7 +286,6 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel1Products.add(jTextFieldProducts1);
 
-        jButtonProducts1.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png")); // NOI18N
         jButtonProducts1.setBorderPainted(false);
         jButtonProducts1.setContentAreaFilled(false);
         jButtonProducts1.setPreferredSize(new java.awt.Dimension(219, 134));
@@ -309,8 +301,6 @@ public class Home extends javax.swing.JFrame {
         jButton9.setBorderPainted(false);
         jButton9.setContentAreaFilled(false);
         jPanel1Products.add(jButton9);
-
-        jLabel1Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
         jPanel1Products.add(jLabel1Stars);
 
         jButton10.setBorder(null);
@@ -339,7 +329,6 @@ public class Home extends javax.swing.JFrame {
         jTextFieldProducts5.setBorder(null);
         jPanelProducts5.add(jTextFieldProducts5);
 
-        jButtonProducts5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png")); // NOI18N
         jButtonProducts5.setBorderPainted(false);
         jButtonProducts5.setContentAreaFilled(false);
         jButtonProducts5.setMaximumSize(new java.awt.Dimension(219, 134));
@@ -357,8 +346,6 @@ public class Home extends javax.swing.JFrame {
         jButton29.setBorderPainted(false);
         jButton29.setContentAreaFilled(false);
         jPanelProducts5.add(jButton29);
-
-        jLabel5Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
         jPanelProducts5.add(jLabel5Stars);
 
         jButton30.setBorder(null);
@@ -387,7 +374,6 @@ public class Home extends javax.swing.JFrame {
         jTextFieldProducts6.setBorder(null);
         jPanel6Products.add(jTextFieldProducts6);
 
-        jButtonProducts6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookProM1.png")); // NOI18N
         jButtonProducts6.setBorderPainted(false);
         jButtonProducts6.setContentAreaFilled(false);
         jButtonProducts6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -407,8 +393,6 @@ public class Home extends javax.swing.JFrame {
         jButton35.setBorderPainted(false);
         jButton35.setContentAreaFilled(false);
         jPanel6Products.add(jButton35);
-
-        jLabel6Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
         jPanel6Products.add(jLabel6Stars);
 
         jButton36.setBorder(null);
@@ -442,7 +426,6 @@ public class Home extends javax.swing.JFrame {
         jButton16.setContentAreaFilled(false);
         jPanel2Products.add(jButton16);
 
-        jButtonProducts2.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookProM1.png")); // NOI18N
         jButtonProducts2.setBorderPainted(false);
         jButtonProducts2.setContentAreaFilled(false);
         jButtonProducts2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -457,8 +440,6 @@ public class Home extends javax.swing.JFrame {
         jButton17.setBorderPainted(false);
         jButton17.setContentAreaFilled(false);
         jPanel2Products.add(jButton17);
-
-        jLabel2Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
         jPanel2Products.add(jLabel2Stars);
 
         jButton18.setBorder(null);
@@ -472,7 +453,6 @@ public class Home extends javax.swing.JFrame {
         jTextFieldProducts8.setBorder(null);
         jPanelProducts8.add(jTextFieldProducts8);
 
-        jButtonProducts8.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png")); // NOI18N
         jButtonProducts8.setBorderPainted(false);
         jButtonProducts8.setContentAreaFilled(false);
         jButtonProducts8.setMaximumSize(new java.awt.Dimension(219, 134));
@@ -495,8 +475,6 @@ public class Home extends javax.swing.JFrame {
         jButton45.setBorderPainted(false);
         jButton45.setContentAreaFilled(false);
         jPanelProducts8.add(jButton45);
-
-        jLabel8Stars.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
         jPanelProducts8.add(jLabel8Stars);
 
         jButton46.setBorder(null);
@@ -576,11 +554,8 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 350, 20));
-
-        jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/AllSafe.png")); // NOI18N
         jPanel3.add(jLabelHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jButtonHomeIcon1.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/shopping-cart.png")); // NOI18N
         jButtonHomeIcon1.setText("Mi Carrito");
         jButtonHomeIcon1.setBorderPainted(false);
         jButtonHomeIcon1.setContentAreaFilled(false);
@@ -591,7 +566,6 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel3.add(jButtonHomeIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 120, 60));
 
-        jButtonHomeIcon2.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/user.png")); // NOI18N
         jButtonHomeIcon2.setText("Mi Cuenta");
         jButtonHomeIcon2.setBorderPainted(false);
         jButtonHomeIcon2.setContentAreaFilled(false);
@@ -605,11 +579,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabelTimeline8.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/TimelineCoversA.jpg")); // NOI18N
         jPanel4.add(jLabelTimeline8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 660, 150));
-
-        jLabelTimeline7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/TimelineCoversB.jpg")); // NOI18N
         jPanel4.add(jLabelTimeline7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 630, 140));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1240, 140));
@@ -621,17 +591,14 @@ public class Home extends javax.swing.JFrame {
         jButtonHomeIconsGround5.setContentAreaFilled(false);
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 40, 40));
 
-        jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/mail.png")); // NOI18N
         jButtonHomeIconsGround6.setBorderPainted(false);
         jButtonHomeIconsGround6.setContentAreaFilled(false);
         jPanel6.add(jButtonHomeIconsGround6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 40, 40));
 
-        jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/ArrowDown.png")); // NOI18N
         jButtonHomeIconsGround7.setBorderPainted(false);
         jButtonHomeIconsGround7.setContentAreaFilled(false);
         jPanel6.add(jButtonHomeIconsGround7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 40, 40));
 
-        jButtonHomeIconsGround8.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/arrowUp.png")); // NOI18N
         jButtonHomeIconsGround8.setBorderPainted(false);
         jButtonHomeIconsGround8.setContentAreaFilled(false);
         jPanel6.add(jButtonHomeIconsGround8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 40, 40));
@@ -667,7 +634,10 @@ TarjetaDeCredito t1 = new TarjetaDeCredito("Manolo",1234_1234_1234_1234L,fecha);
         
 //Crear clienteParticular
 // (String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo)
-ClienteParticular c1 = new ClienteParticular("20120000-F", "Manolo", d1,t1,"91-2240234","pass","manolo@miempresa.com");
+//ClienteParticular c1 = new ClienteParticular("20120000-F", "Manolo", d1,t1,"91-2240234","pass","manolo@miempresa.com");
+//Creacion del objeto User
+
+Usuario User = null;
 
 private void createHomePageProductos(){
     i1.introducirProducto(p1, 4);

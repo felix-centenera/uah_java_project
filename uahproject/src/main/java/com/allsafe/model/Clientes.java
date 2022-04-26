@@ -20,17 +20,18 @@ public abstract class Clientes extends Usuario{
     
     private String telefono;
 
-
-
-    public Clientes(String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo) {
-        super(clave, correo);
+    public Clientes(String nombre, CarritoCompra carritoCompra, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo, Token token) {
+        super(clave, correo, token);
         this.nombre = nombre;
+        this.carritoCompra = carritoCompra;
         this.direccion = direccion;
         this.tarjetaDeCredito = tarjetaDeCredito;
         this.telefono = telefono;
-        this.carritoCompra = new CarritoCompra();
     }
-    
+
+
+
+
 
     public String getTelefono() {
         return telefono;
