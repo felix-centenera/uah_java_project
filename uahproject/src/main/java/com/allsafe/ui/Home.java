@@ -35,7 +35,6 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         createHomePageProductos();
         createHomePage();
-        //login();
     }
 
     /**
@@ -650,13 +649,19 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
+// ********************************************************************************************************************
 //atributos customs para proyecto:
 private Usuario user;
+ArrayList<Producto> RandomProductsHome;
+
+//Creamos la referencia a nuestro servio de login
+Login miservicioDeLogin = Login.getInstance();
+// ********************************************************************************************************************
 
 
 
+// ********************************************************************************************************************
 // Inicialización de objetos para pruebas:
-
 
 //Fecha prueba.
 LocalDate fecha = LocalDate.of(2023, 9, 18); 
@@ -699,19 +704,10 @@ Opinion  o5 = new Opinion(0, "Es un autentico timo",c2);
 Opinion  o6 = new Opinion(5, "INcreible, va como una bala",c3);
 //Crear inventario y añadir productos a inventario
 Inventario i1 = new Inventario();
+// ********************************************************************************************************************
 
 
-
-
-
-
-ArrayList<Producto> RandomProductsHome;
-
-//Creamos la referencia a nuestro servio de login
-Login miservicioDeLogin = Login.getInstance();
-
-
-
+// ********************************************************************************************************************
 //método para logarse
 private boolean useLogin(String clave, String correo ){
     boolean operationAccepted=false;
@@ -728,12 +724,14 @@ private boolean useLogin(String clave, String correo ){
 private boolean checkLogin(){
     boolean operationAccepted=false;
     if (user == null){
-        operationAccepted=miservicioDeLogin.checkLogin();
-        if (operationAccepted == false){
-            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-            return false;
-        }
-        return true;
+//        operationAccepted=miservicioDeLogin.checkLogin();
+//        if (operationAccepted == false){
+//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+//            return false;
+//        }
+        //return true;
+        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+        return false;
     }
      else{
         operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
@@ -746,21 +744,16 @@ private boolean checkLogin(){
     }
 }
 
-
-
  public  void  SetUsuario(Usuario user) {
         this.user = user;
         
  }
-
-private void createHomePageProductos(){
-//    Usuario u1 = new ClienteParticular("20112sd0-F", "Félix", d1,t1,"91-2240234","pass","felix@miempresa.com",to3);
-//    ClienteParticular u2 =  (ClienteParticular) u1;
-//    u2.getDni();
-//    login(u2);
-//    login();
-    
-    
+ // ********************************************************************************************************************
+ 
+ 
+// ********************************************************************************************************************
+ // metodos para crear la home
+private void createHomePageProductos(){    
     i1.introducirProducto(p1, 4);
     i1.introducirProducto(p2, 4);
     i1.introducirProducto(p3, 4);
@@ -845,8 +838,11 @@ private void createHomePageProductos(){
             System.out.println("Error: " + e.toString()); }
     } 
 
-
-
+// ********************************************************************************************************************
+    
+    
+//BOTONES Y CAJAS DE TEXTO
+ // ********************************************************************************************************************
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
@@ -912,6 +908,8 @@ private void createHomePageProductos(){
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProducts3ActionPerformed
 
+ // ********************************************************************************************************************
+    
     /**
      * @param args the command line arguments
      */
