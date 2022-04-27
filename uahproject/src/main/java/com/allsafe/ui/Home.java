@@ -868,7 +868,7 @@ private void createHomePageProductos(){
     
     private void jButtonProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts1ActionPerformed
         // TODO add your handling code here:
-        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(0));
+        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(0), user);
         
     }//GEN-LAST:event_jButtonProducts1ActionPerformed
 

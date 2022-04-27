@@ -9,22 +9,27 @@ import com.allsafe.model.Direccion;
 import com.allsafe.model.Inventario;
 import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
+import com.allsafe.model.Usuario;
+import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
  * @author felixcentenera
  */
 
-public class WindowsProduct extends javax.swing.JFrame {
+public class WindowsProduct extends javax.swing.JFrame  {
 
     private Home principal;
     private  Producto producto;
+    private Usuario user;
     private int opinion=0;
+    Login miservicioDeLogin = Login.getInstance();
     /**
      * Creates new form Home
      */
@@ -35,14 +40,16 @@ public class WindowsProduct extends javax.swing.JFrame {
 //    }
     
     /** Creates new form WindowProduct */
-    public WindowsProduct(Home ventana, Producto producto) {
+    public WindowsProduct(Home ventana, Producto producto, Usuario u) {
         //Ocultamos la ventana principal
         principal = ventana;
         principal.setVisible(false);
+        user = u;
         this.producto =producto;
         initComponents();
         this.setVisible(true);
         createWindowsProductPage();
+        
     }
     
     private void createWindowsProductPage() {
@@ -107,7 +114,39 @@ public class WindowsProduct extends javax.swing.JFrame {
         }
     }
 
+    // ********************************************************************************************************************
 
+
+//método comprobar login
+private boolean checkLogin(){
+    boolean operationAccepted=false;
+    if (user == null){
+        this.dispose();
+        principal.setVisible(true);
+        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+        return false;
+    }
+     else{
+        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+        System.out.println("INFO: Voy a comprobar el token");
+        if (operationAccepted == false){
+            this.dispose();
+            principal.setVisible(true);
+            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+            return false;
+        }
+        return true;
+    }
+}
+
+// public  void  SetUsuario(Usuario user) {
+//        this.user = user;
+//        
+// }
+ // ********************************************************************************************************************
+ 
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -457,9 +496,23 @@ public class WindowsProduct extends javax.swing.JFrame {
 
     private void jButtonHomeIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIcon1ActionPerformed
         // TODO add your handling code here:
-        System.out.println("Estas entrando en el carrito");
+        //System.out.println("Estas entrando en el carrito");
+        if (checkLogin()){
+            System.out.println("INFO: Estas entrando en el carrito");
+        }
+        else{
+            System.out.println("INFO: No estas logado");
+            
+        }
+        
+        
+        
     }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
 
+//    private JFrame getFrame(){
+//     return this;
+//    }
+    
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
