@@ -4,6 +4,8 @@
  */
 package com.allsafe.ui;
 
+import com.allsafe.model.Administrador;
+import com.allsafe.model.ClienteEmpresa;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
 import com.allsafe.model.Inventario;
@@ -12,6 +14,7 @@ import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Token;
 import com.allsafe.model.Usuario;
+import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -32,6 +35,7 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         createHomePageProductos();
         createHomePage();
+        //login();
     }
 
     /**
@@ -647,11 +651,13 @@ public class Home extends javax.swing.JFrame {
 
     
 //atributos customs para proyecto:
-    
-Usuario user = null;
-    
+private Usuario user;
+
+
+
 // Inicialización de objetos para pruebas:
-    
+
+
 //Fecha prueba.
 LocalDate fecha = LocalDate.of(2023, 9, 18); 
 LocalDateTime fechaTime = LocalDateTime.now();
@@ -681,6 +687,8 @@ Token to3 = new Token("asdaskldjdasa",fechaTime);
 ClienteParticular c1 = new ClienteParticular("20120000-F", "Manolo", d1,t1,"91-2240234","pass","manolo@miempresa.com",to1);
 ClienteParticular c2 = new ClienteParticular("201200d0-F", "Pepe", d1,t1,"91-2240234","pass","pepe@miempresa.com",to2);
 ClienteParticular c3 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com",to3);
+Usuario c4 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com",to3);
+
 
 
 Opinion  o1 = new Opinion(3, "Satisfecho con la compra",c1); 
@@ -696,9 +704,63 @@ Inventario i1 = new Inventario();
 
 
 
+
 ArrayList<Producto> RandomProductsHome;
 
+//Creamos la referencia a nuestro servio de login
+Login miservicioDeLogin = Login.getInstance();
+
+
+
+//método para logarse
+private boolean useLogin(String clave, String correo ){
+    boolean operationAccepted=false;
+    operationAccepted=miservicioDeLogin.checkLogin(clave, correo,this); 
+     if (operationAccepted == false){
+            System.out.println("INFO: El usuario o contraseña no son correcto TODO MANDAR AL LOGIN");
+            return false;
+        }
+        return true;
+}
+
+
+//método comprobar login
+private boolean checkLogin(){
+    boolean operationAccepted=false;
+    if (user == null){
+        operationAccepted=miservicioDeLogin.checkLogin();
+        if (operationAccepted == false){
+            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+            return false;
+        }
+        return true;
+    }
+     else{
+        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+        System.out.println("INFO: Voy a comprobar el token");
+        if (operationAccepted == false){
+            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+            return false;
+        }
+        return true;
+    }
+}
+
+
+
+ public  void  SetUsuario(Usuario user) {
+        this.user = user;
+        
+ }
+
 private void createHomePageProductos(){
+//    Usuario u1 = new ClienteParticular("20112sd0-F", "Félix", d1,t1,"91-2240234","pass","felix@miempresa.com",to3);
+//    ClienteParticular u2 =  (ClienteParticular) u1;
+//    u2.getDni();
+//    login(u2);
+//    login();
+    
+    
     i1.introducirProducto(p1, 4);
     i1.introducirProducto(p2, 4);
     i1.introducirProducto(p3, 4);
@@ -791,7 +853,16 @@ private void createHomePageProductos(){
 
     private void jButtonHomeIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIcon1ActionPerformed
         // TODO add your handling code here:
-        System.out.println("INFO: Estas entrando en el carrito");
+        
+        if (checkLogin()){
+            System.out.println("INFO: Estas entrando en el carrito");
+        }
+        else{
+            System.out.println("INFO: No estas logado");
+            useLogin("hola", "hola");
+            
+        }
+           
     }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
 
     private JFrame getFrame(){
@@ -801,7 +872,6 @@ private void createHomePageProductos(){
     
     private void jButtonProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts1ActionPerformed
         // TODO add your handling code here:
-        //RandomProductsHome.get(0);
         WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(0));
         
     }//GEN-LAST:event_jButtonProducts1ActionPerformed

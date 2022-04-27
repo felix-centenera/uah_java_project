@@ -68,6 +68,14 @@ public abstract class  Usuario {
         this.clave = clave;
     }
     
+    public Token getToken() {
+        return token;
+    }
+
+    public void setToken(Token token) {
+        this.token = token;
+    }
+    
     private int generateRandomNumber(){
         Random rand = new Random();
         return rand.nextInt(0, 10000);
