@@ -15,13 +15,13 @@ public class ClienteEmpresa extends Clientes{
     private String web;
 
 
-    public ClienteEmpresa(String cif, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo, Token token) {
+    public ClienteEmpresa(String cif, String web, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo, Token token) {
         super(nombre, direccion, tarjetaDeCredito, telefono, clave, correo, token);
         this.cif = cif;
         this.web = web;
     }
     
-
+   
     public String getWeb() {
         return web;
     }

@@ -18,11 +18,11 @@ public class ClienteParticular extends Clientes{
     }
 
     public String getDni() {
-        return dni;
+        return dni;   
     }
 
     public void setDni(String dni) {
-        this.dni = dni;
+        this.dni = dni;  
     }
 
     @Override
