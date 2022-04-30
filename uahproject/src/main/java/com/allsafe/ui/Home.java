@@ -519,7 +519,7 @@ private boolean checkLogin(){
 private boolean checkLoginInterfaz(){
     boolean operationAccepted=false;
     if (user == null){
-        System.out.println("INFO: No hay  devuelvo falso para que pintes interfaz de usuario visitante");
+        System.out.println("INFO: No hay usaurio logado, devuelvo falso para que pintes interfaz de usuario visitante");
         return false;
     }
      else{
