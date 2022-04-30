@@ -58,8 +58,16 @@ public class WindowsProduct extends javax.swing.JFrame  {
             //Set ICONS HWINDOWSPRODUCT
             jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/AllSafe.png"));
             jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
-            jButtonHomeIcon1.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
-            jButtonHomeIcon2.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
+            jButtonMiCarrito.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
+            //jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
+            if (checkLoginInterfaz()){
+            jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
+            jButtonLogin.setText("Mi cuenta");
+            }
+            else{
+            jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
+            jButtonLogin.setText("Login");
+            }
             jLabelTimeline8.setIcon(new javax.swing.ImageIcon("Icons/png/TimelineCoversA.jpg"));
             jLabelTimeline7.setIcon(new javax.swing.ImageIcon("Icons/png/TimelineCoversB.jpg"));
             jButtonHomeIconsGround8.setIcon(new javax.swing.ImageIcon("Icons/png/arrowUp.png"));
@@ -125,12 +133,38 @@ public class WindowsProduct extends javax.swing.JFrame  {
     // ********************************************************************************************************************
 
 
-//método comprobar login
+//método comprobar login. Método antiguo te devuelve a la home si no has hecho login.
+//private boolean checkLogin(){
+//    boolean operationAccepted=false;
+//    if (user == null){
+//        this.dispose();
+//        principal.setVisible(true);
+//        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+//        return false;
+//    }
+//     else{
+//        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+//        System.out.println("INFO: Voy a comprobar el token");
+//        if (operationAccepted == false){
+//            this.dispose();
+//            principal.setVisible(true);
+//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+//            return false;
+//        }
+//        return true;
+//    }
+//}
+    
+ //método comprobar login
 private boolean checkLogin(){
     boolean operationAccepted=false;
     if (user == null){
-        this.dispose();
-        principal.setVisible(true);
+//        operationAccepted=miservicioDeLogin.checkLogin();
+//        if (operationAccepted == false){
+//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+//            return false;
+//        }
+        //return true;
         System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
         return false;
     }
@@ -138,9 +172,25 @@ private boolean checkLogin(){
         operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
         if (operationAccepted == false){
-            this.dispose();
-            principal.setVisible(true);
             System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+            return false;
+        }
+        return true;
+    }
+}
+
+
+private boolean checkLoginInterfaz(){
+    boolean operationAccepted=false;
+    if (user == null){
+        System.out.println("INFO: No hay  devuelvo falso para que pintes interfaz de usuario visitante");
+        return false;
+    }
+     else{
+        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+        System.out.println("INFO: Voy a comprobar el token");
+        if (operationAccepted == false){
+            System.out.println("INFO: No hay  devuelvo treu para que pintes interfaz de usuario registrado");
             return false;
         }
         return true;
@@ -191,8 +241,8 @@ private boolean checkLogin(){
         jPanel3 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jLabelHomeIcon4 = new javax.swing.JLabel();
-        jButtonHomeIcon1 = new javax.swing.JButton();
-        jButtonHomeIcon2 = new javax.swing.JButton();
+        jButtonMiCarrito = new javax.swing.JButton();
+        jButtonLogin = new javax.swing.JButton();
         jButtonHomeIcon4 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
@@ -446,22 +496,27 @@ private boolean checkLogin(){
         jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/AllSafe.png")); // NOI18N
         jPanel3.add(jLabelHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jButtonHomeIcon1.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/shopping-cart.png")); // NOI18N
-        jButtonHomeIcon1.setText("Mi Carrito");
-        jButtonHomeIcon1.setBorderPainted(false);
-        jButtonHomeIcon1.setContentAreaFilled(false);
-        jButtonHomeIcon1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMiCarrito.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/shopping-cart.png")); // NOI18N
+        jButtonMiCarrito.setText("Mi Carrito");
+        jButtonMiCarrito.setBorderPainted(false);
+        jButtonMiCarrito.setContentAreaFilled(false);
+        jButtonMiCarrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonHomeIcon1ActionPerformed(evt);
+                jButtonMiCarritoActionPerformed(evt);
             }
         });
-        jPanel3.add(jButtonHomeIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 120, 60));
+        jPanel3.add(jButtonMiCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 120, 60));
 
-        jButtonHomeIcon2.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/user.png")); // NOI18N
-        jButtonHomeIcon2.setText("Mi Cuenta");
-        jButtonHomeIcon2.setBorderPainted(false);
-        jButtonHomeIcon2.setContentAreaFilled(false);
-        jPanel3.add(jButtonHomeIcon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 50, 120, 60));
+        jButtonLogin.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/user.png")); // NOI18N
+        jButtonLogin.setText("Mi Cuenta");
+        jButtonLogin.setBorderPainted(false);
+        jButtonLogin.setContentAreaFilled(false);
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoginActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 50, 120, 60));
 
         jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/search.png")); // NOI18N
         jButtonHomeIcon4.setBorderPainted(false);
@@ -538,7 +593,7 @@ private boolean checkLogin(){
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButtonHomeIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIcon1ActionPerformed
+    private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
         //System.out.println("Estas entrando en el carrito");
         if (checkLogin()){
@@ -551,16 +606,17 @@ private boolean checkLogin(){
         
         
         
-    }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
+    }//GEN-LAST:event_jButtonMiCarritoActionPerformed
 
-//    private JFrame getFrame(){
-//     return this;
-//    }
+    private JFrame getFrame(){
+     return this;
+    }
     
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
         principal.setVisible(true);
+       
         
       
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
@@ -604,6 +660,14 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProductoCaracteristicas3ActionPerformed
 
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
+        // TODO add your handling code here:
+        WindowsLogin windowslogin = new WindowsLogin(this , user);
+//        createWindowsProductPage();
+//        
+       
+    }//GEN-LAST:event_jButtonLoginActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -611,14 +675,14 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1AnadirCarrito;
     private javax.swing.JButton jButton1Opinar;
-    private javax.swing.JButton jButtonHomeIcon1;
-    private javax.swing.JButton jButtonHomeIcon2;
     private javax.swing.JButton jButtonHomeIcon4;
     private javax.swing.JButton jButtonHomeIconsGround5;
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
     private javax.swing.JButton jButtonHomeIconsGround8;
     private javax.swing.JButton jButtonHomeIconsGround9;
+    private javax.swing.JButton jButtonLogin;
+    private javax.swing.JButton jButtonMiCarrito;
     private javax.swing.JFormattedTextField jFormattedTextFieldProductoPrecio1;
     private javax.swing.JLabel jLabel1Calificacion;
     private javax.swing.JLabel jLabel3Product;
