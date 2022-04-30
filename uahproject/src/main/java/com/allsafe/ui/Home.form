@@ -80,13 +80,13 @@
                       <EmptySpace pref="70" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanelProducts1" min="-2" pref="190" max="-2" attributes="0"/>
-                          <Component id="jPanelProducts6" min="-2" pref="176" max="-2" attributes="0"/>
+                          <Component id="jPanelProducts5" min="-2" pref="176" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jPanelProducts5" pref="0" max="32767" attributes="0"/>
+                              <Component id="jPanelProducts6" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jPanelProducts2" min="-2" pref="210" max="-2" attributes="0"/>
                       </Group>
@@ -117,9 +117,9 @@
                               </Group>
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanelProducts5" min="-2" pref="206" max="-2" attributes="0"/>
-                                  <Component id="jPanelProducts7" min="-2" pref="220" max="-2" attributes="0"/>
                                   <Component id="jPanelProducts6" min="-2" pref="206" max="-2" attributes="0"/>
+                                  <Component id="jPanelProducts7" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jPanelProducts5" min="-2" pref="206" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -138,7 +138,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextFieldProducts1">
+                <Component class="javax.swing.JTextField" name="jTextFieldProducts0">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField2"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -146,10 +146,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldProducts1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldProducts0ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButtonProducts1">
+                <Component class="javax.swing.JButton" name="jButtonProducts0">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png"/>
@@ -162,10 +162,10 @@
                     <Property name="verticalTextPosition" type="int" value="3"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts0ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel1Stars">
+                <Component class="javax.swing.JLabel" name="jLabelStars0">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/zeroStars.png"/>
@@ -183,7 +183,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextFieldProducts2">
+                <Component class="javax.swing.JTextField" name="jTextFieldProducts1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField2"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -191,7 +191,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButtonProducts2">
+                <Component class="javax.swing.JButton" name="jButtonProducts1">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookProM1.png"/>
@@ -201,10 +201,10 @@
                     <Property name="verticalTextPosition" type="int" value="3"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts1ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel2Stars">
+                <Component class="javax.swing.JLabel" name="jLabelStars1">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/zeroStars.png"/>
@@ -222,7 +222,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextFieldProducts3">
+                <Component class="javax.swing.JTextField" name="jTextFieldProducts2">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField2"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -230,10 +230,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldProducts3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldProducts2ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButtonProducts3">
+                <Component class="javax.swing.JButton" name="jButtonProducts2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookAirM1.png"/>
@@ -243,10 +243,10 @@
                     <Property name="verticalTextPosition" type="int" value="3"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts2ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel3Stars">
+                <Component class="javax.swing.JLabel" name="jLabelStars2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/zeroStars.png"/>
@@ -256,6 +256,53 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanelProducts3">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextField" name="jTextFieldProducts3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jTextField2"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButtonProducts3">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[219, 134]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[219, 134]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[219, 134]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts3ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelStars3">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/zeroStars.png"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanelProducts4">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -288,12 +335,13 @@
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[219, 134]"/>
                     </Property>
+                    <Property name="verticalTextPosition" type="int" value="3"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts4ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel4Stars">
+                <Component class="javax.swing.JLabel" name="jLabelStars4">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/zeroStars.png"/>
@@ -302,7 +350,47 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanelProducts4">
+            <Container class="javax.swing.JPanel" name="jPanelProducts6">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextField" name="jTextFieldProducts6">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jTextField2"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButtonProducts6">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookAirM1.png"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="verticalTextPosition" type="int" value="3"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts6ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelStars6">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/zeroStars.png"/>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanelProducts5">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -313,7 +401,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextField" name="jTextFieldProducts5">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField2"/>
+                    <Property name="text" type="java.lang.String" value="sdvsdvsdv"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -322,26 +410,17 @@
                 <Component class="javax.swing.JButton" name="jButtonProducts5">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png"/>
+                      <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookProM1.png"/>
                     </Property>
                     <Property name="borderPainted" type="boolean" value="false"/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
-                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[219, 134]"/>
-                    </Property>
-                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[219, 134]"/>
-                    </Property>
-                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[219, 134]"/>
-                    </Property>
                     <Property name="verticalTextPosition" type="int" value="3"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts5ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel5Stars">
+                <Component class="javax.swing.JLabel" name="jLabelStars5">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/zeroStars.png"/>
@@ -350,7 +429,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanelProducts5">
+            <Container class="javax.swing.JPanel" name="jPanelProducts7">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -370,94 +449,6 @@
                 <Component class="javax.swing.JButton" name="jButtonProducts7">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookAirM1.png"/>
-                    </Property>
-                    <Property name="borderPainted" type="boolean" value="false"/>
-                    <Property name="contentAreaFilled" type="boolean" value="false"/>
-                    <Property name="verticalTextPosition" type="int" value="3"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts7ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton39">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
-                    <Property name="borderPainted" type="boolean" value="false"/>
-                    <Property name="contentAreaFilled" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel7Stars">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/zeroStars.png"/>
-                    </Property>
-                    <Property name="toolTipText" type="java.lang.String" value=""/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanelProducts6">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-              </Properties>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextFieldProducts6">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="sdvsdvsdv"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButtonProducts6">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookProM1.png"/>
-                    </Property>
-                    <Property name="borderPainted" type="boolean" value="false"/>
-                    <Property name="contentAreaFilled" type="boolean" value="false"/>
-                    <Property name="verticalTextPosition" type="int" value="3"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts6ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6Stars">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/zeroStars.png"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanelProducts7">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-              </Properties>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextFieldProducts8">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField2"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButtonProducts8">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png"/>
                     </Property>
                     <Property name="borderPainted" type="boolean" value="false"/>
@@ -474,10 +465,10 @@
                     <Property name="verticalTextPosition" type="int" value="3"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts8ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProducts7ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8Stars">
+                <Component class="javax.swing.JLabel" name="jLabelStars7">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/zeroStars.png"/>
