@@ -645,6 +645,7 @@ private void createHomePageProductos(){
     i1.introducirProducto(p3, 4);
     p1.setEstrella(5);
     p2.setEstrella(3);
+    
     ArrayList<Producto> RandomProductsHome;
     RandomProductsHome = new ArrayList<>();
     

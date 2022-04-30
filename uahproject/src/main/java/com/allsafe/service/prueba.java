@@ -4,10 +4,16 @@
  */
 package com.allsafe.service;
 
+import java.util.HashSet;
+
 /**
  *
  * @author felixcentenera
  */
 public class prueba {
-    
+
+    public static void main(String args[]) {
+        
+    }
+
 }
