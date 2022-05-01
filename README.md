@@ -9,7 +9,7 @@
    - Lenguajes utilizados.
    - Herramientas.
    - Pruebas.
-4. Característicaskj
+4. Características
 
 
 5. ULM Diagrama de clases
@@ -36,5 +36,12 @@
       - https://www.diagrams.net/
 
 
-Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookAirM1.png", 1);
-          public Producto(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock)
+
+
+
+8. Example casting class.           
+if (user.getClass().getSimpleName().equals("ClienteEmpresa"))
+{
+//user = (ClienteParticular) user;   user1 = (ClienteParticular) user;
+} else {     
+}

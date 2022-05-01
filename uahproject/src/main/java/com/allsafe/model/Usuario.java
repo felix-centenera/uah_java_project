@@ -16,14 +16,25 @@ public abstract class  Usuario {
     private String correo;
     private final String idUser;
     private static int generatorId = 0;
-    
+    private Token token ;
+    private boolean administrador = false;
+
+    public boolean isAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(boolean administrador) {
+            this.administrador = administrador;
+    }
+
     
 
-    public Usuario(String clave, String correo) {
+    public Usuario(String clave, String correo, Token token) {
         this.clave = clave;
         this.correo = correo;
         this.idUser = generatorId + "-"+ generateRandomNumber() ;
         incrementaId();
+        this.token = token;
     } 
     
     private int incrementaId() {
@@ -55,6 +66,14 @@ public abstract class  Usuario {
 
     public void setClave(String clave) {
         this.clave = clave;
+    }
+    
+    public Token getToken() {
+        return token;
+    }
+
+    public void setToken(Token token) {
+        this.token = token;
     }
     
     private int generateRandomNumber(){

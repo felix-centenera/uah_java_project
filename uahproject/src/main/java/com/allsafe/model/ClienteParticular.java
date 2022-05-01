@@ -12,18 +12,17 @@ public class ClienteParticular extends Clientes{
     
     private String dni;
 
-    public ClienteParticular(String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo) {
-        super(nombre, direccion, tarjetaDeCredito, telefono, clave, correo);
+    public ClienteParticular(String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo, Token token) {
+        super(nombre, direccion, tarjetaDeCredito, telefono, clave, correo, token);
         this.dni = dni;
     }
-   
 
     public String getDni() {
-        return dni;
+        return dni;   
     }
 
     public void setDni(String dni) {
-        this.dni = dni;
+        this.dni = dni;  
     }
 
     @Override
