@@ -57,9 +57,10 @@ public class WindowsLogin extends javax.swing.JFrame  {
         
     }
     
-     public WindowsLogin(WindowsProduct ventana, Usuario u) {
+     public WindowsLogin(WindowsProduct ventana2, Usuario u, Home ventana1) {
         //Ocultamos la ventana principal
-        secundariaProductos = ventana;
+        secundariaProductos = ventana2;
+        principal = ventana1;
         secundariaProductos.setVisible(false);
         user = u;
         initComponents();
@@ -73,7 +74,7 @@ public class WindowsLogin extends javax.swing.JFrame  {
             //jLabelImg.setSize(130, 100);
             //Set ICONS HWINDOWSPRODUCT
             jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/AllSafe.png"));
-            jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
+            //jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
             //jButtonHomeIcon1.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
             //jButtonHomeIcon2.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             jLabelTimeline8.setIcon(new javax.swing.ImageIcon("Icons/png/TimelineCoversA.jpg"));
@@ -158,8 +159,6 @@ private JFrame getFrame(){
         jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabelHomeIcon4 = new javax.swing.JLabel();
-        jButtonHomeIcon4 = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jLabelTimeline8 = new javax.swing.JLabel();
         jLabelTimeline7 = new javax.swing.JLabel();
@@ -301,12 +300,6 @@ private JFrame getFrame(){
 
         jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/AllSafe.png")); // NOI18N
         jPanel3.add(jLabelHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/search.png")); // NOI18N
-        jButtonHomeIcon4.setBorderPainted(false);
-        jButtonHomeIcon4.setContentAreaFilled(false);
-        jPanel3.add(jButtonHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
-        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 350, 280));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 100));
 
@@ -455,13 +448,19 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             System.out.println("INFO: El login es correcto y se ha asignado un token");
         this.dispose();
         //Se comprueba la instancia que nos ha llamado, para generar el retorno correctamente.
-        if (principal !=null) {
-            principal.setVisible(true);
-            principal.createHomePage();
-        }
-        else if (secundariaProductos != null){
-          secundariaProductos.setVisible(true);
-        }   
+             if (secundariaProductos != null){
+                secundariaProductos.SetUsuario(principal.GetUsuario());
+                principal.createHomePage();
+                secundariaProductos.createWindowsProductPage();
+                secundariaProductos.setVisible(true);
+                //principal.createHomePage();
+                secundariaProductos.createWindowsProductPage();
+                
+            } 
+             else  {
+                principal.setVisible(true);
+                principal.createHomePage();
+            }
         }
         else{
             System.out.println("INFO: El mail o contraseña no son correctos");  
@@ -481,7 +480,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1Login;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButtonHomeIcon4;
     private javax.swing.JButton jButtonHomeIconsGround5;
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
@@ -501,7 +499,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;

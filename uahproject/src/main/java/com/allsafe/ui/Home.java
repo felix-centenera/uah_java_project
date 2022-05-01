@@ -538,6 +538,11 @@ private boolean checkLoginInterfaz(){
         this.user = user;
         
  }
+ 
+  public  Usuario  GetUsuario() {
+        return  user;  
+ }
+ 
  // ********************************************************************************************************************
  
  
@@ -647,14 +652,13 @@ private void createHomePageProductos(){
     private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
         
-//        if (checkLogin()){
-//            System.out.println("INFO: Estas entrando en el carrito");
-//        }
-//        else{
-//            System.out.println("INFO: No estas logado");
-//            useLogin("hola", "hola");
-//            
-//        }
+  if (checkLogin()){
+            System.out.println("INFO: Estas entrando en el carrito");
+        }
+        else{
+            System.out.println("INFO: No estas logado");
+            
+        }
            
     }//GEN-LAST:event_jButtonMiCarritoActionPerformed
 
@@ -720,7 +724,7 @@ private void createHomePageProductos(){
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
         WindowsLogin windowslogin = new WindowsLogin(this , user);
-        createHomePage();
+        //createHomePage();
         
     }//GEN-LAST:event_jButtonLoginActionPerformed
 

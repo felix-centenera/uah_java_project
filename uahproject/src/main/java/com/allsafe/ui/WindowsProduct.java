@@ -52,12 +52,12 @@ public class WindowsProduct extends javax.swing.JFrame  {
         
     }
     
-    private void createWindowsProductPage() {
+   public void createWindowsProductPage() {
         try {
             //jLabelImg.setSize(130, 100);
             //Set ICONS HWINDOWSPRODUCT
             jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/AllSafe.png"));
-            jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
+            //jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
             jButtonMiCarrito.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
             //jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             if (checkLoginInterfaz()){
@@ -197,10 +197,10 @@ private boolean checkLoginInterfaz(){
     }
 }
 
-// public  void  SetUsuario(Usuario user) {
-//        this.user = user;
-//        
-// }
+ public  void  SetUsuario(Usuario user) {
+        this.user = user;
+        
+ }
  // ********************************************************************************************************************
  
 
@@ -239,12 +239,9 @@ private boolean checkLoginInterfaz(){
         jPanel9 = new javax.swing.JPanel();
         jButton1AnadirCarrito = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
         jLabelHomeIcon4 = new javax.swing.JLabel();
         jButtonMiCarrito = new javax.swing.JButton();
         jButtonLogin = new javax.swing.JButton();
-        jButtonHomeIcon4 = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jLabelTimeline8 = new javax.swing.JLabel();
         jLabelTimeline7 = new javax.swing.JLabel();
@@ -485,14 +482,6 @@ private boolean checkLoginInterfaz(){
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 350, 20));
-
         jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/AllSafe.png")); // NOI18N
         jPanel3.add(jLabelHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -517,12 +506,6 @@ private boolean checkLoginInterfaz(){
             }
         });
         jPanel3.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 50, 120, 60));
-
-        jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/search.png")); // NOI18N
-        jButtonHomeIcon4.setBorderPainted(false);
-        jButtonHomeIcon4.setContentAreaFilled(false);
-        jPanel3.add(jButtonHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
-        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 350, 280));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 100));
 
@@ -588,10 +571,6 @@ private boolean checkLoginInterfaz(){
 
 
 
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
@@ -662,8 +641,9 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
-        WindowsLogin windowslogin = new WindowsLogin(this , user);
-//        createWindowsProductPage();
+        WindowsLogin windowslogin = new WindowsLogin(this , user, principal);
+        
+//        createWindowsProductPage(); principal
 //        
        
     }//GEN-LAST:event_jButtonLoginActionPerformed
@@ -675,7 +655,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1AnadirCarrito;
     private javax.swing.JButton jButton1Opinar;
-    private javax.swing.JButton jButtonHomeIcon4;
     private javax.swing.JButton jButtonHomeIconsGround5;
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
@@ -702,9 +681,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextArea jTextArea2Comentarios;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2NameClient;
     private javax.swing.JTextField jTextFieldFechaCom;
     private javax.swing.JTextField jTextFieldProductoCaracteristicas3;

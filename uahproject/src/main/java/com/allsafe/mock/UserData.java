@@ -73,7 +73,7 @@ public class UserData {
             TarjetaDeCredito t1 = new TarjetaDeCredito(tarjetaDeCreditoTitular,tarjetaDeCreditoNumero,tarjetaDeCreditoCaducidad);
             Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
             Usuario u1 = new ClienteParticular(dni, nombre, d1,t1,telefono,clave,correo,to1);
-            usuarios.put(dni, u1);    
+            usuarios.put(correo, u1);    
             System.out.println(usuarios.toString());
             return true;
         }catch (Exception ex) {
