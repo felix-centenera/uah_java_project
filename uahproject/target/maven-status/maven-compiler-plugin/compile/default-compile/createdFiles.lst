@@ -1,4 +1,5 @@
 com/allsafe/ui/Home$5.class
+com/allsafe/ui/WindowsCreateUser$21.class
 com/allsafe/ui/WindowsProduct$2.class
 com/allsafe/ui/Home$11.class
 com/allsafe/ui/WindowsLogin$4.class
@@ -8,6 +9,7 @@ com/allsafe/prueba.class
 com/allsafe/ui/WindowsCreateUser$18.class
 com/allsafe/ui/Home$2.class
 com/allsafe/ui/WindowsLogin$1.class
+com/allsafe/ui/WindowsCreateUser$24.class
 com/allsafe/model/Usuario.class
 com/allsafe/ui/Home$9.class
 com/allsafe/ui/WindowsProduct$5.class
@@ -19,6 +21,7 @@ com/allsafe/ui/WindowsCreateUser$2.class
 com/allsafe/model/CarritoCompra.class
 com/allsafe/model/Direccion.class
 com/allsafe/ui/WindowsCreateUser$12.class
+com/allsafe/ui/WindowsCreateUser$27.class
 com/allsafe/ui/WindowsCreateUser$20.class
 com/allsafe/service/prueba.class
 com/allsafe/ui/WindowsCreateUser$19.class
@@ -39,18 +42,23 @@ com/allsafe/ui/Home$3.class
 com/allsafe/ui/WindowsLogin.class
 com/allsafe/service/RandomHomeProductos.class
 com/allsafe/model/Administrador.class
+com/allsafe/service/RadomGenerator.class
 com/allsafe/ui/WindowsProduct$7.class
+com/allsafe/ui/WindowsCreateUser$23.class
 com/allsafe/ui/WindowsCreateUser$13.class
 com/allsafe/ui/WindowsCreateUser$4.class
 com/allsafe/ui/WindowsCreateUser$7.class
 com/allsafe/ui/Home$13.class
 com/allsafe/model/Producto.class
+com/allsafe/ui/WindowsCreateUser$26.class
 com/allsafe/ui/WindowsLogin$6.class
 com/allsafe/ui/WindowsCreateUser$16.class
 com/allsafe/ui/Home$7.class
 com/allsafe/ui/WindowsLogin$9.class
 com/allsafe/ui/Home$10.class
+com/allsafe/mock/UserData.class
 com/allsafe/ui/WindowsProduct$1.class
+com/allsafe/ui/WindowsCreateUser$22.class
 com/allsafe/ui/WindowsCreateUser$17.class
 com/allsafe/ui/WindowsCreateUser$5.class
 com/allsafe/ui/Home$4.class
@@ -67,6 +75,7 @@ com/allsafe/ui/Home$8.class
 com/allsafe/ui/WindowsLogin$7.class
 com/allsafe/ui/WindowsProduct$4.class
 com/allsafe/ui/WindowsCreateUser$8.class
+com/allsafe/ui/WindowsCreateUser$25.class
 com/allsafe/ui/WindowsCreateUser$1.class
 com/allsafe/ui/WindowsProduct.class
 com/allsafe/ui/WindowsProduct$10.class

@@ -481,15 +481,15 @@ Inventario i1 = new Inventario();
 
 // ********************************************************************************************************************
 //método para logarse
-private boolean useLogin(String clave, String correo ){
-    boolean operationAccepted=false;
-    operationAccepted=miservicioDeLogin.checkLogin(clave, correo,this); 
-     if (operationAccepted == false){
-            System.out.println("INFO: El usuario o contraseña no son correcto TODO MANDAR AL LOGIN");
-            return false;
-        }
-        return true;
-}
+//private boolean useLogin(String clave, String correo ){
+//    boolean operationAccepted=false;
+//    operationAccepted=miservicioDeLogin.checkLogin(clave, correo,this); 
+//     if (operationAccepted == false){
+//            System.out.println("INFO: El usuario o contraseña no son correcto TODO MANDAR AL LOGIN");
+//            return false;
+//        }
+//        return true;
+//}
 
 
 //método comprobar login
@@ -502,14 +502,14 @@ private boolean checkLogin(){
 //            return false;
 //        }
         //return true;
-        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+        System.out.println("INFO: No puedes realizar esa acción debes logarte primero");
         return false;
     }
      else{
-        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
+        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
         if (operationAccepted == false){
-            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+            System.out.println("INFO: No puedes realizar esa acción debes logarte primero");
             return false;
         }
         return true;
@@ -523,12 +523,13 @@ private boolean checkLoginInterfaz(){
         return false;
     }
      else{
-        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
+        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
         if (operationAccepted == false){
-            System.out.println("INFO: No hay  devuelvo treu para que pintes interfaz de usuario registrado");
+            System.out.println("INFO: El token no es correcto, devuelvo falso para que pintes interfaz de usuario visitante ");
             return false;
         }
+         System.out.println("INFO: El token es correcto, devuelvo true para que pintes interfaz de usuario registrado ");
         return true;
     }
 }
@@ -609,9 +610,9 @@ private void createHomePageProductos(){
     
 }
 
-    private void createHomePage() {
+    public void createHomePage() {
         try {
-            //jLabelImg.setSize(130, 100);
+            //jLabelImg.setSize(130, 100)
             jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/AllSafe.png"));
             jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
             jButtonMiCarrito.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
@@ -646,14 +647,14 @@ private void createHomePageProductos(){
     private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
         
-        if (checkLogin()){
-            System.out.println("INFO: Estas entrando en el carrito");
-        }
-        else{
-            System.out.println("INFO: No estas logado");
-            useLogin("hola", "hola");
-            
-        }
+//        if (checkLogin()){
+//            System.out.println("INFO: Estas entrando en el carrito");
+//        }
+//        else{
+//            System.out.println("INFO: No estas logado");
+//            useLogin("hola", "hola");
+//            
+//        }
            
     }//GEN-LAST:event_jButtonMiCarritoActionPerformed
 
@@ -720,6 +721,7 @@ private void createHomePageProductos(){
         // TODO add your handling code here:
         WindowsLogin windowslogin = new WindowsLogin(this , user);
         createHomePage();
+        
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonProducts5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts5ActionPerformed

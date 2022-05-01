@@ -17,7 +17,7 @@ public class Direccion {
     private int cp;
     
     private String ciudad;
-
+   
     public Direccion(String calle, int numero, int cp, String ciudad) {
         this.calle = calle;
         this.numero = numero;

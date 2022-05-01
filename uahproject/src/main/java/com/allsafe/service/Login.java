@@ -4,6 +4,7 @@
  */
 package com.allsafe.service;
 
+import com.allsafe.mock.UserData;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
 import com.allsafe.model.TarjetaDeCredito;
@@ -23,6 +24,7 @@ public class Login {
     
     //Una instancia del objeto que va a existir
     private static  Login  instance = null;
+    UserData userData = UserData.getInstance();
     
     //Evitamos la instanciacón directa. Constructor vacío.
     private Login(){}
@@ -41,29 +43,68 @@ public class Login {
         return false;
     }
     
-    public   boolean  checkLogin (String clave, String correo, Home ventana){
-        // todo check user exists and information is correct then:
-        LocalDate fecha = LocalDate.of(2023, 9, 18);
-        LocalDateTime fechaTime = LocalDateTime.now();
-        Direccion d1 = new Direccion("calleEjemplo",2,28829,"Madrid");
-        TarjetaDeCredito t1 = new TarjetaDeCredito("Manolo",1234_1234_1234_1234L,fecha);
-        Token to3 = new Token("asdaskldjdasa",fechaTime);
-        Usuario user = new ClienteParticular("20112sd0-F", "Félix", d1,t1,"91-2240234","pass","felix@miempresa.com",to3);
-        ventana.SetUsuario(user);
-        return true;
-    }
-    
-    public   boolean  checkLogin (String clave, String correo, Token token){
-         // todo // todo check user exists and information is correct and check token is correct
-         if (token.getToken() == "asdaskldjdasa"){
-             System.out.println("INFO: El token esta bien");
-             return true;
-         
+    public   boolean  checkLogin (String correo, String clave, Home ventana){         
+         System.out.println(correo);
+         System.out.println(clave);
+         if (userData.checkUser(correo, clave )){
+             System.out.println("INFO: Userdata store ha validado la información, y es correcta");
+                 ventana.SetUsuario(userData.getUser(correo, clave)); 
+                 Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
+                 userData.getUser(correo, clave).setToken(to1);
+                 return true;
          }
          else {
-            System.out.println("INFO: El token esta bien");
+            System.out.println("INFO: Userdata store ha validado la información, y  no  es correcta");
+            return false;
+         } 
+    }
+    
+    
+    
+    public   boolean  checkLogin (String correo, String clave,  Token token){
+         // todo // todo check user exists and information is correct and check token is correct
+         if (token.getFechaExpiracion().isAfter(LocalDateTime.now())){
+             System.out.println("INFO: El token es correcto");
+             return true;
+
+         }
+         else {
+            System.out.println("INFO: El token ha expirado");
             return false;
          }
+           //token.getFechaExpiracion().isAfter(LocalDateTime.now());
          
-    }   
+    }
+
+    
+//     public   boolean  checkLogin (String correo, String clave){
+//         // todo // todo check user exists and information is correct and check token is correct
+//          System.out.println(correo);
+//          System.out.println(clave);
+//         if (userData.checkUser(correo, clave )){
+//             System.out.println("INFO: Userdata store ha validado la información, y es correcta");
+//             if (userData.TypeUser(correo, clave) == "ClienteParticular"){
+//                 ClienteParticular c1 = userData.ReadUserClienteParticular(correo, clave);
+//                 
+//                 
+//             }
+//             return true;
+//         }
+//         else {
+//            System.out.println("INFO: Userdata store ha validado la información, y  no  es correcta");
+//            return false;
+//         }
+////          
+////            
+////            return true;
+////         
+//
+//    }
+     
+//     public String TypeUser(String correo,String clave){
+//       String clase =userData.TypeUser(correo, clave);
+//       return clase;
+//    }
+    
+    
 }

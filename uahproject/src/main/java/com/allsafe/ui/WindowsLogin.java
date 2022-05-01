@@ -4,6 +4,7 @@
  */
 package com.allsafe.ui;
 
+import com.allsafe.mock.UserData;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
 import com.allsafe.model.Inventario;
@@ -32,6 +33,8 @@ public class WindowsLogin extends javax.swing.JFrame  {
     private Usuario user;
     private int opinion=0;
     Login miservicioDeLogin = Login.getInstance();
+    // just for mock delete after test:
+    UserData userData = UserData.getInstance();
     /**
      * Creates new form Home
      */
@@ -95,26 +98,26 @@ public class WindowsLogin extends javax.swing.JFrame  {
 
 
 //método comprobar login
-private boolean checkLogin(){
-    boolean operationAccepted=false;
-    if (user == null){
-        this.dispose();
-        principal.setVisible(true);
-        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-        return false;
-    }
-     else{
-        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
-        System.out.println("INFO: Voy a comprobar el token");
-        if (operationAccepted == false){
-            this.dispose();
-            principal.setVisible(true);
-            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-            return false;
-        }
-        return true;
-    }
-}
+//private boolean checkLogin(){
+//    boolean operationAccepted=false;
+//    if (user == null){
+//        this.dispose();
+//        principal.setVisible(true);
+//        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+//        return false;
+//    }
+//     else{
+//        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+//        System.out.println("INFO: Voy a comprobar el token");
+//        if (operationAccepted == false){
+//            this.dispose();
+//            principal.setVisible(true);
+//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+//            return false;
+//        }
+//        return true;
+//    }
+//}
 
 // public  void  SetUsuario(Usuario user) {
 //        this.user = user;
@@ -151,10 +154,9 @@ private JFrame getFrame(){
         jPasswordField1 = new javax.swing.JPasswordField();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton1Login = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
         jLabelHomeIcon4 = new javax.swing.JLabel();
         jButtonHomeIcon4 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
@@ -214,12 +216,12 @@ private JFrame getFrame(){
 
         jLabel4.setText("¿Aún no eres usuario de AllSafe?");
 
-        jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jButton1.setText("Login");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1Login.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jButton1Login.setText("Login");
+        jButton1Login.setBorder(null);
+        jButton1Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1LoginActionPerformed(evt);
             }
         });
 
@@ -240,7 +242,7 @@ private JFrame getFrame(){
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1Login, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(166, 166, 166))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,7 +284,7 @@ private JFrame getFrame(){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1Login, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -296,14 +298,6 @@ private JFrame getFrame(){
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 350, 20));
 
         jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/AllSafe.png")); // NOI18N
         jPanel3.add(jLabelHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -379,10 +373,6 @@ private JFrame getFrame(){
 
 
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
 //    private JFrame getFrame(){
 //     return this;
 //    }
@@ -453,9 +443,30 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     }//GEN-LAST:event_jPasswordField1MousePressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton1LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1LoginActionPerformed
+        // TODO add your handling code here: miservicioDeLogin
+        
+        userData.createMockUser();
+        String clave = jPasswordField1.getText();
+        String correo = UserName.getText();
+        System.out.println(correo);
+        System.out.println(clave);
+        if (   miservicioDeLogin.checkLogin(correo, clave, principal) ) {
+            System.out.println("INFO: El login es correcto y se ha asignado un token");
+        this.dispose();
+        //Se comprueba la instancia que nos ha llamado, para generar el retorno correctamente.
+        if (principal !=null) {
+            principal.setVisible(true);
+            principal.createHomePage();
+        }
+        else if (secundariaProductos != null){
+          secundariaProductos.setVisible(true);
+        }   
+        }
+        else{
+            System.out.println("INFO: El mail o contraseña no son correctos");  
+        }  
+    }//GEN-LAST:event_jButton1LoginActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -468,7 +479,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton1Login;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonHomeIcon4;
     private javax.swing.JButton jButtonHomeIconsGround5;
@@ -494,6 +505,5 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
