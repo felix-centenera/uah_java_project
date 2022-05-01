@@ -4,6 +4,7 @@
  */
 package com.allsafe.mock;
 
+import com.allsafe.model.ClienteEmpresa;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
 import com.allsafe.model.TarjetaDeCredito;
@@ -64,7 +65,7 @@ public class UserData {
     }
  
      
-    // Método para añadir usuarios.
+    // Método para añadir usuarios clientes particulares.
     public boolean addUser(String dni, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
         
         try{
@@ -73,6 +74,24 @@ public class UserData {
             TarjetaDeCredito t1 = new TarjetaDeCredito(tarjetaDeCreditoTitular,tarjetaDeCreditoNumero,tarjetaDeCreditoCaducidad);
             Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
             Usuario u1 = new ClienteParticular(dni, nombre, d1,t1,telefono,clave,correo,to1);
+            usuarios.put(correo, u1);    
+            System.out.println(usuarios.toString());
+            return true;
+        }catch (Exception ex) {
+            System.out.println("Error: " + ex.toString()); 
+            return false;
+        }
+    }
+    
+    // Método para añadir usuarios clientes empresa. String cif, String web
+    public boolean addUser(String cif, String web, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
+        
+        try{
+            System.out.println( cif + nombre + web + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
+            Direccion d1 =  new Direccion(direccionCalle,direccionNumero,direccionCP,direccionCiudad);
+            TarjetaDeCredito t1 = new TarjetaDeCredito(tarjetaDeCreditoTitular,tarjetaDeCreditoNumero,tarjetaDeCreditoCaducidad);
+            Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
+            Usuario u1 = new ClienteEmpresa(cif, web, nombre, d1,t1,telefono,clave,correo,to1);
             usuarios.put(correo, u1);    
             System.out.println(usuarios.toString());
             return true;

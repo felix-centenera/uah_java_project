@@ -987,7 +987,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private void jButtonRegistarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarUsuarioActionPerformed
         // TODO add your handling code here: UserMail
     
-        System.out.println(jFormattedTextTCFechaCaducidad.getValue());
+//        System.out.println(jFormattedTextTCFechaCaducidad.getValue());
         String fecha1txt = (String) jFormattedTextTCFechaCaducidad.getText();
         System.out.println(fecha1txt);
         String[] partes = fecha1txt.split("/");     
@@ -996,16 +996,32 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         int a1 = Integer.parseInt(partes[2]);
         LocalDate fecha = LocalDate.of(Integer.parseInt(partes[2]), Integer.parseInt(partes[1]), Integer.parseInt(partes[0])); 
         
-        if (usuariosMock.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
-            System.out.println("INFO: El usuario se ha creado con exito");
-            this.dispose();
-            secundariaLogin.setVisible(true);  
+        if(! jRadioButton1.isSelected()) {
+            if (usuariosMock.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                System.out.println("INFO: El usuario se ha creado con exito");
+                this.dispose();
+                secundariaLogin.setVisible(true);  
+            }
+            else{
+                System.out.println("ERROR: El usuario no ha podido ser creado");
+
+            }
         }
-        else{
-            System.out.println("ERROR: El usuario no ha podido ser creado");
         
+        else {
+            if (usuariosMock.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                System.out.println("INFO: El usuario se ha creado con exito");
+                this.dispose();
+                secundariaLogin.setVisible(true);  
+            }
+            else{
+                System.out.println("ERROR: El usuario no ha podido ser creado");
+
+            }
         }
-       
+        
+           
+        
     }//GEN-LAST:event_jButtonRegistarUsuarioActionPerformed
 
     private void JTextFieldUserTelefonoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserTelefonoMousePressed
