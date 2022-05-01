@@ -579,7 +579,7 @@ private boolean checkLoginInterfaz(){
             System.out.println("INFO: Estas entrando en el carrito");
         }
         else{
-            System.out.println("INFO: No estas logado");
+            System.out.println("INFO: Necesitas estar logado para ver tu carrito");
             
         }
         
@@ -628,11 +628,25 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     private void jButton1AnadirCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1AnadirCarritoActionPerformed
         // TODO add your handling code here:
+        if (checkLogin()){
+            System.out.println("INFO: Estas añadiendo un producto a tu carrito");
+        }
+        else{
+            System.out.println("INFO: Necesitas estar logado para añadir productos a tu carrito");
+            
+        }
         
     }//GEN-LAST:event_jButton1AnadirCarritoActionPerformed
 
     private void jButton1OpinarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1OpinarActionPerformed
         // TODO add your handling code here:
+         if (checkLogin()){
+            System.out.println("INFO: Vas a crear una opnión");
+        }
+        else{
+            System.out.println("INFO: Necesita estar logado para opinar");
+            
+        }
     }//GEN-LAST:event_jButton1OpinarActionPerformed
 
     private void jTextFieldProductoCaracteristicas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProductoCaracteristicas3ActionPerformed

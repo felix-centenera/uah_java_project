@@ -656,7 +656,7 @@ private void createHomePageProductos(){
             System.out.println("INFO: Estas entrando en el carrito");
         }
         else{
-            System.out.println("INFO: No estas logado");
+            System.out.println("INFO: Necesitas estar logado para ver tu carrito");
             
         }
            
