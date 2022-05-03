@@ -5,6 +5,7 @@
 package com.allsafe.ui;
 
 import com.allsafe.mock.UserData;
+import com.allsafe.model.ClienteEmpresa;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
 import com.allsafe.model.Inventario;
@@ -32,6 +33,7 @@ import javax.swing.JFrame;
 public class WindowsMyAccount extends javax.swing.JFrame  {
 
     private Home principal;
+    private WindowsProduct secundariaProductos;
     //Creamos la referencia a nuestro servio de login
     UserData usuariosMock = UserData.getInstance(); 
     private Usuario user;
@@ -56,6 +58,19 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         createWindowsCreateUserPage();
         recogerDatosDeUsuarioYpintarEnPantalla();
     }
+    
+     public WindowsMyAccount(WindowsProduct ventana, Usuario u) {
+        //Ocultamos la ventana principal
+        secundariaProductos = ventana;
+        user = u;
+        secundariaProductos.setVisible(false);
+        initComponents();
+        this.setVisible(true);
+        createWindowsCreateUserPage();
+        recogerDatosDeUsuarioYpintarEnPantalla();
+    }
+    
+    
     
 
     private void createWindowsCreateUserPage() {
@@ -125,7 +140,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jPanel8 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         JTextFieldUserDNI = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
         jPanel13 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         JTextFieldUserWeb = new javax.swing.JTextField();
@@ -198,7 +212,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel2.setForeground(new java.awt.Color(6, 64, 115));
         jLabel2.setText("Usuario/mail:");
 
-        JTextFieldUserMail.setForeground(new java.awt.Color(204, 204, 204));
         JTextFieldUserMail.setText("Ingrese su nombre de usuario.");
         JTextFieldUserMail.setBorder(null);
         JTextFieldUserMail.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -241,7 +254,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel4.setForeground(new java.awt.Color(6, 64, 115));
         jLabel4.setText("Teléfono:");
 
-        JTextFieldUserTelefono.setForeground(new java.awt.Color(204, 204, 204));
         JTextFieldUserTelefono.setText("Ingrese su teléfono.");
         JTextFieldUserTelefono.setBorder(null);
         JTextFieldUserTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -283,7 +295,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel7.setForeground(new java.awt.Color(6, 64, 115));
         jLabel7.setText("Nombre:");
 
-        JTextFieldUserName.setForeground(new java.awt.Color(204, 204, 204));
         JTextFieldUserName.setText("Ingrese su nombre.");
         JTextFieldUserName.setBorder(null);
         JTextFieldUserName.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -324,7 +335,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel9.setForeground(new java.awt.Color(6, 64, 115));
         jLabel9.setText("Password:");
 
-        jPasswordField.setForeground(new java.awt.Color(204, 204, 204));
         jPasswordField.setText("********");
         jPasswordField.setBorder(null);
         jPasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -359,7 +369,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel3.setForeground(new java.awt.Color(6, 64, 115));
         jLabel3.setText("DNI:");
 
-        JTextFieldUserDNI.setForeground(new java.awt.Color(204, 204, 204));
         JTextFieldUserDNI.setText("Ingrese su DNI / CIF.");
         JTextFieldUserDNI.setBorder(null);
         JTextFieldUserDNI.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -373,13 +382,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
             }
         });
 
-        jRadioButton1.setText("Empresas");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -389,9 +391,7 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTextFieldUserDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jRadioButton1)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -399,8 +399,7 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JTextFieldUserDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1))
+                    .addComponent(JTextFieldUserDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
         );
 
@@ -410,7 +409,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel10.setForeground(new java.awt.Color(6, 64, 115));
         jLabel10.setText("Web:");
 
-        JTextFieldUserWeb.setForeground(new java.awt.Color(204, 204, 204));
         JTextFieldUserWeb.setText("Ingrese su dirección web.");
         JTextFieldUserWeb.setBorder(null);
         JTextFieldUserWeb.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -451,7 +449,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel12.setForeground(new java.awt.Color(6, 64, 115));
         jLabel12.setText("Dirección Calle:");
 
-        JTextFieldUserDireccionCalle.setForeground(new java.awt.Color(204, 204, 204));
         JTextFieldUserDireccionCalle.setText("Ingrese la calle de dirección.");
         JTextFieldUserDireccionCalle.setBorder(null);
         JTextFieldUserDireccionCalle.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -494,7 +491,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel13.setText("Número");
 
         jFormattedDireccionNumero.setBorder(null);
-        jFormattedDireccionNumero.setForeground(new java.awt.Color(204, 204, 204));
         jFormattedDireccionNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         jFormattedDireccionNumero.setText("24");
         jFormattedDireccionNumero.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -537,7 +533,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel14.setText("CP");
 
         jFormattedTextDireccionCP.setBorder(null);
-        jFormattedTextDireccionCP.setForeground(new java.awt.Color(204, 204, 204));
         jFormattedTextDireccionCP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         jFormattedTextDireccionCP.setText("12345");
         jFormattedTextDireccionCP.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -574,7 +569,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel15.setForeground(new java.awt.Color(6, 64, 115));
         jLabel15.setText("Ciudad");
 
-        JTextFieldUserDireccionCiudad.setForeground(new java.awt.Color(204, 204, 204));
         JTextFieldUserDireccionCiudad.setText("Ingrese el nombre de su ciudad.");
         JTextFieldUserDireccionCiudad.setBorder(null);
         JTextFieldUserDireccionCiudad.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -650,7 +644,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel6.setText("Nº TarjetaCredito:");
 
         jFormattedTCNumero.setBorder(null);
-        jFormattedTCNumero.setForeground(new java.awt.Color(204, 204, 204));
         jFormattedTCNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         jFormattedTCNumero.setText("1234123412341234");
         jFormattedTCNumero.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -688,7 +681,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel17.setText("Fecha Caducidad:");
 
         jFormattedTextTCFechaCaducidad.setBorder(null);
-        jFormattedTextTCFechaCaducidad.setForeground(new java.awt.Color(204, 204, 204));
         jFormattedTextTCFechaCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         jFormattedTextTCFechaCaducidad.setText("30/4/22");
 
@@ -720,7 +712,6 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jLabel8.setForeground(new java.awt.Color(6, 64, 115));
         jLabel8.setText("Titular Tarjeta Credito:");
 
-        jFormattedTCTitular.setForeground(new java.awt.Color(204, 204, 204));
         jFormattedTCTitular.setText("Ingrese el nombre que aparece en su tarjeta.");
         jFormattedTCTitular.setBorder(null);
         jFormattedTCTitular.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -784,29 +775,31 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelTittle, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addGap(27, 27, 27)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelTittle, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addGap(148, 148, 148)
-                            .addComponent(jButtonRegistarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel7Layout.createSequentialGroup()
+                                    .addGap(27, 27, 27)
+                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(jButtonRegistarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -817,11 +810,9 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -835,10 +826,10 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)
-                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(jButtonRegistarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(35, Short.MAX_VALUE))))
+                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jButtonRegistarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 1180, 500));
@@ -935,7 +926,14 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        principal.setVisible(true);
+        //principal.setVisible(true);
+         if (principal !=null) {
+            principal.setVisible(true);
+        }
+        else if (secundariaProductos != null){
+          secundariaProductos.setVisible(true);
+        }
+         
         
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
 
@@ -964,10 +962,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 //    // TODO ADAPTAR A ESTA PÄGINA
     private void JTextFieldUserMailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserMailMousePressed
         // TODO add your handling code here:
-        if(JTextFieldUserMail.getText().equals("Ingrese su nombre de usuario.")){
-            JTextFieldUserMail.setText("");
-            JTextFieldUserMail.setForeground(Color.black);
-        }
+//        if(JTextFieldUserMail.getText().equals("Ingrese su nombre de usuario.")){
+//            JTextFieldUserMail.setText("");
+//            JTextFieldUserMail.setForeground(Color.black);
+//        }
     }//GEN-LAST:event_JTextFieldUserMailMousePressed
 
     private void JTextFieldUserMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserMailActionPerformed
@@ -993,7 +991,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private void recogerDatosDeUsuarioYpintarEnPantalla(){
         String clase = user.getClass().getSimpleName();
         if (clase.equals("ClienteParticular")){
-            System.out.println("hola");
+            //System.out.println("hola");
             ClienteParticular c1 = (ClienteParticular) user;
             //usuariosMock.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())
             JTextFieldUserDNI.setText(c1.getDni());
@@ -1007,10 +1005,35 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             JTextFieldUserTelefono.setText(c1.getTelefono());
             jPasswordField.setText(c1.getClave());
             JTextFieldUserMail.setText(c1.getCorreo());
+            JTextFieldUserMail.setEditable(false);
             String d1 = Integer.toString(c1.getTarjetaDeCredito().getFechaCaducidad().getDayOfMonth());
             String m1 =  Integer.toString(c1.getTarjetaDeCredito().getFechaCaducidad().getMonthValue());
             String y1 = Integer.toString(c1.getTarjetaDeCredito().getFechaCaducidad().getYear());
             jFormattedTextTCFechaCaducidad.setText(d1 + "/" + m1 + "/" +y1);
+        }
+        else{
+            ClienteEmpresa c1 = (ClienteEmpresa) user;
+            //usuariosMock.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())
+            jPanel13.setVisible(true);
+            jLabel3.setText("CIF");
+            JTextFieldUserWeb.setText(c1.getWeb());
+            JTextFieldUserDNI.setText(c1.getCif());
+            JTextFieldUserName.setText(c1.getNombre());
+            JTextFieldUserDireccionCalle.setText(c1.getDireccion().getCalle());
+            JTextFieldUserDireccionCiudad.setText(c1.getDireccion().getCiudad());
+            jFormattedDireccionNumero.setValue(c1.getDireccion().getNumero());
+            jFormattedTextDireccionCP.setValue(c1.getDireccion().getCp());
+            jFormattedTCNumero.setValue(c1.getTarjetaDeCredito().getnumeroTarjetaCredito());
+            jFormattedTCTitular.setText(c1.getTarjetaDeCredito().getNombreTitular());
+            JTextFieldUserTelefono.setText(c1.getTelefono());
+            jPasswordField.setText(c1.getClave());
+            JTextFieldUserMail.setText(c1.getCorreo());
+            JTextFieldUserMail.setEditable(false);
+            String d1 = Integer.toString(c1.getTarjetaDeCredito().getFechaCaducidad().getDayOfMonth());
+            String m1 =  Integer.toString(c1.getTarjetaDeCredito().getFechaCaducidad().getMonthValue());
+            String y1 = Integer.toString(c1.getTarjetaDeCredito().getFechaCaducidad().getYear());
+            jFormattedTextTCFechaCaducidad.setText(d1 + "/" + m1 + "/" +y1);
+            
         }
     
     }
@@ -1027,27 +1050,43 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         int m1 = Integer.parseInt(partes[1]);
         int a1 = Integer.parseInt(partes[2]);
         LocalDate fecha = LocalDate.of(Integer.parseInt(partes[2]), Integer.parseInt(partes[1]), Integer.parseInt(partes[0])); 
+        String clase = user.getClass().getSimpleName();
         
-        if(! jRadioButton1.isSelected()) {
-            if (usuariosMock.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
-                System.out.println("INFO: El usuario se ha creado con exito");
+        
+        if(clase.equals("ClienteParticular")) {
+            if (usuariosMock.setUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                System.out.println("INFO: El usuario se ha sido modificado con exito");
                 this.dispose();
-                principal.setVisible(true);  
+                
+                if (principal !=null) {
+                    principal.setVisible(true);
+                }
+                else if (secundariaProductos != null){
+                    secundariaProductos.setVisible(true);
+                }
+                //principal.setVisible(true);  
             }
             else{
-                System.out.println("ERROR: El usuario no ha podido ser creado");
+                System.out.println("ERROR: El usuario no ha podido ser modificado");
 
             }
         }
         
         else {
-            if (usuariosMock.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
-                System.out.println("INFO: El usuario se ha creado con exito");
+            if (usuariosMock.setUser(JTextFieldUserDNI.getText(), JTextFieldUserWeb.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                System.out.println("INFO: El usuario se ha sido modificado con exito");
                 this.dispose();
-                principal.setVisible(true);  
+                
+                if (principal !=null) {
+                    principal.setVisible(true);
+                }
+                else if (secundariaProductos != null){
+                    secundariaProductos.setVisible(true);
+                }
+               // principal.setVisible(true);  
             }
             else{
-                System.out.println("ERROR: El usuario no ha podido ser creado");
+                System.out.println("ERROR: El usuario no ha podido ser modificado");
 
             }
         }
@@ -1103,22 +1142,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private void JTextFieldUserWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserWebActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserWebActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-        if (jRadioButton1.isSelected()){
-            System.out.println("INFO: EL usuario a registrar es una empresa");
-            jPanel13.setVisible(true);
-            jLabel3.setText("CIF");
-        }
-        else {
-            System.out.println("INFO: EL usuario a registrar es un cliente particular");
-            jPanel13.setVisible(false);
-            jLabel3.setText("DNI");
-        }
-        
-        
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void JTextFieldUserDireccionCalleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCalleMousePressed
         // TODO add your handling code here:
@@ -1273,7 +1296,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField jTextField1;

@@ -67,7 +67,7 @@ public class UserData {
      
     // Método para añadir usuarios clientes particulares.
     public boolean addUser(String dni, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
-        
+        if (!usuarios.containsKey(correo)){
         try{
             System.out.println( dni + nombre + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
             Direccion d1 =  new Direccion(direccionCalle,direccionNumero,direccionCP,direccionCiudad);
@@ -81,11 +81,106 @@ public class UserData {
             System.out.println("Error: " + ex.toString()); 
             return false;
         }
+    
+        }
+        else {
+            System.out.println("Error: El usuario ya existe"); 
+            return false;
+        
+        }
     }
+    
+        // Método para añadir usuarios clientes particulares.
+    public boolean setUser(String dni, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
+        if (usuarios.containsKey(correo)){
+        try{
+            System.out.println( dni + nombre + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
+//            Direccion d1 =  new Direccion(direccionCalle,direccionNumero,direccionCP,direccionCiudad);
+//            TarjetaDeCredito t1 = new TarjetaDeCredito(tarjetaDeCreditoTitular,tarjetaDeCreditoNumero,tarjetaDeCreditoCaducidad);
+//            Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
+//            Usuario u1 = new ClienteParticular(dni, nombre, d1,t1,telefono,clave,correo,to1);
+//            usuarios.put(correo, u1);    
+            
+            ClienteParticular c1 = (ClienteParticular) usuarios.get(correo);
+            c1.setDni(dni);
+            c1.setNombre(nombre);
+            c1.getDireccion().setCalle(direccionCalle);
+            c1.getDireccion().setCiudad(direccionCiudad);
+            c1.getDireccion().setNumero(direccionNumero);
+            c1.getDireccion().setCp(direccionCP);
+            c1.getTarjetaDeCredito().setNumeronumeroTarjetaCredito(tarjetaDeCreditoNumero);
+            c1.getTarjetaDeCredito().setNombreTitular(tarjetaDeCreditoTitular);
+            c1.getTarjetaDeCredito().setFechaCaducidad(tarjetaDeCreditoCaducidad);
+            c1.setTelefono(telefono);
+            c1.setClave(clave);
+            
+            System.out.println(usuarios.toString());
+            return true;
+        }catch (Exception ex) {
+            System.out.println("Error: " + ex.toString()); 
+            return false;
+        }
+    
+        }
+        else {
+            System.out.println("Error: El usuario no  existe"); 
+            return false;
+        
+        }
+    }
+    
+    
+    
+     public boolean setUser(String cif,String web, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
+        if (usuarios.containsKey(correo)){
+        try{
+            System.out.println( cif + nombre + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
+//            Direccion d1 =  new Direccion(direccionCalle,direccionNumero,direccionCP,direccionCiudad);
+//            TarjetaDeCredito t1 = new TarjetaDeCredito(tarjetaDeCreditoTitular,tarjetaDeCreditoNumero,tarjetaDeCreditoCaducidad);
+//            Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
+//            Usuario u1 = new ClienteParticular(dni, nombre, d1,t1,telefono,clave,correo,to1);
+//            usuarios.put(correo, u1);    
+            
+            ClienteEmpresa c1 = (ClienteEmpresa) usuarios.get(correo);
+            c1.setCif(cif);
+            c1.setWeb(web);
+            c1.setNombre(nombre);
+            c1.getDireccion().setCalle(direccionCalle);
+            c1.getDireccion().setCiudad(direccionCiudad);
+            c1.getDireccion().setNumero(direccionNumero);
+            c1.getDireccion().setCp(direccionCP);
+            c1.getTarjetaDeCredito().setNumeronumeroTarjetaCredito(tarjetaDeCreditoNumero);
+            c1.getTarjetaDeCredito().setNombreTitular(tarjetaDeCreditoTitular);
+            c1.getTarjetaDeCredito().setFechaCaducidad(tarjetaDeCreditoCaducidad);
+            c1.setTelefono(telefono);
+            c1.setClave(clave);
+            
+            System.out.println(usuarios.toString());
+            return true;
+        }catch (Exception ex) {
+            System.out.println("Error: " + ex.toString()); 
+            return false;
+        }
+    
+        }
+        else {
+            System.out.println("Error: El usuario no  existe"); 
+            return false;
+        
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
     
     // Método para añadir usuarios clientes empresa. String cif, String web
     public boolean addUser(String cif, String web, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
         
+        if (!usuarios.containsKey(correo)){
         try{
             System.out.println( cif + nombre + web + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
             Direccion d1 =  new Direccion(direccionCalle,direccionNumero,direccionCP,direccionCiudad);
@@ -99,6 +194,11 @@ public class UserData {
             System.out.println("Error: " + ex.toString()); 
             return false;
         }
+        }
+        else {
+            System.out.println("Error: El usuario ya existe"); 
+            return false;
+        }     
     }
     
     
@@ -111,7 +211,7 @@ public class UserData {
          TarjetaDeCredito t1 = new TarjetaDeCredito("Felix",1234_1234_1234_1234L,fecha);
          Direccion d1 = new Direccion("calleEjemplo",2,28829,"Madrid");
          ClienteParticular c1 = new ClienteParticular("20120000-F", "Felix", d1,t1,"91-2240234","pass","felix@uah.es",to1);
-         usuarios.put("felix", c1);
+         usuarios.put("felix@uah.es", c1);
     }
      
     public Usuario getUser(String correo,String clave){

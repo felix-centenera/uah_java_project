@@ -10,6 +10,7 @@ com/allsafe/ui/WindowsCreateUser$24.class
 com/allsafe/ui/WindowsProduct$5.class
 com/allsafe/ui/WindowsMyAccount$11.class
 com/allsafe/ui/WindowsMyAccount$21.class
+com/allsafe/ui/Home$15.class
 com/allsafe/ui/WindowsCreateUser$11.class
 com/allsafe/model/ClienteParticular.class
 com/allsafe/ui/WindowsCreateUser$2.class
@@ -100,7 +101,6 @@ com/allsafe/ui/WindowsCreateUser$10.class
 com/allsafe/ui/WindowsMyAccount$8.class
 com/allsafe/ui/WindowsLogin$3.class
 com/allsafe/ui/WindowsMyAccount$20.class
-com/allsafe/ui/WindowsMyAccount$27.class
 com/allsafe/ui/Home$14.class
 com/allsafe/ui/WindowsProduct$4.class
 com/allsafe/ui/WindowsCreateUser$8.class

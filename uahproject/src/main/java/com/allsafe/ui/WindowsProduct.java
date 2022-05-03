@@ -655,10 +655,26 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
-        WindowsLogin windowslogin = new WindowsLogin(this , user, principal);
+        //WindowsLogin windowslogin = new WindowsLogin(this , user, principal);
+        
+        if (jButtonLogin.getText().equals("Mi cuenta") ){
+            System.out.println("Vas a entrar en tu cuenta");
+            WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , user);
+        }
+        else {
+            WindowsLogin windowslogin = new WindowsLogin(this , user, principal);
+            System.out.println("vas a logarte");
+        }
+        
+        
+        
+        
+        
         
 //        createWindowsProductPage(); principal
+
 //        
+
        
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
