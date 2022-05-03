@@ -723,8 +723,16 @@ private void createHomePageProductos(){
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
-        WindowsLogin windowslogin = new WindowsLogin(this , user);
+        
         //createHomePage();
+        if (jButtonLogin.getText().equals("Mi cuenta") ){
+            System.out.println("Vas a entrar en tu cuenta");
+            WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , user);
+        }
+        else {
+            WindowsLogin windowslogin = new WindowsLogin(this , user);
+            System.out.println("vas a logarte");
+        }
         
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
