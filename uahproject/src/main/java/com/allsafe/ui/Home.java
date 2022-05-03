@@ -89,6 +89,7 @@ public class Home extends javax.swing.JFrame {
         jButtonMiCarrito = new javax.swing.JButton();
         jButtonLogin = new javax.swing.JButton();
         jButtonHomeIcon4 = new javax.swing.JButton();
+        jButtonLogOut = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabelTimeline8 = new javax.swing.JLabel();
         jLabelTimeline7 = new javax.swing.JLabel();
@@ -362,7 +363,7 @@ public class Home extends javax.swing.JFrame {
                 jButtonMiCarritoActionPerformed(evt);
             }
         });
-        jPanel3.add(jButtonMiCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 120, 60));
+        jPanel3.add(jButtonMiCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 50, 120, 60));
 
         jButtonLogin.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/user.png")); // NOI18N
         jButtonLogin.setText("Mi Cuenta");
@@ -373,11 +374,22 @@ public class Home extends javax.swing.JFrame {
                 jButtonLoginActionPerformed(evt);
             }
         });
-        jPanel3.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 50, 120, 60));
+        jPanel3.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 50, 120, 60));
 
         jButtonHomeIcon4.setBorderPainted(false);
         jButtonHomeIcon4.setContentAreaFilled(false);
         jPanel3.add(jButtonHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
+
+        jButtonLogOut.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/LogOut.png")); // NOI18N
+        jButtonLogOut.setText("LogOut");
+        jButtonLogOut.setBorder(null);
+        jButtonLogOut.setContentAreaFilled(false);
+        jButtonLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogOutActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButtonLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, 100, 40));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 100));
 
@@ -624,10 +636,12 @@ private void createHomePageProductos(){
             if (checkLoginInterfaz()){
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             jButtonLogin.setText("Mi cuenta");
+            jButtonLogOut.setVisible(true);
             }
             else{
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             jButtonLogin.setText("Login");
+            jButtonLogOut.setVisible(false);
             }
             jLabelTimeline8.setIcon(new javax.swing.ImageIcon("Icons/png/TimelineCoversA.jpg"));
             jLabelTimeline7.setIcon(new javax.swing.ImageIcon("Icons/png/TimelineCoversB.jpg"));
@@ -651,6 +665,8 @@ private void createHomePageProductos(){
 
     private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
+        
+        
         
   if (checkLogin()){
             System.out.println("INFO: Estas entrando en el carrito");
@@ -742,6 +758,12 @@ private void createHomePageProductos(){
         createHomePage();
     }//GEN-LAST:event_jButtonProducts5ActionPerformed
 
+    private void jButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogOutActionPerformed
+        // TODO add your handling code here:
+        this.SetUsuario(null);
+        createHomePage();
+    }//GEN-LAST:event_jButtonLogOutActionPerformed
+
  // ********************************************************************************************************************
     
     /**
@@ -786,6 +808,7 @@ private void createHomePageProductos(){
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
     private javax.swing.JButton jButtonHomeIconsGround8;
+    private javax.swing.JButton jButtonLogOut;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonMiCarrito;
     private javax.swing.JButton jButtonProducts0;
