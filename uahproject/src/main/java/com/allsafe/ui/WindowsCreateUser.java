@@ -4,6 +4,7 @@
  */
 package com.allsafe.ui;
 
+import com.allsafe.mock.UserData;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
 import com.allsafe.model.Inventario;
@@ -13,9 +14,13 @@ import com.allsafe.model.Usuario;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
 import java.awt.Color;
+import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -27,6 +32,8 @@ import javax.swing.JFrame;
 public class WindowsCreateUser extends javax.swing.JFrame  {
 
     private WindowsLogin secundariaLogin;
+    //Creamos la referencia a nuestro servio de login
+    UserData usuariosMock = UserData.getInstance(); 
 //    Login miservicioDeLogin = Login.getInstance();
     /**
      * Creates new form Home
@@ -92,54 +99,54 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        jTextField2 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        jButtonRegistarUsuario = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        UserName = new javax.swing.JTextField();
+        JTextFieldUserMail = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        UserName1 = new javax.swing.JTextField();
+        JTextFieldUserTelefono = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        UserName4 = new javax.swing.JTextField();
+        JTextFieldUserName = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordField = new javax.swing.JPasswordField();
         jPanel8 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        UserName2 = new javax.swing.JTextField();
+        JTextFieldUserDNI = new javax.swing.JTextField();
         jRadioButton1 = new javax.swing.JRadioButton();
         jPanel13 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        UserName6 = new javax.swing.JTextField();
+        JTextFieldUserWeb = new javax.swing.JTextField();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        UserName8 = new javax.swing.JTextField();
+        JTextFieldUserDireccionCalle = new javax.swing.JTextField();
         jPanel16 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jPanel19 = new javax.swing.JPanel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jFormattedDireccionNumero = new javax.swing.JFormattedTextField();
         jPanel17 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        jFormattedTextDireccionCP = new javax.swing.JFormattedTextField();
         jPanel18 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        UserName11 = new javax.swing.JTextField();
+        JTextFieldUserDireccionCiudad = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        jFormattedTCNumero = new javax.swing.JFormattedTextField();
         jPanel20 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        UserName13 = new javax.swing.JTextField();
+        jFormattedTextTCFechaCaducidad = new javax.swing.JFormattedTextField();
         jPanel21 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        UserName5 = new javax.swing.JTextField();
+        jFormattedTCTitular = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jLabelHomeIcon4 = new javax.swing.JLabel();
@@ -152,6 +159,8 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jButtonHomeIconsGround8 = new javax.swing.JButton();
         jButtonHomeIconsGround9 = new javax.swing.JButton();
         jButtonHomeIconsGround6 = new javax.swing.JButton();
+
+        jTextField2.setText("jTextField2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -169,11 +178,12 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
 
         jSeparator4.setForeground(new java.awt.Color(51, 51, 51));
 
-        jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jButton1.setText("Registrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistarUsuario.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jButtonRegistarUsuario.setText("Registrar");
+        jButtonRegistarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonRegistarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonRegistarUsuarioActionPerformed(evt);
             }
         });
 
@@ -183,17 +193,17 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel2.setForeground(new java.awt.Color(6, 64, 115));
         jLabel2.setText("Usuario/mail:");
 
-        UserName.setForeground(new java.awt.Color(204, 204, 204));
-        UserName.setText("Ingrese su nombre de usuario,  debe ser un mail.");
-        UserName.setBorder(null);
-        UserName.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTextFieldUserMail.setForeground(new java.awt.Color(204, 204, 204));
+        JTextFieldUserMail.setText("Ingrese su nombre de usuario.");
+        JTextFieldUserMail.setBorder(null);
+        JTextFieldUserMail.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                UserNameMousePressed(evt);
+                JTextFieldUserMailMousePressed(evt);
             }
         });
-        UserName.addActionListener(new java.awt.event.ActionListener() {
+        JTextFieldUserMail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserNameActionPerformed(evt);
+                JTextFieldUserMailActionPerformed(evt);
             }
         });
 
@@ -205,7 +215,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTextFieldUserMail, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
         jPanel2Layout.setVerticalGroup(
@@ -213,7 +223,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTextFieldUserMail, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
@@ -226,17 +236,17 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel4.setForeground(new java.awt.Color(6, 64, 115));
         jLabel4.setText("Teléfono:");
 
-        UserName1.setForeground(new java.awt.Color(204, 204, 204));
-        UserName1.setText("Ingrese su teléfono");
-        UserName1.setBorder(null);
-        UserName1.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTextFieldUserTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        JTextFieldUserTelefono.setText("Ingrese su teléfono.");
+        JTextFieldUserTelefono.setBorder(null);
+        JTextFieldUserTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                UserName1MousePressed(evt);
+                JTextFieldUserTelefonoMousePressed(evt);
             }
         });
-        UserName1.addActionListener(new java.awt.event.ActionListener() {
+        JTextFieldUserTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserName1ActionPerformed(evt);
+                JTextFieldUserTelefonoActionPerformed(evt);
             }
         });
 
@@ -248,7 +258,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(UserName1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTextFieldUserTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
         jPanel5Layout.setVerticalGroup(
@@ -257,7 +267,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UserName1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTextFieldUserTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -268,17 +278,17 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel7.setForeground(new java.awt.Color(6, 64, 115));
         jLabel7.setText("Nombre:");
 
-        UserName4.setForeground(new java.awt.Color(204, 204, 204));
-        UserName4.setText("Ingrese su nombre de dirección");
-        UserName4.setBorder(null);
-        UserName4.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTextFieldUserName.setForeground(new java.awt.Color(204, 204, 204));
+        JTextFieldUserName.setText("Ingrese su nombre.");
+        JTextFieldUserName.setBorder(null);
+        JTextFieldUserName.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                UserName4MousePressed(evt);
+                JTextFieldUserNameMousePressed(evt);
             }
         });
-        UserName4.addActionListener(new java.awt.event.ActionListener() {
+        JTextFieldUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserName4ActionPerformed(evt);
+                JTextFieldUserNameActionPerformed(evt);
             }
         });
 
@@ -290,7 +300,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(UserName4, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTextFieldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -299,7 +309,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UserName4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTextFieldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
 
@@ -309,12 +319,12 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel9.setForeground(new java.awt.Color(6, 64, 115));
         jLabel9.setText("Password:");
 
-        jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
-        jPasswordField1.setText("********");
-        jPasswordField1.setBorder(null);
-        jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPasswordField.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordField.setText("********");
+        jPasswordField.setBorder(null);
+        jPasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPasswordField1MousePressed(evt);
+                jPasswordFieldMousePressed(evt);
             }
         });
 
@@ -326,7 +336,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
@@ -335,7 +345,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
@@ -344,17 +354,17 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel3.setForeground(new java.awt.Color(6, 64, 115));
         jLabel3.setText("DNI:");
 
-        UserName2.setForeground(new java.awt.Color(204, 204, 204));
-        UserName2.setText("Ingrese su DNI / CIF");
-        UserName2.setBorder(null);
-        UserName2.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTextFieldUserDNI.setForeground(new java.awt.Color(204, 204, 204));
+        JTextFieldUserDNI.setText("Ingrese su DNI / CIF.");
+        JTextFieldUserDNI.setBorder(null);
+        JTextFieldUserDNI.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                UserName2MousePressed(evt);
+                JTextFieldUserDNIMousePressed(evt);
             }
         });
-        UserName2.addActionListener(new java.awt.event.ActionListener() {
+        JTextFieldUserDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserName2ActionPerformed(evt);
+                JTextFieldUserDNIActionPerformed(evt);
             }
         });
 
@@ -372,9 +382,9 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(UserName2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JTextFieldUserDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(jRadioButton1)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
@@ -384,7 +394,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UserName2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTextFieldUserDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButton1))
                 .addGap(40, 40, 40))
         );
@@ -395,17 +405,17 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel10.setForeground(new java.awt.Color(6, 64, 115));
         jLabel10.setText("Web:");
 
-        UserName6.setForeground(new java.awt.Color(204, 204, 204));
-        UserName6.setText("Ingrese su dirección web");
-        UserName6.setBorder(null);
-        UserName6.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTextFieldUserWeb.setForeground(new java.awt.Color(204, 204, 204));
+        JTextFieldUserWeb.setText("Ingrese su dirección web.");
+        JTextFieldUserWeb.setBorder(null);
+        JTextFieldUserWeb.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                UserName6MousePressed(evt);
+                JTextFieldUserWebMousePressed(evt);
             }
         });
-        UserName6.addActionListener(new java.awt.event.ActionListener() {
+        JTextFieldUserWeb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserName6ActionPerformed(evt);
+                JTextFieldUserWebActionPerformed(evt);
             }
         });
 
@@ -417,7 +427,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(UserName6, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTextFieldUserWeb, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
@@ -426,7 +436,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UserName6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(JTextFieldUserWeb, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
@@ -436,17 +446,17 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel12.setForeground(new java.awt.Color(6, 64, 115));
         jLabel12.setText("Dirección Calle:");
 
-        UserName8.setForeground(new java.awt.Color(204, 204, 204));
-        UserName8.setText("Ingrese su nombre de dirección");
-        UserName8.setBorder(null);
-        UserName8.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTextFieldUserDireccionCalle.setForeground(new java.awt.Color(204, 204, 204));
+        JTextFieldUserDireccionCalle.setText("Ingrese la calle de dirección.");
+        JTextFieldUserDireccionCalle.setBorder(null);
+        JTextFieldUserDireccionCalle.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                UserName8MousePressed(evt);
+                JTextFieldUserDireccionCalleMousePressed(evt);
             }
         });
-        UserName8.addActionListener(new java.awt.event.ActionListener() {
+        JTextFieldUserDireccionCalle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserName8ActionPerformed(evt);
+                JTextFieldUserDireccionCalleActionPerformed(evt);
             }
         });
 
@@ -458,7 +468,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(UserName8, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTextFieldUserDireccionCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         jPanel15Layout.setVerticalGroup(
@@ -467,7 +477,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UserName8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTextFieldUserDireccionCalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -478,27 +488,18 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel13.setForeground(new java.awt.Color(6, 64, 115));
         jLabel13.setText("Número");
 
-        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel19.setPreferredSize(new java.awt.Dimension(540, 47));
-
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
-        );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 49, Short.MAX_VALUE)
-        );
-
-        jFormattedTextField1.setBorder(null);
-        jFormattedTextField1.setForeground(new java.awt.Color(204, 204, 204));
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        jFormattedTextField1.setText("1");
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jFormattedDireccionNumero.setBorder(null);
+        jFormattedDireccionNumero.setForeground(new java.awt.Color(204, 204, 204));
+        jFormattedDireccionNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jFormattedDireccionNumero.setText("24");
+        jFormattedDireccionNumero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jFormattedDireccionNumeroMousePressed(evt);
+            }
+        });
+        jFormattedDireccionNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
+                jFormattedDireccionNumeroActionPerformed(evt);
             }
         });
 
@@ -510,13 +511,8 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel16Layout.createSequentialGroup()
-                    .addGap(116, 116, 116)
-                    .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(117, Short.MAX_VALUE)))
+                .addComponent(jFormattedDireccionNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -524,13 +520,8 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedDireccionNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel16Layout.createSequentialGroup()
-                    .addGap(2, 2, 2)
-                    .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
@@ -540,10 +531,15 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel14.setForeground(new java.awt.Color(6, 64, 115));
         jLabel14.setText("CP");
 
-        jFormattedTextField2.setBorder(null);
-        jFormattedTextField2.setForeground(new java.awt.Color(204, 204, 204));
-        jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        jFormattedTextField2.setText("12345");
+        jFormattedTextDireccionCP.setBorder(null);
+        jFormattedTextDireccionCP.setForeground(new java.awt.Color(204, 204, 204));
+        jFormattedTextDireccionCP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jFormattedTextDireccionCP.setText("12345");
+        jFormattedTextDireccionCP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jFormattedTextDireccionCPMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -553,7 +549,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFormattedTextDireccionCP, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
@@ -562,7 +558,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextDireccionCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -573,17 +569,17 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel15.setForeground(new java.awt.Color(6, 64, 115));
         jLabel15.setText("Ciudad");
 
-        UserName11.setForeground(new java.awt.Color(204, 204, 204));
-        UserName11.setText("Ingrese su nombre de dirección");
-        UserName11.setBorder(null);
-        UserName11.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTextFieldUserDireccionCiudad.setForeground(new java.awt.Color(204, 204, 204));
+        JTextFieldUserDireccionCiudad.setText("Ingrese el nombre de su ciudad.");
+        JTextFieldUserDireccionCiudad.setBorder(null);
+        JTextFieldUserDireccionCiudad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                UserName11MousePressed(evt);
+                JTextFieldUserDireccionCiudadMousePressed(evt);
             }
         });
-        UserName11.addActionListener(new java.awt.event.ActionListener() {
+        JTextFieldUserDireccionCiudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserName11ActionPerformed(evt);
+                JTextFieldUserDireccionCiudadActionPerformed(evt);
             }
         });
 
@@ -595,7 +591,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(UserName11, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTextFieldUserDireccionCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         jPanel18Layout.setVerticalGroup(
@@ -604,7 +600,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UserName11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTextFieldUserDireccionCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -648,10 +644,15 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel6.setForeground(new java.awt.Color(6, 64, 115));
         jLabel6.setText("Nº TarjetaCredito:");
 
-        jFormattedTextField3.setBorder(null);
-        jFormattedTextField3.setForeground(new java.awt.Color(204, 204, 204));
-        jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        jFormattedTextField3.setText("1234123412341234");
+        jFormattedTCNumero.setBorder(null);
+        jFormattedTCNumero.setForeground(new java.awt.Color(204, 204, 204));
+        jFormattedTCNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jFormattedTCNumero.setText("1234123412341234");
+        jFormattedTCNumero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jFormattedTCNumeroMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -661,8 +662,8 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addComponent(jFormattedTCNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -670,7 +671,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTCNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4))
         );
 
@@ -681,19 +682,10 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel17.setForeground(new java.awt.Color(6, 64, 115));
         jLabel17.setText("Fecha Caducidad:");
 
-        UserName13.setForeground(new java.awt.Color(204, 204, 204));
-        UserName13.setText("Fecha de caducidad de la tarjeta de crédito");
-        UserName13.setBorder(null);
-        UserName13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                UserName13MousePressed(evt);
-            }
-        });
-        UserName13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserName13ActionPerformed(evt);
-            }
-        });
+        jFormattedTextTCFechaCaducidad.setBorder(null);
+        jFormattedTextTCFechaCaducidad.setForeground(new java.awt.Color(204, 204, 204));
+        jFormattedTextTCFechaCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        jFormattedTextTCFechaCaducidad.setText("30/4/22");
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -702,9 +694,9 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(UserName13, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextTCFechaCaducidad, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -712,7 +704,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UserName13, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextTCFechaCaducidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -723,17 +715,17 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel8.setForeground(new java.awt.Color(6, 64, 115));
         jLabel8.setText("Titular Tarjeta Credito:");
 
-        UserName5.setForeground(new java.awt.Color(204, 204, 204));
-        UserName5.setText("Ingrese el nombre que aparece en su tarjeta");
-        UserName5.setBorder(null);
-        UserName5.addMouseListener(new java.awt.event.MouseAdapter() {
+        jFormattedTCTitular.setForeground(new java.awt.Color(204, 204, 204));
+        jFormattedTCTitular.setText("Ingrese el nombre que aparece en su tarjeta.");
+        jFormattedTCTitular.setBorder(null);
+        jFormattedTCTitular.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                UserName5MousePressed(evt);
+                jFormattedTCTitularMousePressed(evt);
             }
         });
-        UserName5.addActionListener(new java.awt.event.ActionListener() {
+        jFormattedTCTitular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserName5ActionPerformed(evt);
+                jFormattedTCTitularActionPerformed(evt);
             }
         });
 
@@ -745,7 +737,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap()
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(UserName5, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFormattedTCTitular, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel21Layout.setVerticalGroup(
@@ -754,7 +746,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UserName5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTCTitular, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4))
         );
 
@@ -806,7 +798,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(148, 148, 148)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonRegistarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -834,13 +826,13 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(jButtonRegistarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 1180, 500));
@@ -964,74 +956,121 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
 
     // TODO ADAPTAR A ESTA PÄGINA
-    private void UserNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserNameMousePressed
+    private void JTextFieldUserMailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserMailMousePressed
         // TODO add your handling code here:
-        if(UserName.getText().equals("Ingrese su nombre de usuario")){
-            UserName.setText("");
-            UserName.setForeground(Color.black);
+        if(JTextFieldUserMail.getText().equals("Ingrese su nombre de usuario.")){
+            JTextFieldUserMail.setText("");
+            JTextFieldUserMail.setForeground(Color.black);
         }
-        if(String.valueOf(jPasswordField1.getPassword()).isEmpty()){
-            jPasswordField1.setText("********");
-            jPasswordField1.setForeground(Color.gray);
+    }//GEN-LAST:event_JTextFieldUserMailMousePressed
 
-        }
-    }//GEN-LAST:event_UserNameMousePressed
-
-    private void UserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameActionPerformed
+    private void JTextFieldUserMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserMailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserNameActionPerformed
+    }//GEN-LAST:event_JTextFieldUserMailActionPerformed
 
-    private void jPasswordField1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MousePressed
+    private void jPasswordFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldMousePressed
         // TODO add your handling code here:
-        if(String.valueOf(jPasswordField1.getPassword()).equals("********")){
-            jPasswordField1.setText("");
-            jPasswordField1.setForeground(Color.black);
+        if(String.valueOf(jPasswordField.getPassword()).equals("********")){
+            jPasswordField.setText("");
+            jPasswordField.setForeground(Color.black);
 
         }
-        if(UserName.getText().isEmpty()){
-            UserName.setText("Ingrese su nombre de usuario");
-            UserName.setForeground(Color.gray);
+        if(JTextFieldUserMail.getText().isEmpty()){
+            JTextFieldUserMail.setText("Ingrese su nombre de usuario");
+            JTextFieldUserMail.setForeground(Color.gray);
         }
 
-    }//GEN-LAST:event_jPasswordField1MousePressed
+    }//GEN-LAST:event_jPasswordFieldMousePressed
 
     //TODO TIENEN SENTIDO LO SIGUIENTE MËTODOS
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonRegistarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarUsuarioActionPerformed
+        // TODO add your handling code here: UserMail
+    
+//        System.out.println(jFormattedTextTCFechaCaducidad.getValue());
+        String fecha1txt = (String) jFormattedTextTCFechaCaducidad.getText();
+        System.out.println(fecha1txt);
+        String[] partes = fecha1txt.split("/");     
+        int d1 = Integer.parseInt(partes[0]);
+        int m1 = Integer.parseInt(partes[1]);
+        int a1 = Integer.parseInt(partes[2]);
+        LocalDate fecha = LocalDate.of(Integer.parseInt(partes[2]), Integer.parseInt(partes[1]), Integer.parseInt(partes[0])); 
+        
+        if(! jRadioButton1.isSelected()) {
+            if (usuariosMock.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                System.out.println("INFO: El usuario se ha creado con exito");
+                this.dispose();
+                secundariaLogin.setVisible(true);  
+            }
+            else{
+                System.out.println("ERROR: El usuario no ha podido ser creado");
 
-    private void UserName1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserName1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserName1MousePressed
+            }
+        }
+        
+        else {
+            if (usuariosMock.addUser(JTextFieldUserDNI.getText(),JTextFieldUserWeb.getText(),JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                System.out.println("INFO: El usuario se ha creado con exito");
+                this.dispose();
+                secundariaLogin.setVisible(true);  
+            }
+            else{
+                System.out.println("ERROR: El usuario no ha podido ser creado");
 
-    private void UserName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserName1ActionPerformed
+            }
+        }
+        
+           
+        
+    }//GEN-LAST:event_jButtonRegistarUsuarioActionPerformed
 
-    private void UserName4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserName4MousePressed
+    private void JTextFieldUserTelefonoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserTelefonoMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserName4MousePressed
+        if(JTextFieldUserTelefono.getText().equals("Ingrese su teléfono.")){
+            JTextFieldUserTelefono.setText("");
+            JTextFieldUserTelefono.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_JTextFieldUserTelefonoMousePressed
 
-    private void UserName4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserName4ActionPerformed
+    private void JTextFieldUserTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserTelefonoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserName4ActionPerformed
+    }//GEN-LAST:event_JTextFieldUserTelefonoActionPerformed
 
-    private void UserName2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserName2MousePressed
+    private void JTextFieldUserNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserNameMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserName2MousePressed
+        if(JTextFieldUserName.getText().equals("Ingrese su nombre.")){
+            JTextFieldUserName.setText("");
+            JTextFieldUserName.setForeground(Color.black);
+        }
+         
+    }//GEN-LAST:event_JTextFieldUserNameMousePressed
 
-    private void UserName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserName2ActionPerformed
+    private void JTextFieldUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserName2ActionPerformed
+    }//GEN-LAST:event_JTextFieldUserNameActionPerformed
 
-    private void UserName6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserName6MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserName6MousePressed
+    private void JTextFieldUserDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserDNIMousePressed
+        if(JTextFieldUserDNI.getText().equals("Ingrese su DNI / CIF.")){
+            JTextFieldUserDNI.setText("");
+            JTextFieldUserDNI.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_JTextFieldUserDNIMousePressed
 
-    private void UserName6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserName6ActionPerformed
+    private void JTextFieldUserDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserDNIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserName6ActionPerformed
+    }//GEN-LAST:event_JTextFieldUserDNIActionPerformed
+
+    private void JTextFieldUserWebMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserWebMousePressed
+        // TODO add your handling code here:
+        if(JTextFieldUserWeb.getText().equals("Ingrese su dirección web.")){
+            JTextFieldUserWeb.setText("");
+            JTextFieldUserWeb.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_JTextFieldUserWebMousePressed
+
+    private void JTextFieldUserWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserWebActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextFieldUserWebActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
@@ -1049,65 +1088,120 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-    private void UserName8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserName8MousePressed
+    private void JTextFieldUserDireccionCalleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCalleMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserName8MousePressed
+        if(JTextFieldUserDireccionCalle.getText().equals("Ingrese la calle de dirección.")){
+            JTextFieldUserDireccionCalle.setText("");
+            JTextFieldUserDireccionCalle.setForeground(Color.black);
+        }
+        
+    }//GEN-LAST:event_JTextFieldUserDireccionCalleMousePressed
 
-    private void UserName8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserName8ActionPerformed
+    private void JTextFieldUserDireccionCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCalleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserName8ActionPerformed
+    }//GEN-LAST:event_JTextFieldUserDireccionCalleActionPerformed
 
-    private void UserName11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserName11MousePressed
+    private void JTextFieldUserDireccionCiudadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCiudadMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserName11MousePressed
+        if(JTextFieldUserDireccionCiudad.getText().equals("Ingrese el nombre de su ciudad.")){
+            JTextFieldUserDireccionCiudad.setText("");
+            JTextFieldUserDireccionCiudad.setForeground(Color.black);
+        }
+        
+        
+    }//GEN-LAST:event_JTextFieldUserDireccionCiudadMousePressed
 
-    private void UserName11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserName11ActionPerformed
+    private void JTextFieldUserDireccionCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCiudadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserName11ActionPerformed
+    }//GEN-LAST:event_JTextFieldUserDireccionCiudadActionPerformed
 
-    private void UserName13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserName13MousePressed
+    private void jFormattedTCTitularMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTCTitularMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserName13MousePressed
+        //jFormattedTCTitular
+        if(jFormattedTCTitular.getText().equals("Ingrese el nombre que aparece en su tarjeta.")){
+            jFormattedTCTitular.setText("");
+            jFormattedTCTitular.setForeground(Color.black);
+        }
+        
+    }//GEN-LAST:event_jFormattedTCTitularMousePressed
 
-    private void UserName13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserName13ActionPerformed
+    private void jFormattedTCTitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTCTitularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserName13ActionPerformed
+    }//GEN-LAST:event_jFormattedTCTitularActionPerformed
 
-    private void UserName5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserName5MousePressed
+    private void jFormattedDireccionNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedDireccionNumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserName5MousePressed
+    }//GEN-LAST:event_jFormattedDireccionNumeroActionPerformed
 
-    private void UserName5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserName5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserName5ActionPerformed
+    private void jFormattedDireccionNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedDireccionNumeroMousePressed
+        try {
+            // TODO add your handling code here:
+            jFormattedDireccionNumero.commitEdit();
+        } catch (ParseException ex) {
+            Logger.getLogger(WindowsCreateUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //((Number) jFormattedDireccionNumero.getValue()).intValue();
+        if(  (((Number) jFormattedDireccionNumero.getValue()).intValue()) == 24    ) {
+            jFormattedDireccionNumero.setValue(0);
+            jFormattedDireccionNumero.setForeground(Color.black);
+        }
+        
+        
+    }//GEN-LAST:event_jFormattedDireccionNumeroMousePressed
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+    private void jFormattedTextDireccionCPMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextDireccionCPMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+         try {
+            // TODO add your handling code here:
+            jFormattedTextDireccionCP.commitEdit();
+        } catch (ParseException ex) {
+            Logger.getLogger(WindowsCreateUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //((Number) jFormattedDireccionNumero.getValue()).intValue();
+        if(  (((Number) jFormattedTextDireccionCP.getValue()).intValue()) == 12345    ) {
+            jFormattedTextDireccionCP.setValue(0);
+            jFormattedTextDireccionCP.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_jFormattedTextDireccionCPMousePressed
+
+    private void jFormattedTCNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTCNumeroMousePressed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            jFormattedTCNumero.commitEdit();
+        } catch (ParseException ex) {
+            Logger.getLogger(WindowsCreateUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //((Number) jFormattedDireccionNumero.getValue()).intValue();
+        if(  (((Number) jFormattedTCNumero.getValue()).longValue()) == 1234123412341234L    ) {
+            jFormattedTCNumero.setValue(0);
+            jFormattedTCNumero.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_jFormattedTCNumeroMousePressed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField UserName;
-    private javax.swing.JTextField UserName1;
-    private javax.swing.JTextField UserName11;
-    private javax.swing.JTextField UserName13;
-    private javax.swing.JTextField UserName2;
-    private javax.swing.JTextField UserName4;
-    private javax.swing.JTextField UserName5;
-    private javax.swing.JTextField UserName6;
-    private javax.swing.JTextField UserName8;
+    private javax.swing.JTextField JTextFieldUserDNI;
+    private javax.swing.JTextField JTextFieldUserDireccionCalle;
+    private javax.swing.JTextField JTextFieldUserDireccionCiudad;
+    private javax.swing.JTextField JTextFieldUserMail;
+    private javax.swing.JTextField JTextFieldUserName;
+    private javax.swing.JTextField JTextFieldUserTelefono;
+    private javax.swing.JTextField JTextFieldUserWeb;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonHomeIconsGround5;
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
     private javax.swing.JButton jButtonHomeIconsGround8;
     private javax.swing.JButton jButtonHomeIconsGround9;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
+    private javax.swing.JButton jButtonRegistarUsuario;
+    private javax.swing.JFormattedTextField jFormattedDireccionNumero;
+    private javax.swing.JFormattedTextField jFormattedTCNumero;
+    private javax.swing.JTextField jFormattedTCTitular;
+    private javax.swing.JFormattedTextField jFormattedTextDireccionCP;
+    private javax.swing.JFormattedTextField jFormattedTextTCFechaCaducidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -1135,7 +1229,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
@@ -1146,11 +1239,12 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
