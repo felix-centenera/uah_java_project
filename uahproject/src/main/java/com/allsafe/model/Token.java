@@ -5,19 +5,17 @@
 package com.allsafe.model;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Random;
 
 /**
  *
- * @author Rauld
+ * @author felixcentenera
  */
 public class Token {
     
     private String token;
     private LocalDateTime fechaExpiracion;//atributo que mira cuando caduca nuestro token
 
-    public Token(String token, LocalDateTime fechaExp) {
+    public Token(String token, LocalDateTime fechaExpiracion ) {
         this.token = token;
         this.fechaExpiracion = fechaExpiracion;
     }
@@ -37,7 +35,6 @@ public class Token {
     public void setFechaExpiracion(LocalDateTime fechaExpiracion) {
         this.fechaExpiracion = fechaExpiracion;
     }
-
     
-    
+   
 }

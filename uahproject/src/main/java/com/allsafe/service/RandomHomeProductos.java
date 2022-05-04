@@ -4,7 +4,7 @@
  */
 package com.allsafe.service;
 
-import com.allsafe.model.Inventario;
+import com.allsafe.mock.Inventario;
 import com.allsafe.model.Producto;
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,21 +15,10 @@ import java.util.Random;
  */
 public class RandomHomeProductos {
     
-    //private Inventario i;
     private RandomHomeProductos() {
     }
     
-//    public static ArrayList<Producto> seleccionarImagenes(Inventario i){
-//        ArrayList<Producto> RandomProductsHome;
-//        RandomProductsHome = new ArrayList<>();
-//        
-//        int lenghtInventario=i.getInventario().size();
-//        Random rand = new Random();
-//        for (int b=0; b <= 8; b++ ) {
-//            RandomProductsHome.add(i.getInventario(rand.nextInt(b, lenghtInventario)));
-//        }
-//        return RandomProductsHome;
-//    } 
+
     
      public static ArrayList<Producto> seleccionarProductos(Inventario i){
         ArrayList<Producto> RandomProductsHome;
@@ -39,12 +28,9 @@ public class RandomHomeProductos {
         
         Random rand = new Random();
         for (int b=0; b <= 8; b++ ) {
-            //System.out.println("hola" + b + rand.nextInt(0, lenghtInventario));
             RandomProductsHome.add(i.getInventario(rand.nextInt(0, lenghtInventario)));
-            //System.out.println(i.getInventario(rand.nextInt(0, lenghtInventario)));
             
         }
-        //System.out.println(RandomProductsHome);
         return RandomProductsHome;
         
     }

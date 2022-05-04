@@ -5,7 +5,15 @@
 package com.allsafe.ui;
 //import javax.swing.JFrame;
 
+import com.allsafe.mock.Inventario;
+import com.allsafe.model.Producto;
+import com.allsafe.service.InventarioService;
 import java.awt.Color;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 
 
 
@@ -13,6 +21,11 @@ import java.awt.Color;
  *
  * @author felixcentenera
  */
+/**
+ * **************************************************************************************************************************************
+ */
+
+       
 public class UserManagament extends javax.swing.JFrame {
 
     /**
@@ -39,16 +52,16 @@ public class UserManagament extends javax.swing.JFrame {
         JPanelImgBuscar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        JTxtTitulo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        JTextCategoria = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        JtextEstrellas = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        JTextStock = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        JTextFecha = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
@@ -69,14 +82,14 @@ public class UserManagament extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
+        TxtTitulo = new javax.swing.JTextField();
+        JTextCaracteristicas = new javax.swing.JTextField();
+        JtextCategoria = new javax.swing.JTextField();
+        JTextPrecio = new javax.swing.JTextField();
+        JTextLinkImg = new javax.swing.JTextField();
+        JTxtStock = new javax.swing.JTextField();
+        JTxtDate = new javax.swing.JTextField();
+        JTxtStars = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator12 = new javax.swing.JSeparator();
         jSeparator13 = new javax.swing.JSeparator();
@@ -118,56 +131,91 @@ public class UserManagament extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel2.setText("Titulo:");
 
-        jTextField2.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField2.setText("Escribe el nombre que deseas buscar");
-        jTextField2.setBorder(null);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        JTxtTitulo.setForeground(new java.awt.Color(204, 204, 204));
+        JTxtTitulo.setText("Escribe el nombre que deseas buscar");
+        JTxtTitulo.setBorder(null);
+        JTxtTitulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTxtTituloMousePressed(evt);
+            }
+        });
+        JTxtTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                JTxtTituloActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel3.setText("Categoria:");
 
-        jTextField3.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField3.setText("Indique la categoria al que pertenece");
-        jTextField3.setBorder(null);
+        JTextCategoria.setForeground(new java.awt.Color(204, 204, 204));
+        JTextCategoria.setText("Indique la categoria al que pertenece");
+        JTextCategoria.setBorder(null);
+        JTextCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTextCategoriaMousePressed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel4.setText("Estrellas:");
 
-        jTextField4.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField4.setText("Indique las Estrellas");
-        jTextField4.setBorder(null);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        JtextEstrellas.setForeground(new java.awt.Color(204, 204, 204));
+        JtextEstrellas.setText("Indique las Estrellas");
+        JtextEstrellas.setBorder(null);
+        JtextEstrellas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JtextEstrellasMouseClicked(evt);
+            }
+        });
+        JtextEstrellas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                JtextEstrellasActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel7.setText("Stock:");
 
-        jTextField5.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField5.setText("Indique el stock del producto");
-        jTextField5.setBorder(null);
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        JTextStock.setForeground(new java.awt.Color(204, 204, 204));
+        JTextStock.setText("Indique el stock del producto");
+        JTextStock.setBorder(null);
+        JTextStock.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTextStockMousePressed(evt);
+            }
+        });
+        JTextStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                JTextStockActionPerformed(evt);
             }
         });
 
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel8.setText("Fecha:");
 
-        jTextField6.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField6.setText("Indique la fecha");
-        jTextField6.setBorder(null);
+        JTextFecha.setForeground(new java.awt.Color(204, 204, 204));
+        JTextFecha.setText("Indique la fecha");
+        JTextFecha.setBorder(null);
+        JTextFecha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTextFechaMousePressed(evt);
+            }
+        });
 
         JLabelBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JLabelBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JLabelBuscarMousePressed(evt);
+            }
+        });
 
         jLabelImgCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelImgCrear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabelImgCrearMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelImgBuscarLayout = new javax.swing.GroupLayout(JPanelImgBuscar);
         JPanelImgBuscar.setLayout(JPanelImgBuscarLayout);
@@ -181,30 +229,30 @@ public class UserManagament extends javax.swing.JFrame {
                             .addGroup(JPanelImgBuscarLayout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2))
+                                .addComponent(JTxtTitulo))
                             .addComponent(jSeparator11)
                             .addComponent(jSeparator6)
                             .addGroup(JPanelImgBuscarLayout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JtextEstrellas, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(JPanelImgBuscarLayout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator7)
                             .addComponent(jSeparator10)
                             .addGroup(JPanelImgBuscarLayout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator9)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelImgBuscarLayout.createSequentialGroup()
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(JTextFecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(JPanelImgBuscarLayout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -231,33 +279,33 @@ public class UserManagament extends javax.swing.JFrame {
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTxtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JtextEstrellas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTextFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -300,42 +348,87 @@ public class UserManagament extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel18.setText("Estrellas:");
 
-        jTextField7.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField7.setText("Insterte titulo.");
-        jTextField7.setBorder(null);
-
-        jTextField8.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField8.setText("Inserte Caracteristicas.");
-        jTextField8.setBorder(null);
-
-        jTextField9.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField9.setText("Inserte categoria");
-        jTextField9.setBorder(null);
-
-        jTextField10.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField10.setText("Inserte precio.");
-        jTextField10.setBorder(null);
-
-        jTextField11.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField11.setText("Inserte Link");
-        jTextField11.setBorder(null);
-
-        jTextField12.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField12.setText("Inserte Stock.");
-        jTextField12.setBorder(null);
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        TxtTitulo.setForeground(new java.awt.Color(204, 204, 204));
+        TxtTitulo.setText("Inserte titulo.");
+        TxtTitulo.setBorder(null);
+        TxtTitulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TxtTituloMousePressed(evt);
+            }
+        });
+        TxtTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                TxtTituloActionPerformed(evt);
             }
         });
 
-        jTextField13.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField13.setText("Inserte fecha de entrada.");
-        jTextField13.setBorder(null);
+        JTextCaracteristicas.setForeground(new java.awt.Color(204, 204, 204));
+        JTextCaracteristicas.setText("Inserte Caracteristicas.");
+        JTextCaracteristicas.setBorder(null);
+        JTextCaracteristicas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTextCaracteristicasMousePressed(evt);
+            }
+        });
 
-        jTextField14.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField14.setText("Inserte estrellas.");
-        jTextField14.setBorder(null);
+        JtextCategoria.setForeground(new java.awt.Color(204, 204, 204));
+        JtextCategoria.setText("Inserte categoria");
+        JtextCategoria.setBorder(null);
+        JtextCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JtextCategoriaMousePressed(evt);
+            }
+        });
+
+        JTextPrecio.setForeground(new java.awt.Color(204, 204, 204));
+        JTextPrecio.setText("Inserte precio.");
+        JTextPrecio.setBorder(null);
+        JTextPrecio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTextPrecioMousePressed(evt);
+            }
+        });
+
+        JTextLinkImg.setForeground(new java.awt.Color(204, 204, 204));
+        JTextLinkImg.setText("Inserte Link");
+        JTextLinkImg.setBorder(null);
+        JTextLinkImg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTextLinkImgMousePressed(evt);
+            }
+        });
+
+        JTxtStock.setForeground(new java.awt.Color(204, 204, 204));
+        JTxtStock.setText("Inserte Stock.");
+        JTxtStock.setBorder(null);
+        JTxtStock.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTxtStockMousePressed(evt);
+            }
+        });
+        JTxtStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTxtStockActionPerformed(evt);
+            }
+        });
+
+        JTxtDate.setForeground(new java.awt.Color(204, 204, 204));
+        JTxtDate.setText("Inserte fecha de entrada.");
+        JTxtDate.setBorder(null);
+        JTxtDate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTxtDateMousePressed(evt);
+            }
+        });
+
+        JTxtStars.setForeground(new java.awt.Color(204, 204, 204));
+        JTxtStars.setText("Inserte estrellas.");
+        JTxtStars.setBorder(null);
+        JTxtStars.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTxtStarsMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -350,7 +443,7 @@ public class UserManagament extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JTextCaracteristicas, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -362,18 +455,18 @@ public class UserManagament extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JtextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jTextField7)
-                                                .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
-                                            .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(TxtTitulo)
+                                                .addComponent(JTxtDate, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
+                                            .addComponent(JTextPrecio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(JTextLinkImg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(JTxtStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -385,7 +478,7 @@ public class UserManagament extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JTxtStars, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
@@ -399,48 +492,48 @@ public class UserManagament extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTextCaracteristicas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addGap(4, 4, 4)
                 .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JtextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(4, 4, 4)
                 .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTextPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addGap(4, 4, 4)
                 .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTextLinkImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addGap(3, 3, 3)
                 .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTxtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
                 .addGap(4, 4, 4)
                 .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTxtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addGap(1, 1, 1)
                 .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTxtStars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -538,6 +631,21 @@ public class UserManagament extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    Inventario inv = Inventario.getInstance();
+    HashMap<String, Producto> inventario = new HashMap<>();
+
+    Producto p1 = new Producto("MacBookAirM1", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+    Producto p2 = new Producto("MacBookProM1323", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
+    Producto p3 = new Producto("Dell XPS", "Dell", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
+    Producto p4 = new Producto("MacBookAirM1323", "Apple323", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+    Producto p5 = new Producto("MacBookProM123fewf", "Apple23", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
+    Producto p6 = new Producto("Dell XPS323d", "Dell", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1); 
+    Producto p7 = new Producto("MacBookAirM1rtersgh", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+    Producto p8 = new Producto("MacBookProM1sregse", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
+    Producto p9 = new Producto("Dell XPSsrseg", "Dellsrg", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
+    
+    
+    
 
     private void createHomePage() {
         try {
@@ -554,6 +662,21 @@ public class UserManagament extends javax.swing.JFrame {
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
             jLabelImgCrear.setIcon(new javax.swing.ImageIcon("Icons/png/Annadir.png"));
             JLabelBuscar.setIcon(new javax.swing.ImageIcon("Icons/png/Buscar.png"));
+            
+            
+            inventario.put(p1.getTitulo(), p1);
+            inventario.put(p2.getTitulo(), p2);
+            inventario.put(p3.getTitulo(), p3);
+            inventario.put(p4.getTitulo(), p4);
+            inventario.put(p5.getTitulo(), p5);
+            inventario.put(p6.getTitulo(), p6);
+            inventario.put(p7.getTitulo(), p7);
+            inventario.put(p8.getTitulo(), p8);
+            inventario.put(p9.getTitulo(), p9);
+
+            inv.setInventario(inventario);
+
+        
         } catch (Exception e) {
             System.out.println("Error: " + e.toString());
         }
@@ -569,21 +692,656 @@ public class UserManagament extends javax.swing.JFrame {
         System.out.println("Estas entrando en el carrito");
     }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void JTxtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTxtTituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_JTxtTituloActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void JtextEstrellasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtextEstrellasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_JtextEstrellasActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void JTextStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextStockActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_JTextStockActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void JTxtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTxtStockActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_JTxtStockActionPerformed
+    /**
+     *    private javax.swing.JLabel JLabelBuscar;
+    private javax.swing.JPanel ;
+   
+    
+    p
+    p
+    p
+    private javax.swing.JTextField JTxtStock;
+    
+    private javax.swing.JTextField TxtTitulo;
+     */
+    private void TxtTituloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtTituloMousePressed
+        // TODO add your handling code here:if(UserName.getText().equals("Ingrese su nombre de usuario")){
+        if (TxtTitulo.getText().equals("Inserte titulo.")) {
+            TxtTitulo.setText("");
+            TxtTitulo.setForeground(Color.black);
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("Inserte Caracteristicas.");
+            JTextCaracteristicas.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JtextCategoria.getText()).isEmpty()) {
+            JtextCategoria.setText("Inserte categoria");
+            JtextCategoria.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextPrecio.getText()).isEmpty()) {
+            JTextPrecio.setText("Inserte precio.");
+            JTextPrecio.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("Inserte Link");
+            JTextCaracteristicas.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
+            JTxtStock.setText("Inserte Stock.");
+            JTxtStock.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+            JTxtDate.setText("Inserte fecha de entrada.");
+            JTxtDate.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStars.getText()).isEmpty()) {
+            JTxtStars.setText("Inserte estrellas.");
+            JTxtStars.setForeground(Color.gray);
+
+        }
+        
+    }//GEN-LAST:event_TxtTituloMousePressed
+
+    private void JTextCaracteristicasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextCaracteristicasMousePressed
+        // TODO add your handling code here:
+         if (JTextCaracteristicas.getText().equals("Inserte Caracteristicas.")) {
+            JTextCaracteristicas.setText("");
+            JTextCaracteristicas.setForeground(Color.black);
+        }
+        if (String.valueOf(TxtTitulo.getText()).isEmpty()) {
+            TxtTitulo.setText("Inserte titulo.");
+            TxtTitulo.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JtextCategoria.getText()).isEmpty()) {
+            JtextCategoria.setText("Inserte categoria");
+            JtextCategoria.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextPrecio.getText()).isEmpty()) {
+            JTextPrecio.setText("Inserte precio.");
+            JTextPrecio.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextLinkImg.getText()).isEmpty()) {
+            JTextLinkImg.setText("Inserte Link");
+            JTextLinkImg.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
+            JTxtStock.setText("Inserte Stock.");
+            JTxtStock.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+            JTxtDate.setText("Inserte fecha de entrada.");
+            JTxtDate.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStars.getText()).isEmpty()) {
+            JTxtStars.setText("Inserte estrellas.");
+            JTxtStars.setForeground(Color.gray);
+
+        }
+    }//GEN-LAST:event_JTextCaracteristicasMousePressed
+
+    private void JtextCategoriaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtextCategoriaMousePressed
+        // TODO add your handling code here:
+        if (JtextCategoria.getText().equals("Inserte categoria")) {
+            JtextCategoria.setText("");
+            JtextCategoria.setForeground(Color.black);
+        }
+        if (String.valueOf(TxtTitulo.getText()).isEmpty()) {
+            TxtTitulo.setText("Inserte titulo.");
+            TxtTitulo.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("Inserte Caracteristicas.");
+            JTextCaracteristicas.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextPrecio.getText()).isEmpty()) {
+            JTextPrecio.setText("Inserte precio.");
+            JTextPrecio.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextLinkImg.getText()).isEmpty()) {
+            JTextLinkImg.setText("Inserte Link");
+            JTextLinkImg.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
+            JTxtStock.setText("Inserte Stock.");
+            JTxtStock.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+            JTxtDate.setText("Inserte fecha de entrada.");
+            JTxtDate.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStars.getText()).isEmpty()) {
+            JTxtStars.setText("Inserte estrellas.");
+            JTxtStars.setForeground(Color.gray);
+
+        }
+        
+    }//GEN-LAST:event_JtextCategoriaMousePressed
+
+    private void JTextPrecioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextPrecioMousePressed
+        // TODO add your handling code here:
+        if (JTextPrecio.getText().equals("Inserte precio.")) {
+            JTextPrecio.setText("");
+            JTextPrecio.setForeground(Color.black);
+        }
+        if (String.valueOf(TxtTitulo.getText()).isEmpty()) {
+            TxtTitulo.setText("Inserte titulo.");
+            TxtTitulo.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("Inserte Caracteristicas.");
+            JTextCaracteristicas.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JtextCategoria.getText()).isEmpty()) {
+            JtextCategoria.setText("Inserte categoria");
+            JtextCategoria.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextLinkImg.getText()).isEmpty()) {
+            JTextLinkImg.setText("Inserte Link");
+            JTextLinkImg.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
+            JTxtStock.setText("Inserte Stock.");
+            JTxtStock.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+            JTxtDate.setText("Inserte fecha de entrada.");
+            JTxtDate.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStars.getText()).isEmpty()) {
+            JTxtStars.setText("Inserte estrellas.");
+            JTxtStars.setForeground(Color.gray);
+
+        }
+    }//GEN-LAST:event_JTextPrecioMousePressed
+
+    private void JTextLinkImgMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextLinkImgMousePressed
+        // TODO add your handling code here:
+        if (JTextLinkImg.getText().equals("Inserte Link")) {
+            JTextLinkImg.setText("");
+            JTextLinkImg.setForeground(Color.black);
+        }
+        if (String.valueOf(TxtTitulo.getText()).isEmpty()) {
+            TxtTitulo.setText("Inserte titulo.");
+            TxtTitulo.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("Inserte Caracteristicas.");
+            JTextCaracteristicas.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JtextCategoria.getText()).isEmpty()) {
+            JtextCategoria.setText("Inserte categoria");
+            JtextCategoria.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextPrecio.getText()).isEmpty()) {
+            JTextPrecio.setText("Inserte precio.");
+            JTextPrecio.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
+            JTxtStock.setText("Inserte Stock.");
+            JTxtStock.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+            JTxtDate.setText("Inserte fecha de entrada.");
+            JTxtDate.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStars.getText()).isEmpty()) {
+            JTxtStars.setText("Inserte estrellas.");
+            JTxtStars.setForeground(Color.gray);
+
+        }
+        
+    }//GEN-LAST:event_JTextLinkImgMousePressed
+
+    private void JTxtStockMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTxtStockMousePressed
+        // TODO add your handling code here:
+     
+        if (JTxtStock.getText().equals("Inserte Stock.")) {
+            JTxtStock.setText("");
+            JTxtStock.setForeground(Color.black);
+        }
+        if (String.valueOf(TxtTitulo.getText()).isEmpty()) {
+            TxtTitulo.setText("Inserte titulo.");
+            TxtTitulo.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("Inserte Caracteristicas.");
+            JTextCaracteristicas.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JtextCategoria.getText()).isEmpty()) {
+            JtextCategoria.setText("Inserte categoria");
+            JtextCategoria.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextPrecio.getText()).isEmpty()) {
+            JTextPrecio.setText("Inserte precio.");
+            JTextPrecio.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextLinkImg.getText()).isEmpty()) {
+            JTextLinkImg.setText("Inserte Link");
+            JTextLinkImg.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+            JTxtDate.setText("Inserte fecha de entrada.");
+            JTxtDate.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStars.getText()).isEmpty()) {
+            JTxtStars.setText("Inserte estrellas.");
+            JTxtStars.setForeground(Color.gray);
+
+        }
+    }//GEN-LAST:event_JTxtStockMousePressed
+
+    private void JTxtDateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTxtDateMousePressed
+        // TODO add your handling code here:
+        if (JTxtDate.getText().equals("Inserte fecha de entrada.")) {
+            JTxtDate.setText("");
+            JTxtDate.setForeground(Color.black);
+        }
+        if (String.valueOf(TxtTitulo.getText()).isEmpty()) {
+            TxtTitulo.setText("Inserte titulo.");
+            TxtTitulo.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("Inserte Caracteristicas.");
+            JTextCaracteristicas.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JtextCategoria.getText()).isEmpty()) {
+            JtextCategoria.setText("Inserte categoria");
+            JtextCategoria.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextPrecio.getText()).isEmpty()) {
+            JTextPrecio.setText("Inserte precio.");
+            JTextPrecio.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextLinkImg.getText()).isEmpty()) {
+            JTextLinkImg.setText("Inserte Link");
+            JTextLinkImg.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
+            JTxtStock.setText("Inserte Stock.");
+            JTxtStock.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStars.getText()).isEmpty()) {
+            JTxtStars.setText("Inserte estrellas.");
+            JTxtStars.setForeground(Color.gray);
+
+        }
+    }//GEN-LAST:event_JTxtDateMousePressed
+
+    private void JTxtStarsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTxtStarsMouseClicked
+        // TODO add your handling code here:
+        if (JTxtStars.getText().equals("Inserte estrellas.")) {
+            JTxtStars.setText("");
+            JTxtStars.setForeground(Color.black);
+        }
+        if (String.valueOf(TxtTitulo.getText()).isEmpty()) {
+            TxtTitulo.setText("Inserte titulo.");
+            TxtTitulo.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("Inserte Caracteristicas.");
+            JTextCaracteristicas.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JtextCategoria.getText()).isEmpty()) {
+            JtextCategoria.setText("Inserte categoria");
+            JtextCategoria.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextPrecio.getText()).isEmpty()) {
+            JTextPrecio.setText("Inserte precio.");
+            JTextPrecio.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextLinkImg.getText()).isEmpty()) {
+            JTextLinkImg.setText("Inserte Link");
+            JTextLinkImg.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
+            JTxtStock.setText("Inserte Stock.");
+            JTxtStock.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+            JTxtDate.setText("Inserte fecha de entrada.");
+            JTxtDate.setForeground(Color.gray);
+
+        }
+        
+    }//GEN-LAST:event_JTxtStarsMouseClicked
+
+    private void TxtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtTituloActionPerformed
+
+    private void jLabelImgCrearMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelImgCrearMousePressed
+        // TODO add your handling code here:
+
+//            private javax.swing.JTextField JTextCaracteristicas;
+//            private javax.swing.JTextField JTextLinkImg;
+//            private javax.swing.JTextField JTextPrecio;
+//            private javax.swing.JTextField JTxtDate;
+//            private javax.swing.JTextField JTxtStars;
+//            private javax.swing.JTextField JTxtStock;
+//            private javax.swing.JTextField JtextCategoria;
+//            private javax.swing.JTextField TxtTitulo;
+        try{
+            String caracteristicas = JTextCaracteristicas.getText();
+            String link = JTextLinkImg.getText();
+            int precio = Integer.parseInt(JTextPrecio.getText());
+            String fecha1txt = JTxtDate.getText();
+            
+            DateTimeFormatter JEFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+            LocalDateTime local_date = LocalDateTime.parse(fecha1txt, JEFormatter);
+            System.out.println(local_date);
+
+            int estrellas = Integer.parseInt(JTxtStars.getText()); 
+            int Stock = Integer.parseInt(JTxtStock.getText());
+            String Categoria = JtextCategoria.getText();
+            String Titulo = TxtTitulo.getText();
+            
+            InventarioService.CreateProduct(Titulo, caracteristicas, Categoria, precio, Categoria, Stock, inv);
+            
+        }catch(Exception e){
+            
+            System.out.println("INFO: Excepcion definida por el usuario , datos mal intrducidos al intentar crear un nuevo objeto");
+            JOptionPane.showMessageDialog(null, "Se ha introducion mal alguno de los campos intetelo de nuevo", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        
+        }
+            
+            
+        
+    }//GEN-LAST:event_jLabelImgCrearMousePressed
+
+    private void JTxtTituloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTxtTituloMousePressed
+        // TODO add your handling code here:
+        if (JTxtTitulo.getText().equals("Escribe el nombre que deseas buscar")) {
+            JTxtTitulo.setText("");
+            JTxtTitulo.setForeground(Color.black);
+        }
+        if (String.valueOf(JTextCategoria.getText()).isEmpty()) {
+            JTextCategoria.setText("Indique la categoria al que pertenece");
+            JTextCategoria.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JtextEstrellas.getText()).isEmpty()) {
+            JtextEstrellas.setText("Indique las Estrellas");
+            JtextEstrellas.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextStock.getText()).isEmpty()) {
+            JTextStock.setText("Indique el stock del producto");
+            JTextStock.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
+            JTextFecha.setText("Indique la fecha");
+            JTextFecha.setForeground(Color.gray);
+
+        }
+        
+        
+    }//GEN-LAST:event_JTxtTituloMousePressed
+
+    private void JTextCategoriaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextCategoriaMousePressed
+        // TODO add your handling code here:
+        if (JTextCategoria.getText().equals("Indique la categoria al que pertenece")) {
+            JTextCategoria.setText("");
+            JTextCategoria.setForeground(Color.black);
+        }
+        if (String.valueOf(JTxtTitulo.getText()).isEmpty()) {
+            JTxtTitulo.setText("Escribe el nombre que deseas buscar");
+            JTxtTitulo.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JtextEstrellas.getText()).isEmpty()) {
+            JtextEstrellas.setText("Indique las Estrellas");
+            JtextEstrellas.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextStock.getText()).isEmpty()) {
+            JTextStock.setText("Indique el stock del producto");
+            JTextStock.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
+            JTextFecha.setText("Indique la fecha");
+            JTextFecha.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_JTextCategoriaMousePressed
+
+    private void JtextEstrellasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtextEstrellasMouseClicked
+        // TODO add your handling code here:
+        if (JtextEstrellas.getText().equals("Indique las Estrellas")) {
+            JtextEstrellas.setText("");
+            JtextEstrellas.setForeground(Color.black);
+        }
+        if (String.valueOf(JTxtTitulo.getText()).isEmpty()) {
+            JTxtTitulo.setText("Escribe el nombre que deseas buscar");
+            JTxtTitulo.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextCategoria.getText()).isEmpty()) {
+            JTextCategoria.setText("Indique la categoria al que pertenece");
+            JTextCategoria.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextStock.getText()).isEmpty()) {
+            JTextStock.setText("Indique el stock del producto");
+            JTextStock.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
+            JTextFecha.setText("Indique la fecha");
+            JTextFecha.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_JtextEstrellasMouseClicked
+
+    private void JTextStockMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextStockMousePressed
+        // TODO add your handling code here:
+        if (JTextStock.getText().equals("Indique el stock del producto")) {
+            JTextStock.setText("");
+            JTextStock.setForeground(Color.black);
+        }
+        if (String.valueOf(JTxtTitulo.getText()).isEmpty()) {
+            JTxtTitulo.setText("Escribe el nombre que deseas buscar");
+            JTxtTitulo.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextCategoria.getText()).isEmpty()) {
+            JTextCategoria.setText("Indique la categoria al que pertenece");
+            JTextCategoria.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JtextEstrellas.getText()).isEmpty()) {
+            JtextEstrellas.setText("Indique las Estrellas");
+            JtextEstrellas.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
+            JTextFecha.setText("Indique la fecha");
+            JTextFecha.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_JTextStockMousePressed
+
+    private void JTextFechaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFechaMousePressed
+        // TODO add your handling code here:
+        if (JTextFecha.getText().equals("Indique la fecha")) {
+            JTextFecha.setText("");
+            JTextFecha.setForeground(Color.black);
+        }
+        if (String.valueOf(JTxtTitulo.getText()).isEmpty()) {
+            JTxtTitulo.setText("Escribe el nombre que deseas buscar");
+            JTxtTitulo.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextCategoria.getText()).isEmpty()) {
+            JTextCategoria.setText("Indique la categoria al que pertenece");
+            JTextCategoria.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JtextEstrellas.getText()).isEmpty()) {
+            JtextEstrellas.setText("Indique las Estrellas");
+            JtextEstrellas.setForeground(Color.gray);
+
+        }
+        if (String.valueOf(JTextStock.getText()).isEmpty()) {
+            JTextStock.setText("Indique el stock del producto");
+            JTextStock.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_JTextFechaMousePressed
+
+    private void JLabelBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelBuscarMousePressed
+        // TODO add your handling code here:
+        if ((!String.valueOf(JTxtTitulo.getText()).isEmpty()) && !(JTxtTitulo.getText().equals("Escribe el nombre que deseas buscar"))){
+            try{
+                
+                String Nombre = JTxtTitulo.getText();
+                String Clave = InventarioService.findProductwithName(Nombre, inv);
+                System.out.println("INFO: Hemos encontrado el producto en el inventario pasamos a la pantalla de modificacion de producto");
+                
+                //Buscamelo y si esta y no me arrojas excepcion habreme la nueva pantalla
+            }catch(Exception e){
+                
+                System.out.println("INFO: No se h encontrado producto dentro del inventario, Excepcion " + e.toString());
+                JOptionPane.showMessageDialog(null, "No se ha encontrado el producto en el inventario intentelo de nuevo", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+                JTxtTitulo.setText("Escribe el nombre que deseas buscar");
+            }
+            
+        }else if((!String.valueOf(JTextFecha.getText()).isEmpty()) && !(JTextFecha.getText().equals("Escribe el nombre que deseas buscar"))){
+            try{
+                String fecha1txt = JTextFecha.getText();
+                DateTimeFormatter JEFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                LocalDateTime local_date = LocalDateTime.parse(fecha1txt, JEFormatter);
+                
+                InventarioService.findProductwithFecha(local_date, inv);
+                
+                //Pasamos al nuevo JFrame
+                
+                System.out.println("INFO: hemos pasado al nuevo JFrame");
+                
+            
+            }catch(Exception e){
+                
+                System.out.println("INFO: No se h encontrado producto dentro del inventario, Excepcion " + e.toString());
+                JOptionPane.showMessageDialog(null, "No se ha encontrado el producto en el inventario intentelo de nuevo", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+                JTxtTitulo.setText("Indique la fecha");
+            
+            }
+        
+        }else if((!String.valueOf(JtextEstrellas.getText()).isEmpty()) && !(JtextEstrellas.getText().equals("Escribe el nombre que deseas buscar"))){
+        
+            try{
+                int estrellas = Integer.parseInt(JtextEstrellas.getText());
+                ArrayList<String> ProductKeys = new ArrayList<>(InventarioService.findProductwithStars(estrellas, inv));
+                
+                //Llamamos a la nueva pagina y hacemos lo que haya que hacer
+                
+                System.out.println("INFO: Hemos pasado al nuevo JFrame");
+                
+            }catch(Exception e){
+                System.out.println("INFO: No se ha encontrado producto dentro del inventario, " + e.toString());
+                JOptionPane.showMessageDialog(null, "No se ha encontrado el producto en el inventario intentelo de nuevo", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+                JTxtTitulo.setText("Indique la categoria al que pertenece");
+            
+            }
+        
+        }else if((!String.valueOf(JTextStock.getText()).isEmpty()) && !(JTextStock.getText().equals("Escribe el nombre que deseas buscar")))
+            try{
+                int Stock = Integer.parseInt(JTextStock.getText());
+                ArrayList<String> ProductKeys = new ArrayList<>(InventarioService.findProductwithStock(Stock, inv));
+                
+                System.out.println("INFO: Hemos pasado al nuevo JFrame");
+            }catch(Exception e){
+                System.out.println("INFO: No se ha encontrado producto dentro del inventario, " + e.toString());
+                JOptionPane.showMessageDialog(null, "No se ha encontrado el producto en el inventario intentelo de nuevo", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+                JTxtTitulo.setText("Indique la categoria al que pertenece");
+            
+        }else if((!String.valueOf(JTextCategoria.getText()).isEmpty()) && !(JTextCategoria.getText().equals("Escribe el nombre que deseas buscar")))
+            try{
+                String Categoria = JTextCategoria.getText();
+                ArrayList<String> ProductKeys = new ArrayList<>(InventarioService.findProductwithCategory(Categoria, inv));
+                //hacemos lo que haga falta en este jText
+                
+                System.out.println("INFO: Hemos pasado al nuevo JFrame");
+                
+            }catch(Exception e){
+                System.out.println("INFO: No se ha encontrado producto dentro del inventario, " + e.toString());
+                JOptionPane.showMessageDialog(null, "No se ha encontrado el producto en el inventario intentelo de nuevo", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+                JTxtTitulo.setText("Indique la categoria al que pertenece");
+            
+            }
+        else{
+            
+            System.out.println("INFO: No se han insertado bien los datos");
+            JOptionPane.showMessageDialog(null, "No se han insertado bien los datos en la pantalla", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+            
+            JTextStock.setText("Indique el stock del producto");
+            JtextEstrellas.setText("Indique las Estrellas");
+            JTextCategoria.setText("Indique la categoria al que pertenece");
+            JTextFecha.setText("Indique la fecha");
+            JTxtTitulo.setText("Escribe el nombre que deseas buscar");
+        }
+    }//GEN-LAST:event_JLabelBuscarMousePressed
 
 //    private JFrame getFrame() {
 //        return this;
@@ -620,6 +1378,9 @@ public class UserManagament extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+      
+       
+       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new UserManagament().setVisible(true);
@@ -630,6 +1391,19 @@ public class UserManagament extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabelBuscar;
     private javax.swing.JPanel JPanelImgBuscar;
+    private javax.swing.JTextField JTextCaracteristicas;
+    private javax.swing.JTextField JTextCategoria;
+    private javax.swing.JTextField JTextFecha;
+    private javax.swing.JTextField JTextLinkImg;
+    private javax.swing.JTextField JTextPrecio;
+    private javax.swing.JTextField JTextStock;
+    private javax.swing.JTextField JTxtDate;
+    private javax.swing.JTextField JTxtStars;
+    private javax.swing.JTextField JTxtStock;
+    private javax.swing.JTextField JTxtTitulo;
+    private javax.swing.JTextField JtextCategoria;
+    private javax.swing.JTextField JtextEstrellas;
+    private javax.swing.JTextField TxtTitulo;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButtonHomeIcon1;
     private javax.swing.JButton jButtonHomeIcon2;
@@ -683,18 +1457,5 @@ public class UserManagament extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

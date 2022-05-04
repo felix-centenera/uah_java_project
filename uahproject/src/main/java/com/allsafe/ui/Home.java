@@ -4,14 +4,20 @@
  */
 package com.allsafe.ui;
 
+import com.allsafe.model.Administrador;
+import com.allsafe.model.ClienteEmpresa;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
-import com.allsafe.model.Inventario;
+import com.allsafe.mock.Inventario;
+import com.allsafe.model.Opinion;
 import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
+import com.allsafe.model.Token;
 import com.allsafe.model.Usuario;
+import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -44,84 +50,46 @@ public class Home extends javax.swing.JFrame {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jPanelProducts4 = new javax.swing.JPanel();
-        jTextFieldProducts4 = new javax.swing.JTextField();
-        jButton24 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
-        jButtonProducts4 = new javax.swing.JButton();
-        jLabel4Stars = new javax.swing.JLabel();
+        jPanelProducts0 = new javax.swing.JPanel();
+        jTextFieldProducts0 = new javax.swing.JTextField();
+        jButtonProducts0 = new javax.swing.JButton();
+        jLabelStars0 = new javax.swing.JLabel();
+        jPanelProducts1 = new javax.swing.JPanel();
+        jTextFieldProducts1 = new javax.swing.JTextField();
+        jButtonProducts1 = new javax.swing.JButton();
+        jLabelStars1 = new javax.swing.JLabel();
+        jPanelProducts2 = new javax.swing.JPanel();
+        jTextFieldProducts2 = new javax.swing.JTextField();
+        jButtonProducts2 = new javax.swing.JButton();
+        jLabelStars2 = new javax.swing.JLabel();
         jPanelProducts3 = new javax.swing.JPanel();
         jTextFieldProducts3 = new javax.swing.JTextField();
         jButtonProducts3 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jLabel3Stars = new javax.swing.JLabel();
-        jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
-        jPanelProducts7 = new javax.swing.JPanel();
-        jTextFieldProducts7 = new javax.swing.JTextField();
-        jButtonProducts7 = new javax.swing.JButton();
-        jButton39 = new javax.swing.JButton();
-        jLabel7Stars = new javax.swing.JLabel();
-        jButton40 = new javax.swing.JButton();
-        jButton41 = new javax.swing.JButton();
-        jButton42 = new javax.swing.JButton();
-        jButton43 = new javax.swing.JButton();
-        jPanel1Products = new javax.swing.JPanel();
-        jTextFieldProducts1 = new javax.swing.JTextField();
-        jButtonProducts1 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jLabel1Stars = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        jLabelStars3 = new javax.swing.JLabel();
+        jPanelProducts4 = new javax.swing.JPanel();
+        jTextFieldProducts4 = new javax.swing.JTextField();
+        jButtonProducts4 = new javax.swing.JButton();
+        jLabelStars4 = new javax.swing.JLabel();
+        jPanelProducts6 = new javax.swing.JPanel();
+        jTextFieldProducts6 = new javax.swing.JTextField();
+        jButtonProducts6 = new javax.swing.JButton();
+        jLabelStars6 = new javax.swing.JLabel();
         jPanelProducts5 = new javax.swing.JPanel();
         jTextFieldProducts5 = new javax.swing.JTextField();
         jButtonProducts5 = new javax.swing.JButton();
-        jButton29 = new javax.swing.JButton();
-        jLabel5Stars = new javax.swing.JLabel();
-        jButton30 = new javax.swing.JButton();
-        jButton31 = new javax.swing.JButton();
-        jButton32 = new javax.swing.JButton();
-        jButton33 = new javax.swing.JButton();
-        jPanel6Products = new javax.swing.JPanel();
-        jTextFieldProducts6 = new javax.swing.JTextField();
-        jButtonProducts6 = new javax.swing.JButton();
-        jButton34 = new javax.swing.JButton();
-        jButton35 = new javax.swing.JButton();
-        jLabel6Stars = new javax.swing.JLabel();
-        jButton36 = new javax.swing.JButton();
-        jButton37 = new javax.swing.JButton();
-        jButton38 = new javax.swing.JButton();
-        jPanel2Products = new javax.swing.JPanel();
-        jTextFieldProducts2 = new javax.swing.JTextField();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButtonProducts2 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jLabel2Stars = new javax.swing.JLabel();
-        jButton18 = new javax.swing.JButton();
-        jPanelProducts8 = new javax.swing.JPanel();
-        jTextFieldProducts8 = new javax.swing.JTextField();
-        jButtonProducts8 = new javax.swing.JButton();
-        jButton44 = new javax.swing.JButton();
-        jButton45 = new javax.swing.JButton();
-        jLabel8Stars = new javax.swing.JLabel();
-        jButton46 = new javax.swing.JButton();
-        jButton47 = new javax.swing.JButton();
-        jButton48 = new javax.swing.JButton();
+        jLabelStars5 = new javax.swing.JLabel();
+        jPanelProducts7 = new javax.swing.JPanel();
+        jTextFieldProducts7 = new javax.swing.JTextField();
+        jButtonProducts7 = new javax.swing.JButton();
+        jLabelStars7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jTextField1 = new javax.swing.JTextField();
         jLabelHomeIcon4 = new javax.swing.JLabel();
-        jButtonHomeIcon1 = new javax.swing.JButton();
-        jButtonHomeIcon2 = new javax.swing.JButton();
+        jButtonMiCarrito = new javax.swing.JButton();
+        jButtonLogin = new javax.swing.JButton();
         jButtonHomeIcon4 = new javax.swing.JButton();
+        jButtonLogOut = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabelTimeline8 = new javax.swing.JLabel();
         jLabelTimeline7 = new javax.swing.JLabel();
@@ -140,292 +108,64 @@ public class Home extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanelProducts4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelProducts0.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextFieldProducts4.setText("jTextField2");
-        jTextFieldProducts4.setBorder(null);
-        jPanelProducts4.add(jTextFieldProducts4);
-
-        jButton24.setBorder(null);
-        jButton24.setBorderPainted(false);
-        jButton24.setContentAreaFilled(false);
-        jPanelProducts4.add(jButton24);
-
-        jButton25.setBorder(null);
-        jButton25.setBorderPainted(false);
-        jButton25.setContentAreaFilled(false);
-        jPanelProducts4.add(jButton25);
-
-        jButton26.setBorder(null);
-        jButton26.setBorderPainted(false);
-        jButton26.setContentAreaFilled(false);
-        jPanelProducts4.add(jButton26);
-
-        jButton27.setBorder(null);
-        jButton27.setBorderPainted(false);
-        jButton27.setContentAreaFilled(false);
-        jPanelProducts4.add(jButton27);
-
-        jButton28.setBorder(null);
-        jButton28.setBorderPainted(false);
-        jButton28.setContentAreaFilled(false);
-        jPanelProducts4.add(jButton28);
-
-        jButtonProducts4.setBorderPainted(false);
-        jButtonProducts4.setContentAreaFilled(false);
-        jButtonProducts4.setMaximumSize(new java.awt.Dimension(219, 134));
-        jButtonProducts4.setMinimumSize(new java.awt.Dimension(219, 134));
-        jButtonProducts4.setPreferredSize(new java.awt.Dimension(219, 134));
-        jButtonProducts4.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldProducts0.setText("jTextField2");
+        jTextFieldProducts0.setBorder(null);
+        jTextFieldProducts0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProducts4ActionPerformed(evt);
+                jTextFieldProducts0ActionPerformed(evt);
             }
         });
-        jPanelProducts4.add(jButtonProducts4);
-        jPanelProducts4.add(jLabel4Stars);
+        jPanelProducts0.add(jTextFieldProducts0);
 
-        jPanelProducts3.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldProducts3.setText("jTextField2");
-        jTextFieldProducts3.setBorder(null);
-        jTextFieldProducts3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonProducts0.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png")); // NOI18N
+        jButtonProducts0.setBorderPainted(false);
+        jButtonProducts0.setContentAreaFilled(false);
+        jButtonProducts0.setPreferredSize(new java.awt.Dimension(219, 134));
+        jButtonProducts0.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProducts0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldProducts3ActionPerformed(evt);
+                jButtonProducts0ActionPerformed(evt);
             }
         });
-        jPanelProducts3.add(jTextFieldProducts3);
+        jPanelProducts0.add(jButtonProducts0);
 
-        jButtonProducts3.setBorderPainted(false);
-        jButtonProducts3.setContentAreaFilled(false);
-        jButtonProducts3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonProducts3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProducts3ActionPerformed(evt);
-            }
-        });
-        jPanelProducts3.add(jButtonProducts3);
+        jLabelStars0.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanelProducts0.add(jLabelStars0);
 
-        jButton19.setBorder(null);
-        jButton19.setBorderPainted(false);
-        jButton19.setContentAreaFilled(false);
-        jPanelProducts3.add(jButton19);
-        jPanelProducts3.add(jLabel3Stars);
-
-        jButton20.setBorder(null);
-        jButton20.setBorderPainted(false);
-        jButton20.setContentAreaFilled(false);
-        jPanelProducts3.add(jButton20);
-
-        jButton21.setBorder(null);
-        jButton21.setBorderPainted(false);
-        jButton21.setContentAreaFilled(false);
-        jPanelProducts3.add(jButton21);
-
-        jButton22.setBorder(null);
-        jButton22.setBorderPainted(false);
-        jButton22.setContentAreaFilled(false);
-        jPanelProducts3.add(jButton22);
-
-        jButton23.setBorder(null);
-        jButton23.setBorderPainted(false);
-        jButton23.setContentAreaFilled(false);
-        jPanelProducts3.add(jButton23);
-
-        jPanelProducts7.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldProducts7.setText("jTextField2");
-        jTextFieldProducts7.setBorder(null);
-        jPanelProducts7.add(jTextFieldProducts7);
-
-        jButtonProducts7.setBorderPainted(false);
-        jButtonProducts7.setContentAreaFilled(false);
-        jButtonProducts7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonProducts7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProducts7ActionPerformed(evt);
-            }
-        });
-        jPanelProducts7.add(jButtonProducts7);
-
-        jButton39.setBorder(null);
-        jButton39.setBorderPainted(false);
-        jButton39.setContentAreaFilled(false);
-        jPanelProducts7.add(jButton39);
-
-        jLabel7Stars.setToolTipText("");
-        jPanelProducts7.add(jLabel7Stars);
-
-        jButton40.setBorder(null);
-        jButton40.setBorderPainted(false);
-        jButton40.setContentAreaFilled(false);
-        jPanelProducts7.add(jButton40);
-
-        jButton41.setBorder(null);
-        jButton41.setBorderPainted(false);
-        jButton41.setContentAreaFilled(false);
-        jPanelProducts7.add(jButton41);
-
-        jButton42.setBorder(null);
-        jButton42.setBorderPainted(false);
-        jButton42.setContentAreaFilled(false);
-        jPanelProducts7.add(jButton42);
-
-        jButton43.setBorder(null);
-        jButton43.setBorderPainted(false);
-        jButton43.setContentAreaFilled(false);
-        jPanelProducts7.add(jButton43);
-
-        jPanel1Products.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelProducts1.setBackground(new java.awt.Color(255, 255, 255));
 
         jTextFieldProducts1.setText("jTextField2");
         jTextFieldProducts1.setBorder(null);
-        jTextFieldProducts1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldProducts1ActionPerformed(evt);
-            }
-        });
-        jPanel1Products.add(jTextFieldProducts1);
+        jPanelProducts1.add(jTextFieldProducts1);
 
+        jButtonProducts1.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookProM1.png")); // NOI18N
         jButtonProducts1.setBorderPainted(false);
         jButtonProducts1.setContentAreaFilled(false);
-        jButtonProducts1.setPreferredSize(new java.awt.Dimension(219, 134));
         jButtonProducts1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButtonProducts1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonProducts1ActionPerformed(evt);
             }
         });
-        jPanel1Products.add(jButtonProducts1);
+        jPanelProducts1.add(jButtonProducts1);
 
-        jButton9.setBorder(null);
-        jButton9.setBorderPainted(false);
-        jButton9.setContentAreaFilled(false);
-        jPanel1Products.add(jButton9);
-        jPanel1Products.add(jLabel1Stars);
+        jLabelStars1.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanelProducts1.add(jLabelStars1);
 
-        jButton10.setBorder(null);
-        jButton10.setBorderPainted(false);
-        jButton10.setContentAreaFilled(false);
-        jPanel1Products.add(jButton10);
-
-        jButton11.setBorder(null);
-        jButton11.setBorderPainted(false);
-        jButton11.setContentAreaFilled(false);
-        jPanel1Products.add(jButton11);
-
-        jButton12.setBorder(null);
-        jButton12.setBorderPainted(false);
-        jButton12.setContentAreaFilled(false);
-        jPanel1Products.add(jButton12);
-
-        jButton13.setBorder(null);
-        jButton13.setBorderPainted(false);
-        jButton13.setContentAreaFilled(false);
-        jPanel1Products.add(jButton13);
-
-        jPanelProducts5.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldProducts5.setText("jTextField2");
-        jTextFieldProducts5.setBorder(null);
-        jPanelProducts5.add(jTextFieldProducts5);
-
-        jButtonProducts5.setBorderPainted(false);
-        jButtonProducts5.setContentAreaFilled(false);
-        jButtonProducts5.setMaximumSize(new java.awt.Dimension(219, 134));
-        jButtonProducts5.setMinimumSize(new java.awt.Dimension(219, 134));
-        jButtonProducts5.setPreferredSize(new java.awt.Dimension(219, 134));
-        jButtonProducts5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonProducts5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProducts5ActionPerformed(evt);
-            }
-        });
-        jPanelProducts5.add(jButtonProducts5);
-
-        jButton29.setBorder(null);
-        jButton29.setBorderPainted(false);
-        jButton29.setContentAreaFilled(false);
-        jPanelProducts5.add(jButton29);
-        jPanelProducts5.add(jLabel5Stars);
-
-        jButton30.setBorder(null);
-        jButton30.setBorderPainted(false);
-        jButton30.setContentAreaFilled(false);
-        jPanelProducts5.add(jButton30);
-
-        jButton31.setBorder(null);
-        jButton31.setBorderPainted(false);
-        jButton31.setContentAreaFilled(false);
-        jPanelProducts5.add(jButton31);
-
-        jButton32.setBorder(null);
-        jButton32.setBorderPainted(false);
-        jButton32.setContentAreaFilled(false);
-        jPanelProducts5.add(jButton32);
-
-        jButton33.setBorder(null);
-        jButton33.setBorderPainted(false);
-        jButton33.setContentAreaFilled(false);
-        jPanelProducts5.add(jButton33);
-
-        jPanel6Products.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldProducts6.setText("sdvsdvsdv");
-        jTextFieldProducts6.setBorder(null);
-        jPanel6Products.add(jTextFieldProducts6);
-
-        jButtonProducts6.setBorderPainted(false);
-        jButtonProducts6.setContentAreaFilled(false);
-        jButtonProducts6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonProducts6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProducts6ActionPerformed(evt);
-            }
-        });
-        jPanel6Products.add(jButtonProducts6);
-
-        jButton34.setBorder(null);
-        jButton34.setBorderPainted(false);
-        jButton34.setContentAreaFilled(false);
-        jPanel6Products.add(jButton34);
-
-        jButton35.setBorder(null);
-        jButton35.setBorderPainted(false);
-        jButton35.setContentAreaFilled(false);
-        jPanel6Products.add(jButton35);
-        jPanel6Products.add(jLabel6Stars);
-
-        jButton36.setBorder(null);
-        jButton36.setBorderPainted(false);
-        jButton36.setContentAreaFilled(false);
-        jPanel6Products.add(jButton36);
-
-        jButton37.setBorder(null);
-        jButton37.setBorderPainted(false);
-        jButton37.setContentAreaFilled(false);
-        jPanel6Products.add(jButton37);
-
-        jButton38.setBorder(null);
-        jButton38.setBorderPainted(false);
-        jButton38.setContentAreaFilled(false);
-        jPanel6Products.add(jButton38);
-
-        jPanel2Products.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelProducts2.setBackground(new java.awt.Color(255, 255, 255));
 
         jTextFieldProducts2.setText("jTextField2");
         jTextFieldProducts2.setBorder(null);
-        jPanel2Products.add(jTextFieldProducts2);
+        jTextFieldProducts2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldProducts2ActionPerformed(evt);
+            }
+        });
+        jPanelProducts2.add(jTextFieldProducts2);
 
-        jButton15.setBorder(null);
-        jButton15.setBorderPainted(false);
-        jButton15.setContentAreaFilled(false);
-        jPanel2Products.add(jButton15);
-
-        jButton16.setBorder(null);
-        jButton16.setBorderPainted(false);
-        jButton16.setContentAreaFilled(false);
-        jPanel2Products.add(jButton16);
-
+        jButtonProducts2.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookAirM1.png")); // NOI18N
         jButtonProducts2.setBorderPainted(false);
         jButtonProducts2.setContentAreaFilled(false);
         jButtonProducts2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -434,63 +174,119 @@ public class Home extends javax.swing.JFrame {
                 jButtonProducts2ActionPerformed(evt);
             }
         });
-        jPanel2Products.add(jButtonProducts2);
+        jPanelProducts2.add(jButtonProducts2);
 
-        jButton17.setBorder(null);
-        jButton17.setBorderPainted(false);
-        jButton17.setContentAreaFilled(false);
-        jPanel2Products.add(jButton17);
-        jPanel2Products.add(jLabel2Stars);
+        jLabelStars2.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanelProducts2.add(jLabelStars2);
 
-        jButton18.setBorder(null);
-        jButton18.setBorderPainted(false);
-        jButton18.setContentAreaFilled(false);
-        jPanel2Products.add(jButton18);
+        jPanelProducts3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanelProducts8.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldProducts3.setText("jTextField2");
+        jTextFieldProducts3.setBorder(null);
+        jPanelProducts3.add(jTextFieldProducts3);
 
-        jTextFieldProducts8.setText("jTextField2");
-        jTextFieldProducts8.setBorder(null);
-        jPanelProducts8.add(jTextFieldProducts8);
-
-        jButtonProducts8.setBorderPainted(false);
-        jButtonProducts8.setContentAreaFilled(false);
-        jButtonProducts8.setMaximumSize(new java.awt.Dimension(219, 134));
-        jButtonProducts8.setMinimumSize(new java.awt.Dimension(219, 134));
-        jButtonProducts8.setPreferredSize(new java.awt.Dimension(219, 134));
-        jButtonProducts8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonProducts8.addActionListener(new java.awt.event.ActionListener() {
+        jButtonProducts3.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png")); // NOI18N
+        jButtonProducts3.setBorderPainted(false);
+        jButtonProducts3.setContentAreaFilled(false);
+        jButtonProducts3.setMaximumSize(new java.awt.Dimension(219, 134));
+        jButtonProducts3.setMinimumSize(new java.awt.Dimension(219, 134));
+        jButtonProducts3.setPreferredSize(new java.awt.Dimension(219, 134));
+        jButtonProducts3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonProducts8ActionPerformed(evt);
+                jButtonProducts3ActionPerformed(evt);
             }
         });
-        jPanelProducts8.add(jButtonProducts8);
+        jPanelProducts3.add(jButtonProducts3);
 
-        jButton44.setBorder(null);
-        jButton44.setBorderPainted(false);
-        jButton44.setContentAreaFilled(false);
-        jPanelProducts8.add(jButton44);
+        jLabelStars3.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanelProducts3.add(jLabelStars3);
 
-        jButton45.setBorder(null);
-        jButton45.setBorderPainted(false);
-        jButton45.setContentAreaFilled(false);
-        jPanelProducts8.add(jButton45);
-        jPanelProducts8.add(jLabel8Stars);
+        jPanelProducts4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton46.setBorder(null);
-        jButton46.setBorderPainted(false);
-        jButton46.setContentAreaFilled(false);
-        jPanelProducts8.add(jButton46);
+        jTextFieldProducts4.setText("jTextField2");
+        jTextFieldProducts4.setBorder(null);
+        jPanelProducts4.add(jTextFieldProducts4);
 
-        jButton47.setBorder(null);
-        jButton47.setBorderPainted(false);
-        jButton47.setContentAreaFilled(false);
-        jPanelProducts8.add(jButton47);
+        jButtonProducts4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png")); // NOI18N
+        jButtonProducts4.setBorderPainted(false);
+        jButtonProducts4.setContentAreaFilled(false);
+        jButtonProducts4.setMaximumSize(new java.awt.Dimension(219, 134));
+        jButtonProducts4.setMinimumSize(new java.awt.Dimension(219, 134));
+        jButtonProducts4.setPreferredSize(new java.awt.Dimension(219, 134));
+        jButtonProducts4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProducts4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProducts4ActionPerformed(evt);
+            }
+        });
+        jPanelProducts4.add(jButtonProducts4);
 
-        jButton48.setBorder(null);
-        jButton48.setBorderPainted(false);
-        jButton48.setContentAreaFilled(false);
-        jPanelProducts8.add(jButton48);
+        jLabelStars4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanelProducts4.add(jLabelStars4);
+
+        jPanelProducts6.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextFieldProducts6.setText("jTextField2");
+        jTextFieldProducts6.setBorder(null);
+        jPanelProducts6.add(jTextFieldProducts6);
+
+        jButtonProducts6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookAirM1.png")); // NOI18N
+        jButtonProducts6.setBorderPainted(false);
+        jButtonProducts6.setContentAreaFilled(false);
+        jButtonProducts6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProducts6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProducts6ActionPerformed(evt);
+            }
+        });
+        jPanelProducts6.add(jButtonProducts6);
+
+        jLabelStars6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jLabelStars6.setToolTipText("");
+        jPanelProducts6.add(jLabelStars6);
+
+        jPanelProducts5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextFieldProducts5.setText("sdvsdvsdv");
+        jTextFieldProducts5.setBorder(null);
+        jPanelProducts5.add(jTextFieldProducts5);
+
+        jButtonProducts5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/macbook/appleMacbookProM1.png")); // NOI18N
+        jButtonProducts5.setBorderPainted(false);
+        jButtonProducts5.setContentAreaFilled(false);
+        jButtonProducts5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProducts5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProducts5ActionPerformed(evt);
+            }
+        });
+        jPanelProducts5.add(jButtonProducts5);
+
+        jLabelStars5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanelProducts5.add(jLabelStars5);
+
+        jPanelProducts7.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextFieldProducts7.setText("jTextField2");
+        jTextFieldProducts7.setBorder(null);
+        jPanelProducts7.add(jTextFieldProducts7);
+
+        jButtonProducts7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Img/laptops/dell/dellXps13.png")); // NOI18N
+        jButtonProducts7.setBorderPainted(false);
+        jButtonProducts7.setContentAreaFilled(false);
+        jButtonProducts7.setMaximumSize(new java.awt.Dimension(219, 134));
+        jButtonProducts7.setMinimumSize(new java.awt.Dimension(219, 134));
+        jButtonProducts7.setPreferredSize(new java.awt.Dimension(219, 134));
+        jButtonProducts7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonProducts7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProducts7ActionPerformed(evt);
+            }
+        });
+        jPanelProducts7.add(jButtonProducts7);
+
+        jLabelStars7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
+        jPanelProducts7.add(jLabelStars7);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -499,22 +295,22 @@ public class Home extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1Products, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelProducts5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelProducts0, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelProducts4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2Products, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6Products, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelProducts1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelProducts5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(76, 76, 76)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jPanelProducts7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addComponent(jPanelProducts3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanelProducts6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanelProducts2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(78, 78, 78)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanelProducts4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelProducts8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelProducts3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelProducts7, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(81, 81, 81))
         );
         jPanel2Layout.setVerticalGroup(
@@ -523,19 +319,19 @@ public class Home extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel1Products, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanelProducts0, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelProducts5, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanelProducts4, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanelProducts4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel2Products, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelProducts3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanelProducts3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelProducts1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelProducts2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanelProducts7, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelProducts8, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel6Products, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jPanelProducts6, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelProducts7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelProducts5, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -554,32 +350,56 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 350, 20));
+
+        jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/AllSafe.png")); // NOI18N
         jPanel3.add(jLabelHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jButtonHomeIcon1.setText("Mi Carrito");
-        jButtonHomeIcon1.setBorderPainted(false);
-        jButtonHomeIcon1.setContentAreaFilled(false);
-        jButtonHomeIcon1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonMiCarrito.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/shopping-cart.png")); // NOI18N
+        jButtonMiCarrito.setText("Mi Carrito");
+        jButtonMiCarrito.setBorderPainted(false);
+        jButtonMiCarrito.setContentAreaFilled(false);
+        jButtonMiCarrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonHomeIcon1ActionPerformed(evt);
+                jButtonMiCarritoActionPerformed(evt);
             }
         });
-        jPanel3.add(jButtonHomeIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 120, 60));
+        jPanel3.add(jButtonMiCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 50, 120, 60));
 
-        jButtonHomeIcon2.setText("Mi Cuenta");
-        jButtonHomeIcon2.setBorderPainted(false);
-        jButtonHomeIcon2.setContentAreaFilled(false);
-        jPanel3.add(jButtonHomeIcon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 50, 120, 60));
+        jButtonLogin.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/user.png")); // NOI18N
+        jButtonLogin.setText("Mi Cuenta");
+        jButtonLogin.setBorderPainted(false);
+        jButtonLogin.setContentAreaFilled(false);
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoginActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 50, 120, 60));
 
         jButtonHomeIcon4.setBorderPainted(false);
         jButtonHomeIcon4.setContentAreaFilled(false);
         jPanel3.add(jButtonHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
 
+        jButtonLogOut.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/LogOut.png")); // NOI18N
+        jButtonLogOut.setText("LogOut");
+        jButtonLogOut.setBorder(null);
+        jButtonLogOut.setContentAreaFilled(false);
+        jButtonLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogOutActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButtonLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, 100, 40));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 100));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelTimeline8.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/TimelineCoversA.jpg")); // NOI18N
         jPanel4.add(jLabelTimeline8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 660, 150));
+
+        jLabelTimeline7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/TimelineCoversB.jpg")); // NOI18N
         jPanel4.add(jLabelTimeline7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 630, 140));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1240, 140));
@@ -587,18 +407,22 @@ public class Home extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/home.png")); // NOI18N
         jButtonHomeIconsGround5.setBorderPainted(false);
         jButtonHomeIconsGround5.setContentAreaFilled(false);
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 40, 40));
 
+        jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/mail.png")); // NOI18N
         jButtonHomeIconsGround6.setBorderPainted(false);
         jButtonHomeIconsGround6.setContentAreaFilled(false);
         jPanel6.add(jButtonHomeIconsGround6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 40, 40));
 
+        jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/ArrowDown.png")); // NOI18N
         jButtonHomeIconsGround7.setBorderPainted(false);
         jButtonHomeIconsGround7.setContentAreaFilled(false);
         jPanel6.add(jButtonHomeIconsGround7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 40, 40));
 
+        jButtonHomeIconsGround8.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/arrowUp.png")); // NOI18N
         jButtonHomeIconsGround8.setBorderPainted(false);
         jButtonHomeIconsGround8.setContentAreaFilled(false);
         jPanel6.add(jButtonHomeIconsGround8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 40, 40));
@@ -609,10 +433,23 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
+// ********************************************************************************************************************
+//atributos customs para proyecto:
+private Usuario user;
+ArrayList<Producto> RandomProductsHome;
+
+//Creamos la referencia a nuestro servio de login
+Login miservicioDeLogin = Login.getInstance();
+// ********************************************************************************************************************
+
+
+
+// ********************************************************************************************************************
 // Inicialización de objetos para pruebas:
-    
+
 //Fecha prueba.
 LocalDate fecha = LocalDate.of(2023, 9, 18); 
+LocalDateTime fechaTime = LocalDateTime.now();
 
 //Crear producto
 //(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock)
@@ -620,43 +457,136 @@ Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptop
 Producto p2 = new Producto("MacBookProM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookProM1.png", 1);
 Producto p3 = new Producto("Dell XPS","Dell", "Portatiles",1000,"Img/laptops/dell/dellXps13.png", 1);
 
-//Crear inventario y añadir productos a inventario
-Inventario i1 = new Inventario();
-
 //Crear Dirección
 //(String calle, int numero, int cp, String ciudad)
 Direccion d1 = new Direccion("calleEjemplo",2,28829,"Madrid");
 
-
 //Crear TarjetaCredito
 //(String nombreTitular, long numeroTarjetaCredito, LocalDate fechaCaducidad)
 TarjetaDeCredito t1 = new TarjetaDeCredito("Manolo",1234_1234_1234_1234L,fecha);
-        
+
+//Crear token LocalDateTime
+Token to1 = new Token("asdaskldjdasa",fechaTime);
+Token to2 = new Token("asdaskldjdasa",fechaTime);
+Token to3 = new Token("asdaskldjdasa",fechaTime);
+
 //Crear clienteParticular
 // (String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo)
-//ClienteParticular c1 = new ClienteParticular("20120000-F", "Manolo", d1,t1,"91-2240234","pass","manolo@miempresa.com");
-//Creacion del objeto User
+//(String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo, Token token)
+ClienteParticular c1 = new ClienteParticular("20120000-F", "Manolo", d1,t1,"91-2240234","pass","manolo@miempresa.com",to1);
+ClienteParticular c2 = new ClienteParticular("201200d0-F", "Pepe", d1,t1,"91-2240234","pass","pepe@miempresa.com",to2);
+ClienteParticular c3 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com",to3);
+Usuario c4 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com",to3);
 
-Usuario User = null;
 
-private void createHomePageProductos(){
+
+Opinion  o1 = new Opinion(3, "Satisfecho con la compra",c1); 
+Opinion  o2 = new Opinion(0, "No comprar, malisimo, por ese precido debería hacerme la cama",c2); 
+Opinion  o3 = new Opinion(5, "Estoy muy contenta con la compra realizada, tanto por el artículo como por la atención de la plataforma. Fue muy sencillo realizar la selección y el pago ya que el poder financiar un producto da mucho que decir sobre PcComponentes. Para mí, es un punto a favor ya que no siempre viene bien hacer un pago entero. En cuanto al MacBook Air es un encanto, vino muy bien embalado y protegido. El paquete me llegó en menos de 48 horas, una cosa increíble ya que en otras plataformas te tarda mucho más y si lo necesitas urgentemente, no lo puedes usar, pero en caso de PcComponentes sí. Esto es otro punto positivo que reflejo con mi compra ya que no esperaba que llegase tan pronto. El portátil funciona perfectamente y además, con la opción Aplazame de PcComponentes, puedes cambiar hasta tres veces la forma de tu financiación, o directamente, puedes pagar toda la cantidad que queda en el momento que tú quieras. Estoy muy contenta y sé que voy a seguir comprando artículos de tecnología aquí. :)!",c3);
+Opinion  o4 = new Opinion(3, "Ni fu ni fa, esperaba más la verdad",c1); 
+Opinion  o5 = new Opinion(0, "Es un autentico timo",c2); 
+Opinion  o6 = new Opinion(5, "INcreible, va como una bala",c3);
+//Crear inventario y añadir productos a inventario
+Inventario i1 = new Inventario();
+// ********************************************************************************************************************
+
+
+// ********************************************************************************************************************
+//método para logarse
+//private boolean useLogin(String clave, String correo ){
+//    boolean operationAccepted=false;
+//    operationAccepted=miservicioDeLogin.checkLogin(clave, correo,this); 
+//     if (operationAccepted == false){
+//            System.out.println("INFO: El usuario o contraseña no son correcto TODO MANDAR AL LOGIN");
+//            return false;
+//        }
+//        return true;
+//}
+
+
+//método comprobar login
+private boolean checkLogin(){
+    boolean operationAccepted=false;
+    if (user == null){
+//        operationAccepted=miservicioDeLogin.checkLogin();
+//        if (operationAccepted == false){
+//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+//            return false;
+//        }
+        //return true;
+        System.out.println("INFO: No puedes realizar esa acción debes logarte primero");
+        return false;
+    }
+     else{
+        System.out.println("INFO: Voy a comprobar el token");
+        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+        if (operationAccepted == false){
+            System.out.println("INFO: No puedes realizar esa acción debes logarte primero");
+            return false;
+        }
+        return true;
+    }
+}
+
+private boolean checkLoginInterfaz(){
+    boolean operationAccepted=false;
+    if (user == null){
+        System.out.println("INFO: No hay usaurio logado, devuelvo falso para que pintes interfaz de usuario visitante");
+        return false;
+    }
+     else{
+        System.out.println("INFO: Voy a comprobar el token");
+        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+        if (operationAccepted == false){
+            System.out.println("INFO: El token no es correcto, devuelvo falso para que pintes interfaz de usuario visitante ");
+            return false;
+        }
+         System.out.println("INFO: El token es correcto, devuelvo true para que pintes interfaz de usuario registrado ");
+        return true;
+    }
+}
+
+ public  void  SetUsuario(Usuario user) {
+        this.user = user;
+        
+ }
+ 
+  public  Usuario  GetUsuario() {
+        return  user;  
+ }
+ 
+ // ********************************************************************************************************************
+ 
+ 
+// ********************************************************************************************************************
+ // metodos para crear la home
+private void createHomePageProductos(){    
     i1.introducirProducto(p1, 4);
     i1.introducirProducto(p2, 4);
     i1.introducirProducto(p3, 4);
-    p1.setEstrella(5);
-    p2.setEstrella(3);
-    
-    ArrayList<Producto> RandomProductsHome;
+    p1.introducirOpinion(o1);
+    p1.introducirOpinion(o2);
+    p1.introducirOpinion(o4);
+    p1.introducirOpinion(o6);
+    p2.introducirOpinion(o2);
+    p2.introducirOpinion(o3);
+    p2.introducirOpinion(o5);
+    p2.introducirOpinion(o6);
+    p3.introducirOpinion(o3);
+    p3.introducirOpinion(o1);
+    p3.introducirOpinion(o2);
+    p3.introducirOpinion(o4);
+    //ArrayList<Producto> RandomProductsHome;
     RandomProductsHome = new ArrayList<>();
     
-    //RandomHomeProductos.seleccionarImagenes(i1);
+    
     RandomProductsHome = RandomHomeProductos.seleccionarProductos(i1);
     //jTextFieldProducts1.setText(RandomProductsHome.get(0).getTitulo());
-    javax.swing.JButton[] jButtonProductsArray = new javax.swing.JButton[]{jButtonProducts1,jButtonProducts2,jButtonProducts3,jButtonProducts4,jButtonProducts5,jButtonProducts6,jButtonProducts7,jButtonProducts8};
-    javax.swing.JTextField[] jTextFieldProducts = new javax.swing.JTextField[]{jTextFieldProducts1,jTextFieldProducts2,jTextFieldProducts3,jTextFieldProducts4,jTextFieldProducts5,jTextFieldProducts6,jTextFieldProducts7,jTextFieldProducts8};
-    javax.swing.JLabel[] jLabelFieldStarts = new javax.swing.JLabel[]{jLabel1Stars,jLabel2Stars,jLabel3Stars,jLabel4Stars,jLabel5Stars,jLabel6Stars,jLabel7Stars,jLabel8Stars};
+    javax.swing.JButton[] jButtonProductsArray = new javax.swing.JButton[]{jButtonProducts0,jButtonProducts1,jButtonProducts2,jButtonProducts3,jButtonProducts4,jButtonProducts5,jButtonProducts6,jButtonProducts7};
+    javax.swing.JTextField[] jTextFieldProducts = new javax.swing.JTextField[]{jTextFieldProducts0,jTextFieldProducts1,jTextFieldProducts2,jTextFieldProducts3,jTextFieldProducts4,jTextFieldProducts5,jTextFieldProducts6,jTextFieldProducts7};
+    javax.swing.JLabel[] jLabelFieldStarts = new javax.swing.JLabel[]{jLabelStars0,jLabelStars1,jLabelStars2,jLabelStars3,jLabelStars4,jLabelStars5,jLabelStars6,jLabelStars7};
     
-     System.out.println(RandomProductsHome);  
+     //System.out.println(RandomProductsHome);  
      int i=0;
      for (javax.swing.JButton f : jButtonProductsArray  ) {
         f.setIcon(new javax.swing.ImageIcon(RandomProductsHome.get(i).getFotografia()));
@@ -664,15 +594,15 @@ private void createHomePageProductos(){
     }
      i=0;
        for (javax.swing.JTextField f : jTextFieldProducts  ) {
-        System.out.println(i);
-        System.out.println(RandomProductsHome.get(i).getTitulo());
+        //System.out.println(i);
+        //System.out.println(RandomProductsHome.get(i).getTitulo());
         f.setText(RandomProductsHome.get(i).getTitulo() + "-" +RandomProductsHome.get(i).getPrecio() + "€");
         i++;
     }
        i=0;
        for (javax.swing.JLabel f : jLabelFieldStarts  ) {
-        System.out.println(i);
-        System.out.println(RandomProductsHome.get(i).getTitulo());
+        //System.out.println(i);
+        //System.out.println(RandomProductsHome.get(i).getTitulo());
         //f.setIcon(RandomProductsHome.get(i).getTitulo() + "-" +RandomProductsHome.get(i).getPrecio() + "€");
         int opcion = RandomProductsHome.get(i).getEstrella();
         switch (opcion) {
@@ -697,82 +627,145 @@ private void createHomePageProductos(){
     
 }
 
-    private void createHomePage() {
+    public void createHomePage() {
         try {
-            //jLabelImg.setSize(130, 100);
+            //jLabelImg.setSize(130, 100)
             jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/AllSafe.png"));
             jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
-            jButtonHomeIcon1.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
-            jButtonHomeIcon2.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
+            jButtonMiCarrito.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
+            if (checkLoginInterfaz()){
+            jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
+            jButtonLogin.setText("Mi cuenta");
+            jButtonLogOut.setVisible(true);
+            }
+            else{
+            jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
+            jButtonLogin.setText("Login");
+            jButtonLogOut.setVisible(false);
+            }
             jLabelTimeline8.setIcon(new javax.swing.ImageIcon("Icons/png/TimelineCoversA.jpg"));
             jLabelTimeline7.setIcon(new javax.swing.ImageIcon("Icons/png/TimelineCoversB.jpg"));
             jButtonHomeIconsGround8.setIcon(new javax.swing.ImageIcon("Icons/png/arrowUp.png"));
             jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("Icons/png/ArrowDown.png"));
             jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("Icons/png/home.png"));
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
-                    
         } 
         catch (Exception e) {
             System.out.println("Error: " + e.toString()); }
     } 
 
-
-
+// ********************************************************************************************************************
+    
+    
+//BOTONES Y CAJAS DE TEXTO
+ // ********************************************************************************************************************
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButtonHomeIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIcon1ActionPerformed
+    private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
-        System.out.println("Estas entrando en el carrito");
-    }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
+        
+        
+        
+  if (checkLogin()){
+            System.out.println("INFO: Estas entrando en el carrito");
+        }
+        else{
+            System.out.println("INFO: Necesitas estar logado para ver tu carrito");
+            
+        }
+           
+    }//GEN-LAST:event_jButtonMiCarritoActionPerformed
 
     private JFrame getFrame(){
      return this;
     }
     
-    private void jButtonProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts1ActionPerformed
+    
+    /// PRODUCTOS MOSTRADOS EN HOME
+    
+    private void jButtonProducts0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts0ActionPerformed
         // TODO add your handling code here:
-        WindowsProduct windowsproduct = new WindowsProduct(this);
+        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(0), user);
+        createHomePage();
         
-    }//GEN-LAST:event_jButtonProducts1ActionPerformed
+    }//GEN-LAST:event_jButtonProducts0ActionPerformed
+
+    private void jButtonProducts2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts2ActionPerformed
+        // TODO add your handling code here:
+        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(2), user);
+        createHomePage();
+    }//GEN-LAST:event_jButtonProducts2ActionPerformed
 
     private void jButtonProducts3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts3ActionPerformed
         // TODO add your handling code here:
+        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(3), user);
+        createHomePage();
     }//GEN-LAST:event_jButtonProducts3ActionPerformed
 
     private void jButtonProducts4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts4ActionPerformed
         // TODO add your handling code here:
+        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(4), user);
+        createHomePage();
     }//GEN-LAST:event_jButtonProducts4ActionPerformed
-
-    private void jButtonProducts5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonProducts5ActionPerformed
 
     private void jButtonProducts6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts6ActionPerformed
         // TODO add your handling code here:
+        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(6), user);
+        createHomePage();
     }//GEN-LAST:event_jButtonProducts6ActionPerformed
 
     private void jButtonProducts7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts7ActionPerformed
         // TODO add your handling code here:
+        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(7), user);
+        createHomePage();
     }//GEN-LAST:event_jButtonProducts7ActionPerformed
 
-    private void jButtonProducts8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts8ActionPerformed
+    private void jButtonProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonProducts8ActionPerformed
+        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(1), user);
+        createHomePage();
+    }//GEN-LAST:event_jButtonProducts1ActionPerformed
 
-    private void jButtonProducts2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts2ActionPerformed
+    private void jTextFieldProducts0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProducts0ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonProducts2ActionPerformed
+        
+    }//GEN-LAST:event_jTextFieldProducts0ActionPerformed
 
-    private void jTextFieldProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProducts1ActionPerformed
+    private void jTextFieldProducts2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProducts2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldProducts1ActionPerformed
+    }//GEN-LAST:event_jTextFieldProducts2ActionPerformed
 
-    private void jTextFieldProducts3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProducts3ActionPerformed
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldProducts3ActionPerformed
+        
+        //createHomePage();
+        if (jButtonLogin.getText().equals("Mi cuenta") ){
+            System.out.println("Vas a entrar en tu cuenta");
+            WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , user);
+        }
+        else {
+            WindowsLogin windowslogin = new WindowsLogin(this , user);
+            System.out.println("vas a logarte");
+        }
+        
+    }//GEN-LAST:event_jButtonLoginActionPerformed
 
+    private void jButtonProducts5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts5ActionPerformed
+        // TODO add your handling code here:
+        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(5), user);
+        createHomePage();
+    }//GEN-LAST:event_jButtonProducts5ActionPerformed
+
+    private void jButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogOutActionPerformed
+        // TODO add your handling code here:
+        this.SetUsuario(null);
+        createHomePage();
+    }//GEN-LAST:event_jButtonLogOutActionPerformed
+
+ // ********************************************************************************************************************
+    
     /**
      * @param args the command line arguments
      */
@@ -810,52 +803,15 @@ private void createHomePageProductos(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
-    private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton32;
-    private javax.swing.JButton jButton33;
-    private javax.swing.JButton jButton34;
-    private javax.swing.JButton jButton35;
-    private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton37;
-    private javax.swing.JButton jButton38;
-    private javax.swing.JButton jButton39;
-    private javax.swing.JButton jButton40;
-    private javax.swing.JButton jButton41;
-    private javax.swing.JButton jButton42;
-    private javax.swing.JButton jButton43;
-    private javax.swing.JButton jButton44;
-    private javax.swing.JButton jButton45;
-    private javax.swing.JButton jButton46;
-    private javax.swing.JButton jButton47;
-    private javax.swing.JButton jButton48;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JButton jButtonHomeIcon1;
-    private javax.swing.JButton jButtonHomeIcon2;
     private javax.swing.JButton jButtonHomeIcon4;
     private javax.swing.JButton jButtonHomeIconsGround5;
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
     private javax.swing.JButton jButtonHomeIconsGround8;
+    private javax.swing.JButton jButtonLogOut;
+    private javax.swing.JButton jButtonLogin;
+    private javax.swing.JButton jButtonMiCarrito;
+    private javax.swing.JButton jButtonProducts0;
     private javax.swing.JButton jButtonProducts1;
     private javax.swing.JButton jButtonProducts2;
     private javax.swing.JButton jButtonProducts3;
@@ -863,34 +819,34 @@ private void createHomePageProductos(){
     private javax.swing.JButton jButtonProducts5;
     private javax.swing.JButton jButtonProducts6;
     private javax.swing.JButton jButtonProducts7;
-    private javax.swing.JButton jButtonProducts8;
-    private javax.swing.JLabel jLabel1Stars;
-    private javax.swing.JLabel jLabel2Stars;
-    private javax.swing.JLabel jLabel3Stars;
-    private javax.swing.JLabel jLabel4Stars;
-    private javax.swing.JLabel jLabel5Stars;
-    private javax.swing.JLabel jLabel6Stars;
-    private javax.swing.JLabel jLabel7Stars;
-    private javax.swing.JLabel jLabel8Stars;
     private javax.swing.JLabel jLabelHomeIcon4;
+    private javax.swing.JLabel jLabelStars0;
+    private javax.swing.JLabel jLabelStars1;
+    private javax.swing.JLabel jLabelStars2;
+    private javax.swing.JLabel jLabelStars3;
+    private javax.swing.JLabel jLabelStars4;
+    private javax.swing.JLabel jLabelStars5;
+    private javax.swing.JLabel jLabelStars6;
+    private javax.swing.JLabel jLabelStars7;
     private javax.swing.JLabel jLabelTimeline7;
     private javax.swing.JLabel jLabelTimeline8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel1Products;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel2Products;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel6Products;
+    private javax.swing.JPanel jPanelProducts0;
+    private javax.swing.JPanel jPanelProducts1;
+    private javax.swing.JPanel jPanelProducts2;
     private javax.swing.JPanel jPanelProducts3;
     private javax.swing.JPanel jPanelProducts4;
     private javax.swing.JPanel jPanelProducts5;
+    private javax.swing.JPanel jPanelProducts6;
     private javax.swing.JPanel jPanelProducts7;
-    private javax.swing.JPanel jPanelProducts8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldProducts0;
     private javax.swing.JTextField jTextFieldProducts1;
     private javax.swing.JTextField jTextFieldProducts2;
     private javax.swing.JTextField jTextFieldProducts3;
@@ -898,6 +854,5 @@ private void createHomePageProductos(){
     private javax.swing.JTextField jTextFieldProducts5;
     private javax.swing.JTextField jTextFieldProducts6;
     private javax.swing.JTextField jTextFieldProducts7;
-    private javax.swing.JTextField jTextFieldProducts8;
     // End of variables declaration//GEN-END:variables
 }

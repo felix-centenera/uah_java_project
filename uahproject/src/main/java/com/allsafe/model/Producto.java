@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.allsafe.model;
+import static java.lang.Math.round;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -28,7 +29,7 @@ public class Producto {
     
     private int estrellas ;
     
-    private ArrayList<Opinion> opinion ;
+    private ArrayList<Opinion> opiniones ;
     
 
     public Producto(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock) {
@@ -39,12 +40,10 @@ public class Producto {
         this.fotografia = fotografia;
         this.stock = stock;
         this.fechaEntradaTienda = LocalDateTime.now();
-        opinion = new ArrayList<>();
+        opiniones = new ArrayList<>();
         estrellas = 0;
     }
      
-    
-    
 
     public LocalDateTime getFechaEntradaTienda() {
         return fechaEntradaTienda;
@@ -110,13 +109,23 @@ public class Producto {
         return estrellas;
     }
 
-    public void setEstrella(int estrellas) {
-        this.estrellas = estrellas;
+  
+    
+      public Opinion getOpiniones(int a) {
+        return opiniones.get(a);
     }
+
+    public void introducirOpinion(Opinion o){
+               opiniones.add(o);
+               for (int i=0; i < opiniones.size(); i++ ){
+                   estrellas= estrellas + opiniones.get(i).getCalificacion();
+               }
+               estrellas = round(estrellas / opiniones.size());
+       }
 
     @Override
     public String toString() {
-        return "Producto{" + "titulo=" + titulo + ", caracteristicas=" + caracteristicas + ", categoria=" + categoria + ", precio=" + precio + ", fotografia=" + fotografia + ", stock=" + stock + ", fechaEntradaTienda=" + fechaEntradaTienda + ", opinion=" + opinion + '}';
+        return "Producto{" + "titulo=" + titulo + ", caracteristicas=" + caracteristicas + ", categoria=" + categoria + ", precio=" + precio + ", fotografia=" + fotografia + ", stock=" + stock + ", fechaEntradaTienda=" + fechaEntradaTienda + ", opinion=" + opiniones + '}';
     }
 
     

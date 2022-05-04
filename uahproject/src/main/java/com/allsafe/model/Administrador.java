@@ -14,8 +14,5 @@ public class Administrador extends Usuario {
         super(clave, correo, token);
         this.setAdministrador(true);
     }
-    
-    
-    
-    
+       
 }
