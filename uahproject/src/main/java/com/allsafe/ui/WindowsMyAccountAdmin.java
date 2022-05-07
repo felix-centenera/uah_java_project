@@ -15,6 +15,7 @@ import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Usuario;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
+import com.allsafe.service.UsersServices;
 import java.awt.Color;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -531,7 +532,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         
         String clase = user.getClass().getSimpleName();
         if(clase.equals("Administrador")) {
-            if (usuariosMock.setUser(jPasswordField.getText(),JTextFieldUserMail.getText())) {
+            if (UsersServices.setUser(jPasswordField.getText(),JTextFieldUserMail.getText())) {
                 System.out.println("INFO: El usuario se ha sido modificado con exito");
                 this.dispose();
                 

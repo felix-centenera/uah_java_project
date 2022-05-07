@@ -21,10 +21,21 @@ public class CarritoCompra {
     
 
     public CarritoCompra() {
-        
         incrementaId(); 
         productos = new ArrayList<>();
         this.idCarrito = generadorId +"-"+ generateRandomNumber() ;
+    }
+    
+    public boolean addToProducto(Producto producto){
+        try{
+            //TODO preguntar al inventario si hay disponibilidad primero
+            productos.add(producto);
+            return true;
+        }
+        catch (Exception e) {
+            System.out.println("Error: No se ha podido añadir el producto al carrito " + e.toString()); 
+            return false;
+        }
     }
     
     

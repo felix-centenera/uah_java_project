@@ -13,6 +13,7 @@ import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Usuario;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
+import com.allsafe.service.UsersServices;
 import java.awt.Color;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -134,7 +135,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                 jButtonUser7.setVisible(false);
                 jButtonUser8.setVisible(false);
            
-                ArrayList<String> listOfKeys  = userData.getUser();
+                ArrayList<String> listOfKeys  = UsersServices.getUser();
                 int sizeUserData=listOfKeys.size();
                 System.out.println(numberOfUserPages);
                 numberOfUserPages = numberOfUserPages +i;
@@ -860,9 +861,12 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if( !jTextFieldUserMail.getText().equals("Ingrese su nombre de usuario") && !jTextFieldUserMail.getText().equals("")   ){
-            userData.addAdmin(jPasswordUserPass.getText(), jTextFieldUserMail.getText()); 
+            UsersServices.addAdmin(jPasswordUserPass.getText(), jTextFieldUserMail.getText()); 
             jPasswordUserPass.setText("");
             jTextFieldUserMail.setText("");
+            //TO TEST DELETE both prints
+            System.out.println("Usuarios pedidos directamente:" + UsersServices.getUser());
+            System.out.println("Usuarios pedidos por servicio:" + UsersServices.getUser());
         }
         else {
             System.out.println("INFO: DEBE Añadir un usuario");
@@ -921,7 +925,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         else {
          try {
             jPanelUsersFound.setVisible(false); 
-            userMgmt =  userData.getUser(jTextFieldSearchUser.getText());
+            userMgmt =  UsersServices.getUser(jTextFieldSearchUser.getText());
             jTextFieldSearchUser.setText("Ingrese su nombre de usuario");
             jLabelMailUser.setText(userMgmt.getCorreo());
             }
@@ -950,50 +954,50 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     private void jButtonUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser1ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  userData.getUser(jButtonUser1.getText());
+        userMgmt =  UsersServices.getUser(jButtonUser1.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
         
     }//GEN-LAST:event_jButtonUser1ActionPerformed
 
     private void jButtonUser2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser2ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  userData.getUser(jButtonUser2.getText());
+        userMgmt =  UsersServices.getUser(jButtonUser2.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
     }//GEN-LAST:event_jButtonUser2ActionPerformed
 
     private void jButtonUser3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser3ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  userData.getUser(jButtonUser3.getText());
+        userMgmt =  UsersServices.getUser(jButtonUser3.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
     }//GEN-LAST:event_jButtonUser3ActionPerformed
 
     private void jButtonUser4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser4ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  userData.getUser(jButtonUser4.getText());
+        userMgmt =  UsersServices.getUser(jButtonUser4.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
     }//GEN-LAST:event_jButtonUser4ActionPerformed
 
     private void jButtonUser5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser5ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  userData.getUser(jButtonUser5.getText());
+        userMgmt =  UsersServices.getUser(jButtonUser5.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
     }//GEN-LAST:event_jButtonUser5ActionPerformed
 
     private void jButtonUser6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser6ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  userData.getUser(jButtonUser6.getText());
+        userMgmt =  UsersServices.getUser(jButtonUser6.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
     }//GEN-LAST:event_jButtonUser6ActionPerformed
 
     private void jButtonUser7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser7ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  userData.getUser(jButtonUser7.getText());
+        userMgmt =  UsersServices.getUser(jButtonUser7.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
     }//GEN-LAST:event_jButtonUser7ActionPerformed
 
     private void jButtonUser8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser8ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  userData.getUser(jButtonUser8.getText());
+        userMgmt =  UsersServices.getUser(jButtonUser8.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
     }//GEN-LAST:event_jButtonUser8ActionPerformed
 
@@ -1012,7 +1016,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private void jButtonUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserDeleteActionPerformed
         // TODO add your handling code here:
          if (jLabelMailUser.getText() != "mail"){
-             if (userData.deleteUser(jLabelMailUser.getText())) {
+             if (UsersServices.deleteUser(jLabelMailUser.getText())) {
                  System.out.println("INFO: El usuario se ha eliminado con exito");
              
              }
