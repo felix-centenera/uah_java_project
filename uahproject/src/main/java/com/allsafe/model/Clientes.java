@@ -62,8 +62,7 @@ public abstract class Clientes extends Usuario{
     public CarritoCompra getCarritoCompra() {
         return carritoCompra;
     }
-
-
+    
     public String getNombre() {
         return nombre;
     }

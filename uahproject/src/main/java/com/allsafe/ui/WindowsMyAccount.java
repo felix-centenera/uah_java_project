@@ -14,6 +14,7 @@ import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Usuario;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
+import com.allsafe.service.UsersServices;
 import java.awt.Color;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -1070,7 +1071,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         
         
         if(clase.equals("ClienteParticular")) {
-            if (usuariosMock.setUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+            if (UsersServices.setUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
                 System.out.println("INFO: El usuario se ha sido modificado con exito");
                 this.dispose();
                 
@@ -1092,7 +1093,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
         
         else {
-            if (usuariosMock.setUser(JTextFieldUserDNI.getText(), JTextFieldUserWeb.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+            if (UsersServices.setUser(JTextFieldUserDNI.getText(), JTextFieldUserWeb.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
                 System.out.println("INFO: El usuario se ha sido modificado con exito");
                 this.dispose();
                 

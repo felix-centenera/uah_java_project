@@ -4,6 +4,7 @@
  */
 package com.allsafe.ui;
 
+import com.allsafe.model.ClienteEmpresa;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
 import com.allsafe.model.Inventario;
@@ -587,6 +588,7 @@ private boolean checkLoginInterfaz(){
         //System.out.println("Estas entrando en el carrito");
         if (checkLogin()){
             System.out.println("INFO: Estas entrando en el carrito");
+            WindowsUserShoppingCart windowsUserShoppingCart = new WindowsUserShoppingCart(this , user);
         }
         else{
             System.out.println("INFO: Necesitas estar logado para ver tu carrito");
@@ -640,6 +642,32 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
         if (checkLogin()){
             System.out.println("INFO: Estas añadiendo un producto a tu carrito");
+            //user.
+            //user.getClass().getSimpleName()
+            String clase = user.getClass().getSimpleName();
+            if (  clase.equals("ClienteParticular")){
+                ClienteParticular c1 = (ClienteParticular) user;
+                if (c1.getCarritoCompra().addToProducto(producto)){
+                    System.out.println("INFO: Se ha añadido correctamente el producto a el carrito");
+                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                }
+                else {
+                    System.out.println("ERROR: No se ha añadido correctamente el producto a el carrito");
+                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                     }
+            }
+            else if (clase.equals("ClienteEmpresa")){
+                ClienteEmpresa c1 = (ClienteEmpresa) user;
+                //c1.getCarritoCompra().addToProducto(producto);
+                if (c1.getCarritoCompra().addToProducto(producto)){
+                    System.out.println("INFO: Se ha añadido correctamente el producto a el carrito");
+                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                }
+                else {
+                    System.out.println("ERROR: No se ha añadido correctamente el producto a el carrito");
+                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                     }   
+            }
         }
         else{
             System.out.println("INFO: Necesitas estar logado para añadir productos a tu carrito");

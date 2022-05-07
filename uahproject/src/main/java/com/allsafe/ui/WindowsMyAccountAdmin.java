@@ -15,6 +15,7 @@ import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Usuario;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
+import com.allsafe.service.UsersServices;
 import java.awt.Color;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -165,7 +166,7 @@ public class WindowsMyAccountAdmin extends javax.swing.JFrame  {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(6, 40, 73));
         jPanel1.setToolTipText("");
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -376,7 +377,7 @@ public class WindowsMyAccountAdmin extends javax.swing.JFrame  {
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
 
-        jPanel5.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel5.setBackground(new java.awt.Color(6, 40, 73));
 
         jLabel1.setFont(new java.awt.Font("Papyrus", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -531,7 +532,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         
         String clase = user.getClass().getSimpleName();
         if(clase.equals("Administrador")) {
-            if (usuariosMock.setUser(jPasswordField.getText(),JTextFieldUserMail.getText())) {
+            if (UsersServices.setUser(jPasswordField.getText(),JTextFieldUserMail.getText())) {
                 System.out.println("INFO: El usuario se ha sido modificado con exito");
                 this.dispose();
                 

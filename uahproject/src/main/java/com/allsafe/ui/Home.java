@@ -17,6 +17,7 @@ import com.allsafe.model.Token;
 import com.allsafe.model.Usuario;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
+import com.allsafe.service.UsersServices;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -524,8 +525,8 @@ Inventario i1 = new Inventario();
 
 private void initUserMock(){
     UserData userData = UserData.getInstance();
-    userData.createMockUser();
-    userData.createMockAdminUser();
+    UsersServices.createMockUser();
+    UsersServices.createMockAdminUser();
 }
 
 //método comprobar login
@@ -705,11 +706,9 @@ private void createHomePageProductos(){
 
     private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
-        
-        
-        
   if (checkLogin()){
             System.out.println("INFO: Estas entrando en el carrito");
+            WindowsUserShoppingCart windowsUserShoppingCart = new WindowsUserShoppingCart(this , user);
         }
         else{
             System.out.println("INFO: Necesitas estar logado para ver tu carrito");
