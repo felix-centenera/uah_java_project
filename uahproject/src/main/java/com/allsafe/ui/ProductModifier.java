@@ -7,6 +7,7 @@ package com.allsafe.ui;
 
 import com.allsafe.model.Producto;
 import java.awt.Color;
+import java.util.ArrayList;
 
 
 
@@ -19,12 +20,13 @@ public class ProductModifier extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
-    private Producto pro;
+    private ArrayList<String> arrayKeys;
     
-    public ProductModifier() {
+    public ProductModifier(ArrayList<String> arrayKeys) {
         initComponents();
         createHomePage();
        // this.pro = pro;
+       this.arrayKeys = arrayKeys;
     }
 
     /**
@@ -236,7 +238,12 @@ public class ProductModifier extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("Estas entrando en el carrito");
     }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
-
+    public void insertElements(){
+        
+    
+    
+    
+    }
 //    private JFrame getFrame() {
 //        return this;
 //    }

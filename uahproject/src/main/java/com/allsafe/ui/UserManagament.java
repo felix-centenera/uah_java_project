@@ -1086,7 +1086,7 @@ public class UserManagament extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jLabelImgCrearMousePressed
-
+s
     private void JLabelBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelBuscarMousePressed
         // TODO add your handling code here:
         if ((!String.valueOf(JTxtTitulo.getText()).isEmpty()) && !(JTxtTitulo.getText().equals("Escribe el nombre que deseas buscar"))){
@@ -1096,7 +1096,23 @@ public class UserManagament extends javax.swing.JFrame {
                 String Clave = InventarioService.findProductwithName(Nombre, inv);
                 System.out.println("INFO: Hemos encontrado el producto en el inventario pasamos a la pantalla de modificacion de producto");
 
-                //Buscamelo y si esta y no me arrojas excepcion habreme la nueva pantalla
+                //Buscamelo y si esta y si no me arrojas excepcion habreme la nueva pantalla
+                
+                try{
+                    ArrayList<String> arrayKeys = new ArrayList<>();
+                    ProductModifier abrirNuevo = new ProductModifier(arrayKeys);
+                    abrirNuevo.setVisible(true);
+                    this.setVisible(false);
+            
+                    
+                    
+                }catch(Exception e){
+                    
+                System.out.println("INFO: ERROR" + e.toString());
+                JOptionPane.showMessageDialog(null, "No podemos pasar de ventana", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+                
+                
+                }
             }catch(Exception e){
 
                 System.out.println("INFO: No se h encontrado producto dentro del inventario, Excepcion " + e.toString());

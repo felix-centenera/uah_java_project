@@ -48,7 +48,10 @@ public class Producto {
     public LocalDateTime getFechaEntradaTienda() {
         return fechaEntradaTienda;
     }
-
+    public void setFechaEntradaTienda(LocalDateTime fechaEntradaTienda){
+        this.fechaEntradaTienda = fechaEntradaTienda;
+    
+    }
 
     public int getStock() {
         return stock;

@@ -5,9 +5,12 @@
 package com.allsafe.ui;
 //import javax.swing.JFrame;
 
+import com.allsafe.mock.Inventario;
 import com.allsafe.model.Producto;
 import java.awt.Color;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
 
 
@@ -22,12 +25,14 @@ public class ModifyProducts extends javax.swing.JFrame {
      */
     
     private Producto pro;
+    private Inventario inv = Inventario.getInstance();
     
     public ModifyProducts(Producto pro) {
         initComponents();
         createHomePage();
         insertAtributes();
         this.pro = pro;
+        
     }
     public ModifyProducts() {
         initComponents();
@@ -58,7 +63,7 @@ public class ModifyProducts extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        JButtomModifyProduct = new javax.swing.JButton();
         JTextTitulo = new javax.swing.JTextField();
         JTextCaracteristicas = new javax.swing.JTextField();
         jTextCategoria = new javax.swing.JTextField();
@@ -66,7 +71,7 @@ public class ModifyProducts extends javax.swing.JFrame {
         jTextStock = new javax.swing.JTextField();
         jTextFechaEntrada = new javax.swing.JTextField();
         jTextEstrellas = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        jLabelIMGProducto = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jTextPrecio = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -108,10 +113,10 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         jLabel8.setText("Estrellas:");
 
-        jButton3.setText("Modificar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        JButtomModifyProduct.setText("Modificar");
+        JButtomModifyProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                JButtomModifyProductActionPerformed(evt);
             }
         });
 
@@ -157,7 +162,7 @@ public class ModifyProducts extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setText("Img");
+        jLabelIMGProducto.setText("Img");
 
         jLabel10.setText("Precio:");
 
@@ -186,7 +191,7 @@ public class ModifyProducts extends javax.swing.JFrame {
                 .addGap(76, 76, 76)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JButtomModifyProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(198, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -199,7 +204,7 @@ public class ModifyProducts extends javax.swing.JFrame {
                             .addComponent(jTextFechaEntrada, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextEstrellas, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(36, 36, 36)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelIMGProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(28, 28, 28))))
         );
         jPanel7Layout.setVerticalGroup(
@@ -227,7 +232,7 @@ public class ModifyProducts extends javax.swing.JFrame {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(jTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelIMGProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -241,7 +246,7 @@ public class ModifyProducts extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(jTextPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(JButtomModifyProduct)
                 .addGap(45, 45, 45))
         );
 
@@ -323,6 +328,11 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         jButtonHomeIconsGround5.setBorderPainted(false);
         jButtonHomeIconsGround5.setContentAreaFilled(false);
+        jButtonHomeIconsGround5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHomeIconsGround5MouseClicked(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 40, 40));
 
         jButtonHomeIconsGround6.setBorderPainted(false);
@@ -331,10 +341,20 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         jButtonHomeIconsGround7.setBorderPainted(false);
         jButtonHomeIconsGround7.setContentAreaFilled(false);
+        jButtonHomeIconsGround7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHomeIconsGround7MouseClicked(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 40, 40));
 
         jButtonHomeIconsGround8.setBorderPainted(false);
         jButtonHomeIconsGround8.setContentAreaFilled(false);
+        jButtonHomeIconsGround8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHomeIconsGround8MouseClicked(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 40, 40));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
@@ -359,19 +379,30 @@ public class ModifyProducts extends javax.swing.JFrame {
             
         } catch (Exception e) {
             System.out.println("Error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error nos fatan datos", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         }
     }
     public void insertAtributes(){
+        try{
+            jTextCategoria.setText(pro.getCategoria());
+            jTextEstrellas.setText("" +pro.getEstrella());
+            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+            jTextFechaEntrada.setText("" + pro.getFechaEntradaTienda().format(formatoCorto));//mirar por que a lo mejor no furula todo lo bien   que se espera
+            jTextStock.setText("" + pro.getStock());
+            JTextCaracteristicas.setText(pro.getCaracteristicas());
+            jTextPrecio.setText("" + pro.getPrecio());
+            JTextTitulo.setText(pro.getTitulo());
+            JTextLink.setText(pro.getFotografia());
+            jLabelIMGProducto.setIcon(new javax.swing.ImageIcon(pro.getFotografia()));
+            
         
-        jTextCategoria.setText(pro.getCategoria());
-        jTextEstrellas.setText("" +pro.getEstrella());
-        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
-        jTextFechaEntrada.setText("" + pro.getFechaEntradaTienda().format(formatoCorto));//mirar por que a lo mejor no furula todo lo bien   que se espera
-        jTextStock.setText("" + pro.getStock());
-        JTextCaracteristicas.setText(pro.getCaracteristicas());
-        jTextPrecio.setText("" + pro.getPrecio());
-        JTextTitulo.setText(pro.getTitulo());
-        JTextLink.setText(pro.getFotografia());
+            System.out.println("INFO: Se han insertado los datos "); 
+        }catch(Exception e){
+            System.out.println("No tenemos todos los valores");
+            JOptionPane.showMessageDialog(null, "Error nos faltan datos", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        
+        }
+       
     }
     
     
@@ -385,20 +416,46 @@ public class ModifyProducts extends javax.swing.JFrame {
         System.out.println("Estas entrando en el carrito");
     }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void JButtomModifyProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtomModifyProductActionPerformed
         // TODO add your handling code here:
-//        jTextCategoria
-//        jTextEstrellas
-//        jTextFechaEntrada
-//        jTextStock
-//        JTextCaracteristicas
-//        jTextPrecio
-//        JTextTitulo
-//        JTextLink
+        //        jTextCategoria
+        //        jTextEstrellas
+        //        jTextFechaEntrada
+        //        jTextStock
+        //        JTextCaracteristicas
+        //        jTextPrecio
+        //        JTextTitulo
+        //        JTextLink
+
+          try{
+            Producto prod = inv.getInventario().get(pro.getTitulo());
+            
+            String categoria = jTextCategoria.getText();
+            String caracteristicas = JTextCaracteristicas.getText();
+            int stock = Integer.parseInt(jTextStock.getText());
+            int precio = Integer.parseInt(jTextPrecio.getText());
+            String link = JTextLink.getText();
+            
+            pro.setCaracteristicas(caracteristicas);
+            pro.setCategoria(categoria);
+            pro.setFotografia(link);
+            pro.setStock(stock);
+            pro.setPrecio(precio);
+            
+            inv.getInventario().put(pro.getTitulo(), prod);
+            
+            System.out.println("INFO: hemos sobre escrito el producto dado");
+              
+          
+          }catch(Exception e){
+              System.out.println("Error " + e.toString());
+              JOptionPane.showMessageDialog(null, "Error datos", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        
+          }
         
 
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_JButtomModifyProductActionPerformed
 
     private void JTextTituloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextTituloMouseClicked
         // TODO add your handling code here:
@@ -709,6 +766,48 @@ public class ModifyProducts extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextPrecioMouseClicked
 
+    private void jButtonHomeIconsGround8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8MouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Error no se puede ir hacia delante modifique los campos y dele a annadir", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        
+    }//GEN-LAST:event_jButtonHomeIconsGround8MouseClicked
+
+    private void jButtonHomeIconsGround7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7MouseClicked
+        // TODO add your handling code here:
+         try{
+             //Volvemos hacia atras con el producto
+             //***************************************************************************************************
+             //volvemos hacia atras habra que modificar el  constructor para volver con el producto
+             UserManagament abrirNuevo = new UserManagament();
+            abrirNuevo.setVisible(true);
+            this.setVisible(false);
+            
+            System.out.println("INFO: Nos vamos al Login");
+        }catch(Exception e){
+            
+             JOptionPane.showMessageDialog(null, "Error no hemos encontrado la Pagina "  + e.toString(), "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_jButtonHomeIconsGround7MouseClicked
+
+    private void jButtonHomeIconsGround5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5MouseClicked
+        // TODO add your handling code here:
+        try {
+            //Volvemos hacia atras con el producto
+            //***************************************************************************************************
+            //volvemos hacia atras habra que modificar el  constructor para volver con el producto
+            Home abrirNuevo = new Home();
+            abrirNuevo.setVisible(true);
+            this.setVisible(false);
+
+            System.out.println("INFO: Nos vamos al Home");
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Error no hemos encontrado la Pagina " + e.toString(), "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_jButtonHomeIconsGround5MouseClicked
+
 //    private JFrame getFrame() {
 //        return this;
 //    }
@@ -764,11 +863,11 @@ public class ModifyProducts extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JButtomModifyProduct;
     private javax.swing.JTextField JTextCaracteristicas;
     private javax.swing.JTextField JTextLink;
     private javax.swing.JTextField JTextTitulo;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonHomeIcon1;
     private javax.swing.JButton jButtonHomeIcon2;
     private javax.swing.JButton jButtonHomeIcon4;
@@ -785,8 +884,8 @@ public class ModifyProducts extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelHomeIcon4;
+    private javax.swing.JLabel jLabelIMGProducto;
     private javax.swing.JLabel jLabelTimeline7;
     private javax.swing.JLabel jLabelTimeline8;
     private javax.swing.JPanel jPanel1;
