@@ -368,7 +368,7 @@ public class Home extends javax.swing.JFrame {
                 jButtonMiCarritoActionPerformed(evt);
             }
         });
-        jPanel3.add(jButtonMiCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 50, 120, 60));
+        jPanel3.add(jButtonMiCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 120, 60));
 
         jButtonLogin.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/user.png")); // NOI18N
         jButtonLogin.setText("Mi Cuenta");
@@ -431,7 +431,7 @@ public class Home extends javax.swing.JFrame {
                 jButtonLogOutActionPerformed(evt);
             }
         });
-        jPanel6.add(jButtonLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 0, 100, 40));
+        jPanel6.add(jButtonLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 110, 50));
 
         jButtonAdmin.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/admin.png")); // NOI18N
         jButtonAdmin.setText("Admin");
@@ -442,7 +442,7 @@ public class Home extends javax.swing.JFrame {
                 jButtonAdminActionPerformed(evt);
             }
         });
-        jPanel6.add(jButtonAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 120, 40));
+        jPanel6.add(jButtonAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 0, 130, 50));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
 
@@ -781,15 +781,23 @@ private void createHomePageProductos(){
         // TODO add your handling code here:
         
         //createHomePage();
-        if (jButtonLogin.getText().equals("Mi cuenta") ){
-            System.out.println("Vas a entrar en tu cuenta");
-            WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , user);
-        }
-        else {
-            WindowsLogin windowslogin = new WindowsLogin(this , user);
-            System.out.println("vas a logarte");
-        }
-        
+         
+            if (jButtonLogin.getText().equals("Mi cuenta") ){
+                System.out.println("Vas a entrar en tu cuenta primero tengo que comprobar tu token");
+                if (checkLogin()){
+                     System.out.println("Vas a entrar en tu cuenta el token esta ok");
+                WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , user);
+                }
+                else {
+                    System.out.println("No vas a entrar en tu cuenta el token esta KO");
+                    createHomePage();
+                }
+            }
+            else {
+                WindowsLogin windowslogin = new WindowsLogin(this , user);
+                System.out.println("vas a logarte");
+            }
+         
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonProducts5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts5ActionPerformed
@@ -806,7 +814,14 @@ private void createHomePageProductos(){
 
     private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminActionPerformed
         // TODO add your handling code here:
+        System.out.println("INFO: Vas a entrar en la gestion, primero tengo que comprobar tu token");
+        if (checkLogin()){
          WindowsAdmin windowsadmin = new WindowsAdmin(this ,  user);
+        }
+         else {
+                    System.out.println("No vas a entrar en la gestión,  el token esta KO");
+                    createHomePage();
+                }
         
     }//GEN-LAST:event_jButtonAdminActionPerformed
 

@@ -103,6 +103,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
             jButtonUser6.setVisible(false);
             jButtonUser7.setVisible(false);
             jButtonUser8.setVisible(false);
+            jPanelUsersFound.setVisible(false);
         
             
             
@@ -123,16 +124,26 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
     
     
     private void printUsers(int i){
-           jPanelUsersFound.setVisible(true);
+                jPanelUsersFound.setVisible(true);
+                jButtonUser1.setVisible(false);        
+                jButtonUser2.setVisible(false);
+                jButtonUser3.setVisible(false);
+                jButtonUser4.setVisible(false);
+                jButtonUser5.setVisible(false);
+                jButtonUser6.setVisible(false);
+                jButtonUser7.setVisible(false);
+                jButtonUser8.setVisible(false);
            
                 ArrayList<String> listOfKeys  = userData.getUser();
                 int sizeUserData=listOfKeys.size();
                 System.out.println(numberOfUserPages);
                 numberOfUserPages = numberOfUserPages +i;
                 System.out.println(numberOfUserPages);
+                jPanelUsersFound.setVisible(true);
                 switch (sizeUserData) {
                 case 1 : 
                     try {
+                        System.out.println("caso1");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     }
@@ -147,6 +158,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     break;
                 case 2 :
                     try {
+                        System.out.println("caso2");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
@@ -163,6 +175,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     break;
                 case 3:
                     try {
+                        System.out.println("caso3");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
@@ -180,6 +193,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     break;
                 case 4:
                     try {
+                        System.out.println("caso4");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
@@ -200,6 +214,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     break;
                 case 5:
                     try {
+                        System.out.println("caso5");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
@@ -220,6 +235,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     break;
                 case 6:
                     try {
+                        System.out.println("caso6");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
@@ -242,6 +258,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     break;
                 case 7:
                     try {
+                        System.out.println("caso7");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
@@ -267,6 +284,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                 default:
                     System.out.println("somos 8 o mas  "  );   
                     try {
+                            System.out.println("caso8");
                             System.out.println("somos 8 o mas  y estamos haciendolo bien"  );   
                             System.out.println("la i es: " + i + "y i +1 es= " + i +1 ); 
                             System.out.println(listOfKeys);
@@ -284,8 +302,8 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     jButtonUser6.setText(listOfKeys.get(numberOfUserPages+5));
                     jButtonUser7.setVisible(true);
                     jButtonUser7.setText(listOfKeys.get(numberOfUserPages+6));
-                    jButtonUser7.setVisible(true);
-                    jButtonUser7.setText(listOfKeys.get(numberOfUserPages+7));
+                    jButtonUser8.setVisible(true);
+                    jButtonUser8.setText(listOfKeys.get(numberOfUserPages+7));
                     }
                     catch (Exception e) {
                          System.out.println("somos 8 o mas  y estamos dando error"  );       
@@ -362,10 +380,10 @@ private JFrame getFrame(){
         jPanel8 = new javax.swing.JPanel();
         jLabel2UserMail1 = new javax.swing.JLabel();
         jButtonSearch = new javax.swing.JButton();
-        jTextFieldSearchUser = new javax.swing.JTextField();
         jButtonUserDelete = new javax.swing.JButton();
         jButtonUserInfo = new javax.swing.JButton();
         jLabelMailUser = new javax.swing.JLabel();
+        jTextFieldSearchUser = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanelUsersFound = new javax.swing.JPanel();
         jButtonUser1 = new javax.swing.JButton();
@@ -455,7 +473,7 @@ private JFrame getFrame(){
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldUserMail, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPasswordUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -475,6 +493,8 @@ private JFrame getFrame(){
 
         jLabel2.setText("Añadir administrador");
 
+        jPanel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
         jLabel2UserMail1.setText("Usuario correo");
 
         jButtonSearch.setText("Buscar");
@@ -483,6 +503,23 @@ private JFrame getFrame(){
                 jButtonSearchActionPerformed(evt);
             }
         });
+
+        jButtonUserDelete.setText("Eliminar");
+        jButtonUserDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUserDeleteActionPerformed(evt);
+            }
+        });
+
+        jButtonUserInfo.setText("Información");
+        jButtonUserInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUserInfoActionPerformed(evt);
+            }
+        });
+
+        jLabelMailUser.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabelMailUser.setText("mail");
 
         jTextFieldSearchUser.setForeground(new java.awt.Color(204, 204, 204));
         jTextFieldSearchUser.setText("Ingrese su nombre de usuario");
@@ -498,39 +535,29 @@ private JFrame getFrame(){
             }
         });
 
-        jButtonUserDelete.setText("Eliminar");
-
-        jButtonUserInfo.setText("Información");
-        jButtonUserInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonUserInfoActionPerformed(evt);
-            }
-        });
-
-        jLabelMailUser.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabelMailUser.setText("mail");
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabelMailUser, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonUserDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonUserInfo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonSearch))
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addComponent(jButtonUserDelete)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButtonUserInfo))
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addComponent(jLabel2UserMail1)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextFieldSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabelMailUser, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel2UserMail1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -539,18 +566,19 @@ private JFrame getFrame(){
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2UserMail1)
                     .addComponent(jTextFieldSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSearch)
-                    .addComponent(jLabelMailUser))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelMailUser)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonUserDelete)
-                    .addComponent(jButtonUserInfo))
-                .addContainerGap(8, Short.MAX_VALUE))
+                    .addComponent(jButtonUserInfo)
+                    .addComponent(jButtonSearch))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jLabel3.setText("Buscar usuario");
+
+        jPanelUsersFound.setBackground(new java.awt.Color(255, 255, 255));
 
         jButtonUser1.setText("jButtonUser1");
         jButtonUser1.addActionListener(new java.awt.event.ActionListener() {
@@ -612,39 +640,39 @@ private JFrame getFrame(){
         jPanelUsersFound.setLayout(jPanelUsersFoundLayout);
         jPanelUsersFoundLayout.setHorizontalGroup(
             jPanelUsersFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelUsersFoundLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addGroup(jPanelUsersFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonUser7, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUser8, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUser5, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUser4, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUser3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUser2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUser6, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(109, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelUsersFoundLayout.createSequentialGroup()
+                .addContainerGap(182, Short.MAX_VALUE)
+                .addGroup(jPanelUsersFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonUser1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                    .addComponent(jButtonUser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonUser3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonUser4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonUser5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonUser6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonUser7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonUser8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(139, 139, 139))
         );
         jPanelUsersFoundLayout.setVerticalGroup(
             jPanelUsersFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelUsersFoundLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelUsersFoundLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jButtonUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonUser2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonUser3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonUser4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonUser5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonUser6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonUser7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonUser8)
-                .addGap(15, 15, 15))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -660,17 +688,15 @@ private JFrame getFrame(){
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(391, 391, 391))
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(51, 51, 51)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel2)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel3)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanelUsersFound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89))
+                .addGap(57, 57, 57))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -679,18 +705,18 @@ private JFrame getFrame(){
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(18, 25, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addGap(40, 40, 40)
                         .addComponent(jLabel2)
-                        .addGap(4, 4, 4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanelUsersFound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(52, 52, 52))
         );
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 1150, 470));
@@ -811,9 +837,16 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        userData.addAdmin(jPasswordUserPass.getText(), jTextFieldUserMail.getText()); 
-        jPasswordUserPass.setText("");
-        jTextFieldUserMail.setText("");
+        if( !jTextFieldUserMail.getText().equals("Ingrese su nombre de usuario") && !jTextFieldUserMail.getText().equals("")   ){
+            userData.addAdmin(jPasswordUserPass.getText(), jTextFieldUserMail.getText()); 
+            jPasswordUserPass.setText("");
+            jTextFieldUserMail.setText("");
+        }
+        else {
+            System.out.println("INFO: DEBE Añadir un usuario");
+        
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordUserPassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordUserPassMousePressed
@@ -846,14 +879,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUserMailActionPerformed
 
-    private void jTextFieldSearchUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSearchUserMousePressed
-
-    private void jTextFieldSearchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSearchUserActionPerformed
-
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
         // TODO add your handling code here:
         //jTextFieldSearchUser.getText(); ||  (jTextFieldSearchUser.getText().contains(""))
@@ -861,6 +886,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         if (jTextFieldSearchUser.getText().contains("Ingrese su nombre de usuario")  ){
             try {
              //if null 
+             jLabelMailUser.setText("mail");
              SetNumberOfUserPages0();
              printUsers(0);
                
@@ -872,6 +898,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
         else {
          try {
+            jPanelUsersFound.setVisible(false); 
             userMgmt =  userData.getUser(jTextFieldSearchUser.getText());
             jTextFieldSearchUser.setText("Ingrese su nombre de usuario");
             jLabelMailUser.setText(userMgmt.getCorreo());
@@ -884,7 +911,19 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     private void jButtonUserInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserInfoActionPerformed
         // TODO add your handling code here:
-        WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , userMgmt);
+        if (jLabelMailUser.getText() != "mail"){
+            if(!userMgmt.isAdministrador()){
+                WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , userMgmt);
+                jLabelMailUser.setText("mail");
+            }
+            else {
+                WindowsMyAccountAdmin windowsMyAccountAdmin = new WindowsMyAccountAdmin(this , userMgmt);
+                jLabelMailUser.setText("mail");
+            }
+        }
+        else {
+            System.out.println("INFO: No se ha seleeccionado ningún usuario");
+        }
     }//GEN-LAST:event_jButtonUserInfoActionPerformed
 
     private void jButtonUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser1ActionPerformed
@@ -935,6 +974,36 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         userMgmt =  userData.getUser(jButtonUser8.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
     }//GEN-LAST:event_jButtonUser8ActionPerformed
+
+    private void jTextFieldSearchUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserMousePressed
+        // TODO add your handling code here:
+        if(jTextFieldSearchUser.getText().equals("Ingrese su nombre de usuario")){
+            jTextFieldSearchUser.setText("");
+            jTextFieldSearchUser.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_jTextFieldSearchUserMousePressed
+
+    private void jTextFieldSearchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSearchUserActionPerformed
+
+    private void jButtonUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserDeleteActionPerformed
+        // TODO add your handling code here:
+         if (jLabelMailUser.getText() != "mail"){
+             if (userData.deleteUser(jLabelMailUser.getText())) {
+                 System.out.println("INFO: El usuario se ha eliminado con exito");
+             
+             }
+             else {
+                 System.out.println("El usuario no ha podido ser eliminado");
+             }
+         }
+        else {
+            System.out.println("INFO: No se ha seleeccionado ningún usuario");
+        }
+        jLabelMailUser.setText("mail");
+           
+    }//GEN-LAST:event_jButtonUserDeleteActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -17,7 +17,6 @@ com/allsafe/ui/WindowsCreateUser$2.class
 com/allsafe/model/CarritoCompra.class
 com/allsafe/model/Direccion.class
 com/allsafe/ui/WindowsCreateUser$27.class
-com/allsafe/service/prueba.class
 com/allsafe/ui/WindowsCreateUser$19.class
 com/allsafe/ui/WindowsAdmin$2.class
 com/allsafe/model/Inventario.class
@@ -27,7 +26,6 @@ com/allsafe/ui/WindowsMyAccount$17.class
 com/allsafe/ui/WindowsMyAccount$7.class
 com/allsafe/ui/WindowsAdminUserMngt.class
 com/allsafe/model/Opinion.class
-com/allsafe/service/RandomHomeProductos.class
 com/allsafe/ui/WindowsProduct$7.class
 com/allsafe/ui/WindowsMyAccount$19.class
 com/allsafe/ui/WindowsCreateUser$13.class
@@ -61,7 +59,6 @@ com/allsafe/ui/WindowsMyAccount$9.class
 com/allsafe/ui/Home$11.class
 com/allsafe/ui/WindowsProduct$9.class
 com/allsafe/ui/WindowsCreateUser$9.class
-com/allsafe/prueba.class
 com/allsafe/ui/WindowsAdmin$3.class
 com/allsafe/ui/WindowsCreateUser$18.class
 com/allsafe/ui/WindowsMyAccount$6.class
@@ -89,8 +86,6 @@ com/allsafe/ui/WindowsLogin$5.class
 com/allsafe/ui/Home$3.class
 com/allsafe/ui/WindowsMyAccount$22.class
 com/allsafe/ui/WindowsLogin.class
-com/allsafe/model/Administrador.class
-com/allsafe/service/RadomGenerator.class
 com/allsafe/ui/WindowsCreateUser$23.class
 com/allsafe/ui/WindowsCreateUser$7.class
 com/allsafe/ui/Home$13.class

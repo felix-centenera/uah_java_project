@@ -194,6 +194,32 @@ public class UserData {
         
         }
     }
+     
+     
+     public boolean setUser(String clave, String correo){
+        if (usuarios.containsKey(correo)){
+        try{
+            System.out.println( clave + correo);
+//            Direccion d1 =  new Direccion(direccionCalle,direccionNumero,direccionCP,direccionCiudad);
+//            TarjetaDeCredito t1 = new TarjetaDeCredito(tarjetaDeCreditoTitular,tarjetaDeCreditoNumero,tarjetaDeCreditoCaducidad);
+//            Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
+//            Usuario u1 = new ClienteParticular(dni, nombre, d1,t1,telefono,clave,correo,to1);
+//            usuarios.put(correo, u1);    
+            usuarios.get(correo).setClave(clave);
+            System.out.println(usuarios.toString());
+            return true;
+        }catch (Exception ex) {
+            System.out.println("Error: " + ex.toString()); 
+            return false;
+        }
+    
+        }
+        else {
+            System.out.println("Error: El usuario no  existe"); 
+            return false;
+        
+        }
+    }
     
     
     
@@ -256,6 +282,22 @@ public class UserData {
     public Usuario getUser(String correo){
        Usuario u1  = usuarios.get(correo);
        return u1;
+    }
+    
+    public boolean deleteUser(String correo){
+       if (usuarios.containsKey(correo)){
+            try {
+                usuarios.remove(correo);
+                return true;
+           }
+            catch (Exception e) {
+                System.out.println("Error: No se ha podido eliminar al usuario: " + e.toString()); 
+                return false;
+            }
+       }
+       else {
+           return false;
+       }
     }
     
     public ArrayList<String> getUser(){
