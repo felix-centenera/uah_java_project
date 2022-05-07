@@ -5,7 +5,9 @@
 package com.allsafe.ui;
 //import javax.swing.JFrame;
 
+import com.allsafe.model.Producto;
 import java.awt.Color;
+import java.time.format.DateTimeFormatter;
 
 
 
@@ -18,9 +20,19 @@ public class ModifyProducts extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
+    
+    private Producto pro;
+    
+    public ModifyProducts(Producto pro) {
+        initComponents();
+        createHomePage();
+        insertAtributes();
+        this.pro = pro;
+    }
     public ModifyProducts() {
         initComponents();
         createHomePage();
+        
     }
 
     /**
@@ -39,10 +51,24 @@ public class ModifyProducts extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jPanel7 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        JTextTitulo = new javax.swing.JTextField();
+        JTextCaracteristicas = new javax.swing.JTextField();
+        jTextCategoria = new javax.swing.JTextField();
+        JTextLink = new javax.swing.JTextField();
+        jTextStock = new javax.swing.JTextField();
+        jTextFechaEntrada = new javax.swing.JTextField();
+        jTextEstrellas = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTextPrecio = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jTextField1 = new javax.swing.JTextField();
@@ -68,42 +94,155 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         jLabel3.setText("Modificador de Productos ");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        jLabel1.setText("Titulo:");
+
+        jLabel2.setText("Caracteristicas:");
+
+        jLabel4.setText("Categoria:");
+
+        jLabel5.setText("Link Foto:");
+
+        jLabel6.setText("Stock:");
+
+        jLabel7.setText("Fecha Entrada:");
+
+        jLabel8.setText("Estrellas:");
+
+        jButton3.setText("Modificar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
         });
-        jScrollPane1.setViewportView(jList1);
 
-        jButton1.setText("Borrar Producto");
+        JTextTitulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTextTituloMouseClicked(evt);
+            }
+        });
 
-        jButton2.setText("Mirar caracteristicas");
+        JTextCaracteristicas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTextCaracteristicasMouseClicked(evt);
+            }
+        });
+
+        jTextCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextCategoriaMouseClicked(evt);
+            }
+        });
+
+        JTextLink.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTextLinkMouseClicked(evt);
+            }
+        });
+
+        jTextStock.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextStockMouseClicked(evt);
+            }
+        });
+
+        jTextFechaEntrada.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFechaEntradaMouseClicked(evt);
+            }
+        });
+
+        jTextEstrellas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextEstrellasMouseClicked(evt);
+            }
+        });
+
+        jLabel9.setText("Img");
+
+        jLabel10.setText("Precio:");
+
+        jTextPrecio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextPrecioMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel10))
+                .addGap(76, 76, 76)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(198, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextPrecio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(JTextTitulo, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JTextCaracteristicas, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextCategoria, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JTextLink, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextStock, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFechaEntrada, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextEstrellas, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(28, 28, 28))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(JTextTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(JTextCaracteristicas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(JTextLink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(46, 46, 46))
+                    .addComponent(jLabel7)
+                    .addComponent(jTextFechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextEstrellas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jTextPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -129,9 +268,9 @@ public class ModifyProducts extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 770, 460));
@@ -222,7 +361,20 @@ public class ModifyProducts extends javax.swing.JFrame {
             System.out.println("Error: " + e.toString());
         }
     }
-
+    public void insertAtributes(){
+        
+        jTextCategoria.setText(pro.getCategoria());
+        jTextEstrellas.setText("" +pro.getEstrella());
+        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+        jTextFechaEntrada.setText("" + pro.getFechaEntradaTienda().format(formatoCorto));//mirar por que a lo mejor no furula todo lo bien   que se espera
+        jTextStock.setText("" + pro.getStock());
+        JTextCaracteristicas.setText(pro.getCaracteristicas());
+        jTextPrecio.setText("" + pro.getPrecio());
+        JTextTitulo.setText(pro.getTitulo());
+        JTextLink.setText(pro.getFotografia());
+    }
+    
+    
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -232,6 +384,330 @@ public class ModifyProducts extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("Estas entrando en el carrito");
     }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+//        jTextCategoria
+//        jTextEstrellas
+//        jTextFechaEntrada
+//        jTextStock
+//        JTextCaracteristicas
+//        jTextPrecio
+//        JTextTitulo
+//        JTextLink
+        
+
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void JTextTituloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextTituloMouseClicked
+        // TODO add your handling code here:
+        
+        /**
+         * jTextCategoria.
+            jTextEstrellas
+            jTextFechaEntrada
+            jTextStock
+            JTextCaracteristicas
+            jTextPrecio
+            JTextTitulo
+            JTextLink
+         */
+        if (JTextTitulo.getText().equals(pro.getTitulo())) {
+            JTextTitulo.setText("");
+
+        }
+        if (String.valueOf(jTextEstrellas.getText()).isEmpty()) {
+            jTextEstrellas.setText("" + pro.getEstrella());
+
+        }
+        if (String.valueOf(jTextFechaEntrada.getText()).isEmpty()) {
+            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+            jTextFechaEntrada.setText(pro.getFechaEntradaTienda().format(formatoCorto));
+
+        }
+        if (String.valueOf(jTextStock.getText()).isEmpty()) {
+            jTextStock.setText("" + pro.getStock());
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
+            jTextPrecio.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(JTextLink.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getFotografia());
+
+        }
+        if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
+            JTextLink.setText(pro.getCategoria());
+
+        }
+
+    }//GEN-LAST:event_JTextTituloMouseClicked
+
+    private void JTextCaracteristicasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextCaracteristicasMouseClicked
+        // TODO add your handling code here:
+        if (JTextCaracteristicas.getText().equals(pro.getCaracteristicas())) {
+            JTextTitulo.setText("");
+
+        }
+        if (String.valueOf(jTextEstrellas.getText()).isEmpty()) {
+            jTextEstrellas.setText("" + pro.getEstrella());
+
+        }
+        if (String.valueOf(jTextFechaEntrada.getText()).isEmpty()) {
+            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+            jTextFechaEntrada.setText(pro.getFechaEntradaTienda().format(formatoCorto));
+
+        }
+        if (String.valueOf(jTextStock.getText()).isEmpty()) {
+            jTextStock.setText("" + pro.getStock());
+
+        }
+        if (String.valueOf(JTextTitulo.getText()).isEmpty()) {
+            JTextTitulo.setText("" + pro.getTitulo());
+
+        }
+        if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
+            jTextPrecio.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(JTextLink.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getFotografia());
+
+        }
+        if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
+            JTextLink.setText(pro.getCategoria());
+
+        }
+    }//GEN-LAST:event_JTextCaracteristicasMouseClicked
+
+    private void jTextCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextCategoriaMouseClicked
+        // TODO add your handling code here:
+        if (jTextCategoria.getText().equals(pro.getCategoria())) {
+            jTextCategoria.setText("");
+
+        }
+        if (String.valueOf(jTextEstrellas.getText()).isEmpty()) {
+            jTextEstrellas.setText("" + pro.getEstrella());
+
+        }
+        if (String.valueOf(jTextFechaEntrada.getText()).isEmpty()) {
+            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+            jTextFechaEntrada.setText(pro.getFechaEntradaTienda().format(formatoCorto));
+
+        }
+        if (String.valueOf(jTextStock.getText()).isEmpty()) {
+            jTextStock.setText("" + pro.getStock());
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
+            jTextPrecio.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(JTextLink.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getFotografia());
+
+        }
+        if (String.valueOf(JTextTitulo.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getTitulo());
+
+        }
+    }//GEN-LAST:event_jTextCategoriaMouseClicked
+
+    private void JTextLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextLinkMouseClicked
+        // TODO add your handling code here:
+           if (JTextLink.getText().equals(pro.getFotografia())) {
+            JTextLink.setText("");
+
+        }
+        if (String.valueOf(jTextEstrellas.getText()).isEmpty()) {
+            jTextEstrellas.setText("" + pro.getEstrella());
+
+        }
+        if (String.valueOf(jTextFechaEntrada.getText()).isEmpty()) {
+            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+            jTextFechaEntrada.setText(pro.getFechaEntradaTienda().format(formatoCorto));
+
+        }
+        if (String.valueOf(jTextStock.getText()).isEmpty()) {
+            jTextStock.setText("" + pro.getStock());
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
+            jTextPrecio.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(JTextTitulo.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getTitulo());
+
+        }
+        if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
+            JTextLink.setText(pro.getCategoria());
+
+        }
+        
+    }//GEN-LAST:event_JTextLinkMouseClicked
+
+    private void jTextStockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextStockMouseClicked
+        // TODO add your handling code here:
+        if (jTextStock.getText().equals("" + pro.getStock())) {
+            jTextStock.setText("");
+
+        }
+        if (String.valueOf(jTextEstrellas.getText()).isEmpty()) {
+            jTextEstrellas.setText("" + pro.getEstrella());
+
+        }
+        if (String.valueOf(jTextFechaEntrada.getText()).isEmpty()) {
+            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+            jTextFechaEntrada.setText(pro.getFechaEntradaTienda().format(formatoCorto));
+
+        }
+         if (String.valueOf(JTextTitulo.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getTitulo());
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
+            jTextPrecio.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(JTextLink.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getFotografia());
+
+        }
+        if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
+            JTextLink.setText(pro.getCategoria());
+
+        }
+    }//GEN-LAST:event_jTextStockMouseClicked
+
+    private void jTextFechaEntradaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFechaEntradaMouseClicked
+        // TODO add your handling code here:
+        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+        if (jTextFechaEntrada.getText().equals(pro.getFechaEntradaTienda().format(formatoCorto))) {
+            jTextFechaEntrada.setText("");
+
+        }
+        if (String.valueOf(jTextEstrellas.getText()).isEmpty()) {
+            jTextEstrellas.setText("" + pro.getEstrella());
+
+        }
+        if (String.valueOf(JTextTitulo.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getTitulo());
+
+        }
+        if (String.valueOf(jTextStock.getText()).isEmpty()) {
+            jTextStock.setText("" + pro.getStock());
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
+            jTextPrecio.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(JTextLink.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getFotografia());
+
+        }
+        if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
+            JTextLink.setText(pro.getCategoria());
+
+        }
+    }//GEN-LAST:event_jTextFechaEntradaMouseClicked
+
+    private void jTextEstrellasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextEstrellasMouseClicked
+        // TODO add your handling code here:
+        if (jTextEstrellas.getText().equals("" + pro.getEstrella())) {
+            jTextEstrellas.setText("");
+
+        }
+         if (String.valueOf(JTextTitulo.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getTitulo());
+
+        }
+        if (String.valueOf(jTextFechaEntrada.getText()).isEmpty()) {
+            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+            jTextFechaEntrada.setText(pro.getFechaEntradaTienda().format(formatoCorto));
+
+        }
+        if (String.valueOf(jTextStock.getText()).isEmpty()) {
+            jTextStock.setText("" + pro.getStock());
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
+            jTextPrecio.setText("" + pro.getPrecio());
+
+        }
+        if (String.valueOf(JTextLink.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getFotografia());
+
+        }
+        if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
+            JTextLink.setText(pro.getCategoria());
+
+        }
+    }//GEN-LAST:event_jTextEstrellasMouseClicked
+
+    private void jTextPrecioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextPrecioMouseClicked
+        // TODO add your handling code here:
+           if (jTextPrecio.getText().equals("" + pro.getPrecio())) {
+            jTextPrecio.setText("");
+
+        }
+        if (String.valueOf(jTextEstrellas.getText()).isEmpty()) {
+            jTextEstrellas.setText("" + pro.getEstrella());
+
+        }
+        if (String.valueOf(jTextFechaEntrada.getText()).isEmpty()) {
+            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+            jTextFechaEntrada.setText(pro.getFechaEntradaTienda().format(formatoCorto));
+
+        }
+        if (String.valueOf(jTextStock.getText()).isEmpty()) {
+            jTextStock.setText("" + pro.getStock());
+
+        }
+        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+            JTextCaracteristicas.setText("" + pro.getPrecio());
+
+        }
+         if (String.valueOf(JTextTitulo.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getTitulo());
+
+        }
+        if (String.valueOf(JTextLink.getText()).isEmpty()) {
+            JTextTitulo.setText(pro.getFotografia());
+
+        }
+        if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
+            JTextLink.setText(pro.getCategoria());
+
+        }
+    }//GEN-LAST:event_jTextPrecioMouseClicked
 
 //    private JFrame getFrame() {
 //        return this;
@@ -288,9 +764,11 @@ public class ModifyProducts extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField JTextCaracteristicas;
+    private javax.swing.JTextField JTextLink;
+    private javax.swing.JTextField JTextTitulo;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonHomeIcon1;
     private javax.swing.JButton jButtonHomeIcon2;
     private javax.swing.JButton jButtonHomeIcon4;
@@ -298,21 +776,33 @@ public class ModifyProducts extends javax.swing.JFrame {
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
     private javax.swing.JButton jButtonHomeIconsGround8;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelHomeIcon4;
     private javax.swing.JLabel jLabelTimeline7;
     private javax.swing.JLabel jLabelTimeline8;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JTextField jTextCategoria;
+    private javax.swing.JTextField jTextEstrellas;
+    private javax.swing.JTextField jTextFechaEntrada;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextPrecio;
+    private javax.swing.JTextField jTextStock;
     // End of variables declaration//GEN-END:variables
 }

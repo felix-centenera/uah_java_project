@@ -5,6 +5,7 @@
 package com.allsafe.ui;
 //import javax.swing.JFrame;
 
+import com.allsafe.model.Producto;
 import java.awt.Color;
 
 
@@ -18,9 +19,12 @@ public class ProductModifier extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
+    private Producto pro;
+    
     public ProductModifier() {
         initComponents();
         createHomePage();
+       // this.pro = pro;
     }
 
     /**

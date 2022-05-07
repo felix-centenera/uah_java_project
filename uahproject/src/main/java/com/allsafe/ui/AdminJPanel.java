@@ -6,6 +6,7 @@ package com.allsafe.ui;
 //import javax.swing.JFrame;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 
 
@@ -76,6 +77,11 @@ public class AdminJPanel extends javax.swing.JFrame {
 
         JlabelImgButtomGestionProductos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JlabelImgButtomGestionProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JlabelImgButtomGestionProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JlabelImgButtomGestionProductosMouseClicked(evt);
+            }
+        });
 
         jLabelGestionUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelGestionUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -88,6 +94,11 @@ public class AdminJPanel extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 51, 255));
         jLabel2.setText("Resgistrate como Usuario");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -182,6 +193,11 @@ public class AdminJPanel extends javax.swing.JFrame {
 
         jButtonHomeIconsGround5.setBorderPainted(false);
         jButtonHomeIconsGround5.setContentAreaFilled(false);
+        jButtonHomeIconsGround5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHomeIconsGround5MouseClicked(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 40, 40));
 
         jButtonHomeIconsGround6.setBorderPainted(false);
@@ -190,6 +206,11 @@ public class AdminJPanel extends javax.swing.JFrame {
 
         jButtonHomeIconsGround7.setBorderPainted(false);
         jButtonHomeIconsGround7.setContentAreaFilled(false);
+        jButtonHomeIconsGround7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHomeIconsGround7MouseClicked(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 40, 40));
 
         jButtonHomeIconsGround8.setBorderPainted(false);
@@ -232,6 +253,55 @@ public class AdminJPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("Estas entrando en el carrito");
     }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
+
+    private void JlabelImgButtomGestionProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JlabelImgButtomGestionProductosMouseClicked
+        // TODO add your handling code here:
+        UserManagament abrirNuevo = new UserManagament();
+        abrirNuevo.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_JlabelImgButtomGestionProductosMouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+        try{
+            Login abrirNuevo = new Login();
+            abrirNuevo.setVisible(true);
+            this.setVisible(false);
+        }catch(Exception e){
+             JOptionPane.showMessageDialog(null, "Error no hemos encontrado la Pagina " + e.toString() , "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        
+        }
+        
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jButtonHomeIconsGround7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7MouseClicked
+        // TODO add your handling code here
+        try{
+            Login abrirNuevo = new Login();
+            abrirNuevo.setVisible(true);
+            this.setVisible(false);
+            System.out.println("INFO: Nos vamos al Login a resgiustrarnos");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error no hemos encontrado la Pagina " + e.toString(), "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_jButtonHomeIconsGround7MouseClicked
+
+    private void jButtonHomeIconsGround5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5MouseClicked
+        // TODO add your handling code here:
+        try{
+            Home abrirNuevo = new Home();
+            abrirNuevo.setVisible(true);
+            this.setVisible(false);
+            
+            System.out.println("INFO: Nos vamos a la Home");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error no hemos encontrado la Pagina " + e.toString(), "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_jButtonHomeIconsGround5MouseClicked
 
 //    private JFrame getFrame() {
 //        return this;
