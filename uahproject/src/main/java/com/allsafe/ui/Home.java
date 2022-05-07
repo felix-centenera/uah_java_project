@@ -4,6 +4,7 @@
  */
 package com.allsafe.ui;
 
+import com.allsafe.mock.UserData;
 import com.allsafe.model.Administrador;
 import com.allsafe.model.ClienteEmpresa;
 import com.allsafe.model.ClienteParticular;
@@ -35,6 +36,9 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         createHomePageProductos();
         createHomePage();
+        initUserMock();
+        
+        
     }
 
     /**
@@ -89,7 +93,6 @@ public class Home extends javax.swing.JFrame {
         jButtonMiCarrito = new javax.swing.JButton();
         jButtonLogin = new javax.swing.JButton();
         jButtonHomeIcon4 = new javax.swing.JButton();
-        jButtonLogOut = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabelTimeline8 = new javax.swing.JLabel();
         jLabelTimeline7 = new javax.swing.JLabel();
@@ -98,6 +101,8 @@ public class Home extends javax.swing.JFrame {
         jButtonHomeIconsGround6 = new javax.swing.JButton();
         jButtonHomeIconsGround7 = new javax.swing.JButton();
         jButtonHomeIconsGround8 = new javax.swing.JButton();
+        jButtonLogOut = new javax.swing.JButton();
+        jButtonAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -376,20 +381,10 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel3.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 50, 120, 60));
 
+        jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/search.png")); // NOI18N
         jButtonHomeIcon4.setBorderPainted(false);
         jButtonHomeIcon4.setContentAreaFilled(false);
         jPanel3.add(jButtonHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
-
-        jButtonLogOut.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/LogOut.png")); // NOI18N
-        jButtonLogOut.setText("LogOut");
-        jButtonLogOut.setBorder(null);
-        jButtonLogOut.setContentAreaFilled(false);
-        jButtonLogOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLogOutActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButtonLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, 100, 40));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 100));
 
@@ -426,6 +421,28 @@ public class Home extends javax.swing.JFrame {
         jButtonHomeIconsGround8.setBorderPainted(false);
         jButtonHomeIconsGround8.setContentAreaFilled(false);
         jPanel6.add(jButtonHomeIconsGround8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 40, 40));
+
+        jButtonLogOut.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/LogOut.png")); // NOI18N
+        jButtonLogOut.setText("LogOut");
+        jButtonLogOut.setBorder(null);
+        jButtonLogOut.setContentAreaFilled(false);
+        jButtonLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogOutActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButtonLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 0, 100, 40));
+
+        jButtonAdmin.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/admin.png")); // NOI18N
+        jButtonAdmin.setText("Admin");
+        jButtonAdmin.setBorderPainted(false);
+        jButtonAdmin.setContentAreaFilled(false);
+        jButtonAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdminActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButtonAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 120, 40));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
 
@@ -503,6 +520,13 @@ Inventario i1 = new Inventario();
 //        return true;
 //}
 
+
+
+private void initUserMock(){
+    UserData userData = UserData.getInstance();
+    userData.createMockUser();
+    userData.createMockAdminUser();
+}
 
 //método comprobar login
 private boolean checkLogin(){
@@ -633,12 +657,28 @@ private void createHomePageProductos(){
             jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/AllSafe.png"));
             jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
             jButtonMiCarrito.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
+            jButtonAdmin.setVisible(false);
             if (checkLoginInterfaz()){
+             
+                System.out.println("Vas a esta logado 1");
+                
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             jButtonLogin.setText("Mi cuenta");
             jButtonLogOut.setVisible(true);
+            
+             if (user.isAdministrador()){
+                   System.out.println("Vas a esta logado 2");
+                 System.out.println("Eres un administrador");
+                 jButtonLogin.setVisible(false);
+                 jButtonMiCarrito.setVisible(false);
+                 jButtonAdmin.setVisible(true);
+             }
+            
             }
             else{
+              System.out.println("Vas a esta logado 3");    
+            jButtonLogin.setVisible(true);
+            jButtonMiCarrito.setVisible(true);    
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             jButtonLogin.setText("Login");
             jButtonLogOut.setVisible(false);
@@ -764,6 +804,12 @@ private void createHomePageProductos(){
         createHomePage();
     }//GEN-LAST:event_jButtonLogOutActionPerformed
 
+    private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminActionPerformed
+        // TODO add your handling code here:
+         WindowsAdmin windowsadmin = new WindowsAdmin(this ,  user);
+        
+    }//GEN-LAST:event_jButtonAdminActionPerformed
+
  // ********************************************************************************************************************
     
     /**
@@ -803,6 +849,7 @@ private void createHomePageProductos(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JButton jButtonAdmin;
     private javax.swing.JButton jButtonHomeIcon4;
     private javax.swing.JButton jButtonHomeIconsGround5;
     private javax.swing.JButton jButtonHomeIconsGround6;

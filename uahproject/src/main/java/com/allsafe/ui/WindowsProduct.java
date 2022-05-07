@@ -63,6 +63,16 @@ public class WindowsProduct extends javax.swing.JFrame  {
             if (checkLoginInterfaz()){
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             jButtonLogin.setText("Mi cuenta");
+             if (user.isAdministrador()){
+                 System.out.println("Eres un administrador");
+                   jButtonMiCarrito.setVisible(false);
+                   jButtonLogin.setVisible(false);
+                   jButton1Opinar.setVisible(false);
+                   jButton1AnadirCarrito.setVisible(false);
+//                 jButtonLogin.jButtonMiCarrito(false);
+//                 jButtonMiCarrito.setVisible(false);
+//                 jButtonAdmin.setVisible(true);
+             }
             }
             else{
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
