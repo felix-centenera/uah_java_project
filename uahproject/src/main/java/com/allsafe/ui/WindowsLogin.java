@@ -439,7 +439,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private void jButton1LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1LoginActionPerformed
         // TODO add your handling code here: miservicioDeLogin
         
-        userData.createMockUser();
+        //userData.createMockUser();
+        //userData.createMockAdminUser();
         String clave = jPasswordField1.getText();
         String correo = UserName.getText();
         System.out.println(correo);

@@ -63,6 +63,16 @@ public class WindowsProduct extends javax.swing.JFrame  {
             if (checkLoginInterfaz()){
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             jButtonLogin.setText("Mi cuenta");
+             if (user.isAdministrador()){
+                 System.out.println("Eres un administrador");
+                   jButtonMiCarrito.setVisible(false);
+                   jButtonLogin.setVisible(false);
+                   jButton1Opinar.setVisible(false);
+                   jButton1AnadirCarrito.setVisible(false);
+//                 jButtonLogin.jButtonMiCarrito(false);
+//                 jButtonMiCarrito.setVisible(false);
+//                 jButtonAdmin.setVisible(true);
+             }
             }
             else{
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
@@ -658,8 +668,16 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         //WindowsLogin windowslogin = new WindowsLogin(this , user, principal);
         
         if (jButtonLogin.getText().equals("Mi cuenta") ){
-            System.out.println("Vas a entrar en tu cuenta");
+            System.out.println("Vas a entrar en tu cuenta primero tengo que comprobar tu token");
+            if (checkLogin()){
+                System.out.println("Vas a entrar en tu cuenta el token esta ok");
             WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , user);
+            }
+            else {
+                    System.out.println("No vas a entrar en tu cuenta el token esta KO");
+                    createWindowsProductPage();
+                
+                }
         }
         else {
             WindowsLogin windowslogin = new WindowsLogin(this , user, principal);

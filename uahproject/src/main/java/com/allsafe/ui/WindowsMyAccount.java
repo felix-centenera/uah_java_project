@@ -34,6 +34,7 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
 
     private Home principal;
     private WindowsProduct secundariaProductos;
+    private WindowsAdminUserMngt secundariaWindowsAdminUserMngt;
     //Creamos la referencia a nuestro servio de login
     UserData usuariosMock = UserData.getInstance(); 
     private Usuario user;
@@ -64,6 +65,17 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         secundariaProductos = ventana;
         user = u;
         secundariaProductos.setVisible(false);
+        initComponents();
+        this.setVisible(true);
+        createWindowsCreateUserPage();
+        recogerDatosDeUsuarioYpintarEnPantalla();
+    }
+     
+    public WindowsMyAccount(WindowsAdminUserMngt ventana, Usuario u) {
+        //Ocultamos la ventana principal
+        secundariaWindowsAdminUserMngt = ventana;
+        user = u;
+        secundariaWindowsAdminUserMngt.setVisible(false);
         initComponents();
         this.setVisible(true);
         createWindowsCreateUserPage();
@@ -933,6 +945,10 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         else if (secundariaProductos != null){
           secundariaProductos.setVisible(true);
         }
+        
+        else if (secundariaWindowsAdminUserMngt != null){
+          secundariaWindowsAdminUserMngt.setVisible(true);
+        }
          
         
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
@@ -1064,6 +1080,9 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                 else if (secundariaProductos != null){
                     secundariaProductos.setVisible(true);
                 }
+                else if (secundariaWindowsAdminUserMngt != null){
+                    secundariaWindowsAdminUserMngt.setVisible(true);
+                }
                 //principal.setVisible(true);  
             }
             else{
@@ -1082,6 +1101,9 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                 }
                 else if (secundariaProductos != null){
                     secundariaProductos.setVisible(true);
+                }
+                else if (secundariaWindowsAdminUserMngt != null){
+                    secundariaWindowsAdminUserMngt.setVisible(true);
                 }
                // principal.setVisible(true);  
             }
