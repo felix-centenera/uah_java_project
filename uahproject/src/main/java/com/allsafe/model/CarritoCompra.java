@@ -38,6 +38,21 @@ public class CarritoCompra {
         }
     }
     
+    public boolean deleteProducto(Producto producto){
+        try{
+            //TODO preguntar al inventario si hay disponibilidad primero
+            productos.remove(producto);
+            System.out.println("INFO: Se ha podido eliminar el producto al carrito "); 
+            return true;
+        }
+        catch (Exception e) {
+            System.out.println("Error: No se ha podido eliminar el producto al carrito " + e.toString()); 
+            return false;
+        }
+    }
+    
+    
+    
     
     private static void incrementaId() {
         generadorId++;
@@ -47,6 +62,11 @@ public class CarritoCompra {
         return idCarrito;
     }
     
+    public ArrayList<Producto> getProductos() {
+        return productos;
+    }
+    
+    
     public int getTotal() {
         return total;
     }
@@ -55,6 +75,7 @@ public class CarritoCompra {
         Random rand = new Random();
         return rand.nextInt(0, 10000);
     }
+    
 
     @Override
     public String toString() {

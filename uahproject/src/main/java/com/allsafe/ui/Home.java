@@ -706,11 +706,9 @@ private void createHomePageProductos(){
 
     private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
-        
-        
-        
   if (checkLogin()){
             System.out.println("INFO: Estas entrando en el carrito");
+            WindowsUserShoppingCart windowsUserShoppingCart = new WindowsUserShoppingCart(this , user);
         }
         else{
             System.out.println("INFO: Necesitas estar logado para ver tu carrito");

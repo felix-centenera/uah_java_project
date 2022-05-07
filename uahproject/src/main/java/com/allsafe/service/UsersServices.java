@@ -9,6 +9,7 @@ import com.allsafe.model.Administrador;
 import com.allsafe.model.ClienteEmpresa;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
+import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Token;
 import com.allsafe.model.Usuario;
@@ -277,6 +278,82 @@ public class UsersServices {
          ArrayList<String> listOfKeys = UserData.getInstance().getUserHashMap().keySet().stream().collect(Collectors.toCollection(ArrayList::new));
          return listOfKeys;
     }
+    
+    public static ArrayList<Producto> getObjectShoppingCart(Usuario u){
+        if ((UsersServices.TypeUser(u.getCorreo(),u.getClave())).equals("ClienteParticular")) {
+            ClienteParticular c1 = (ClienteParticular) u;
+            return (c1.getCarritoCompra().getProductos());
+        }
+        else{
+            ClienteEmpresa c1 = (ClienteEmpresa) u;
+            return (c1.getCarritoCompra().getProductos());
+        }
+}
+    
+    
+    public static boolean deleteObjectShoppingCart(Usuario u, Producto producto){
+        if ((UsersServices.TypeUser(u.getCorreo(),u.getClave())).equals("ClienteParticular")) {
+            ClienteParticular c1 = (ClienteParticular) u;
+            try{
+                if (c1.getCarritoCompra().deleteProducto(producto)){
+                return true;
+                
+                }
+                else {
+                    return false;
+                }
+            
+            }
+            catch (Exception e) {
+                System.out.println("Error: " + e.toString());  
+                return false;
+              }
+        }
+        else{
+            ClienteEmpresa c1 = (ClienteEmpresa) u;
+            try{
+                if (c1.getCarritoCompra().deleteProducto(producto)){
+                return true;
+                
+                }
+                else {
+                    return false;
+                }
+            
+            }
+            catch (Exception e) {
+                System.out.println("Error: " + e.toString());  
+                return false;
+              }
+        }
+    }
+    
+    
+    public static boolean cleanShoppingCart(Usuario u){
+        if ((UsersServices.TypeUser(u.getCorreo(),u.getClave())).equals("ClienteParticular")) {
+            ClienteParticular c1 = (ClienteParticular) u;
+            try{
+                c1.getCarritoCompra().getProductos().clear();
+                return true;
+            }
+            catch (Exception e) {
+                System.out.println("Error: " + e.toString());  
+                return false;
+              }
+        }
+        else{
+            ClienteEmpresa c1 = (ClienteEmpresa) u;
+            try{
+                c1.getCarritoCompra().getProductos().clear();
+                return true;
+            }
+            catch (Exception e) {
+                System.out.println("Error: " + e.toString());  
+                return false;
+            }
+        }
+    }
+    
     
 //    public static ArrayList<String>  getUser(){
 //         return UserData.getInstance().getUserHashMap().keySet().stream().collect(Collectors.toCollection(ArrayList::new));

@@ -5,6 +5,7 @@
 package com.allsafe.ui;
 
 import com.allsafe.mock.UserData;
+import com.allsafe.model.ClienteEmpresa;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
 import com.allsafe.model.Inventario;
@@ -32,13 +33,15 @@ import javax.swing.ListModel;
  * @author felixcentenera
  */
 
-public class WindowsAdminUserMngt extends javax.swing.JFrame  {
+public class WindowsUserShoppingCart extends javax.swing.JFrame  {
 
-    private WindowsAdmin principal;
+    private Home principal;
     private WindowsProduct secundariaProductos;
     private  Producto producto;
     private Usuario user;
-    private Usuario userMgmt;
+   
+    //private Usuario userMgmt;
+    private Producto productMgmt;
     //private int opinion=0;
     private int numberOfUserPages=0;
     Login miservicioDeLogin = Login.getInstance();
@@ -55,10 +58,22 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
 //    }
     
     /** Creates new form WindowProduct */
-    public WindowsAdminUserMngt(WindowsAdmin ventana, Usuario u) {
+    public WindowsUserShoppingCart(Home ventana, Usuario u) {
         //Ocultamos la ventana principal
         principal = ventana;
         principal.setVisible(false);
+        user = u;
+        this.producto =producto;
+        initComponents();
+        this.setVisible(true);
+        createWindowsProductPage();
+        
+    }
+    
+       public WindowsUserShoppingCart(WindowsProduct ventana, Usuario u) {
+        //Ocultamos la ventana principal
+        secundariaProductos = ventana;
+        secundariaProductos.setVisible(false);
         user = u;
         this.producto =producto;
         initComponents();
@@ -95,7 +110,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
             jButtonHomeIconsGround9.setIcon(new javax.swing.ImageIcon("Icons/png/back.png"));
             
-            
+            jPanelUsersFound.setVisible(false);
             jButtonUser1.setVisible(false);        
             jButtonUser2.setVisible(false);
             jButtonUser3.setVisible(false);
@@ -104,8 +119,16 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
             jButtonUser6.setVisible(false);
             jButtonUser7.setVisible(false);
             jButtonUser8.setVisible(false);
-            jPanelUsersFound.setVisible(false);
-        
+            jLabelEmptyCarrito.setVisible(false);
+            
+            
+            if (!UsersServices.getObjectShoppingCart(user).isEmpty()){
+                printUsers(0);
+            }
+            else{
+                jLabelEmptyCarrito.setVisible(true);
+            
+            }
             
             
             //SET BOTTON HOME PAGE.
@@ -125,6 +148,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
     
     
     private void printUsers(int i){
+        
                 jPanelUsersFound.setVisible(true);
                 jButtonUser1.setVisible(false);        
                 jButtonUser2.setVisible(false);
@@ -134,8 +158,16 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                 jButtonUser6.setVisible(false);
                 jButtonUser7.setVisible(false);
                 jButtonUser8.setVisible(false);
+                
+                
+               // UsersServices.TypeUser(user.getCorreo(), user.getClave());
            
-                ArrayList<String> listOfKeys  = UsersServices.getUser();
+                //ArrayList<String> listOfKeys  = UsersServices.getUser();
+                String clase = user.getClass().getSimpleName();
+  
+           
+                ArrayList<Producto> listOfKeys  = UsersServices.getObjectShoppingCart(user);
+                //listOfKeys.size();
                 int sizeUserData=listOfKeys.size();
                 System.out.println(numberOfUserPages);
                 numberOfUserPages = numberOfUserPages +i;
@@ -146,7 +178,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     try {
                         System.out.println("caso1");
                     jButtonUser1.setVisible(true);
-                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
+                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     }
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
@@ -161,12 +193,12 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     try {
                         System.out.println("caso2");
                     jButtonUser1.setVisible(true);
-                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
+                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
-                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1));
+                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1).getTitulo());
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("Error: No hay mas productos que mostrar " + e.toString()); 
                         System.out.println("Voy a poner los user a 0");
                         SetNumberOfUserPages0();
                         printUsers(0);
@@ -178,11 +210,11 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     try {
                         System.out.println("caso3");
                     jButtonUser1.setVisible(true);
-                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
+                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
-                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1));
+                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1).getTitulo());
                     jButtonUser3.setVisible(true);
-                    jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2));
+                    jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2).getTitulo());
                     }
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
@@ -196,13 +228,13 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     try {
                         System.out.println("caso4");
                     jButtonUser1.setVisible(true);
-                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
+                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
-                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1));
+                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1).getTitulo());
                     jButtonUser3.setVisible(true);
-                    jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2));
+                    jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2).getTitulo());
                     jButtonUser4.setVisible(true);
-                    jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3));
+                    jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3).getTitulo());
                     }
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
@@ -217,15 +249,15 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     try {
                         System.out.println("caso5");
                     jButtonUser1.setVisible(true);
-                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
+                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
-                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1));
+                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1).getTitulo());
                     jButtonUser3.setVisible(true);
-                    jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2));
+                    jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2).getTitulo());
                     jButtonUser4.setVisible(true);
-                    jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3));
+                    jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3).getTitulo());
                     jButtonUser5.setVisible(true);
-                    jButtonUser5.setText(listOfKeys.get(numberOfUserPages+4));
+                    jButtonUser5.setText(listOfKeys.get(numberOfUserPages+4).getTitulo());
                     }
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
@@ -238,17 +270,17 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     try {
                         System.out.println("caso6");
                     jButtonUser1.setVisible(true);
-                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
+                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
-                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1));
+                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1).getTitulo());
                     jButtonUser3.setVisible(true);
-                    jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2));
+                    jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2).getTitulo());
                     jButtonUser4.setVisible(true);
-                    jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3));
+                    jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3).getTitulo());
                     jButtonUser5.setVisible(true);
-                    jButtonUser5.setText(listOfKeys.get(numberOfUserPages+4));
+                    jButtonUser5.setText(listOfKeys.get(numberOfUserPages+4).getTitulo());
                     jButtonUser6.setVisible(true);
-                    jButtonUser6.setText(listOfKeys.get(numberOfUserPages+5));
+                    jButtonUser6.setText(listOfKeys.get(numberOfUserPages+5).getTitulo());
                     }
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
@@ -261,22 +293,22 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     try {
                         System.out.println("caso7");
                     jButtonUser1.setVisible(true);
-                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
+                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
-                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1));
+                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1).getTitulo());
                     jButtonUser3.setVisible(true);
-                    jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2));
+                    jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2).getTitulo());
                     jButtonUser4.setVisible(true);
-                    jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3));
+                    jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3).getTitulo());
                     jButtonUser5.setVisible(true);
-                    jButtonUser5.setText(listOfKeys.get(numberOfUserPages+4));
+                    jButtonUser5.setText(listOfKeys.get(numberOfUserPages+4).getTitulo());
                     jButtonUser6.setVisible(true);
-                    jButtonUser6.setText(listOfKeys.get(numberOfUserPages+5));
+                    jButtonUser6.setText(listOfKeys.get(numberOfUserPages+5).getTitulo());
                     jButtonUser7.setVisible(true);
-                    jButtonUser7.setText(listOfKeys.get(numberOfUserPages+6));
+                    jButtonUser7.setText(listOfKeys.get(numberOfUserPages+6).getTitulo());
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("Error: No hay mas productos que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
                         //createWindowsProductPage();
@@ -290,21 +322,21 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                             System.out.println("la i es: " + i + "y i +1 es= " + i +1 ); 
                             System.out.println(listOfKeys);
                     jButtonUser1.setVisible(true);
-                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
+                    jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
-                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1));
+                    jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1).getTitulo());
                     jButtonUser3.setVisible(true);
-                    jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2));
+                    jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2).getTitulo());
                     jButtonUser4.setVisible(true);
-                    jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3));
+                    jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3).getTitulo());
                     jButtonUser5.setVisible(true);
-                    jButtonUser5.setText(listOfKeys.get(numberOfUserPages+4));
+                    jButtonUser5.setText(listOfKeys.get(numberOfUserPages+4).getTitulo());
                     jButtonUser6.setVisible(true);
-                    jButtonUser6.setText(listOfKeys.get(numberOfUserPages+5));
+                    jButtonUser6.setText(listOfKeys.get(numberOfUserPages+5).getTitulo());
                     jButtonUser7.setVisible(true);
-                    jButtonUser7.setText(listOfKeys.get(numberOfUserPages+6));
+                    jButtonUser7.setText(listOfKeys.get(numberOfUserPages+6).getTitulo());
                     jButtonUser8.setVisible(true);
-                    jButtonUser8.setText(listOfKeys.get(numberOfUserPages+7));
+                    jButtonUser8.setText(listOfKeys.get(numberOfUserPages+7).getTitulo());
                     }
                     catch (Exception e) {
                          System.out.println("somos 8 o mas  y estamos dando error"  );       
@@ -370,24 +402,10 @@ private JFrame getFrame(){
         jPanel1 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jSeparator4 = new javax.swing.JSeparator();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel2UserMail = new javax.swing.JLabel();
-        jLabel2UserPass = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPasswordUserPass = new javax.swing.JPasswordField();
-        jTextFieldUserMail = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        jLabel2UserMail1 = new javax.swing.JLabel();
-        jButtonSearch = new javax.swing.JButton();
         jButtonUserDelete = new javax.swing.JButton();
         jButtonUserInfo = new javax.swing.JButton();
-        jLabelMailUser = new javax.swing.JLabel();
-        jTextFieldSearchUser = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelProductlSelected = new javax.swing.JLabel();
         jPanelUsersFound = new javax.swing.JPanel();
         jButtonUser1 = new javax.swing.JButton();
         jButtonUser2 = new javax.swing.JButton();
@@ -397,6 +415,10 @@ private JFrame getFrame(){
         jButtonUser5 = new javax.swing.JButton();
         jButtonUser6 = new javax.swing.JButton();
         jButtonUser7 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabelEmptyCarrito = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabelHomeIcon4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -419,101 +441,15 @@ private JFrame getFrame(){
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("AllSafe Cibersecurity");
-
-        jSeparator4.setForeground(new java.awt.Color(51, 51, 51));
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-
-        jLabel2UserMail.setText("Usuario correo");
-
-        jLabel2UserPass.setText("Clave");
-
-        jButton1.setText("Registrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jPasswordUserPass.setForeground(new java.awt.Color(204, 204, 204));
-        jPasswordUserPass.setText("********");
-        jPasswordUserPass.setBorder(null);
-        jPasswordUserPass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPasswordUserPassMousePressed(evt);
-            }
-        });
-
-        jTextFieldUserMail.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldUserMail.setText("Ingrese su nombre de usuario");
-        jTextFieldUserMail.setBorder(null);
-        jTextFieldUserMail.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldUserMailMousePressed(evt);
-            }
-        });
-        jTextFieldUserMail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUserMailActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2UserMail)
-                    .addComponent(jLabel2UserPass))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldUserMail, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2UserMail)
-                    .addComponent(jTextFieldUserMail, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2UserPass))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
-
-        jLabel2.setText("Añadir administrador");
+        jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 6, 293, -1));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-
-        jLabel2UserMail1.setText("Usuario correo");
-
-        jButtonSearch.setText("Buscar");
-        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSearchActionPerformed(evt);
-            }
-        });
+        jPanel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
 
         jButtonUserDelete.setText("Eliminar");
         jButtonUserDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -529,76 +465,41 @@ private JFrame getFrame(){
             }
         });
 
-        jLabelMailUser.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabelMailUser.setText("mail");
-
-        jTextFieldSearchUser.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldSearchUser.setText("Ingrese su nombre de usuario");
-        jTextFieldSearchUser.setBorder(null);
-        jTextFieldSearchUser.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldSearchUserMousePressed(evt);
-            }
-        });
-        jTextFieldSearchUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSearchUserActionPerformed(evt);
-            }
-        });
+        jLabelProductlSelected.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabelProductlSelected.setText("Selecciona un producto");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonUserDelete)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonUserInfo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonSearch)
-                .addGap(15, 15, 15))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabelMailUser, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel2UserMail1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                                .addComponent(jTextFieldSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(6, 6, 6))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabelProductlSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jButtonUserInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addComponent(jButtonUserDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(27, 27, 27)
+                .addComponent(jLabelProductlSelected)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2UserMail1)
-                    .addComponent(jTextFieldSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelMailUser)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonUserDelete)
                     .addComponent(jButtonUserInfo)
-                    .addComponent(jButtonSearch))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(jButtonUserDelete))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jLabel3.setText("Buscar usuario");
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 44, -1, -1));
 
         jPanelUsersFound.setBackground(new java.awt.Color(255, 255, 255));
         jPanelUsersFound.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        jPanelUsersFound.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonUser1.setText("jButtonUser1");
         jButtonUser1.addActionListener(new java.awt.event.ActionListener() {
@@ -606,6 +507,7 @@ private JFrame getFrame(){
                 jButtonUser1ActionPerformed(evt);
             }
         });
+        jPanelUsersFound.add(jButtonUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 18, 217, 41));
 
         jButtonUser2.setText("jButtonUser2");
         jButtonUser2.addActionListener(new java.awt.event.ActionListener() {
@@ -613,6 +515,7 @@ private JFrame getFrame(){
                 jButtonUser2ActionPerformed(evt);
             }
         });
+        jPanelUsersFound.add(jButtonUser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 71, 217, 41));
 
         jButtonUser3.setText("jButtonUser3");
         jButtonUser3.addActionListener(new java.awt.event.ActionListener() {
@@ -620,6 +523,7 @@ private JFrame getFrame(){
                 jButtonUser3ActionPerformed(evt);
             }
         });
+        jPanelUsersFound.add(jButtonUser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 118, 217, 40));
 
         jButtonUser8.setText("jButtonUser8");
         jButtonUser8.addActionListener(new java.awt.event.ActionListener() {
@@ -627,6 +531,7 @@ private JFrame getFrame(){
                 jButtonUser8ActionPerformed(evt);
             }
         });
+        jPanelUsersFound.add(jButtonUser8, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 367, 217, 40));
 
         jButtonUser4.setText("jButtonUser4");
         jButtonUser4.addActionListener(new java.awt.event.ActionListener() {
@@ -634,6 +539,7 @@ private JFrame getFrame(){
                 jButtonUser4ActionPerformed(evt);
             }
         });
+        jPanelUsersFound.add(jButtonUser4, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 164, 217, 40));
 
         jButtonUser5.setText("jButtonUser5");
         jButtonUser5.addActionListener(new java.awt.event.ActionListener() {
@@ -641,6 +547,7 @@ private JFrame getFrame(){
                 jButtonUser5ActionPerformed(evt);
             }
         });
+        jPanelUsersFound.add(jButtonUser5, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 210, 220, 40));
 
         jButtonUser6.setText("jButtonUser6");
         jButtonUser6.addActionListener(new java.awt.event.ActionListener() {
@@ -648,6 +555,7 @@ private JFrame getFrame(){
                 jButtonUser6ActionPerformed(evt);
             }
         });
+        jPanelUsersFound.add(jButtonUser6, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 262, 217, 40));
 
         jButtonUser7.setText("jButtonUser7");
         jButtonUser7.addActionListener(new java.awt.event.ActionListener() {
@@ -655,95 +563,45 @@ private JFrame getFrame(){
                 jButtonUser7ActionPerformed(evt);
             }
         });
+        jPanelUsersFound.add(jButtonUser7, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 314, 217, 41));
 
-        javax.swing.GroupLayout jPanelUsersFoundLayout = new javax.swing.GroupLayout(jPanelUsersFound);
-        jPanelUsersFound.setLayout(jPanelUsersFoundLayout);
-        jPanelUsersFoundLayout.setHorizontalGroup(
-            jPanelUsersFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelUsersFoundLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelUsersFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonUser1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                    .addComponent(jButtonUser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonUser3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonUser4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonUser5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonUser6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonUser7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonUser8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(139, 139, 139))
+        jPanel7.add(jPanelUsersFound, new org.netbeans.lib.awtextra.AbsoluteConstraints(754, 30, 355, 420));
+
+        jButton1.setText("Comprar");
+        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 230, 160, 40));
+
+        jButton2.setText("Vaciar carrito");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 159, 40));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabelEmptyCarrito.setFont(new java.awt.Font("Noteworthy", 0, 18)); // NOI18N
+        jLabelEmptyCarrito.setText("El carrito esta vacío. Echale un vistazo a nuestras últimas ofertas.");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabelEmptyCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 38, Short.MAX_VALUE))
         );
-        jPanelUsersFoundLayout.setVerticalGroup(
-            jPanelUsersFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelUsersFoundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonUser2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonUser3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonUser4)
-                .addGap(24, 24, 24)
-                .addComponent(jButtonUser5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonUser6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonUser7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonUser8)
-                .addContainerGap(42, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabelEmptyCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(440, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(391, 391, 391))
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(407, 407, 407)
-                        .addComponent(jLabel3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanelUsersFound, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(126, 126, 126))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanelUsersFound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52))
-        );
+        jPanel7.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 342, -1, -1));
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 1150, 470));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 1140, 470));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 1240, 520));
 
@@ -859,178 +717,116 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         printUsers(1);
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        if( !jTextFieldUserMail.getText().equals("Ingrese su nombre de usuario") && !jTextFieldUserMail.getText().equals("")   ){
-            UsersServices.addAdmin(jPasswordUserPass.getText(), jTextFieldUserMail.getText()); 
-            jPasswordUserPass.setText("");
-            jTextFieldUserMail.setText("");
-            //TO TEST DELETE both prints
-            System.out.println("Usuarios pedidos directamente:" + UsersServices.getUser());
-            System.out.println("Usuarios pedidos por servicio:" + UsersServices.getUser());
-        }
-        else {
-            System.out.println("INFO: DEBE Añadir un usuario");
-        
-        }
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jPasswordUserPassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordUserPassMousePressed
-        // TODO add your handling code here:
-        if(String.valueOf(jPasswordUserPass.getPassword()).equals("********")){
-            jPasswordUserPass.setText("");
-            jPasswordUserPass.setForeground(Color.black);
-
-        }
-        if(jTextFieldUserMail.getText().isEmpty()){
-            jTextFieldUserMail.setText("Ingrese su nombre de usuario");
-            jTextFieldUserMail.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_jPasswordUserPassMousePressed
-
-    private void jTextFieldUserMailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUserMailMousePressed
-        // TODO add your handling code here:
-        if(jTextFieldUserMail.getText().equals("Ingrese su nombre de usuario")){
-            jTextFieldUserMail.setText("");
-            jTextFieldUserMail.setForeground(Color.black);
-        }
-        if(String.valueOf(jPasswordUserPass.getPassword()).isEmpty()){
-            jPasswordUserPass.setText("********");
-            jPasswordUserPass.setForeground(Color.gray);
-
-        }
-    }//GEN-LAST:event_jTextFieldUserMailMousePressed
-
-    private void jTextFieldUserMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserMailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUserMailActionPerformed
-
-    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
-        // TODO add your handling code here:
-        //jTextFieldSearchUser.getText(); ||  (jTextFieldSearchUser.getText().contains(""))
-        
-        if (jTextFieldSearchUser.getText().contains("Ingrese su nombre de usuario")  ){
-            try {
-             //if null 
-             jLabelMailUser.setText("mail");
-             SetNumberOfUserPages0();
-             printUsers(0);
-               
-            }
-            catch (Exception e){
-                System.out.println("Error: No se ha podido realizar la accion: " + e.toString()); 
-
-            }
-        }
-        else {
-         try {
-            jPanelUsersFound.setVisible(false); 
-            userMgmt =  UsersServices.getUser(jTextFieldSearchUser.getText());
-            jTextFieldSearchUser.setText("Ingrese su nombre de usuario");
-            jLabelMailUser.setText(userMgmt.getCorreo());
-            }
-            catch (Exception e){
-                System.out.println("Error: El usuario no existe: " + e.toString()); 
-            }
-        }     
-    }//GEN-LAST:event_jButtonSearchActionPerformed
-
-    private void jButtonUserInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserInfoActionPerformed
-        // TODO add your handling code here:
-        if (jLabelMailUser.getText() != "mail"){
-            if(!userMgmt.isAdministrador()){
-                WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , userMgmt);
-                jLabelMailUser.setText("mail");
-            }
-            else {
-                WindowsMyAccountAdmin windowsMyAccountAdmin = new WindowsMyAccountAdmin(this , userMgmt);
-                jLabelMailUser.setText("mail");
-            }
-        }
-        else {
-            System.out.println("INFO: No se ha seleeccionado ningún usuario");
-        }
-    }//GEN-LAST:event_jButtonUserInfoActionPerformed
-
     private void jButtonUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser1ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  UsersServices.getUser(jButtonUser1.getText());
-        jLabelMailUser.setText(userMgmt.getCorreo());
-        
+        //productMgmt =  UsersServices.getUser(jButtonUser1.getText());
+        jLabelProductlSelected.setText(jButtonUser1.getText());
     }//GEN-LAST:event_jButtonUser1ActionPerformed
 
     private void jButtonUser2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser2ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  UsersServices.getUser(jButtonUser2.getText());
-        jLabelMailUser.setText(userMgmt.getCorreo());
+        jLabelProductlSelected.setText(jButtonUser2.getText());
     }//GEN-LAST:event_jButtonUser2ActionPerformed
 
     private void jButtonUser3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser3ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  UsersServices.getUser(jButtonUser3.getText());
-        jLabelMailUser.setText(userMgmt.getCorreo());
+       jLabelProductlSelected.setText(jButtonUser3.getText());
     }//GEN-LAST:event_jButtonUser3ActionPerformed
 
     private void jButtonUser4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser4ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  UsersServices.getUser(jButtonUser4.getText());
-        jLabelMailUser.setText(userMgmt.getCorreo());
+        jLabelProductlSelected.setText(jButtonUser4.getText());
     }//GEN-LAST:event_jButtonUser4ActionPerformed
 
     private void jButtonUser5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser5ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  UsersServices.getUser(jButtonUser5.getText());
-        jLabelMailUser.setText(userMgmt.getCorreo());
+        jLabelProductlSelected.setText(jButtonUser5.getText());
     }//GEN-LAST:event_jButtonUser5ActionPerformed
 
     private void jButtonUser6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser6ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  UsersServices.getUser(jButtonUser6.getText());
-        jLabelMailUser.setText(userMgmt.getCorreo());
+        jLabelProductlSelected.setText(jButtonUser6.getText());
     }//GEN-LAST:event_jButtonUser6ActionPerformed
 
     private void jButtonUser7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser7ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  UsersServices.getUser(jButtonUser7.getText());
-        jLabelMailUser.setText(userMgmt.getCorreo());
+        jLabelProductlSelected.setText(jButtonUser7.getText());
     }//GEN-LAST:event_jButtonUser7ActionPerformed
 
     private void jButtonUser8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser8ActionPerformed
         // TODO add your handling code here:
-        userMgmt =  UsersServices.getUser(jButtonUser8.getText());
-        jLabelMailUser.setText(userMgmt.getCorreo());
+       jLabelProductlSelected.setText(jButtonUser8.getText());
     }//GEN-LAST:event_jButtonUser8ActionPerformed
-
-    private void jTextFieldSearchUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserMousePressed
-        // TODO add your handling code here:
-        if(jTextFieldSearchUser.getText().equals("Ingrese su nombre de usuario")){
-            jTextFieldSearchUser.setText("");
-            jTextFieldSearchUser.setForeground(Color.black);
-        }
-    }//GEN-LAST:event_jTextFieldSearchUserMousePressed
-
-    private void jTextFieldSearchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSearchUserActionPerformed
 
     private void jButtonUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserDeleteActionPerformed
         // TODO add your handling code here:
-         if (jLabelMailUser.getText() != "mail"){
-             if (UsersServices.deleteUser(jLabelMailUser.getText())) {
-                 System.out.println("INFO: El usuario se ha eliminado con exito");
-             
-             }
-             else {
-                 System.out.println("El usuario no ha podido ser eliminado");
-             }
+         if (jLabelProductlSelected.getText() != "Selecciona un producto"){
+             ArrayList<Producto> listOfKeys  = UsersServices.getObjectShoppingCart(user);
+             boolean found = false;
+             int i=0;
+             while (!found){
+                 System.out.println("ESTOY BUSCANDO EL PRODUCTO EN " + jLabelProductlSelected.getText() );
+                 
+               if (  listOfKeys.get(i).getTitulo() == jLabelProductlSelected.getText() ) {
+                  found = true;
+                  if (UsersServices.deleteObjectShoppingCart(user, listOfKeys.get(i))) {
+                      System.out.println("INFO El procuto ha podido ser eliminado");
+                  }
+                  else {
+                      System.out.println("ERROR El producto no ha podido ser eliminado");
+                  }
+               }
+               i++;
+             }  
          }
         else {
-            System.out.println("INFO: No se ha seleeccionado ningún usuario");
+            System.out.println("INFO: No se ha seleeccionado ningún producto");
         }
-        jLabelMailUser.setText("mail");
-           
+        createWindowsProductPage();
+        jLabelProductlSelected.setText("Selecciona un producto");
     }//GEN-LAST:event_jButtonUserDeleteActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if (UsersServices.cleanShoppingCart(user)){
+            System.out.println("INFO: Se ha limpiado el carrito");
+        }
+        else {
+            System.out.println("ERROR: no ha podido limpiarse el carrito");
+        
+        }
+        createWindowsProductPage();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButtonUserInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserInfoActionPerformed
+        // TODO add your handling code here:
+        // TODO show info of the producto new jframe or show info in the screen:
+        if (jLabelProductlSelected.getText() != "Selecciona un producto"){
+             ArrayList<Producto> listOfKeys  = UsersServices.getObjectShoppingCart(user);
+             boolean found = false;
+             int i=0;
+             while (!found){
+                 System.out.println("ESTOY BUSCANDO EL PRODUCTO EN " + jLabelProductlSelected.getText() );
+                 
+               if (  listOfKeys.get(i).getTitulo() == jLabelProductlSelected.getText() ) {
+                  found = true;
+                  WindowsProductFromShoppingCart windowsproductFromShoppingCart = new WindowsProductFromShoppingCart(this , listOfKeys.get(i));
+//                  if (UsersServices.deleteObjectShoppingCart(user, listOfKeys.get(i))) {
+//                      System.out.println("INFO El procuto ha podido ser eliminado");
+//                  }
+//                  else {
+//                      System.out.println("ERROR El producto no ha podido ser eliminado");
+//                  }  
+               }
+               i++;
+             }  
+         }
+        else {
+            System.out.println("INFO: No se ha seleeccionado ningún producto");
+        }
+        createWindowsProductPage();
+        jLabelProductlSelected.setText("Selecciona un producto");
+    }//GEN-LAST:event_jButtonUserInfoActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1038,13 +834,13 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButtonHomeIconsGround5;
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
     private javax.swing.JButton jButtonHomeIconsGround8;
     private javax.swing.JButton jButtonHomeIconsGround9;
-    private javax.swing.JButton jButtonSearch;
     private javax.swing.JButton jButtonUser1;
     private javax.swing.JButton jButtonUser2;
     private javax.swing.JButton jButtonUser3;
@@ -1056,29 +852,19 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JButton jButtonUserDelete;
     private javax.swing.JButton jButtonUserInfo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel2UserMail;
-    private javax.swing.JLabel jLabel2UserMail1;
-    private javax.swing.JLabel jLabel2UserPass;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelEmptyCarrito;
     private javax.swing.JLabel jLabelHomeIcon4;
-    private javax.swing.JLabel jLabelMailUser;
+    private javax.swing.JLabel jLabelProductlSelected;
     private javax.swing.JLabel jLabelTimeline7;
     private javax.swing.JLabel jLabelTimeline8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanelUsersFound;
-    private javax.swing.JPasswordField jPasswordUserPass;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTextFieldSearchUser;
-    private javax.swing.JTextField jTextFieldUserMail;
     // End of variables declaration//GEN-END:variables
 }
