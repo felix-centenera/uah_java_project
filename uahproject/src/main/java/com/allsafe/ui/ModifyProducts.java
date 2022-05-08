@@ -2,6 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+
+/**
+ * INVENTARIO PROBLEMA
+ * el inventario al meterle productos no soy capaz de llamar a la instancia sin que apunte a nulo el objeto
+ */
 package com.allsafe.ui;
 //import javax.swing.JFrame;
 
@@ -25,8 +30,11 @@ public class ModifyProducts extends javax.swing.JFrame {
      * Creates new form Home
      */
     
-    private Producto pro = new Producto("MacBookAirM1", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
-    Inventario inv;
+    private static Producto pro = ProductModifier.pro;
+    private static Inventario inv = UserManagament.inv;
+    
+    private String Procedencia;
+    
     //private Inventario inv;
     
     
@@ -45,13 +53,13 @@ public class ModifyProducts extends javax.swing.JFrame {
 //    Producto p8 = new Producto("MacBookProM1sregse", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
 //    Producto p9 = new Producto("Dell XPSsrseg", "Dellsrg", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
     
-    public ModifyProducts(Producto pro , Inventario inv) {
+    public ModifyProducts(String Procedencia) {
         initComponents();
         createHomePage();
        
         //insertAtributes();
-        this.pro = pro;
-        this.inv = inv;
+        this.Procedencia = Procedencia;
+        
         
     }
 //    public ModifyProducts() {
@@ -500,6 +508,8 @@ public class ModifyProducts extends javax.swing.JFrame {
 
           try{
             //Producto prod = inv.getInventario().get(pro.getTitulo());
+            
+            
             System.out.println(pro.toString());
             String categoria = jTextCategoria.getText();
             String caracteristicas = JTextCaracteristicas.getText();
@@ -514,10 +524,14 @@ public class ModifyProducts extends javax.swing.JFrame {
             pro.setPrecio(precio);
             
             System.out.println(inv.getInventario());
+            if(!pro.equals(inv.getInventario().get(pro.getTitulo()))){
+                inv.getInventario().replace(pro.getTitulo(), pro);
             
-            inv.getInventario().replace(pro.getTitulo(), pro);
-            
-            System.out.println("INFO: hemos sobre escrito el producto dado");
+                System.out.println("INFO: hemos sobre escrito el producto dado");
+            }else{
+                System.out.println("INFO:A querido insertar el mismo objeto error");
+                JOptionPane.showMessageDialog(null, "No se puede sobreescribir dos veces el mismo objeto", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+            }
               
           
           }catch(Exception e){
@@ -869,9 +883,19 @@ public class ModifyProducts extends javax.swing.JFrame {
             //Volvemos hacia atras con el producto
             //***************************************************************************************************
             //volvemos hacia atras habra que modificar el  constructor para volver con el producto
-            Home abrirNuevo = new Home();
-            abrirNuevo.setVisible(true);
-            this.setVisible(false);
+            
+            if(Procedencia.equals("ProductModifier")){
+                ProductModifier abrirNuevo = new ProductModifier();
+                abrirNuevo.setVisible(true);
+                this.setVisible(false);
+
+                System.out.println("INFO: Nos vamos al Home");
+            }
+            if(Procedencia.equals("UserManagament")){
+                Home abrirNuevo = new Home();
+                abrirNuevo.setVisible(true);
+                this.setVisible(false);
+            }
 
             System.out.println("INFO: Nos vamos al Home");
         } catch (Exception e) {

@@ -23,28 +23,28 @@ public class ProductModifier extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
-    private ArrayList<String> arrayKeys;
+    //private ArrayList<String> arrayKeys;
     //private String array[];
     //private Inventario inv = Inventario.getInstance();
-    
-    
-    
+    private ArrayList<String> arrayKeys; //= UserManagament.arrayKeys;
+    public static Inventario inv = UserManagament.inv;
+    public static Producto pro;
     
     //**********************************************************************************************************************************************************
-    Inventario inv = new Inventario();
+//    public static Inventario inv = new Inventario();
 
-    static HashMap<String, Producto> inventario = new HashMap<>();
-
-    static Producto p1 = new Producto("MacBookAirM1", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
-    static Producto p2 = new Producto("MacBookProM1323", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
-    static Producto p3 = new Producto("Dell XPS", "Dell", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
-    static Producto p4 = new Producto("MacBookAirM1323", "Apple323", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
-    static Producto p5 = new Producto("MacBookProM123fewf", "Apple23", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
-    static Producto p6 = new Producto("Dell XPS323d", "Dell", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1); 
-    static Producto p7 = new Producto("MacBookAirM1rtersgh", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
-    static Producto p8 = new Producto("MacBookProM1sregse", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
-    static Producto p9 = new Producto("Dell XPSsrseg", "Dellsrg", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
-        
+//    HashMap<String, Producto> inventario = new HashMap<>();
+//
+//    Producto p1 = new Producto("MacBookAirM1", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+//    Producto p2 = new Producto("MacBookProM1323", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
+//    Producto p3 = new Producto("Dell XPS", "Dell", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
+//    Producto p4 = new Producto("MacBookAirM1323", "Apple323", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+//    Producto p5 = new Producto("MacBookProM123fewf", "Apple23", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
+//    Producto p6 = new Producto("Dell XPS323d", "Dell", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1); 
+//    Producto p7 = new Producto("MacBookAirM1rtersgh", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+//    Producto p8 = new Producto("MacBookProM1sregse", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
+//    Producto p9 = new Producto("Dell XPSsrseg", "Dellsrg", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
+//        
         
         
         
@@ -244,6 +244,11 @@ public class ProductModifier extends javax.swing.JFrame {
 
         jButtonHomeIconsGround5.setBorderPainted(false);
         jButtonHomeIconsGround5.setContentAreaFilled(false);
+        jButtonHomeIconsGround5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHomeIconsGround5MouseClicked(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 40, 40));
 
         jButtonHomeIconsGround6.setBorderPainted(false);
@@ -252,10 +257,20 @@ public class ProductModifier extends javax.swing.JFrame {
 
         jButtonHomeIconsGround7.setBorderPainted(false);
         jButtonHomeIconsGround7.setContentAreaFilled(false);
+        jButtonHomeIconsGround7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHomeIconsGround7MouseClicked(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 40, 40));
 
         jButtonHomeIconsGround8.setBorderPainted(false);
         jButtonHomeIconsGround8.setContentAreaFilled(false);
+        jButtonHomeIconsGround8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHomeIconsGround8MouseClicked(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 40, 40));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
@@ -279,19 +294,19 @@ public class ProductModifier extends javax.swing.JFrame {
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
             
             
-            inventario.put(p1.getTitulo(), p1);
-            inventario.put(p2.getTitulo(), p2);
-            inventario.put(p3.getTitulo(), p3);
-            inventario.put(p4.getTitulo(), p4);
-            inventario.put(p5.getTitulo(), p5);
-            inventario.put(p6.getTitulo(), p6);
-            inventario.put(p7.getTitulo(), p7);
-            inventario.put(p8.getTitulo(), p8);
-            inventario.put(p9.getTitulo(), p9);
+//            inventario.put(p1.getTitulo(), p1);
+//            inventario.put(p2.getTitulo(), p2);
+//            inventario.put(p3.getTitulo(), p3);
+//            inventario.put(p4.getTitulo(), p4);
+//            inventario.put(p5.getTitulo(), p5);
+//            inventario.put(p6.getTitulo(), p6);
+//            inventario.put(p7.getTitulo(), p7);
+//            inventario.put(p8.getTitulo(), p8);
+//            inventario.put(p9.getTitulo(), p9);
+//
+//            inv.setInventario(inventario);
 
-            inv.setInventario(inventario);
-
-            arrayKeys = new ArrayList<>(inv.getInventario().keySet());
+            //arrayKeys = new ArrayList<>(inv.getInventario().keySet());
             //String []array = arrayKeys.toArray(new String[0]);
             JListElements.setListData(arrayKeys.toArray(new String[0]));
             
@@ -333,8 +348,8 @@ public class ProductModifier extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             String clave = JListElements.getSelectedValue();
-            Producto pro = inv.getInventario().get(clave);
-            ModifyProducts abrir = new ModifyProducts(pro , inv);
+            pro = inv.getInventario().get(clave);
+            ModifyProducts abrir = new ModifyProducts("ProductModifier");
             abrir.setVisible(true);
             this.setVisible(false);
             System.out.println("INFO:Nos vamos a ver las caracteristicas");
@@ -347,6 +362,24 @@ public class ProductModifier extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonMirarCaracteristicasActionPerformed
+
+    private void jButtonHomeIconsGround8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8MouseClicked
+        
+        UserManagament abrir = new UserManagament();
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonHomeIconsGround8MouseClicked
+
+    private void jButtonHomeIconsGround7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7MouseClicked
+       JOptionPane.showMessageDialog(null, "Seleccione un mensaje si quiere modificar un producto", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_jButtonHomeIconsGround7MouseClicked
+
+    private void jButtonHomeIconsGround5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5MouseClicked
+        // TODO add your handling code here:
+        Home abrir = new Home();
+        abrir.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonHomeIconsGround5MouseClicked
 //    public void insertElements(){
 //        
 //        //Annadimos los elementos y los insertamos

@@ -25,12 +25,15 @@ import javax.swing.JOptionPane;
  * **************************************************************************************************************************************
  */
 
+
        
 public class UserManagament extends javax.swing.JFrame {
 
     /**
      * Creates new form Home
      */
+    //public static ArrayList<String> arrayKeys;
+    private ArrayList<String> arrayKeys;
     public UserManagament() {
         initComponents();
         createHomePage();
@@ -61,8 +64,6 @@ public class UserManagament extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         JTextStock = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        JTextFecha = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         JLabelBuscar = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
@@ -83,7 +84,7 @@ public class UserManagament extends javax.swing.JFrame {
         JtextCategoria = new javax.swing.JTextField();
         JTextPrecio = new javax.swing.JTextField();
         JTextLinkImg = new javax.swing.JTextField();
-        JTxtStock = new javax.swing.JTextField();
+        JTxtStock12 = new javax.swing.JTextField();
         JTxtDate = new javax.swing.JTextField();
         JTxtStars = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -179,18 +180,6 @@ public class UserManagament extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel8.setText("Fecha:");
-
-        JTextFecha.setForeground(new java.awt.Color(204, 204, 204));
-        JTextFecha.setText("Indique la fecha");
-        JTextFecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        JTextFecha.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                JTextFechaMousePressed(evt);
-            }
-        });
-
         JLabelBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JLabelBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -215,14 +204,11 @@ public class UserManagament extends javax.swing.JFrame {
                         .addGap(64, 64, 64)
                         .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelImgBuscarLayout.createSequentialGroup()
-                                .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JTextStock)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(JTextFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
+                                .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(JPanelImgBuscarLayout.createSequentialGroup()
                                 .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -276,10 +262,6 @@ public class UserManagament extends javax.swing.JFrame {
                     .addComponent(JTextStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JTextFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(JPanelImgBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelImgBuscarLayout.createSequentialGroup()
@@ -369,17 +351,17 @@ public class UserManagament extends javax.swing.JFrame {
             }
         });
 
-        JTxtStock.setForeground(new java.awt.Color(204, 204, 204));
-        JTxtStock.setText("Inserte Stock.");
-        JTxtStock.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        JTxtStock.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTxtStock12.setForeground(new java.awt.Color(204, 204, 204));
+        JTxtStock12.setText("Inserte Stock.");
+        JTxtStock12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        JTxtStock12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                JTxtStockMousePressed(evt);
+                JTxtStock12MousePressed(evt);
             }
         });
-        JTxtStock.addActionListener(new java.awt.event.ActionListener() {
+        JTxtStock12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTxtStockActionPerformed(evt);
+                JTxtStock12ActionPerformed(evt);
             }
         });
 
@@ -437,7 +419,7 @@ public class UserManagament extends javax.swing.JFrame {
                                             .addComponent(JTextPrecio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
                                             .addComponent(JTxtStars, javax.swing.GroupLayout.Alignment.TRAILING))
                                         .addComponent(JTextLinkImg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(JTxtStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(JTxtStock12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18))
                 .addContainerGap(91, Short.MAX_VALUE))
@@ -471,7 +453,7 @@ public class UserManagament extends javax.swing.JFrame {
                     .addComponent(jLabel14))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTxtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTxtStock12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
                 .addGap(19, 19, 19)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -590,8 +572,10 @@ public class UserManagament extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    Inventario inv = Inventario.getInstance();
+    public static Inventario inv = Inventario.getInstance();
+    public static Producto pro;
     HashMap<String, Producto> inventario = new HashMap<>();
+    
 
     Producto p1 = new Producto("MacBookAirM1", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
     Producto p2 = new Producto("MacBookProM1323", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
@@ -651,9 +635,9 @@ public class UserManagament extends javax.swing.JFrame {
         System.out.println("Estas entrando en el carrito");
     }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
 
-    private void JTxtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTxtStockActionPerformed
+    private void JTxtStock12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTxtStock12ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTxtStockActionPerformed
+    }//GEN-LAST:event_JTxtStock12ActionPerformed
     /**
      *    private javax.swing.JLabel JLabelBuscar;
     private javax.swing.JPanel ;
@@ -692,16 +676,16 @@ public class UserManagament extends javax.swing.JFrame {
             JTextCaracteristicas.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
-            JTxtStock.setText("Inserte Stock.");
-            JTxtStock.setForeground(Color.gray);
+        if (String.valueOf(JTxtStock12.getText()).isEmpty()) {
+            JTxtStock12.setText("Inserte Stock.");
+            JTxtStock12.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
-            JTxtDate.setText("Inserte fecha de entrada.");
-            JTxtDate.setForeground(Color.gray);
-
-        }
+//        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+//            JTxtDate.setText("Inserte fecha de entrada.");
+//            JTxtDate.setForeground(Color.gray);
+//
+//        }
         if (String.valueOf(JTxtStars.getText()).isEmpty()) {
             JTxtStars.setText("Inserte estrellas.");
             JTxtStars.setForeground(Color.gray);
@@ -736,16 +720,16 @@ public class UserManagament extends javax.swing.JFrame {
             JTextLinkImg.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
-            JTxtStock.setText("Inserte Stock.");
-            JTxtStock.setForeground(Color.gray);
+        if (String.valueOf(JTxtStock12.getText()).isEmpty()) {
+            JTxtStock12.setText("Inserte Stock.");
+            JTxtStock12.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
-            JTxtDate.setText("Inserte fecha de entrada.");
-            JTxtDate.setForeground(Color.gray);
-
-        }
+//        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+//            JTxtDate.setText("Inserte fecha de entrada.");
+//            JTxtDate.setForeground(Color.gray);
+//
+//        }
         if (String.valueOf(JTxtStars.getText()).isEmpty()) {
             JTxtStars.setText("Inserte estrellas.");
             JTxtStars.setForeground(Color.gray);
@@ -779,16 +763,16 @@ public class UserManagament extends javax.swing.JFrame {
             JTextLinkImg.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
-            JTxtStock.setText("Inserte Stock.");
-            JTxtStock.setForeground(Color.gray);
+        if (String.valueOf(JTxtStock12.getText()).isEmpty()) {
+            JTxtStock12.setText("Inserte Stock.");
+            JTxtStock12.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
-            JTxtDate.setText("Inserte fecha de entrada.");
-            JTxtDate.setForeground(Color.gray);
-
-        }
+//        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+//            JTxtDate.setText("Inserte fecha de entrada.");
+//            JTxtDate.setForeground(Color.gray);
+//
+//        }
         if (String.valueOf(JTxtStars.getText()).isEmpty()) {
             JTxtStars.setText("Inserte estrellas.");
             JTxtStars.setForeground(Color.gray);
@@ -823,16 +807,16 @@ public class UserManagament extends javax.swing.JFrame {
             JTextLinkImg.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
-            JTxtStock.setText("Inserte Stock.");
-            JTxtStock.setForeground(Color.gray);
+        if (String.valueOf(JTxtStock12.getText()).isEmpty()) {
+            JTxtStock12.setText("Inserte Stock.");
+            JTxtStock12.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
-            JTxtDate.setText("Inserte fecha de entrada.");
-            JTxtDate.setForeground(Color.gray);
-
-        }
+//        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+//            JTxtDate.setText("Inserte fecha de entrada.");
+//            JTxtDate.setForeground(Color.gray);
+//
+//        }
         if (String.valueOf(JTxtStars.getText()).isEmpty()) {
             JTxtStars.setText("Inserte estrellas.");
             JTxtStars.setForeground(Color.gray);
@@ -866,16 +850,16 @@ public class UserManagament extends javax.swing.JFrame {
             JTextPrecio.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
-            JTxtStock.setText("Inserte Stock.");
-            JTxtStock.setForeground(Color.gray);
+        if (String.valueOf(JTxtStock12.getText()).isEmpty()) {
+            JTxtStock12.setText("Inserte Stock.");
+            JTxtStock12.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
-            JTxtDate.setText("Inserte fecha de entrada.");
-            JTxtDate.setForeground(Color.gray);
-
-        }
+//        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+//            JTxtDate.setText("Inserte fecha de entrada.");
+//            JTxtDate.setForeground(Color.gray);
+//
+//        }
         if (String.valueOf(JTxtStars.getText()).isEmpty()) {
             JTxtStars.setText("Inserte estrellas.");
             JTxtStars.setForeground(Color.gray);
@@ -884,12 +868,12 @@ public class UserManagament extends javax.swing.JFrame {
         
     }//GEN-LAST:event_JTextLinkImgMousePressed
 
-    private void JTxtStockMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTxtStockMousePressed
+    private void JTxtStock12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTxtStock12MousePressed
         // TODO add your handling code here:
      
-        if (JTxtStock.getText().equals("Inserte Stock.")) {
-            JTxtStock.setText("");
-            JTxtStock.setForeground(Color.black);
+        if (JTxtStock12.getText().equals("Inserte Stock.")) {
+            JTxtStock12.setText("");
+            JTxtStock12.setForeground(Color.black);
         }
         if (String.valueOf(TxtTitulo.getText()).isEmpty()) {
             TxtTitulo.setText("Inserte titulo.");
@@ -916,60 +900,17 @@ public class UserManagament extends javax.swing.JFrame {
             JTextLinkImg.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
-            JTxtDate.setText("Inserte fecha de entrada.");
-            JTxtDate.setForeground(Color.gray);
-
-        }
+//        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+//            JTxtDate.setText("Inserte fecha de entrada.");
+//            JTxtDate.setForeground(Color.gray);
+//
+//        }
         if (String.valueOf(JTxtStars.getText()).isEmpty()) {
             JTxtStars.setText("Inserte estrellas.");
             JTxtStars.setForeground(Color.gray);
 
         }
-    }//GEN-LAST:event_JTxtStockMousePressed
-
-    private void JTxtDateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTxtDateMousePressed
-        // TODO add your handling code here:
-        if (JTxtDate.getText().equals("Inserte fecha de entrada.")) {
-            JTxtDate.setText("");
-            JTxtDate.setForeground(Color.black);
-        }
-        if (String.valueOf(TxtTitulo.getText()).isEmpty()) {
-            TxtTitulo.setText("Inserte titulo.");
-            TxtTitulo.setForeground(Color.gray);
-
-        }
-        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
-            JTextCaracteristicas.setText("Inserte Caracteristicas.");
-            JTextCaracteristicas.setForeground(Color.gray);
-
-        }
-        if (String.valueOf(JtextCategoria.getText()).isEmpty()) {
-            JtextCategoria.setText("Inserte categoria");
-            JtextCategoria.setForeground(Color.gray);
-
-        }
-        if (String.valueOf(JTextPrecio.getText()).isEmpty()) {
-            JTextPrecio.setText("Inserte precio.");
-            JTextPrecio.setForeground(Color.gray);
-
-        }
-        if (String.valueOf(JTextLinkImg.getText()).isEmpty()) {
-            JTextLinkImg.setText("Inserte Link");
-            JTextLinkImg.setForeground(Color.gray);
-
-        }
-        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
-            JTxtStock.setText("Inserte Stock.");
-            JTxtStock.setForeground(Color.gray);
-
-        }
-        if (String.valueOf(JTxtStars.getText()).isEmpty()) {
-            JTxtStars.setText("Inserte estrellas.");
-            JTxtStars.setForeground(Color.gray);
-
-        }
-    }//GEN-LAST:event_JTxtDateMousePressed
+    }//GEN-LAST:event_JTxtStock12MousePressed
 
     private void JTxtStarsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTxtStarsMouseClicked
         // TODO add your handling code here:
@@ -1002,16 +943,16 @@ public class UserManagament extends javax.swing.JFrame {
             JTextLinkImg.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
-            JTxtStock.setText("Inserte Stock.");
-            JTxtStock.setForeground(Color.gray);
+        if (String.valueOf(JTxtStock12.getText()).isEmpty()) {
+            JTxtStock12.setText("Inserte Stock.");
+            JTxtStock12.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
-            JTxtDate.setText("Inserte fecha de entrada.");
-            JTxtDate.setForeground(Color.gray);
-
-        }
+//        if (String.valueOf(JTxtDate.getText()).isEmpty()) {
+//            JTxtDate.setText("Inserte fecha de entrada.");
+//            JTxtDate.setForeground(Color.gray);
+//
+//        }
         
     }//GEN-LAST:event_JTxtStarsMouseClicked
 
@@ -1034,15 +975,13 @@ public class UserManagament extends javax.swing.JFrame {
             String caracteristicas = JTextCaracteristicas.getText();
             String link = JTextLinkImg.getText();
             int precio = Integer.parseInt(JTextPrecio.getText());
-            String fecha1txt = JTxtDate.getText();
+            
 
-            DateTimeFormatter JEFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-            LocalDateTime local_date = LocalDateTime.parse(fecha1txt, JEFormatter);
+            LocalDateTime local_date = LocalDateTime.now();
             System.out.println(local_date);
 
             int estrellas = Integer.parseInt(JTxtStars.getText());
-            int Stock = Integer.parseInt(JTxtStock.getText());
+            int Stock = Integer.parseInt(JTxtStock12.getText());
             String Categoria = JtextCategoria.getText();
             String Titulo = TxtTitulo.getText();
 
@@ -1053,19 +992,20 @@ public class UserManagament extends javax.swing.JFrame {
             int confirmado = JOptionPane.showConfirmDialog(null,"Confirmas que quieres crear un nuevo Producto?");
             
             if(JOptionPane.OK_OPTION == confirmado){
-                InventarioService.CreateProduct(Titulo, caracteristicas, Categoria, precio, Categoria, Stock, inv);
+                InventarioService.CreateProduct(Titulo, caracteristicas, Categoria, precio, link, Stock, inv);
+                pro = inv.getInventario().get(Titulo);
                 System.out.println("INFO: Producto creado y Annadido al inventario");
                 JTextStock.setText("Indique el stock del producto");
                 JtextEstrellas.setText("Indique las Estrellas");
                 JTextCategoria.setText("Indique la categoria al que pertenece");
-                JTextFecha.setText("Indique la fecha");
+                //JTextFecha.setText("Indique la fecha");
                 JTxtTitulo.setText("Escribe el nombre que deseas buscar");
                 
                 int num = JOptionPane.showConfirmDialog(null,"Desea realizar algun cambio en el producto agreagado recientemente?");
               
                 if (JOptionPane.OK_OPTION == num) {
 
-                    ModifyProducts abrir = new ModifyProducts(inv.getInventario().get(Titulo));
+                    ModifyProducts abrir = new ModifyProducts("ProductModifier");
                     abrir.setVisible(true);
                     this.setVisible(false);
 
@@ -1081,7 +1021,7 @@ public class UserManagament extends javax.swing.JFrame {
 
         }catch(Exception e){
 
-            System.out.println("INFO: Excepcion definida por el usuario , datos mal intrducidos al intentar crear un nuevo objeto");
+            System.out.println("INFO: Excepcion definida por el usuario , datos mal intrducidos al intentar crear un nuevo objeto" +e.toString());
             JOptionPane.showMessageDialog(null, "Se ha introducion mal alguno de los campos intetelo de nuevo", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
 
         }
@@ -1090,139 +1030,118 @@ public class UserManagament extends javax.swing.JFrame {
 
     private void JLabelBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelBuscarMousePressed
         // TODO add your handling code here:
-        if ((!String.valueOf(JTxtTitulo.getText()).isEmpty()) && !(JTxtTitulo.getText().equals("Escribe el nombre que deseas buscar"))){
+        if(!(JTxtTitulo.getText().equals("Escribe el nombre que deseas buscar"))){
             try{
+                String nombre = JTxtTitulo.getText();
+                String clave = InventarioService.findProductwithName(nombre, inv);
+                System.out.println("INFO: hemos encontrado el producto");
 
-                String Nombre = JTxtTitulo.getText();
-                String Clave = InventarioService.findProductwithName(Nombre, inv);
-                System.out.println("INFO: Hemos encontrado el producto en el inventario pasamos a la pantalla de modificacion de producto");
+                //Lo lanzamos contra product modifier
 
-                //Buscamelo y si esta y si no me arrojas excepcion habreme la nueva pantalla
-                
-                try{
-                    ArrayList<String> arrayKeys = new ArrayList<>();
-                    ProductModifier abrirNuevo = new ProductModifier(arrayKeys);
-                    abrirNuevo.setVisible(true);
-                    this.setVisible(false);
-            
-                    
-                    
-                }catch(Exception e){
-                    
-                System.out.println("INFO: ERROR" + e.toString());
+                arrayKeys = new ArrayList<>();
+                arrayKeys.add(clave);
+                ProductModifier abrirNuevo = new ProductModifier(arrayKeys);
+                abrirNuevo.setVisible(true);
+                this.setVisible(false);
+                System.out.println("INFO: Hemos pasado al siguiente Jframe");
+            }catch(Exception e){
+                System.out.println("INFO: Excepcion en titulo no lo hemos encontrado error:" + e.toString());
                 JOptionPane.showMessageDialog(null, "No podemos pasar de ventana", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-                
-                
-                }
-            }catch(Exception e){
-
-                System.out.println("INFO: No se h encontrado producto dentro del inventario, Excepcion " + e.toString());
-                JOptionPane.showMessageDialog(null, "No se ha encontrado el producto en el inventario intentelo de nuevo", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-                JTxtTitulo.setText("Escribe el nombre que deseas buscar");
+            
             }
-
-        }else if((!String.valueOf(JTextFecha.getText()).isEmpty()) && !(JTextFecha.getText().equals("Escribe el nombre que deseas buscar"))){
-            try{
-                String fecha1txt = JTextFecha.getText();
-                DateTimeFormatter JEFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                LocalDateTime local_date = LocalDateTime.parse(fecha1txt, JEFormatter);
-
-                InventarioService.findProductwithFecha(local_date, inv);
-
-                //Pasamos al nuevo JFrame
-
-                System.out.println("INFO: hemos pasado al nuevo JFrame");
-
-            }catch(Exception e){
-
-                System.out.println("INFO: No se h encontrado producto dentro del inventario, Excepcion " + e.toString());
-                JOptionPane.showMessageDialog(null, "No se ha encontrado el producto en el inventario intentelo de nuevo", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-                JTxtTitulo.setText("Indique la fecha");
-
-            }
-
-        }else if((!String.valueOf(JtextEstrellas.getText()).isEmpty()) && !(JtextEstrellas.getText().equals("Escribe el nombre que deseas buscar"))){
-
-            try{
-                int estrellas = Integer.parseInt(JtextEstrellas.getText());
-                ArrayList<String> ProductKeys = new ArrayList<>(InventarioService.findProductwithStars(estrellas, inv));
-
-                //Llamamos a la nueva pagina y hacemos lo que haya que hacer
-
-                System.out.println("INFO: Hemos pasado al nuevo JFrame");
-
-            }catch(Exception e){
-                System.out.println("INFO: No se ha encontrado producto dentro del inventario, " + e.toString());
-                JOptionPane.showMessageDialog(null, "No se ha encontrado el producto en el inventario intentelo de nuevo", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-                JTxtTitulo.setText("Indique la categoria al que pertenece");
-
-            }
-
-        }else if((!String.valueOf(JTextStock.getText()).isEmpty()) && !(JTextStock.getText().equals("Escribe el nombre que deseas buscar")))
-        try{
-            int Stock = Integer.parseInt(JTextStock.getText());
-            ArrayList<String> ProductKeys = new ArrayList<>(InventarioService.findProductwithStock(Stock, inv));
-
-            System.out.println("INFO: Hemos pasado al nuevo JFrame");
-        }catch(Exception e){
-            System.out.println("INFO: No se ha encontrado producto dentro del inventario, " + e.toString());
-            JOptionPane.showMessageDialog(null, "No se ha encontrado el producto en el inventario intentelo de nuevo", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-            JTxtTitulo.setText("Indique la categoria al que pertenece");
-
-        }else if((!String.valueOf(JTextCategoria.getText()).isEmpty()) && !(JTextCategoria.getText().equals("Escribe el nombre que deseas buscar")))
-        try{
-            String Categoria = JTextCategoria.getText();
-            ArrayList<String> ProductKeys = new ArrayList<>(InventarioService.findProductwithCategory(Categoria, inv));
-            //hacemos lo que haga falta en este jText
-
-            System.out.println("INFO: Hemos pasado al nuevo JFrame");
-
-        }catch(Exception e){
-            System.out.println("INFO: No se ha encontrado producto dentro del inventario, " + e.toString());
-            JOptionPane.showMessageDialog(null, "No se ha encontrado el producto en el inventario intentelo de nuevo", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-            JTxtTitulo.setText("Indique la categoria al que pertenece");
-
+            
+        
         }
-        else{
+        if(!(JTextStock.getText().equals("Indique el stock del producto"))){
+            
+            try{
+                int Stock = Integer.parseInt(JTextStock.getText());
+                arrayKeys = InventarioService.findProductwithStock(Stock, inv);
+                System.out.println(arrayKeys.toString());
+                
+                ProductModifier abrirNuevo = new ProductModifier(arrayKeys);
+                abrirNuevo.setVisible(true);
+                this.setVisible(false);
+                
+                System.out.println("INFO: Hemos pasado al siguiente JFrame");
 
-            System.out.println("INFO: No se han insertado bien los datos");
-            JOptionPane.showMessageDialog(null, "No se han insertado bien los datos en la pantalla", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-
-            JTextStock.setText("Indique el stock del producto");
-            JtextEstrellas.setText("Indique las Estrellas");
-            JTextCategoria.setText("Indique la categoria al que pertenece");
-            JTextFecha.setText("Indique la fecha");
-            JTxtTitulo.setText("Escribe el nombre que deseas buscar");
+            }catch(Exception e){
+                System.out.println("INFO: Excepcion en Stock error " + e.toString());
+                JOptionPane.showMessageDialog(null, "No podemos pasar de ventana", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+            }
+        
         }
+        if(!(JTextCategoria.getText().equals("Indique la categoria al que pertenece"))){
+            try{
+                
+                String categoria = JTextCategoria.getText();
+                arrayKeys = InventarioService.findProductwithCategory(categoria, inv);
+                System.out.println("INFO: Tenemos en nuestra cache estos datos " + arrayKeys.toString());
+                
+                ProductModifier abrirNuevo = new ProductModifier(arrayKeys);
+                abrirNuevo.setVisible(true);
+                this.setVisible(false);
+                
+                System.out.println("INFO: Hemos pasado al siguiente JFrame");
+                
+            
+            }catch(Exception e){
+                System.out.println("INFO: Excepcion en Categoria error " + e.toString());
+                JOptionPane.showMessageDialog(null, "No podemos pasar de ventana", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+            
+            
+            }
+        }
+        
+        if(!(JtextEstrellas.getText().equals("Indique las Estrellas"))){
+            
+            try{
+                int stars = Integer.parseInt(JtextEstrellas.getText());
+                arrayKeys = InventarioService.findProductwithStars(stars, inv);
+                System.out.println("INFO: Tenemos en nuestra clase estos datos " + arrayKeys.toString());
+                
+                ProductModifier abrirNuevo = new ProductModifier(arrayKeys);
+                abrirNuevo.setVisible(true);
+                this.setVisible(false);
+                
+                System.out.println("INFO: Hemos pasado al siguiente JFrame");
+            }catch(Exception e){
+                System.out.println("INFO: Exception error stars " + e.toString());
+                JOptionPane.showMessageDialog(null, "No podemos pasar de ventana", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+            }
+            
+        }
+     
+//        if (!(JTextFecha.getText().equals("Indique la fecha"))) {
+//
+//            try {
+//                String fecha1txt = JTextFecha.getText();
+//                DateTimeFormatter JEFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//                LocalDateTime local_date = LocalDateTime.parse(fecha1txt, JEFormatter);
+//                System.out.println(local_date);
+//                arrayKeys = InventarioService.findProductwithFecha(local_date, inv);
+//
+//                //Pasamos al nuevo JFrame
+//                
+//                ProductModifier abrirNuevo = new ProductModifier(arrayKeys);
+//                abrirNuevo.setVisible(true);
+//                this.setVisible(false);
+//
+//                System.out.println("INFO: hemos pasado al nuevo JFrame");
+//
+//            }catch(Exception e){
+//                System.out.println("INFO: Exception error Fecha " + e.toString());
+//                JOptionPane.showMessageDialog(null, "No podemos pasar de ventana", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+//            }
+
+        
+            
+            
+       
+        
+        
     }//GEN-LAST:event_JLabelBuscarMousePressed
-
-    private void JTextFechaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFechaMousePressed
-        // TODO add your handling code here:
-        if (JTextFecha.getText().equals("Indique la fecha")) {
-            JTextFecha.setText("");
-            JTextFecha.setForeground(Color.black);
-        }
-        if (String.valueOf(JTxtTitulo.getText()).isEmpty()) {
-            JTxtTitulo.setText("Escribe el nombre que deseas buscar");
-            JTxtTitulo.setForeground(Color.gray);
-
-        }
-        if (String.valueOf(JTextCategoria.getText()).isEmpty()) {
-            JTextCategoria.setText("Indique la categoria al que pertenece");
-            JTextCategoria.setForeground(Color.gray);
-
-        }
-        if (String.valueOf(JtextEstrellas.getText()).isEmpty()) {
-            JtextEstrellas.setText("Indique las Estrellas");
-            JtextEstrellas.setForeground(Color.gray);
-
-        }
-        if (String.valueOf(JTextStock.getText()).isEmpty()) {
-            JTextStock.setText("Indique el stock del producto");
-            JTextStock.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_JTextFechaMousePressed
-
+    
     private void JTextStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextStockActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextStockActionPerformed
@@ -1248,10 +1167,10 @@ public class UserManagament extends javax.swing.JFrame {
             JtextEstrellas.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
-            JTextFecha.setText("Indique la fecha");
-            JTextFecha.setForeground(Color.gray);
-        }
+//        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
+//            JTextFecha.setText("Indique la fecha");
+//            JTextFecha.setForeground(Color.gray);
+//        }
     }//GEN-LAST:event_JTextStockMousePressed
 
     private void JtextEstrellasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtextEstrellasActionPerformed
@@ -1279,10 +1198,10 @@ public class UserManagament extends javax.swing.JFrame {
             JTextStock.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
-            JTextFecha.setText("Indique la fecha");
-            JTextFecha.setForeground(Color.gray);
-        }
+//        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
+//            JTextFecha.setText("Indique la fecha");
+//            JTextFecha.setForeground(Color.gray);
+//        }
     }//GEN-LAST:event_JtextEstrellasMouseClicked
 
     private void JTextCategoriaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextCategoriaMousePressed
@@ -1306,10 +1225,10 @@ public class UserManagament extends javax.swing.JFrame {
             JTextStock.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
-            JTextFecha.setText("Indique la fecha");
-            JTextFecha.setForeground(Color.gray);
-        }
+//        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
+//            JTextFecha.setText("Indique la fecha");
+//            JTextFecha.setForeground(Color.gray);
+//        }
     }//GEN-LAST:event_JTextCategoriaMousePressed
 
     private void JTxtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTxtTituloActionPerformed
@@ -1337,32 +1256,26 @@ public class UserManagament extends javax.swing.JFrame {
             JTextStock.setForeground(Color.gray);
 
         }
-        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
-            JTextFecha.setText("Indique la fecha");
-            JTextFecha.setForeground(Color.gray);
-
-        }
+//        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
+//            JTextFecha.setText("Indique la fecha");
+//            JTextFecha.setForeground(Color.gray);
+//
+//        }
 
     }//GEN-LAST:event_JTxtTituloMousePressed
 
     private void jButtonHomeIconsGround8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8MouseClicked
         // TODO add your handling code here:
-        try{
-            Login abrirNuevo = new Login();
-            abrirNuevo.setVisible(true);
-            this.setVisible(false);
+        
             
-            System.out.println("INFO: Nos vamos al Login");
-        }catch(Exception e){
-            
-             JOptionPane.showMessageDialog(null, "Error no hemos encontrado la Pagina "  + e.toString(), "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-        }
+        JOptionPane.showMessageDialog(null, "No podemos ir hacia delante", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        
     }//GEN-LAST:event_jButtonHomeIconsGround8MouseClicked
 
     private void jButtonHomeIconsGround7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7MouseClicked
         // TODO add your handling code here:
         try {
-            UserManagament abrirNuevo = new UserManagament();
+            Login abrirNuevo = new Login();
             abrirNuevo.setVisible(true);
             this.setVisible(false);
 
@@ -1388,6 +1301,52 @@ public class UserManagament extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonHomeIconsGround5MouseClicked
+
+    private void JTxtDateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTxtDateMousePressed
+        // TODO add your handling code here:
+        LocalDateTime momento = LocalDateTime.now();
+        JTxtDate.setText(momento.format(DateTimeFormatter.ISO_DATE));
+        
+//        if (JTxtDate.getText().equals("Inserte fecha de entrada.")) {
+//            JTxtDate.setText("");
+//            JTxtDate.setForeground(Color.black);
+//        }
+//        if (String.valueOf(TxtTitulo.getText()).isEmpty()) {
+//            TxtTitulo.setText("Inserte titulo.");
+//            TxtTitulo.setForeground(Color.gray);
+//
+//        }
+//        if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
+//            JTextCaracteristicas.setText("Inserte Caracteristicas.");
+//            JTextCaracteristicas.setForeground(Color.gray);
+//
+//        }
+//        if (String.valueOf(JtextCategoria.getText()).isEmpty()) {
+//            JtextCategoria.setText("Inserte categoria");
+//            JtextCategoria.setForeground(Color.gray);
+//
+//        }
+//        if (String.valueOf(JTextPrecio.getText()).isEmpty()) {
+//            JTextPrecio.setText("Inserte precio.");
+//            JTextPrecio.setForeground(Color.gray);
+//
+//        }
+//        if (String.valueOf(JTextLinkImg.getText()).isEmpty()) {
+//            JTextLinkImg.setText("Inserte Link");
+//            JTextLinkImg.setForeground(Color.gray);
+//
+//        }
+//        if (String.valueOf(JTxtStock.getText()).isEmpty()) {
+//            JTxtStock.setText("Inserte Stock.");
+//            JTxtStock.setForeground(Color.gray);
+//
+//        }
+//        if (String.valueOf(JTxtStars.getText()).isEmpty()) {
+//            JTxtStars.setText("Inserte estrellas.");
+//            JTxtStars.setForeground(Color.gray);
+//
+//        }
+    }//GEN-LAST:event_JTxtDateMousePressed
 
 //    private JFrame getFrame() {
 //        return this;
@@ -1439,13 +1398,12 @@ public class UserManagament extends javax.swing.JFrame {
     private javax.swing.JPanel JPanelImgBuscar;
     private javax.swing.JTextField JTextCaracteristicas;
     private javax.swing.JTextField JTextCategoria;
-    private javax.swing.JTextField JTextFecha;
     private javax.swing.JTextField JTextLinkImg;
     private javax.swing.JTextField JTextPrecio;
     private javax.swing.JTextField JTextStock;
     private javax.swing.JTextField JTxtDate;
     private javax.swing.JTextField JTxtStars;
-    private javax.swing.JTextField JTxtStock;
+    private javax.swing.JTextField JTxtStock12;
     private javax.swing.JTextField JTxtTitulo;
     private javax.swing.JTextField JtextCategoria;
     private javax.swing.JTextField JtextEstrellas;
@@ -1473,7 +1431,6 @@ public class UserManagament extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelHomeIcon4;
     private javax.swing.JLabel jLabelImgCrear;
