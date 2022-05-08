@@ -5,9 +5,12 @@
 package com.allsafe.ui;
 //import javax.swing.JFrame;
 
+import com.allsafe.mock.Inventario;
 import com.allsafe.model.Producto;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.*;
+import javax.swing.JOptionPane;
 
 
 
@@ -21,12 +24,58 @@ public class ProductModifier extends javax.swing.JFrame {
      * Creates new form Home
      */
     private ArrayList<String> arrayKeys;
+    //private String array[];
+    //private Inventario inv = Inventario.getInstance();
+    
+    
+    
+    
+    //**********************************************************************************************************************************************************
+    Inventario inv = new Inventario();
+
+    static HashMap<String, Producto> inventario = new HashMap<>();
+
+    static Producto p1 = new Producto("MacBookAirM1", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+    static Producto p2 = new Producto("MacBookProM1323", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
+    static Producto p3 = new Producto("Dell XPS", "Dell", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
+    static Producto p4 = new Producto("MacBookAirM1323", "Apple323", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+    static Producto p5 = new Producto("MacBookProM123fewf", "Apple23", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
+    static Producto p6 = new Producto("Dell XPS323d", "Dell", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1); 
+    static Producto p7 = new Producto("MacBookAirM1rtersgh", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+    static Producto p8 = new Producto("MacBookProM1sregse", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
+    static Producto p9 = new Producto("Dell XPSsrseg", "Dellsrg", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
+        
+        
+        
+        
+//        inventario.put(p1.getTitulo(), p1);
+//        inventario.put(p2.getTitulo(), p2);
+//        inventario.put(p3.getTitulo(), p3);
+//        inventario.put(p4.getTitulo(), p4);
+//        inventario.put(p5.getTitulo(), p5);
+//        inventario.put(p6.getTitulo(), p6);
+//        inventario.put(p7.getTitulo(), p7);
+//        inventario.put(p8.getTitulo(), p8);
+//        inventario.put(p9.getTitulo(), p9);
+//        
+//        inv.setInventario(inventario);
+//    
+    
     
     public ProductModifier(ArrayList<String> arrayKeys) {
         initComponents();
         createHomePage();
+        //insertElements();
        // this.pro = pro;
        this.arrayKeys = arrayKeys;
+    }
+    public ProductModifier() {
+        initComponents();
+        createHomePage();
+        //nsertElements();
+        
+       // this.pro = pro;
+       
     }
 
     /**
@@ -46,9 +95,9 @@ public class ProductModifier extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        JListElements = new javax.swing.JList<>();
+        jButtonBorrarProducto = new javax.swing.JButton();
+        jButtonMirarCaracteristicas = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         jTextField1 = new javax.swing.JTextField();
@@ -74,16 +123,21 @@ public class ProductModifier extends javax.swing.JFrame {
 
         jLabel3.setText("Modificador de Productos ");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        jScrollPane1.setViewportView(JListElements);
+
+        jButtonBorrarProducto.setText("Borrar Producto");
+        jButtonBorrarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBorrarProductoActionPerformed(evt);
+            }
         });
-        jScrollPane1.setViewportView(jList1);
 
-        jButton1.setText("Borrar Producto");
-
-        jButton2.setText("Mirar caracteristicas");
+        jButtonMirarCaracteristicas.setText("Mirar caracteristicas");
+        jButtonMirarCaracteristicas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMirarCaracteristicasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -91,9 +145,9 @@ public class ProductModifier extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(jButtonBorrarProducto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonMirarCaracteristicas, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addContainerGap())
@@ -107,8 +161,8 @@ public class ProductModifier extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonBorrarProducto)
+                    .addComponent(jButtonMirarCaracteristicas))
                 .addGap(46, 46, 46))
         );
 
@@ -224,6 +278,24 @@ public class ProductModifier extends javax.swing.JFrame {
             jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("Icons/png/home.png"));
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
             
+            
+            inventario.put(p1.getTitulo(), p1);
+            inventario.put(p2.getTitulo(), p2);
+            inventario.put(p3.getTitulo(), p3);
+            inventario.put(p4.getTitulo(), p4);
+            inventario.put(p5.getTitulo(), p5);
+            inventario.put(p6.getTitulo(), p6);
+            inventario.put(p7.getTitulo(), p7);
+            inventario.put(p8.getTitulo(), p8);
+            inventario.put(p9.getTitulo(), p9);
+
+            inv.setInventario(inventario);
+
+            arrayKeys = new ArrayList<>(inv.getInventario().keySet());
+            //String []array = arrayKeys.toArray(new String[0]);
+            JListElements.setListData(arrayKeys.toArray(new String[0]));
+            
+            
         } catch (Exception e) {
             System.out.println("Error: " + e.toString());
         }
@@ -238,12 +310,64 @@ public class ProductModifier extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("Estas entrando en el carrito");
     }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
-    public void insertElements(){
+
+    private void jButtonBorrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarProductoActionPerformed
+        // TODO add your handling code here:
+        try{
+            String clave = JListElements.getSelectedValue();
+            System.out.println("INFO:la clave" + clave + "se ha seleccionado");
+            inv.getInventario().remove(clave);
+            arrayKeys.remove(clave);
+            JListElements.setListData(arrayKeys.toArray(new String[0]));
+            System.out.println("INFO: El inventario a sido modificado" + Arrays.toString(inv.getInventario().keySet().toArray()));
+            
+        }catch(Exception e){
+            System.out.println("INFO:No tenemos ese valor guardado error");
+            JOptionPane.showMessageDialog(null, "No tenemos ese valor guardado", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         
-    
-    
-    
-    }
+        
+        }
+    }//GEN-LAST:event_jButtonBorrarProductoActionPerformed
+
+    private void jButtonMirarCaracteristicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMirarCaracteristicasActionPerformed
+        // TODO add your handling code here:
+        try{
+            String clave = JListElements.getSelectedValue();
+            Producto pro = inv.getInventario().get(clave);
+            ModifyProducts abrir = new ModifyProducts(pro , inv);
+            abrir.setVisible(true);
+            this.setVisible(false);
+            System.out.println("INFO:Nos vamos a ver las caracteristicas");
+            
+        }catch(Exception e){
+            System.out.println("INFO:No tenemos ese valor guardado error" + e.toString());
+            JOptionPane.showMessageDialog(null, "No tenemos ese valor guardado", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        
+        
+        }
+        
+    }//GEN-LAST:event_jButtonMirarCaracteristicasActionPerformed
+//    public void insertElements(){
+//        
+//        //Annadimos los elementos y los insertamos
+//        
+//        inventario.put(p1.getTitulo(), p1);
+//        inventario.put(p2.getTitulo(), p2);
+//        inventario.put(p3.getTitulo(), p3);
+//        inventario.put(p4.getTitulo(), p4);
+//        inventario.put(p5.getTitulo(), p5);
+//        inventario.put(p6.getTitulo(), p6);
+//        inventario.put(p7.getTitulo(), p7);
+//        inventario.put(p8.getTitulo(), p8);
+//        inventario.put(p9.getTitulo(), p9);
+//        
+//        inv.setInventario(inventario);
+//        
+//        arrayKeys = new ArrayList<>(inv.getInventario().keySet());
+//        //String []array = arrayKeys.toArray(new String[0]);
+//        JListElements.setListData(arrayKeys.toArray(new String[0]));
+//        
+//    }
 //    private JFrame getFrame() {
 //        return this;
 //    }
@@ -291,9 +415,9 @@ public class ProductModifier extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> JListElements;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonBorrarProducto;
     private javax.swing.JButton jButtonHomeIcon1;
     private javax.swing.JButton jButtonHomeIcon2;
     private javax.swing.JButton jButtonHomeIcon4;
@@ -301,11 +425,11 @@ public class ProductModifier extends javax.swing.JFrame {
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
     private javax.swing.JButton jButtonHomeIconsGround8;
+    private javax.swing.JButton jButtonMirarCaracteristicas;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelHomeIcon4;
     private javax.swing.JLabel jLabelTimeline7;
     private javax.swing.JLabel jLabelTimeline8;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

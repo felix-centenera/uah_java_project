@@ -10,6 +10,7 @@ import com.allsafe.model.Producto;
 import java.awt.Color;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 
@@ -24,21 +25,40 @@ public class ModifyProducts extends javax.swing.JFrame {
      * Creates new form Home
      */
     
-    private Producto pro;
-    private Inventario inv = Inventario.getInstance();
+    private Producto pro = new Producto("MacBookAirM1", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+    Inventario inv;
+    //private Inventario inv;
     
-    public ModifyProducts(Producto pro) {
+    
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        
+
+//    HashMap<String, Producto> inventario = new HashMap<>();
+//
+//    Producto p1 = new Producto("MacBookAirM1", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+//    Producto p2 = new Producto("MacBookProM1323", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
+//    Producto p3 = new Producto("Dell XPS", "Dell", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
+//    Producto p4 = new Producto("MacBookAirM1323", "Apple323", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+//    Producto p5 = new Producto("MacBookProM123fewf", "Apple23", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
+//    Producto p6 = new Producto("Dell XPS323d", "Dell", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1); 
+//    Producto p7 = new Producto("MacBookAirM1rtersgh", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+//    Producto p8 = new Producto("MacBookProM1sregse", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
+//    Producto p9 = new Producto("Dell XPSsrseg", "Dellsrg", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
+    
+    public ModifyProducts(Producto pro , Inventario inv) {
         initComponents();
         createHomePage();
-        insertAtributes();
+       
+        //insertAtributes();
         this.pro = pro;
+        this.inv = inv;
         
     }
-    public ModifyProducts() {
-        initComponents();
-        createHomePage();
-        
-    }
+//    public ModifyProducts() {
+//        initComponents();
+//        createHomePage();
+//        
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -377,33 +397,84 @@ public class ModifyProducts extends javax.swing.JFrame {
             jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("Icons/png/home.png"));
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
             
+            //******************************************************************************************
+            System.out.println(pro.getCategoria());
+            jTextCategoria.setText(pro.getCategoria());
+            System.out.println(pro.getEstrella());
+            jTextEstrellas.setText("" +pro.getEstrella());
+            
+            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+            System.out.println( pro.getFechaEntradaTienda().format(formatoCorto));
+            jTextFechaEntrada.setText("" + pro.getFechaEntradaTienda().format(formatoCorto));//mirar por que a lo mejor no furula todo lo bien   que se espera
+            System.out.println(pro.getStock());
+            jTextStock.setText("" + pro.getStock());
+            System.out.println(pro.getCaracteristicas());
+            JTextCaracteristicas.setText(pro.getCaracteristicas());
+            System.out.println(pro.getPrecio());
+            jTextPrecio.setText("" + pro.getPrecio());
+            System.out.println(pro.getTitulo());
+            JTextTitulo.setText(pro.getTitulo());
+            System.out.println(pro.getFotografia());
+            JTextLink.setText(pro.getFotografia());
+            
+            jLabelIMGProducto.setIcon(new javax.swing.ImageIcon(pro.getFotografia()));
+            
+            System.out.println("_________________________________________________");
+            
+            
+            //**********************************************************************************************
+//            
+//            
+//            inventario.put(p1.getTitulo(), p1);
+//            inventario.put(p2.getTitulo(), p2);
+//            inventario.put(p3.getTitulo(), p3);
+//            inventario.put(p4.getTitulo(), p4);
+//            inventario.put(p5.getTitulo(), p5);
+//            inventario.put(p6.getTitulo(), p6);
+//            inventario.put(p7.getTitulo(), p7);
+//            inventario.put(p8.getTitulo(), p8);
+//            inventario.put(p9.getTitulo(), p9);
+//
+//            inv.setInventario(inventario);
+        
+            
         } catch (Exception e) {
             System.out.println("Error: " + e.toString());
             JOptionPane.showMessageDialog(null, "Error nos fatan datos", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         }
     }
-    public void insertAtributes(){
-        try{
-            jTextCategoria.setText(pro.getCategoria());
-            jTextEstrellas.setText("" +pro.getEstrella());
-            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
-            jTextFechaEntrada.setText("" + pro.getFechaEntradaTienda().format(formatoCorto));//mirar por que a lo mejor no furula todo lo bien   que se espera
-            jTextStock.setText("" + pro.getStock());
-            JTextCaracteristicas.setText(pro.getCaracteristicas());
-            jTextPrecio.setText("" + pro.getPrecio());
-            JTextTitulo.setText(pro.getTitulo());
-            JTextLink.setText(pro.getFotografia());
-            jLabelIMGProducto.setIcon(new javax.swing.ImageIcon(pro.getFotografia()));
-            
-        
-            System.out.println("INFO: Se han insertado los datos "); 
-        }catch(Exception e){
-            System.out.println("No tenemos todos los valores");
-            JOptionPane.showMessageDialog(null, "Error nos faltan datos", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-        
-        }
-       
-    }
+//    public void insertAtributes(){
+//        try{
+//            System.out.println(pro.getCategoria());
+//            jTextCategoria.setText(pro.getCategoria());
+//            System.out.println(pro.getEstrella());
+//            jTextEstrellas.setText("" +pro.getEstrella());
+//            
+//            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+//            System.out.println( pro.getFechaEntradaTienda().format(formatoCorto));
+//            jTextFechaEntrada.setText("" + pro.getFechaEntradaTienda().format(formatoCorto));//mirar por que a lo mejor no furula todo lo bien   que se espera
+//            System.out.println(pro.getStock());
+//            jTextStock.setText("" + pro.getStock());
+//            System.out.println(pro.getCaracteristicas());
+//            JTextCaracteristicas.setText(pro.getCaracteristicas());
+//            System.out.println(pro.getPrecio());
+//            jTextPrecio.setText("" + pro.getPrecio());
+//            System.out.println(pro.getTitulo());
+//            JTextTitulo.setText(pro.getTitulo());
+//            System.out.println(pro.getFotografia());
+//            JTextLink.setText(pro.getFotografia());
+//            
+//            jLabelIMGProducto.setIcon(new javax.swing.ImageIcon(pro.getFotografia()));
+//            
+//        
+//            System.out.println("INFO: Se han insertado los datos "); 
+//        }catch(Exception e){
+//            System.out.println("No tenemos todos los valores");
+//            JOptionPane.showMessageDialog(null, "Error nos faltan datos", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+//        
+//        }
+//       
+//    }
     
     
 
@@ -428,8 +499,8 @@ public class ModifyProducts extends javax.swing.JFrame {
         //        JTextLink
 
           try{
-            Producto prod = inv.getInventario().get(pro.getTitulo());
-            
+            //Producto prod = inv.getInventario().get(pro.getTitulo());
+            System.out.println(pro.toString());
             String categoria = jTextCategoria.getText();
             String caracteristicas = JTextCaracteristicas.getText();
             int stock = Integer.parseInt(jTextStock.getText());
@@ -442,7 +513,9 @@ public class ModifyProducts extends javax.swing.JFrame {
             pro.setStock(stock);
             pro.setPrecio(precio);
             
-            inv.getInventario().put(pro.getTitulo(), prod);
+            System.out.println(inv.getInventario());
+            
+            inv.getInventario().replace(pro.getTitulo(), pro);
             
             System.out.println("INFO: hemos sobre escrito el producto dado");
               
@@ -488,7 +561,7 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
-            JTextCaracteristicas.setText("" + pro.getPrecio());
+            JTextCaracteristicas.setText("" + pro.getCaracteristicas());
 
         }
         if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
@@ -496,11 +569,11 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(JTextLink.getText()).isEmpty()) {
-            JTextTitulo.setText(pro.getFotografia());
+            JTextLink.setText(pro.getFotografia());
 
         }
         if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
-            JTextLink.setText(pro.getCategoria());
+            jTextCategoria.setText(pro.getCategoria());
 
         }
 
@@ -509,7 +582,7 @@ public class ModifyProducts extends javax.swing.JFrame {
     private void JTextCaracteristicasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextCaracteristicasMouseClicked
         // TODO add your handling code here:
         if (JTextCaracteristicas.getText().equals(pro.getCaracteristicas())) {
-            JTextTitulo.setText("");
+            JTextCaracteristicas.setText("");
 
         }
         if (String.valueOf(jTextEstrellas.getText()).isEmpty()) {
@@ -534,11 +607,11 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(JTextLink.getText()).isEmpty()) {
-            JTextTitulo.setText(pro.getFotografia());
+            JTextLink.setText(pro.getFotografia());
 
         }
         if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
-            JTextLink.setText(pro.getCategoria());
+            jTextCategoria.setText(pro.getCategoria());
 
         }
     }//GEN-LAST:event_JTextCaracteristicasMouseClicked
@@ -563,7 +636,7 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
-            JTextCaracteristicas.setText("" + pro.getPrecio());
+            JTextCaracteristicas.setText("" + pro.getCaracteristicas());
 
         }
         if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
@@ -571,7 +644,7 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(JTextLink.getText()).isEmpty()) {
-            JTextTitulo.setText(pro.getFotografia());
+            JTextLink.setText(pro.getFotografia());
 
         }
         if (String.valueOf(JTextTitulo.getText()).isEmpty()) {
@@ -600,7 +673,7 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
-            JTextCaracteristicas.setText("" + pro.getPrecio());
+            JTextCaracteristicas.setText("" + pro.getCaracteristicas());
 
         }
         if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
@@ -612,14 +685,14 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
-            JTextLink.setText(pro.getCategoria());
+            jTextCategoria.setText(pro.getCategoria());
 
         }
         
     }//GEN-LAST:event_JTextLinkMouseClicked
 
     private void jTextStockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextStockMouseClicked
-        // TODO add your handling code here:
+         //TODO add your handling code here:
         if (jTextStock.getText().equals("" + pro.getStock())) {
             jTextStock.setText("");
 
@@ -638,7 +711,7 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
-            JTextCaracteristicas.setText("" + pro.getPrecio());
+            JTextCaracteristicas.setText("" + pro.getCaracteristicas());
 
         }
         if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
@@ -646,11 +719,11 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(JTextLink.getText()).isEmpty()) {
-            JTextTitulo.setText(pro.getFotografia());
+            JTextLink.setText(pro.getFotografia());
 
         }
         if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
-            JTextLink.setText(pro.getCategoria());
+            jTextCategoria.setText(pro.getCategoria());
 
         }
     }//GEN-LAST:event_jTextStockMouseClicked
@@ -675,7 +748,7 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
-            JTextCaracteristicas.setText("" + pro.getPrecio());
+            JTextCaracteristicas.setText("" + pro.getCaracteristicas());
 
         }
         if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
@@ -683,11 +756,11 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(JTextLink.getText()).isEmpty()) {
-            JTextTitulo.setText(pro.getFotografia());
+            JTextLink.setText(pro.getFotografia());
 
         }
         if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
-            JTextLink.setText(pro.getCategoria());
+            jTextCategoria.setText(pro.getCategoria());
 
         }
     }//GEN-LAST:event_jTextFechaEntradaMouseClicked
@@ -712,7 +785,7 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(JTextCaracteristicas.getText()).isEmpty()) {
-            JTextCaracteristicas.setText("" + pro.getPrecio());
+            JTextCaracteristicas.setText("" + pro.getCaracteristicas());
 
         }
         if (String.valueOf(jTextPrecio.getText()).isEmpty()) {
@@ -720,7 +793,7 @@ public class ModifyProducts extends javax.swing.JFrame {
 
         }
         if (String.valueOf(JTextLink.getText()).isEmpty()) {
-            JTextTitulo.setText(pro.getFotografia());
+            JTextLink.setText(pro.getFotografia());
 
         }
         if (String.valueOf(jTextCategoria.getText()).isEmpty()) {
@@ -731,7 +804,7 @@ public class ModifyProducts extends javax.swing.JFrame {
 
     private void jTextPrecioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextPrecioMouseClicked
         // TODO add your handling code here:
-           if (jTextPrecio.getText().equals("" + pro.getPrecio())) {
+        if (jTextPrecio.getText().equals("" + pro.getPrecio())) {
             jTextPrecio.setText("");
 
         }
@@ -778,7 +851,7 @@ public class ModifyProducts extends javax.swing.JFrame {
              //Volvemos hacia atras con el producto
              //***************************************************************************************************
              //volvemos hacia atras habra que modificar el  constructor para volver con el producto
-             UserManagament abrirNuevo = new UserManagament();
+            UserManagament abrirNuevo = new UserManagament();
             abrirNuevo.setVisible(true);
             this.setVisible(false);
             
@@ -815,52 +888,52 @@ public class ModifyProducts extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModifyProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModifyProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModifyProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModifyProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ModifyProducts().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(ModifyProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(ModifyProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(ModifyProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(ModifyProducts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new ModifyProducts().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JButtomModifyProduct;
