@@ -30,10 +30,12 @@ public class ModifyProducts extends javax.swing.JFrame {
      * Creates new form Home
      */
     
-    private static Producto pro = ProductModifier.pro;
+    private static Producto pro;
     private static Inventario inv = UserManagament.inv;
     
     private String Procedencia;
+    private UserManagament user;
+    private ProductModifier man;
     
     //private Inventario inv;
     
@@ -53,12 +55,30 @@ public class ModifyProducts extends javax.swing.JFrame {
 //    Producto p8 = new Producto("MacBookProM1sregse", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
 //    Producto p9 = new Producto("Dell XPSsrseg", "Dellsrg", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
     
-    public ModifyProducts(String Procedencia) {
+    public ModifyProducts(UserManagament man , String Procedencia) {
         initComponents();
         createHomePage();
        
         //insertAtributes();
+        user = man;
+        user.setVisible(false);
+        this.setVisible(true);
         this.Procedencia = Procedencia;
+        this.pro = UserManagament.proCreado;
+        System.out.println(Procedencia);
+        
+        
+    }
+    public ModifyProducts(ProductModifier man , String Procedencia) {
+        initComponents();
+        createHomePage();
+       
+        //insertAtributes();
+        this.man = man;
+        man.setVisible(false);
+        this.setVisible(true);
+        this.Procedencia = Procedencia;
+        this.pro = ProductModifier.pro;
         
         
     }
@@ -125,20 +145,32 @@ public class ModifyProducts extends javax.swing.JFrame {
         jPanel1.setToolTipText("");
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         jLabel3.setText("Modificador de Productos ");
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Roboto Black", 2, 12)); // NOI18N
         jLabel1.setText("Titulo:");
 
+        jLabel2.setFont(new java.awt.Font("Roboto Black", 2, 12)); // NOI18N
         jLabel2.setText("Caracteristicas:");
 
+        jLabel4.setFont(new java.awt.Font("Roboto Black", 2, 12)); // NOI18N
         jLabel4.setText("Categoria:");
 
+        jLabel5.setFont(new java.awt.Font("Roboto Black", 2, 12)); // NOI18N
         jLabel5.setText("Link Foto:");
 
+        jLabel6.setFont(new java.awt.Font("Roboto Black", 2, 12)); // NOI18N
         jLabel6.setText("Stock:");
 
+        jLabel7.setFont(new java.awt.Font("Roboto Black", 2, 12)); // NOI18N
         jLabel7.setText("Fecha Entrada:");
 
+        jLabel8.setFont(new java.awt.Font("Roboto Black", 2, 12)); // NOI18N
         jLabel8.setText("Estrellas:");
 
         JButtomModifyProduct.setText("Modificar");
@@ -190,8 +222,7 @@ public class ModifyProducts extends javax.swing.JFrame {
             }
         });
 
-        jLabelIMGProducto.setText("Img");
-
+        jLabel10.setFont(new java.awt.Font("Roboto Black", 2, 12)); // NOI18N
         jLabel10.setText("Precio:");
 
         jTextPrecio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -231,7 +262,7 @@ public class ModifyProducts extends javax.swing.JFrame {
                             .addComponent(jTextStock, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFechaEntrada, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextEstrellas, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(36, 36, 36)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabelIMGProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(28, 28, 28))))
         );
@@ -292,7 +323,7 @@ public class ModifyProducts extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(92, 92, 92)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -885,9 +916,9 @@ public class ModifyProducts extends javax.swing.JFrame {
             //volvemos hacia atras habra que modificar el  constructor para volver con el producto
             
             if(Procedencia.equals("ProductModifier")){
-                ProductModifier abrirNuevo = new ProductModifier();
-                abrirNuevo.setVisible(true);
-                this.setVisible(false);
+                ProductModifier abrirNuevo = new ProductModifier(this);
+//                abrirNuevo.setVisible(true);
+//                this.setVisible(false);
 
                 System.out.println("INFO: Nos vamos al Home");
             }

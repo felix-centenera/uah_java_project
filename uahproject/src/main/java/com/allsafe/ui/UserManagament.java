@@ -34,6 +34,9 @@ public class UserManagament extends javax.swing.JFrame {
      */
     //public static ArrayList<String> arrayKeys;
     private ArrayList<String> arrayKeys;
+    public static Inventario inv = Inventario.getInstance();
+    private Producto proCreado;
+    
     public UserManagament() {
         initComponents();
         createHomePage();
@@ -120,7 +123,6 @@ public class UserManagament extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel2.setText("Titulo:");
 
-        JTxtTitulo.setForeground(new java.awt.Color(204, 204, 204));
         JTxtTitulo.setText("Escribe el nombre que deseas buscar");
         JTxtTitulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         JTxtTitulo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -137,7 +139,6 @@ public class UserManagament extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel3.setText("Categoria:");
 
-        JTextCategoria.setForeground(new java.awt.Color(204, 204, 204));
         JTextCategoria.setText("Indique la categoria al que pertenece");
         JTextCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         JTextCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,7 +150,6 @@ public class UserManagament extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel4.setText("Estrellas:");
 
-        JtextEstrellas.setForeground(new java.awt.Color(204, 204, 204));
         JtextEstrellas.setText("Indique las Estrellas");
         JtextEstrellas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         JtextEstrellas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -166,7 +166,6 @@ public class UserManagament extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel7.setText("Stock:");
 
-        JTextStock.setForeground(new java.awt.Color(204, 204, 204));
         JTextStock.setText("Indique el stock del producto");
         JTextStock.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         JTextStock.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -301,7 +300,6 @@ public class UserManagament extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel18.setText("Estrellas:");
 
-        TxtTitulo.setForeground(new java.awt.Color(204, 204, 204));
         TxtTitulo.setText("Inserte titulo.");
         TxtTitulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         TxtTitulo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -315,7 +313,6 @@ public class UserManagament extends javax.swing.JFrame {
             }
         });
 
-        JTextCaracteristicas.setForeground(new java.awt.Color(204, 204, 204));
         JTextCaracteristicas.setText("Inserte Caracteristicas.");
         JTextCaracteristicas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         JTextCaracteristicas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -324,7 +321,6 @@ public class UserManagament extends javax.swing.JFrame {
             }
         });
 
-        JtextCategoria.setForeground(new java.awt.Color(204, 204, 204));
         JtextCategoria.setText("Inserte categoria");
         JtextCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         JtextCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -333,7 +329,6 @@ public class UserManagament extends javax.swing.JFrame {
             }
         });
 
-        JTextPrecio.setForeground(new java.awt.Color(204, 204, 204));
         JTextPrecio.setText("Inserte precio.");
         JTextPrecio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         JTextPrecio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -342,7 +337,6 @@ public class UserManagament extends javax.swing.JFrame {
             }
         });
 
-        JTextLinkImg.setForeground(new java.awt.Color(204, 204, 204));
         JTextLinkImg.setText("Inserte Link");
         JTextLinkImg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         JTextLinkImg.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -351,7 +345,6 @@ public class UserManagament extends javax.swing.JFrame {
             }
         });
 
-        JTxtStock12.setForeground(new java.awt.Color(204, 204, 204));
         JTxtStock12.setText("Inserte Stock.");
         JTxtStock12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         JTxtStock12.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -365,7 +358,6 @@ public class UserManagament extends javax.swing.JFrame {
             }
         });
 
-        JTxtDate.setForeground(new java.awt.Color(204, 204, 204));
         JTxtDate.setText("Inserte fecha de entrada.");
         JTxtDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         JTxtDate.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -374,7 +366,6 @@ public class UserManagament extends javax.swing.JFrame {
             }
         });
 
-        JTxtStars.setForeground(new java.awt.Color(204, 204, 204));
         JTxtStars.setText("Inserte estrellas.");
         JTxtStars.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         JTxtStars.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -572,8 +563,7 @@ public class UserManagament extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public static Inventario inv = Inventario.getInstance();
-    public static Producto pro;
+    
     HashMap<String, Producto> inventario = new HashMap<>();
     
 
@@ -625,7 +615,10 @@ public class UserManagament extends javax.swing.JFrame {
         }
     }
 
+    public ArrayList<String> getArraykeys(){   
+        return(arrayKeys);
 
+    }
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
@@ -993,7 +986,7 @@ public class UserManagament extends javax.swing.JFrame {
             
             if(JOptionPane.OK_OPTION == confirmado){
                 InventarioService.CreateProduct(Titulo, caracteristicas, Categoria, precio, link, Stock, inv);
-                pro = inv.getInventario().get(Titulo);
+                proCreado = inv.getInventario().get(Titulo);
                 System.out.println("INFO: Producto creado y Annadido al inventario");
                 JTextStock.setText("Indique el stock del producto");
                 JtextEstrellas.setText("Indique las Estrellas");
@@ -1005,9 +998,9 @@ public class UserManagament extends javax.swing.JFrame {
               
                 if (JOptionPane.OK_OPTION == num) {
 
-                    ModifyProducts abrir = new ModifyProducts("ProductModifier");
-                    abrir.setVisible(true);
-                    this.setVisible(false);
+                    ModifyProducts abrir = new ModifyProducts(this ,"ProductModifier");
+//                    abrir.setVisible(true);
+//                    this.setVisible(false);
 
                 }
                 if(JOptionPane.CLOSED_OPTION == num){
@@ -1040,9 +1033,9 @@ public class UserManagament extends javax.swing.JFrame {
 
                 arrayKeys = new ArrayList<>();
                 arrayKeys.add(clave);
-                ProductModifier abrirNuevo = new ProductModifier(arrayKeys);
-                abrirNuevo.setVisible(true);
-                this.setVisible(false);
+                ProductModifier abrirNuevo = new ProductModifier(this , arrayKeys);
+//                abrirNuevo.setVisible(true);
+//                this.setVisible(false);
                 System.out.println("INFO: Hemos pasado al siguiente Jframe");
             }catch(Exception e){
                 System.out.println("INFO: Excepcion en titulo no lo hemos encontrado error:" + e.toString());
@@ -1059,10 +1052,10 @@ public class UserManagament extends javax.swing.JFrame {
                 arrayKeys = InventarioService.findProductwithStock(Stock, inv);
                 System.out.println(arrayKeys.toString());
                 
-                ProductModifier abrirNuevo = new ProductModifier(arrayKeys);
-                abrirNuevo.setVisible(true);
-                this.setVisible(false);
-                
+                ProductModifier abrirNuevo = new ProductModifier(this);
+//                abrirNuevo.setVisible(true);
+//                this.setVisible(false);
+//                
                 System.out.println("INFO: Hemos pasado al siguiente JFrame");
 
             }catch(Exception e){
@@ -1078,10 +1071,10 @@ public class UserManagament extends javax.swing.JFrame {
                 arrayKeys = InventarioService.findProductwithCategory(categoria, inv);
                 System.out.println("INFO: Tenemos en nuestra cache estos datos " + arrayKeys.toString());
                 
-                ProductModifier abrirNuevo = new ProductModifier(arrayKeys);
-                abrirNuevo.setVisible(true);
-                this.setVisible(false);
-                
+                ProductModifier abrirNuevo = new ProductModifier(this);
+//                abrirNuevo.setVisible(true);
+//                this.setVisible(false);
+//                
                 System.out.println("INFO: Hemos pasado al siguiente JFrame");
                 
             
@@ -1100,10 +1093,10 @@ public class UserManagament extends javax.swing.JFrame {
                 arrayKeys = InventarioService.findProductwithStars(stars, inv);
                 System.out.println("INFO: Tenemos en nuestra clase estos datos " + arrayKeys.toString());
                 
-                ProductModifier abrirNuevo = new ProductModifier(arrayKeys);
-                abrirNuevo.setVisible(true);
-                this.setVisible(false);
-                
+                ProductModifier abrirNuevo = new ProductModifier(this);
+//                abrirNuevo.setVisible(true);
+//                this.setVisible(false);
+//                
                 System.out.println("INFO: Hemos pasado al siguiente JFrame");
             }catch(Exception e){
                 System.out.println("INFO: Exception error stars " + e.toString());
@@ -1154,17 +1147,17 @@ public class UserManagament extends javax.swing.JFrame {
         }
         if (String.valueOf(JTxtTitulo.getText()).isEmpty()) {
             JTxtTitulo.setText("Escribe el nombre que deseas buscar");
-            JTxtTitulo.setForeground(Color.gray);
+            JTxtTitulo.setForeground(Color.black);
 
         }
         if (String.valueOf(JTextCategoria.getText()).isEmpty()) {
             JTextCategoria.setText("Indique la categoria al que pertenece");
-            JTextCategoria.setForeground(Color.gray);
+            JTextCategoria.setForeground(Color.black);
 
         }
         if (String.valueOf(JtextEstrellas.getText()).isEmpty()) {
             JtextEstrellas.setText("Indique las Estrellas");
-            JtextEstrellas.setForeground(Color.gray);
+            JtextEstrellas.setForeground(Color.black);
 
         }
 //        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
@@ -1185,17 +1178,17 @@ public class UserManagament extends javax.swing.JFrame {
         }
         if (String.valueOf(JTxtTitulo.getText()).isEmpty()) {
             JTxtTitulo.setText("Escribe el nombre que deseas buscar");
-            JTxtTitulo.setForeground(Color.gray);
+            JTxtTitulo.setForeground(Color.black);
 
         }
         if (String.valueOf(JTextCategoria.getText()).isEmpty()) {
             JTextCategoria.setText("Indique la categoria al que pertenece");
-            JTextCategoria.setForeground(Color.gray);
+            JTextCategoria.setForeground(Color.black);
 
         }
         if (String.valueOf(JTextStock.getText()).isEmpty()) {
             JTextStock.setText("Indique el stock del producto");
-            JTextStock.setForeground(Color.gray);
+            JTextStock.setForeground(Color.black);
 
         }
 //        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
@@ -1212,17 +1205,17 @@ public class UserManagament extends javax.swing.JFrame {
         }
         if (String.valueOf(JTxtTitulo.getText()).isEmpty()) {
             JTxtTitulo.setText("Escribe el nombre que deseas buscar");
-            JTxtTitulo.setForeground(Color.gray);
+            JTxtTitulo.setForeground(Color.black);
 
         }
         if (String.valueOf(JtextEstrellas.getText()).isEmpty()) {
             JtextEstrellas.setText("Indique las Estrellas");
-            JtextEstrellas.setForeground(Color.gray);
+            JtextEstrellas.setForeground(Color.black);
 
         }
         if (String.valueOf(JTextStock.getText()).isEmpty()) {
             JTextStock.setText("Indique el stock del producto");
-            JTextStock.setForeground(Color.gray);
+            JTextStock.setForeground(Color.black);
 
         }
 //        if (String.valueOf(JTextFecha.getText()).isEmpty()) {
@@ -1243,17 +1236,17 @@ public class UserManagament extends javax.swing.JFrame {
         }
         if (String.valueOf(JTextCategoria.getText()).isEmpty()) {
             JTextCategoria.setText("Indique la categoria al que pertenece");
-            JTextCategoria.setForeground(Color.gray);
+            JTextCategoria.setForeground(Color.black);
 
         }
         if (String.valueOf(JtextEstrellas.getText()).isEmpty()) {
             JtextEstrellas.setText("Indique las Estrellas");
-            JtextEstrellas.setForeground(Color.gray);
+            JtextEstrellas.setForeground(Color.black);
 
         }
         if (String.valueOf(JTextStock.getText()).isEmpty()) {
             JTextStock.setText("Indique el stock del producto");
-            JTextStock.setForeground(Color.gray);
+            JTextStock.setForeground(Color.black);
 
         }
 //        if (String.valueOf(JTextFecha.getText()).isEmpty()) {

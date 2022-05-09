@@ -26,9 +26,14 @@ public class ProductModifier extends javax.swing.JFrame {
     //private ArrayList<String> arrayKeys;
     //private String array[];
     //private Inventario inv = Inventario.getInstance();
-    private ArrayList<String> arrayKeys; //= UserManagament.arrayKeys;
-    public static Inventario inv = UserManagament.inv;
+//    private ArrayList<String> arrayKeys;// = man.arrayKeys; //= UserManagament.arrayKeys;
+//    public static Inventario inv = UserManagament.inv;
+//    public static Producto pro;
+    private UserManagament man ;
+    private ModifyProducts mpro;
+    private Inventario inv = UserManagament.inv;
     public static Producto pro;
+    private ArrayList<String> arrayKeys;
     
     //**********************************************************************************************************************************************************
 //    public static Inventario inv = new Inventario();
@@ -62,19 +67,45 @@ public class ProductModifier extends javax.swing.JFrame {
 //    
     
     
-    public ProductModifier(ArrayList<String> arrayKeys) {
+//    public ProductModifier(UserManagament man ,ArrayList<String> arrayKeys) {
+//        initComponents();
+//        createHomePage();
+//        //insertElements();
+//       // this.pro = pro;
+//       
+//       UserManagament user = new UserManagament();
+//       this.arrayKeys = user.arrayKeys;
+//       System.out.println(arrayKeys);
+//       
+//    }
+    public ProductModifier(UserManagament user) {
         initComponents();
         createHomePage();
-        //insertElements();
-       // this.pro = pro;
-       this.arrayKeys = arrayKeys;
-    }
-    public ProductModifier() {
-        initComponents();
-        createHomePage();
+        man = user;
+        man.setVisible(false);
+        this.setVisible(true);
         //nsertElements();
-        
+////        this.arrayKeys = man.getArraykeys();
        // this.pro = pro;
+       
+    }
+    public ProductModifier(ModifyProducts user) {
+        initComponents();
+        createHomePage();
+        mpro = user;
+        mpro.setVisible(false);
+        this.setVisible(true);
+        //nsertElements();
+////        arrayKeys = man.getArraykeys();
+       // this.pro = pro;
+       
+    }
+    
+    public ProductModifier(UserManagament man,ArrayList<String> arrayKeys) {
+        initComponents();
+        createHomePage();
+        this.arrayKeys = arrayKeys;
+        this.man = man;
        
     }
 
@@ -121,8 +152,14 @@ public class ProductModifier extends javax.swing.JFrame {
         jPanel1.setToolTipText("");
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel3.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         jLabel3.setText("Modificador de Productos ");
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+
+        JListElements.setFont(new java.awt.Font("Roboto Black", 2, 18)); // NOI18N
         jScrollPane1.setViewportView(JListElements);
 
         jButtonBorrarProducto.setText("Borrar Producto");
@@ -174,24 +211,25 @@ public class ProductModifier extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 770, 460));
@@ -308,7 +346,11 @@ public class ProductModifier extends javax.swing.JFrame {
 
             //arrayKeys = new ArrayList<>(inv.getInventario().keySet());
             //String []array = arrayKeys.toArray(new String[0]);
-            JListElements.setListData(arrayKeys.toArray(new String[0]));
+            System.out.println(man.getArraykeys());
+            System.out.println("Estoy aki");
+           
+            
+            JListElements.setListData(arrayKeys.toArray(String[]::new));
             
             
         } catch (Exception e) {
@@ -349,7 +391,7 @@ public class ProductModifier extends javax.swing.JFrame {
         try{
             String clave = JListElements.getSelectedValue();
             pro = inv.getInventario().get(clave);
-            ModifyProducts abrir = new ModifyProducts("ProductModifier");
+            ModifyProducts abrir = new ModifyProducts(this , "ProductModifier");
             abrir.setVisible(true);
             this.setVisible(false);
             System.out.println("INFO:Nos vamos a ver las caracteristicas");
@@ -408,44 +450,44 @@ public class ProductModifier extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProductModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProductModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProductModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProductModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ProductModifier().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(ProductModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(ProductModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(ProductModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(ProductModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new ProductModifier().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> JListElements;

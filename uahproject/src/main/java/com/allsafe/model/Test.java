@@ -48,11 +48,11 @@ public class Test {
         CarritoCompra c1 = new CarritoCompra();
         LocalDateTime hoy = LocalDateTime.now();
         Token token = new Token("wer" ,hoy );
-        Usuario usuario = new ClienteEmpresa(" 2", "sasd","2",c1 , d1 , t1 , "2" , "2" , "2" , token);
+//        Usuario usuario = new ClienteEmpresa(" 2", "sasd","2",c1 , d1 , t1 , "2" , "2" , "2" , token);
         
-        System.out.println("hola mundo" +usuario.getClave());
-        System.out.println(usuario);
-        
+//        System.out.println("hola mundo" +usuario.getClave());
+//        System.out.println(usuario);
+//        
 
 //        LocalDateTime hoy = LocalDateTime.now();
 //

@@ -28,7 +28,7 @@ public class RandomHomeProductos {
         
         Random rand = new Random();
         for (int b=0; b <= 8; b++ ) {
-            RandomProductsHome.add(i.getInventario(rand.nextInt(0, lenghtInventario)));
+           // RandomProductsHome.add(i.getInventario(rand.nextInt(0, lenghtInventario)));
             
         }
         return RandomProductsHome;
