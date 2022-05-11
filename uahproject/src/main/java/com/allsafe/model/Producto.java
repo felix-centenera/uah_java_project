@@ -111,8 +111,13 @@ public class Producto {
 
   
     
-      public Opinion getOpiniones(int a) {
+    public Opinion getOpiniones(int a) {
         return opiniones.get(a);
+    }
+    
+    
+    public ArrayList<Opinion>  getArrayOpiniones() {
+        return opiniones;
     }
 
     public void introducirOpinion(Opinion o){

@@ -873,6 +873,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             System.out.println("INFO: DEBE Añadir un usuario");
         
         }
+        jPanelUsersFound.setVisible(false);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1029,6 +1030,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             System.out.println("INFO: No se ha seleeccionado ningún usuario");
         }
         jLabelMailUser.setText("mail");
+        jPanelUsersFound.setVisible(false);
            
     }//GEN-LAST:event_jButtonUserDeleteActionPerformed
 

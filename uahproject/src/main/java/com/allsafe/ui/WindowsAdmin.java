@@ -188,6 +188,11 @@ private JFrame getFrame(){
         jButtonSalesManagement.setText("Sales Management");
 
         jButtonProductManagement.setText("Product Management");
+        jButtonProductManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProductManagementActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -341,6 +346,12 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
         WindowsAdminUserMngt windowsadminusermngt = new WindowsAdminUserMngt(this ,  user);
     }//GEN-LAST:event_jButtonUserManagementActionPerformed
+
+    private void jButtonProductManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProductManagementActionPerformed
+        // TODO add your handling code here:
+        //WindowsAdminUserMngt windowsadminusermngt = new WindowsAdminUserMngt(this ,  user);
+        WindowsAdminProductMngt windowsadminproductmngt = new WindowsAdminProductMngt(this ,  user);
+    }//GEN-LAST:event_jButtonProductManagementActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
