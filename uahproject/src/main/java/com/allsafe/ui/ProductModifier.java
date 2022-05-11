@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-
-
 /**
  *
  * @author felixcentenera
@@ -21,92 +19,44 @@ import javax.swing.JOptionPane;
 public class ProductModifier extends javax.swing.JFrame {
 
     /**
-     * Creates new form Home
+     * Creates new form ProducModifier
      */
-    //private ArrayList<String> arrayKeys;
-    //private String array[];
-    //private Inventario inv = Inventario.getInstance();
-//    private ArrayList<String> arrayKeys;// = man.arrayKeys; //= UserManagament.arrayKeys;
-//    public static Inventario inv = UserManagament.inv;
-//    public static Producto pro;
-    private UserManagament man ;
-    private ModifyProducts mpro;
-    private Inventario inv = UserManagament.inv;
-    public static Producto pro;
-    private ArrayList<String> arrayKeys;
-    
-    //**********************************************************************************************************************************************************
-//    public static Inventario inv = new Inventario();
 
-//    HashMap<String, Producto> inventario = new HashMap<>();
-//
-//    Producto p1 = new Producto("MacBookAirM1", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
-//    Producto p2 = new Producto("MacBookProM1323", "Apple", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
-//    Producto p3 = new Producto("Dell XPS", "Dell", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
-//    Producto p4 = new Producto("MacBookAirM1323", "Apple323", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
-//    Producto p5 = new Producto("MacBookProM123fewf", "Apple23", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
-//    Producto p6 = new Producto("Dell XPS323d", "Dell", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1); 
-//    Producto p7 = new Producto("MacBookAirM1rtersgh", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
-//    Producto p8 = new Producto("MacBookProM1sregse", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
-//    Producto p9 = new Producto("Dell XPSsrseg", "Dellsrg", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
-//        
-        
-        
-        
-//        inventario.put(p1.getTitulo(), p1);
-//        inventario.put(p2.getTitulo(), p2);
-//        inventario.put(p3.getTitulo(), p3);
-//        inventario.put(p4.getTitulo(), p4);
-//        inventario.put(p5.getTitulo(), p5);
-//        inventario.put(p6.getTitulo(), p6);
-//        inventario.put(p7.getTitulo(), p7);
-//        inventario.put(p8.getTitulo(), p8);
-//        inventario.put(p9.getTitulo(), p9);
-//        
-//        inv.setInventario(inventario);
-//    
-    
-    
-//    public ProductModifier(UserManagament man ,ArrayList<String> arrayKeys) {
-//        initComponents();
-//        createHomePage();
-//        //insertElements();
-//       // this.pro = pro;
-//       
-//       UserManagament user = new UserManagament();
-//       this.arrayKeys = user.arrayKeys;
-//       System.out.println(arrayKeys);
-//       
-//    }
-    public ProductModifier(UserManagament user) {
+    private UserManagament man;
+    private Inventario inv = Inventario.getInstance();
+    private Producto pro;
+    private ArrayList<String> arrayKeys;
+
+    /**
+     * ProductModifier clase encargada de pintar por pantalla cada una de los arrays que tiene algun campo preguntado
+     * en el jFrame anterior, el constructor recibe como parametros el arrayList generado con anterioridad y el jFrame
+     * de procedencia
+     * 
+     * @param man
+     * @param arrayKeys
+     */
+    public ProductModifier(UserManagament man, ArrayList<String> arrayKeys) {
+        /**
+         * OBJ: Crear el objeto instanciado con estos atributos
+         * PRE: Venir de un Jframe anterior y haber generado el arrayList de claves que se pintaran por pantalla
+         * (UserManagament , arrayList)--> Objeto ProductModifier(JFrame)
+         */
         initComponents();
+        this.arrayKeys = arrayKeys;
         createHomePage();
-        man = user;
+        this.man = man;
         man.setVisible(false);
         this.setVisible(true);
-        //nsertElements();
-////        this.arrayKeys = man.getArraykeys();
-       // this.pro = pro;
-       
+
     }
-    public ProductModifier(ModifyProducts user) {
+    public ProductModifier() {
+        /**
+         * OBJ: Crear el objeto instanciado con estos atributos
+         * PRE: a ver sido llamado desde otra clase
+         * (UserManagament , arrayList)--> Objeto ProductModifier(JFrame)
+         */
         initComponents();
         createHomePage();
-        mpro = user;
-        mpro.setVisible(false);
-        this.setVisible(true);
-        //nsertElements();
-////        arrayKeys = man.getArraykeys();
-       // this.pro = pro;
-       
-    }
-    
-    public ProductModifier(UserManagament man,ArrayList<String> arrayKeys) {
-        initComponents();
-        createHomePage();
-        this.arrayKeys = arrayKeys;
-        this.man = man;
-       
     }
 
     /**
@@ -316,8 +266,12 @@ public class ProductModifier extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     private void createHomePage() {
+        /**
+         * OBJ:Se de pintar todos los jLabel del Jframe y insertar los elementos de Jlist
+         * PRE:Haber instanciado y recolectado por el ArrayList
+         * void --> JFrame
+         */
         try {
             //jLabelImg.setSize(130, 100);
             jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/AllSafe.png"));
@@ -330,31 +284,10 @@ public class ProductModifier extends javax.swing.JFrame {
             jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("Icons/png/ArrowDown.png"));
             jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("Icons/png/home.png"));
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
-            
-            
-//            inventario.put(p1.getTitulo(), p1);
-//            inventario.put(p2.getTitulo(), p2);
-//            inventario.put(p3.getTitulo(), p3);
-//            inventario.put(p4.getTitulo(), p4);
-//            inventario.put(p5.getTitulo(), p5);
-//            inventario.put(p6.getTitulo(), p6);
-//            inventario.put(p7.getTitulo(), p7);
-//            inventario.put(p8.getTitulo(), p8);
-//            inventario.put(p9.getTitulo(), p9);
-//
-//            inv.setInventario(inventario);
-
-            //arrayKeys = new ArrayList<>(inv.getInventario().keySet());
-            //String []array = arrayKeys.toArray(new String[0]);
-            System.out.println(man.getArraykeys());
-            System.out.println("Estoy aki");
-           
-            
             JListElements.setListData(arrayKeys.toArray(String[]::new));
-            
-            
+
         } catch (Exception e) {
-            System.out.println("Error: " + e.toString());
+            System.out.println("INFO:Error: " + e.toString());
         }
     }
 
@@ -364,130 +297,82 @@ public class ProductModifier extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButtonHomeIcon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIcon1ActionPerformed
-        // TODO add your handling code here:
+        /**
+         * OBJ:Entrar al carrito de compra encargado de recopilar los productos
+         * PRE:nth
+         * void --> new JFrame
+         */
         System.out.println("Estas entrando en el carrito");
     }//GEN-LAST:event_jButtonHomeIcon1ActionPerformed
 
     private void jButtonBorrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarProductoActionPerformed
-        // TODO add your handling code here:
-        try{
+        /**
+         * OBJ:Boton encargado de Borrar un producto una vez seleccionado del JList
+         * PRE:Tener generado el ArrayKeys
+         * void --> rm elem
+         */
+        try {
             String clave = JListElements.getSelectedValue();
             System.out.println("INFO:la clave" + clave + "se ha seleccionado");
             inv.getInventario().remove(clave);
             arrayKeys.remove(clave);
             JListElements.setListData(arrayKeys.toArray(new String[0]));
             System.out.println("INFO: El inventario a sido modificado" + Arrays.toString(inv.getInventario().keySet().toArray()));
-            
-        }catch(Exception e){
+
+        } catch (Exception e) {
             System.out.println("INFO:No tenemos ese valor guardado error");
             JOptionPane.showMessageDialog(null, "No tenemos ese valor guardado", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-        
-        
+
         }
     }//GEN-LAST:event_jButtonBorrarProductoActionPerformed
 
     private void jButtonMirarCaracteristicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMirarCaracteristicasActionPerformed
-        // TODO add your handling code here:
-        try{
+        /**
+         * OBJ:Se encarga de una vez seleccionado un campo del JList, generar un nuevo JFrame con todos los
+         * atributos 
+         * PRE:Haber instanciado el producto del que se quiere ver las caracteristicas para mas tarde consultar 
+         * sus atributos
+         * void --> new Jframe(Producto)
+         */
+        try {
             String clave = JListElements.getSelectedValue();
             pro = inv.getInventario().get(clave);
-            ModifyProducts abrir = new ModifyProducts(this , "ProductModifier");
-            abrir.setVisible(true);
-            this.setVisible(false);
+            ModifyProducts abrir = new ModifyProducts(this , pro , "ProductModifier");
+
             System.out.println("INFO:Nos vamos a ver las caracteristicas");
-            
-        }catch(Exception e){
+
+        } catch (Exception e) {
             System.out.println("INFO:No tenemos ese valor guardado error" + e.toString());
             JOptionPane.showMessageDialog(null, "No tenemos ese valor guardado", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-        
-        
+
         }
-        
+
     }//GEN-LAST:event_jButtonMirarCaracteristicasActionPerformed
 
     private void jButtonHomeIconsGround8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8MouseClicked
-        
-        UserManagament abrir = new UserManagament();
-        abrir.setVisible(true);
-        this.setVisible(false);
+        /**
+         * OBJ:Generar por pantalla un JOptionPane informando de un error por que no se puede pasar por pantalla
+         */
+        JOptionPane.showMessageDialog(null, "No podemos ir hacia delante seleccione un elemento de la lista", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_jButtonHomeIconsGround8MouseClicked
 
     private void jButtonHomeIconsGround7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7MouseClicked
-       JOptionPane.showMessageDialog(null, "Seleccione un mensaje si quiere modificar un producto", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        /**
+         * OBJ:Retornar al JFrame anterior si el Usuario pulsa
+         */
+        UserManagament abrir = new UserManagament();
+        this.setVisible(false);
+        abrir.setVisible(true);
     }//GEN-LAST:event_jButtonHomeIconsGround7MouseClicked
 
     private void jButtonHomeIconsGround5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5MouseClicked
-        // TODO add your handling code here:
+        /**
+         * OBJ:Retornar a la Home si el Usuario pulsa.
+         */
         Home abrir = new Home();
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonHomeIconsGround5MouseClicked
-//    public void insertElements(){
-//        
-//        //Annadimos los elementos y los insertamos
-//        
-//        inventario.put(p1.getTitulo(), p1);
-//        inventario.put(p2.getTitulo(), p2);
-//        inventario.put(p3.getTitulo(), p3);
-//        inventario.put(p4.getTitulo(), p4);
-//        inventario.put(p5.getTitulo(), p5);
-//        inventario.put(p6.getTitulo(), p6);
-//        inventario.put(p7.getTitulo(), p7);
-//        inventario.put(p8.getTitulo(), p8);
-//        inventario.put(p9.getTitulo(), p9);
-//        
-//        inv.setInventario(inventario);
-//        
-//        arrayKeys = new ArrayList<>(inv.getInventario().keySet());
-//        //String []array = arrayKeys.toArray(new String[0]);
-//        JListElements.setListData(arrayKeys.toArray(new String[0]));
-//        
-//    }
-//    private JFrame getFrame() {
-//        return this;
-//    }
-
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(ProductModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(ProductModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(ProductModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(ProductModifier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new ProductModifier().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> JListElements;

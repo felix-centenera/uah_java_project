@@ -34,7 +34,7 @@ public class UserManagament extends javax.swing.JFrame {
      */
     //public static ArrayList<String> arrayKeys;
     private ArrayList<String> arrayKeys;
-    public static Inventario inv = Inventario.getInstance();
+    public  Inventario inv = Inventario.getInstance();
     private Producto proCreado;
     
     public UserManagament() {
@@ -609,16 +609,16 @@ public class UserManagament extends javax.swing.JFrame {
 
             inv.setInventario(inventario);
 
-        
+            
         } catch (Exception e) {
             System.out.println("Error: " + e.toString());
         }
     }
 
-    public ArrayList<String> getArraykeys(){   
-        return(arrayKeys);
-
-    }
+//    public ArrayList<String> getArraykeys(){   
+//        return(arrayKeys);
+//
+//    }
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
@@ -994,19 +994,22 @@ public class UserManagament extends javax.swing.JFrame {
                 //JTextFecha.setText("Indique la fecha");
                 JTxtTitulo.setText("Escribe el nombre que deseas buscar");
                 
-                int num = JOptionPane.showConfirmDialog(null,"Desea realizar algun cambio en el producto agreagado recientemente?");
-              
-                if (JOptionPane.OK_OPTION == num) {
-
-                    ModifyProducts abrir = new ModifyProducts(this ,"ProductModifier");
-//                    abrir.setVisible(true);
-//                    this.setVisible(false);
-
-                }
-                if(JOptionPane.CLOSED_OPTION == num){
-                    System.out.println("INFO: No se quiere realizar una comprovacion");
                 
-                }
+                //NADA 
+               
+//                int num = JOptionPane.showConfirmDialog(null,"Desea realizar algun cambio en el producto agreagado recientemente?");
+//              
+//                if (JOptionPane.OK_OPTION == num) {
+//
+////                    ModifyProducts abrir = new ModifyProducts(this ,"ProductModifier");
+////                    abrir.setVisible(true);
+////                    this.setVisible(false);
+//
+//                }
+//                if(JOptionPane.CLOSED_OPTION == num){
+//                    System.out.println("INFO: No se quiere realizar una comprovacion");
+//                
+//                }
 
             }
 
@@ -1028,7 +1031,7 @@ public class UserManagament extends javax.swing.JFrame {
                 String nombre = JTxtTitulo.getText();
                 String clave = InventarioService.findProductwithName(nombre, inv);
                 System.out.println("INFO: hemos encontrado el producto");
-
+                
                 //Lo lanzamos contra product modifier
 
                 arrayKeys = new ArrayList<>();
@@ -1052,7 +1055,7 @@ public class UserManagament extends javax.swing.JFrame {
                 arrayKeys = InventarioService.findProductwithStock(Stock, inv);
                 System.out.println(arrayKeys.toString());
                 
-                ProductModifier abrirNuevo = new ProductModifier(this);
+                ProductModifier abrirNuevo = new ProductModifier(this, arrayKeys);
 //                abrirNuevo.setVisible(true);
 //                this.setVisible(false);
 //                
@@ -1071,7 +1074,7 @@ public class UserManagament extends javax.swing.JFrame {
                 arrayKeys = InventarioService.findProductwithCategory(categoria, inv);
                 System.out.println("INFO: Tenemos en nuestra cache estos datos " + arrayKeys.toString());
                 
-                ProductModifier abrirNuevo = new ProductModifier(this);
+                ProductModifier abrirNuevo = new ProductModifier(this,arrayKeys);//Problema Resuelto
 //                abrirNuevo.setVisible(true);
 //                this.setVisible(false);
 //                
@@ -1093,7 +1096,7 @@ public class UserManagament extends javax.swing.JFrame {
                 arrayKeys = InventarioService.findProductwithStars(stars, inv);
                 System.out.println("INFO: Tenemos en nuestra clase estos datos " + arrayKeys.toString());
                 
-                ProductModifier abrirNuevo = new ProductModifier(this);
+                ProductModifier abrirNuevo = new ProductModifier(this , arrayKeys);
 //                abrirNuevo.setVisible(true);
 //                this.setVisible(false);
 //                
@@ -1261,7 +1264,7 @@ public class UserManagament extends javax.swing.JFrame {
         // TODO add your handling code here:
         
             
-        JOptionPane.showMessageDialog(null, "No podemos ir hacia delante", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, "No podemos ir hacia delante, realize una busqueda antes", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         
     }//GEN-LAST:event_jButtonHomeIconsGround8MouseClicked
 

@@ -1,16 +1,35 @@
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/CarritoCompra.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Opinion.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Inventario.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/TarjetaDeCredito.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Direccion.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Administrador.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/Home.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/ClienteEmpresa.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Producto.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/prueba.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Usuario.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/prueba.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/RandomHomeProductos.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/ClienteParticular.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Clientes.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/MainClass.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\ui\UserManagament.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\CarritoCompra.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\Inventario.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\service\Invetario.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\Administrador.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\Usuario.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\ui\WindowsCreateUser.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\ui\WindowsMyAccount.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\mock\Inventario.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\service\ServicesGenerateToken.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\ui\Home.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\Test.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\Opinion.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\service\ServiceClass.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\prueba.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\Clientes.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\ui\ModifyProducts.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\service\RadomGenerator.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\Producto.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\ui\WindowsLogin.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\service\prueba.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\ClienteEmpresa.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\ui\AdminJPanel.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\ClienteParticular.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\ui\ProductModifier.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\service\InventarioService.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\ui\Login.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\Token.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\MainClass.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\Direccion.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\model\TarjetaDeCredito.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\service\Login.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\ui\WindowsProduct.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\mock\UserData.java
+C:\Users\Rauld\Downloads\Nuevo Repo\uah_java_project-1.0.2(1)\uah_java_project-1.0.2\uahproject\src\main\java\com\allsafe\service\RandomHomeProductos.java

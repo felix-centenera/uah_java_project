@@ -30,11 +30,10 @@ public class ModifyProducts extends javax.swing.JFrame {
      * Creates new form Home
      */
     
-    private static Producto pro;
-    private static Inventario inv = UserManagament.inv;
-    
+    private Producto pro;
+    private Inventario inv = Inventario.getInstance();
     private String Procedencia;
-    private UserManagament user;
+    //private UserManagament user;
     private ProductModifier man;
     
     //private Inventario inv;
@@ -55,30 +54,31 @@ public class ModifyProducts extends javax.swing.JFrame {
 //    Producto p8 = new Producto("MacBookProM1sregse", "Applesrg", "Portatiles", 1000, "Img/laptops/macbook/appleMacbookProM1.png", 1);
 //    Producto p9 = new Producto("Dell XPSsrseg", "Dellsrg", "Portatiles", 1000, "Img/laptops/dell/dellXps13.png", 1);
     
-    public ModifyProducts(UserManagament man , String Procedencia) {
+//    public ModifyProducts(UserManagament man , String Procedencia) {
+//        initComponents();
+//        createHomePage();
+//       
+//        //insertAtributes();
+//        user = man;
+//        user.setVisible(false);
+//        this.setVisible(true);
+//        this.Procedencia = Procedencia;
+//        this.pro = UserManagament.proCreado;
+//        System.out.println(Procedencia);
+//        
+//        
+//    }
+    public ModifyProducts(ProductModifier man , Producto prod , String Procedencia) {
         initComponents();
-        createHomePage();
-       
-        //insertAtributes();
-        user = man;
-        user.setVisible(false);
-        this.setVisible(true);
-        this.Procedencia = Procedencia;
-        this.pro = UserManagament.proCreado;
-        System.out.println(Procedencia);
         
-        
-    }
-    public ModifyProducts(ProductModifier man , String Procedencia) {
-        initComponents();
-        createHomePage();
        
         //insertAtributes();
         this.man = man;
         man.setVisible(false);
         this.setVisible(true);
         this.Procedencia = Procedencia;
-        this.pro = ProductModifier.pro;
+        this.pro = prod;
+        createHomePage();
         
         
     }
@@ -892,33 +892,15 @@ public class ModifyProducts extends javax.swing.JFrame {
 
     private void jButtonHomeIconsGround7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7MouseClicked
         // TODO add your handling code here:
-         try{
-             //Volvemos hacia atras con el producto
-             //***************************************************************************************************
-             //volvemos hacia atras habra que modificar el  constructor para volver con el producto
-            UserManagament abrirNuevo = new UserManagament();
-            abrirNuevo.setVisible(true);
-            this.setVisible(false);
-            
-            System.out.println("INFO: Nos vamos al Login");
-        }catch(Exception e){
-            
-             JOptionPane.showMessageDialog(null, "Error no hemos encontrado la Pagina "  + e.toString(), "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-        }
-        
-    }//GEN-LAST:event_jButtonHomeIconsGround7MouseClicked
-
-    private void jButtonHomeIconsGround5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5MouseClicked
-        // TODO add your handling code here:
         try {
             //Volvemos hacia atras con el producto
             //***************************************************************************************************
             //volvemos hacia atras habra que modificar el  constructor para volver con el producto
             
             if(Procedencia.equals("ProductModifier")){
-                ProductModifier abrirNuevo = new ProductModifier(this);
-//                abrirNuevo.setVisible(true);
-//                this.setVisible(false);
+                ProductModifier abrirNuevo = new ProductModifier();
+                abrirNuevo.setVisible(true);
+                this.setVisible(false);
 
                 System.out.println("INFO: Nos vamos al Home");
             }
@@ -933,6 +915,25 @@ public class ModifyProducts extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Error no hemos encontrado la Pagina " + e.toString(), "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         }
+        
+    }//GEN-LAST:event_jButtonHomeIconsGround7MouseClicked
+
+    private void jButtonHomeIconsGround5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5MouseClicked
+        // TODO add your handling code here:
+         try{
+             //Volvemos hacia atras con el producto
+             //***************************************************************************************************
+             //volvemos hacia atras habra que modificar el  constructor para volver con el producto
+            UserManagament abrirNuevo = new UserManagament();
+            abrirNuevo.setVisible(true);
+            this.setVisible(false);
+            
+            System.out.println("INFO: Nos vamos al Login");
+        }catch(Exception e){
+            
+             JOptionPane.showMessageDialog(null, "Error no hemos encontrado la Pagina "  + e.toString(), "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        }
+        
         
     }//GEN-LAST:event_jButtonHomeIconsGround5MouseClicked
 
