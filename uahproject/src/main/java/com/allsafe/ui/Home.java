@@ -4,21 +4,28 @@
  */
 package com.allsafe.ui;
 
+import com.allsafe.mock.SalesData;
+import com.allsafe.mock.UserData;
 import com.allsafe.model.Administrador;
 import com.allsafe.model.ClienteEmpresa;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
-import com.allsafe.mock.Inventario;
+import com.allsafe.model.Inventario;
 import com.allsafe.model.Opinion;
 import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Token;
 import com.allsafe.model.Usuario;
+import com.allsafe.model.Venta;
+import com.allsafe.service.InventoryServices;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
+import com.allsafe.service.UsersServices;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -35,6 +42,9 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         createHomePageProductos();
         createHomePage();
+        initUserMock();
+        
+        
     }
 
     /**
@@ -88,8 +98,10 @@ public class Home extends javax.swing.JFrame {
         jLabelHomeIcon4 = new javax.swing.JLabel();
         jButtonMiCarrito = new javax.swing.JButton();
         jButtonLogin = new javax.swing.JButton();
-        jButtonHomeIcon4 = new javax.swing.JButton();
-        jButtonLogOut = new javax.swing.JButton();
+        jButtonHomeIconSearch = new javax.swing.JButton();
+        jComboBoxSearchRelevancia = new javax.swing.JComboBox<>();
+        jComboBoxSearchCategoria = new javax.swing.JComboBox<>();
+        jButtonHomeIconCustomSearch = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabelTimeline8 = new javax.swing.JLabel();
         jLabelTimeline7 = new javax.swing.JLabel();
@@ -98,6 +110,8 @@ public class Home extends javax.swing.JFrame {
         jButtonHomeIconsGround6 = new javax.swing.JButton();
         jButtonHomeIconsGround7 = new javax.swing.JButton();
         jButtonHomeIconsGround8 = new javax.swing.JButton();
+        jButtonLogOut = new javax.swing.JButton();
+        jButtonAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -341,7 +355,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 350, 10));
+        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 350, 10));
 
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -349,7 +363,7 @@ public class Home extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 350, 20));
+        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 320, 20));
 
         jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/AllSafe.png")); // NOI18N
         jPanel3.add(jLabelHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -363,7 +377,7 @@ public class Home extends javax.swing.JFrame {
                 jButtonMiCarritoActionPerformed(evt);
             }
         });
-        jPanel3.add(jButtonMiCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 50, 120, 60));
+        jPanel3.add(jButtonMiCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 120, 60));
 
         jButtonLogin.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/user.png")); // NOI18N
         jButtonLogin.setText("Mi Cuenta");
@@ -376,20 +390,29 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel3.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 50, 120, 60));
 
-        jButtonHomeIcon4.setBorderPainted(false);
-        jButtonHomeIcon4.setContentAreaFilled(false);
-        jPanel3.add(jButtonHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
+        jButtonHomeIconSearch.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/search.png")); // NOI18N
+        jButtonHomeIconSearch.setBorderPainted(false);
+        jButtonHomeIconSearch.setContentAreaFilled(false);
+        jPanel3.add(jButtonHomeIconSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, -1, -1));
 
-        jButtonLogOut.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/LogOut.png")); // NOI18N
-        jButtonLogOut.setText("LogOut");
-        jButtonLogOut.setBorder(null);
-        jButtonLogOut.setContentAreaFilled(false);
-        jButtonLogOut.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxSearchRelevancia.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBoxSearchRelevancia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "relevancia", "precio mayor", "precio menor" }));
+        jPanel3.add(jComboBoxSearchRelevancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 40, 150, -1));
+
+        jComboBoxSearchCategoria.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBoxSearchCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consolas y videojuegos" }));
+        jPanel3.add(jComboBoxSearchCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, 150, -1));
+
+        jButtonHomeIconCustomSearch.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/menu.png")); // NOI18N
+        jButtonHomeIconCustomSearch.setBorder(null);
+        jButtonHomeIconCustomSearch.setBorderPainted(false);
+        jButtonHomeIconCustomSearch.setContentAreaFilled(false);
+        jButtonHomeIconCustomSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLogOutActionPerformed(evt);
+                jButtonHomeIconCustomSearchActionPerformed(evt);
             }
         });
-        jPanel3.add(jButtonLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, 100, 40));
+        jPanel3.add(jButtonHomeIconCustomSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, 30, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 100));
 
@@ -426,6 +449,28 @@ public class Home extends javax.swing.JFrame {
         jButtonHomeIconsGround8.setBorderPainted(false);
         jButtonHomeIconsGround8.setContentAreaFilled(false);
         jPanel6.add(jButtonHomeIconsGround8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 40, 40));
+
+        jButtonLogOut.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/LogOut.png")); // NOI18N
+        jButtonLogOut.setText("LogOut");
+        jButtonLogOut.setBorder(null);
+        jButtonLogOut.setContentAreaFilled(false);
+        jButtonLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogOutActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButtonLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 110, 50));
+
+        jButtonAdmin.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/admin.png")); // NOI18N
+        jButtonAdmin.setText("Admin");
+        jButtonAdmin.setBorderPainted(false);
+        jButtonAdmin.setContentAreaFilled(false);
+        jButtonAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdminActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButtonAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 0, 130, 50));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
 
@@ -489,6 +534,8 @@ Opinion  o6 = new Opinion(5, "INcreible, va como una bala",c3);
 //Crear inventario y añadir productos a inventario
 Inventario i1 = new Inventario();
 // ********************************************************************************************************************
+//CREACION DE INVENTARIO VENTAS
+
 
 
 // ********************************************************************************************************************
@@ -503,6 +550,13 @@ Inventario i1 = new Inventario();
 //        return true;
 //}
 
+
+
+private void initUserMock(){
+    UserData userData = UserData.getInstance();
+    UsersServices.createMockUser();
+    UsersServices.createMockAdminUser();
+}
 
 //método comprobar login
 private boolean checkLogin(){
@@ -564,6 +618,15 @@ private void createHomePageProductos(){
     i1.introducirProducto(p1, 4);
     i1.introducirProducto(p2, 4);
     i1.introducirProducto(p3, 4);
+    
+//    Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookAirM1.png", 1);
+//    Producto p2 = new Producto("MacBookProM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookProM1.png", 1);
+//    Producto p3 = new Producto("Dell XPS","Dell", "Portatiles",1000,"Img/laptops/dell/dellXps13.png", 1);   
+    InventoryServices.addProduct("MacBookAirM1", "Apple", "Ordenadores", 1500, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+    InventoryServices.addProduct("appleMacbookProM1", "Apple", "Ordenadores",3000, "Img/laptops/macbook/appleMacbookProM1.png", 10);
+    InventoryServices.addProduct("dellXps13", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+    
+    
     p1.introducirOpinion(o1);
     p1.introducirOpinion(o2);
     p1.introducirOpinion(o4);
@@ -578,6 +641,31 @@ private void createHomePageProductos(){
     p3.introducirOpinion(o4);
     //ArrayList<Producto> RandomProductsHome;
     RandomProductsHome = new ArrayList<>();
+    
+    
+    //****************************************************************************************************************************
+    
+    LocalDateTime ahora = LocalDateTime.now();
+    System.out.println("La fecha es " + ahora);
+    
+    String productList = "MacBookAirM1, 3/appleMacbookProM1, 213";
+
+    Venta v1 = new Venta(ahora ,productList , "Manolo" , 12.0 , "sdSDasdASDasdsa");
+//    Venta v2 = new Venta(ahora ,productList , "Pepe" , 12.0 ,"dafasdfasdfad");
+//    Venta v3 = new Venta(ahora ,productList , "Maria" , 12.0 , "fadfdasfadfasdf");
+//    
+    HashMap<String , Venta> hash = new HashMap<>();
+    
+    hash.put(v1.getID(), v1);
+//    hash.put(v2.getID(), v2);
+//    hash.put(v3.getID(), v3);
+
+    SalesData BBDDSales = SalesData.getInstance();
+    BBDDSales.setHasMap(hash);
+    
+    System.out.println("INFO: Se ha creado la base de datos.");
+    
+    //****************************************************************************************************************************
     
     
     RandomProductsHome = RandomHomeProductos.seleccionarProductos(i1);
@@ -631,14 +719,34 @@ private void createHomePageProductos(){
         try {
             //jLabelImg.setSize(130, 100)
             jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/AllSafe.png"));
-            jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
+            jButtonHomeIconSearch.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
+            jButtonHomeIconCustomSearch.setIcon(new javax.swing.ImageIcon("Icons/png/menu.png"));
             jButtonMiCarrito.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
+            jButtonAdmin.setVisible(false);
+            jComboBoxSearchRelevancia.setVisible(false);
+            jComboBoxSearchCategoria.setVisible(false);
+            
             if (checkLoginInterfaz()){
+             
+                System.out.println("Vas a esta logado 1");
+                
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             jButtonLogin.setText("Mi cuenta");
             jButtonLogOut.setVisible(true);
+            
+             if (user.isAdministrador()){
+                   System.out.println("Vas a esta logado 2");
+                 System.out.println("Eres un administrador");
+                 jButtonLogin.setVisible(false);
+                 jButtonMiCarrito.setVisible(false);
+                 jButtonAdmin.setVisible(true);
+             }
+            
             }
             else{
+              System.out.println("Vas a esta logado 3");    
+            jButtonLogin.setVisible(true);
+            jButtonMiCarrito.setVisible(true);    
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             jButtonLogin.setText("Login");
             jButtonLogOut.setVisible(false);
@@ -665,11 +773,9 @@ private void createHomePageProductos(){
 
     private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
-        
-        
-        
   if (checkLogin()){
             System.out.println("INFO: Estas entrando en el carrito");
+            WindowsUserShoppingCart windowsUserShoppingCart = new WindowsUserShoppingCart(this , user);
         }
         else{
             System.out.println("INFO: Necesitas estar logado para ver tu carrito");
@@ -741,15 +847,23 @@ private void createHomePageProductos(){
         // TODO add your handling code here:
         
         //createHomePage();
-        if (jButtonLogin.getText().equals("Mi cuenta") ){
-            System.out.println("Vas a entrar en tu cuenta");
-            WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , user);
-        }
-        else {
-            WindowsLogin windowslogin = new WindowsLogin(this , user);
-            System.out.println("vas a logarte");
-        }
-        
+         
+            if (jButtonLogin.getText().equals("Mi cuenta") ){
+                System.out.println("Vas a entrar en tu cuenta primero tengo que comprobar tu token");
+                if (checkLogin()){
+                     System.out.println("Vas a entrar en tu cuenta el token esta ok");
+                WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , user);
+                }
+                else {
+                    System.out.println("No vas a entrar en tu cuenta el token esta KO");
+                    createHomePage();
+                }
+            }
+            else {
+                WindowsLogin windowslogin = new WindowsLogin(this , user);
+                System.out.println("vas a logarte");
+            }
+         
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonProducts5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts5ActionPerformed
@@ -763,6 +877,31 @@ private void createHomePageProductos(){
         this.SetUsuario(null);
         createHomePage();
     }//GEN-LAST:event_jButtonLogOutActionPerformed
+
+    private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminActionPerformed
+        // TODO add your handling code here:
+        System.out.println("INFO: Vas a entrar en la gestion, primero tengo que comprobar tu token");
+        if (checkLogin()){
+         WindowsAdmin windowsadmin = new WindowsAdmin(this ,  user);
+        }
+         else {
+                    System.out.println("No vas a entrar en la gestión,  el token esta KO");
+                    createHomePage();
+                }
+        
+    }//GEN-LAST:event_jButtonAdminActionPerformed
+
+    private void jButtonHomeIconCustomSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconCustomSearchActionPerformed
+        // TODO add your handling code here:
+        if (jComboBoxSearchRelevancia.isVisible()) {
+            jComboBoxSearchRelevancia.setVisible(false);
+            jComboBoxSearchCategoria.setVisible(false);
+        }
+        else {
+            jComboBoxSearchRelevancia.setVisible(true);
+            jComboBoxSearchCategoria.setVisible(true);
+        }
+    }//GEN-LAST:event_jButtonHomeIconCustomSearchActionPerformed
 
  // ********************************************************************************************************************
     
@@ -803,7 +942,9 @@ private void createHomePageProductos(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButtonHomeIcon4;
+    private javax.swing.JButton jButtonAdmin;
+    private javax.swing.JButton jButtonHomeIconCustomSearch;
+    private javax.swing.JButton jButtonHomeIconSearch;
     private javax.swing.JButton jButtonHomeIconsGround5;
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
@@ -819,6 +960,8 @@ private void createHomePageProductos(){
     private javax.swing.JButton jButtonProducts5;
     private javax.swing.JButton jButtonProducts6;
     private javax.swing.JButton jButtonProducts7;
+    private javax.swing.JComboBox<String> jComboBoxSearchCategoria;
+    private javax.swing.JComboBox<String> jComboBoxSearchRelevancia;
     private javax.swing.JLabel jLabelHomeIcon4;
     private javax.swing.JLabel jLabelStars0;
     private javax.swing.JLabel jLabelStars1;

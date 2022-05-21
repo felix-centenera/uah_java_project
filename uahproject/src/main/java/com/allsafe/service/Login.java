@@ -46,11 +46,11 @@ public class Login {
     public   boolean  checkLogin (String correo, String clave, Home ventana){         
          System.out.println(correo);
          System.out.println(clave);
-         if (userData.checkUser(correo, clave )){
+         if (UsersServices.checkUser(correo, clave )){
              System.out.println("INFO: Userdata store ha validado la información, y es correcta");
-                 ventana.SetUsuario(userData.getUser(correo, clave)); 
+                 ventana.SetUsuario(UsersServices.getUser(correo, clave)); 
                  Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
-                 userData.getUser(correo, clave).setToken(to1);
+                 UsersServices.getUser(correo, clave).setToken(to1);
                  return true;
          }
          else {

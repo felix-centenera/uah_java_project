@@ -4,7 +4,7 @@
  */
 package com.allsafe.service;
 
-import com.allsafe.mock.Inventario;
+import com.allsafe.model.Inventario;
 import com.allsafe.model.Producto;
 import java.util.ArrayList;
 import java.util.Random;
@@ -28,7 +28,7 @@ public class RandomHomeProductos {
         
         Random rand = new Random();
         for (int b=0; b <= 8; b++ ) {
-           // RandomProductsHome.add(i.getInventario(rand.nextInt(0, lenghtInventario)));
+            RandomProductsHome.add(i.getInventario(rand.nextInt(0, lenghtInventario)));
             
         }
         return RandomProductsHome;

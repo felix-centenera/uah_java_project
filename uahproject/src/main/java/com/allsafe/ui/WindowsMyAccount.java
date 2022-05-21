@@ -8,12 +8,13 @@ import com.allsafe.mock.UserData;
 import com.allsafe.model.ClienteEmpresa;
 import com.allsafe.model.ClienteParticular;
 import com.allsafe.model.Direccion;
-import com.allsafe.mock.Inventario;
+import com.allsafe.model.Inventario;
 import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Usuario;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
+import com.allsafe.service.UsersServices;
 import java.awt.Color;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -34,6 +35,7 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
 
     private Home principal;
     private WindowsProduct secundariaProductos;
+    private WindowsAdminUserMngt secundariaWindowsAdminUserMngt;
     //Creamos la referencia a nuestro servio de login
     UserData usuariosMock = UserData.getInstance(); 
     private Usuario user;
@@ -64,6 +66,17 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         secundariaProductos = ventana;
         user = u;
         secundariaProductos.setVisible(false);
+        initComponents();
+        this.setVisible(true);
+        createWindowsCreateUserPage();
+        recogerDatosDeUsuarioYpintarEnPantalla();
+    }
+     
+    public WindowsMyAccount(WindowsAdminUserMngt ventana, Usuario u) {
+        //Ocultamos la ventana principal
+        secundariaWindowsAdminUserMngt = ventana;
+        user = u;
+        secundariaWindowsAdminUserMngt.setVisible(false);
         initComponents();
         this.setVisible(true);
         createWindowsCreateUserPage();
@@ -933,6 +946,10 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         else if (secundariaProductos != null){
           secundariaProductos.setVisible(true);
         }
+        
+        else if (secundariaWindowsAdminUserMngt != null){
+          secundariaWindowsAdminUserMngt.setVisible(true);
+        }
          
         
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
@@ -1054,7 +1071,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         
         
         if(clase.equals("ClienteParticular")) {
-            if (usuariosMock.setUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+            if (UsersServices.setUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
                 System.out.println("INFO: El usuario se ha sido modificado con exito");
                 this.dispose();
                 
@@ -1063,6 +1080,9 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                 }
                 else if (secundariaProductos != null){
                     secundariaProductos.setVisible(true);
+                }
+                else if (secundariaWindowsAdminUserMngt != null){
+                    secundariaWindowsAdminUserMngt.setVisible(true);
                 }
                 //principal.setVisible(true);  
             }
@@ -1073,7 +1093,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
         
         else {
-            if (usuariosMock.setUser(JTextFieldUserDNI.getText(), JTextFieldUserWeb.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+            if (UsersServices.setUser(JTextFieldUserDNI.getText(), JTextFieldUserWeb.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
                 System.out.println("INFO: El usuario se ha sido modificado con exito");
                 this.dispose();
                 
@@ -1082,6 +1102,9 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                 }
                 else if (secundariaProductos != null){
                     secundariaProductos.setVisible(true);
+                }
+                else if (secundariaWindowsAdminUserMngt != null){
+                    secundariaWindowsAdminUserMngt.setVisible(true);
                 }
                // principal.setVisible(true);  
             }

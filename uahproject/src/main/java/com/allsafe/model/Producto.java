@@ -48,10 +48,7 @@ public class Producto {
     public LocalDateTime getFechaEntradaTienda() {
         return fechaEntradaTienda;
     }
-    public void setFechaEntradaTienda(LocalDateTime fechaEntradaTienda){
-        this.fechaEntradaTienda = fechaEntradaTienda;
-    
-    }
+
 
     public int getStock() {
         return stock;
@@ -114,8 +111,13 @@ public class Producto {
 
   
     
-      public Opinion getOpiniones(int a) {
+    public Opinion getOpiniones(int a) {
         return opiniones.get(a);
+    }
+    
+    
+    public ArrayList<Opinion>  getArrayOpiniones() {
+        return opiniones;
     }
 
     public void introducirOpinion(Opinion o){
