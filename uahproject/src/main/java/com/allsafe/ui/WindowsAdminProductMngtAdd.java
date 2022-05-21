@@ -599,7 +599,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private void jButtonRegistarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarUsuarioActionPerformed
         // TODO add your handling code here:
         
-         String rutaFotoCompleta = "Img/pdocutosImg" +jFormattedPathPhoto.getText()  ;
+         String rutaFotoCompleta = "Img/shop/" +jFormattedPathPhoto.getText()  ;
          if ( InventoryServices.addProduct(JTextFieldProductName.getText(), JTextFieldDescriptionProduct.getText(), (String) jComboBoxCategoriaProduct.getSelectedItem(), ((Number) jFormattedPriceProduct.getValue()).intValue(), rutaFotoCompleta, ( (Number) jFormattedUNitsProduct.getValue()).intValue()) ) {
              System.out.println("INFO :EL productos se ha creado correctamente");
              

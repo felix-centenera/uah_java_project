@@ -94,11 +94,25 @@ public class InventoryServices {
         
         ArrayList<Producto> ordenadro = (ArrayList<Producto>) arrayCacheFiltradoNombre
                 .stream()
-                .sorted(Comparator.comparingInt(Producto::getEstrella))
+                .sorted(Comparator.comparingInt(Producto::getEstrella).reversed())
                 .collect(Collectors.toList());
                 
         return ordenadro;
      }
+     
+     public static ArrayList<Producto>  orderByStarts() {
+        HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
+        ArrayList<Producto> ArrayCache = new ArrayList<>(inv.values());
+        
+    
+        ArrayList<Producto> ordenadro = (ArrayList<Producto>) ArrayCache
+                .stream()
+                .sorted(Comparator.comparingInt(Producto::getEstrella).reversed())
+                .collect(Collectors.toList());
+        return ordenadro;
+     }
+     
+     
      
      public static ArrayList<Producto>  orderByStarts(String categoria) {
         HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
@@ -111,7 +125,7 @@ public class InventoryServices {
     
         ArrayList<Producto> ordenadro = (ArrayList<Producto>) arrayCacheFiltradoCategoria
                 .stream()
-                .sorted(Comparator.comparingInt(Producto::getEstrella))
+                .sorted(Comparator.comparingInt(Producto::getEstrella).reversed())
                 .collect(Collectors.toList());
         
         
@@ -248,7 +262,7 @@ public class InventoryServices {
      
      
     
-    // ORDENADO POR PRECIO MENOR
+    // ORDENADO POR PRECIO MENOR NO SE UTILIZA. Se deja por historico en caso de que se quieran hacer pruebas con este algoritmo.
     public static ArrayList productsWithCheaperPrice() {
         //HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
         ArrayList<Producto> arrayProductCheaper = bubbleAlgorithmPrice();

@@ -113,7 +113,7 @@ public class WindowsProduct extends javax.swing.JFrame  {
             
             // Set title of the producto 
             //jLabel1Calificacion.
-            
+            if (!producto.getArrayOpiniones().isEmpty()){
                 int opcion =  producto.getOpiniones(opinion).getCalificacion();
                 switch (opcion) {
                 case 0 : jLabel1Calificacion.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
@@ -133,6 +133,7 @@ public class WindowsProduct extends javax.swing.JFrame  {
                   jTextArea2Comentarios.setText(producto.getOpiniones(opinion).getComentario());
                   jTextField2NameClient.setText(producto.getOpiniones(opinion).getCliente());
                   jTextFieldFechaCom.setText((String) producto.getOpiniones(opinion).getFecha().format(DateTimeFormatter.ISO_DATE));
+            } 
         } 
         catch (Exception e) {
             System.out.println("Error: " + e.toString()); 

@@ -6,6 +6,7 @@ com/allsafe/ui/WindowsProductManagingInfo$9.class
 com/allsafe/ui/WindowsCreateUser$24.class
 com/allsafe/ui/WindowsProduct$5.class
 com/allsafe/ui/WindowsMyAccount$11.class
+com/allsafe/ui/Home$18.class
 com/allsafe/ui/WindowsCreateUser$11.class
 com/allsafe/model/ClienteParticular.class
 com/allsafe/ui/WindowsAdminProductMngtAdd$2.class
@@ -190,6 +191,7 @@ com/allsafe/ui/WindowsCreateUser$3.class
 com/allsafe/ui/WindowsAdminProductMngt$1.class
 com/allsafe/ui/WindowsLogin$5.class
 com/allsafe/ui/Home$3.class
+com/allsafe/ui/Home$19.class
 com/allsafe/ui/WindowsLogin.class
 com/allsafe/ui/WindowsProductManagingInfo$5.class
 com/allsafe/model/Administrador.class
