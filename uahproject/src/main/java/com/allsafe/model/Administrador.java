@@ -4,11 +4,13 @@
  */
 package com.allsafe.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author felixcentenera
  */
-public class Administrador extends Usuario {
+public class Administrador extends Usuario implements Serializable {
 
     public Administrador(String clave, String correo, Token token) {
         super(clave, correo, token);

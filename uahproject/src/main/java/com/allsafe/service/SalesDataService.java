@@ -8,6 +8,13 @@ import com.allsafe.mock.InventoryData;
 import com.allsafe.mock.SalesData;
 import com.allsafe.model.Producto;
 import com.allsafe.model.Venta;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -63,6 +70,76 @@ public class SalesDataService {
         return(ProductList.split("/"));
     
     
+    }
+    
+    public static void SerializateSalesData() throws FileNotFoundException, IOException{
+        //Vamos a Serializar el objeto SalesData en memoria no Volatil.
+        /**
+         * Se nos obliga a meter una exception
+         */
+        SalesData sales = SalesData.getInstance();
+        ObjectOutputStream writtingDat = new ObjectOutputStream(new FileOutputStream("src/main/java/com/allsafe/localData/SalesDataLocal.dat"));
+        writtingDat.writeObject(sales);
+        writtingDat.close();
+    
+    }
+    
+    public static SalesData bringSalesSata() throws FileNotFoundException, IOException, ClassNotFoundException{
+        ObjectInputStream readingDat = new ObjectInputStream(new FileInputStream("src/main/java/com/allsafe/localData/SalesDataLocal.dat"));
+        SalesData sales = (SalesData) readingDat.readObject();
+        return(sales);
+    }
+    
+    public static void generateSaleDocument(String id) throws IOException{
+        //Generate document .txt
+        
+        FileWriter SaleFacture = new FileWriter("SalesFactures/" + id + ".txt");
+        Venta vent = SalesData.getInstance().getSalesDataHashMap().get(id);
+        String[] ProductSales = vent.getProductList().split("/");
+        
+        SaleFacture.write("FACTURA DE VENTA");
+        SaleFacture.write("-----------------------------------------------------------------------------------------------------------------------");
+        SaleFacture.write("El Usuario " + vent.getUser() + "relalizo el pedido a AllSafe." + "                                            ID Factura: " +  vent.getID());
+        SaleFacture.write("                                                                                   Targeta de credito: " + vent.getTargetaCredito());
+        SaleFacture.write("                                                                                           A fecha de: " + vent.getDateConfirmedSale());
+        SaleFacture.write("Lista de productos comprados.");
+        SaleFacture.write("-----------------------------------------------------------------------------------------------------------------------");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        for(String i : ProductSales){
+            String[] arr = i.split(",");
+            System.out.println("Producto:       " + arr[0] + "              Precio: " + arr[1]);
+            
+        }
+        SaleFacture.write("-----------------------------------------------------------------------------------------------------------------------");
+        SaleFacture.write("                                                                                                        Total: " + vent.getTotal());
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write(" ");
+        SaleFacture.write("CONDICIONES Y FORMA DE PAGO");
+        SaleFacture.write(" ");
+        SaleFacture.write("El pago podra realizarse en un plazo de 15 dias.");
+        SaleFacture.write("AllSafe todos los derechos reservados");
+        
+        
+        SaleFacture.close();
     }
     
 }

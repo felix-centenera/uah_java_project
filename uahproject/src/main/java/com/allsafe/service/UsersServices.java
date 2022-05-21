@@ -4,6 +4,7 @@
  */
 package com.allsafe.service;
 
+import com.allsafe.mock.SalesData;
 import com.allsafe.mock.UserData;
 import com.allsafe.model.Administrador;
 import com.allsafe.model.ClienteEmpresa;
@@ -13,6 +14,12 @@ import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Token;
 import com.allsafe.model.Usuario;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -363,5 +370,29 @@ public class UsersServices {
         Usuario u1  = UserData.getInstance().getUserHashMap().get(correo);
         String clase = UserData.getInstance().getUserHashMap().get(correo).getClass().getSimpleName();
         return clase;  
+    }
+    
+    
+    
+    /**
+     * SERIALIZACION DE LOS ARCHIVOS
+     */
+    
+    public static void SerializateUserData() throws FileNotFoundException, IOException{
+    //Vamos a Serializar el objeto SalesData en memoria no Volatil.
+    /**
+     * Se nos obliga a meter una exception
+     */
+    UserData userDat = UserData.getInstance();
+    ObjectOutputStream writtingDat = new ObjectOutputStream(new FileOutputStream("src/main/java/com/allsafe/localData/UserDataLocal.dat"));
+    writtingDat.writeObject(userDat);
+    writtingDat.close();
+    
+    }
+    
+    public static UserData bringUserData() throws FileNotFoundException, IOException, ClassNotFoundException{
+        ObjectInputStream readingDat = new ObjectInputStream(new FileInputStream("src/main/java/com/allsafe/localData/UserDataLocal.dat"));
+        UserData userDat = (UserData) readingDat.readObject();
+        return(userDat);
     }
 }

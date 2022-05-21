@@ -5,6 +5,7 @@
 package com.allsafe.model;
 
 import com.allsafe.mock.InventoryData;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -15,7 +16,7 @@ import java.util.Random;
  *
  * @author Rauld
  */
-public class Venta {
+public class Venta implements Serializable {
     private String ID;
     private LocalDateTime DateConfirmedSale;
     //HashMap<String, Integer> InShoppingCart;

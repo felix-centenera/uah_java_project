@@ -5,13 +5,14 @@
 package com.allsafe.mock;
 
 import com.allsafe.model.Venta;
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  *
  * @author Rauld
  */
-public class SalesData {
+public class SalesData implements Serializable{
     /**
      * DOC
      * Clase Sales data encargada del almacenamiento de datos de ventas,

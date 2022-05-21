@@ -4,13 +4,14 @@
  */
 package com.allsafe.model;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  *
  * @author felixcentenera
  */
-public abstract class  Usuario {
+public abstract class  Usuario implements Serializable{
     
     private String clave;
     private String correo;

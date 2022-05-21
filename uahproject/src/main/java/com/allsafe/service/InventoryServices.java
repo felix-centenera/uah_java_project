@@ -5,8 +5,15 @@
 package com.allsafe.service;
 
 import com.allsafe.mock.InventoryData;
+import com.allsafe.mock.SalesData;
 import com.allsafe.model.Inventario;
 import com.allsafe.model.Producto;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -299,6 +306,31 @@ public class InventoryServices {
 
         }
         return(ArrayCacheKeys);
+    }
+    
+    
+    
+    /**
+     * Serializacion de Inventory
+     * @throws java.io.FileNotFoundException
+     */
+
+    public static void SerializateSalesData() throws FileNotFoundException, IOException{
+        
+        /**
+        * Se nos obliga a meter una exception
+        */
+        InventoryData Inventory = InventoryData.getInstance();
+        ObjectOutputStream writtingDat = new ObjectOutputStream(new FileOutputStream("src/main/java/com/allsafe/localData/InventoryDataLocal.dat"));
+        writtingDat.writeObject(Inventory);
+        writtingDat.close();
+    
+    }
+    
+    public static InventoryData bringSalesSata() throws FileNotFoundException, IOException, ClassNotFoundException{
+        ObjectInputStream readingDat = new ObjectInputStream(new FileInputStream("src/main/java/com/allsafe/localData/InventoryDataLocal.dat"));
+        InventoryData inventory = (InventoryData) readingDat.readObject();
+        return(inventory);
     }
     
 }
