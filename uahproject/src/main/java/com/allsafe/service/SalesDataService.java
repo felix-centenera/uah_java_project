@@ -94,7 +94,7 @@ public class SalesDataService {
     public static void generateSaleDocument(String id) throws IOException{
         //Generate document .txt
         
-        FileWriter SaleFacture = new FileWriter("SalesFactures/" + id + ".txt");
+        FileWriter SaleFacture = new FileWriter("SalesInvoice/" + id + ".txt");//la ruta ha sido cambiada recientemente tener en cuenta
         BufferedWriter bw = new BufferedWriter(SaleFacture);
         DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
         Venta vent = SalesData.getInstance().getSalesDataHashMap().get(id);
