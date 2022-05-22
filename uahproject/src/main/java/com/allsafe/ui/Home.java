@@ -494,7 +494,7 @@ public class Home extends javax.swing.JFrame {
 //atributos customs para proyecto:
 private Usuario user;
 ArrayList<Producto> RandomProductsHome;
-ArrayList<Producto> listOfProductos;
+ArrayList<Producto> listOfProductos = new ArrayList();
 private int numberOfProductPages=0;
 
 
@@ -542,12 +542,12 @@ Usuario c4 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pa
 
 
 
-Opinion  o1 = new Opinion(3, "Satisfecho con la compra",c1); 
-Opinion  o2 = new Opinion(0, "No comprar, malisimo, por ese precido debería hacerme la cama",c2); 
-Opinion  o3 = new Opinion(5, "Estoy muy contenta con la compra realizada, tanto por el artículo como por la atención de la plataforma. Fue muy sencillo realizar la selección y el pago ya que el poder financiar un producto da mucho que decir sobre PcComponentes. Para mí, es un punto a favor ya que no siempre viene bien hacer un pago entero. En cuanto al MacBook Air es un encanto, vino muy bien embalado y protegido. El paquete me llegó en menos de 48 horas, una cosa increíble ya que en otras plataformas te tarda mucho más y si lo necesitas urgentemente, no lo puedes usar, pero en caso de PcComponentes sí. Esto es otro punto positivo que reflejo con mi compra ya que no esperaba que llegase tan pronto. El portátil funciona perfectamente y además, con la opción Aplazame de PcComponentes, puedes cambiar hasta tres veces la forma de tu financiación, o directamente, puedes pagar toda la cantidad que queda en el momento que tú quieras. Estoy muy contenta y sé que voy a seguir comprando artículos de tecnología aquí. :)!",c3);
-Opinion  o4 = new Opinion(3, "Ni fu ni fa, esperaba más la verdad",c1); 
-Opinion  o5 = new Opinion(0, "Es un autentico timo",c2); 
-Opinion  o6 = new Opinion(5, "INcreible, va como una bala",c3);
+Opinion  o1 = new Opinion(3, "Satisfecho con la compra",c1.getCorreo()); 
+Opinion  o2 = new Opinion(0, "No comprar, malisimo, por ese precido debería hacerme la cama",c2.getCorreo()); 
+Opinion  o3 = new Opinion(5, "Estoy muy contenta con la compra realizada, tanto por el artículo como por la atención de la plataforma. Fue muy sencillo realizar la selección y el pago ya que el poder financiar un producto da mucho que decir sobre PcComponentes. Para mí, es un punto a favor ya que no siempre viene bien hacer un pago entero. En cuanto al MacBook Air es un encanto, vino muy bien embalado y protegido. El paquete me llegó en menos de 48 horas, una cosa increíble ya que en otras plataformas te tarda mucho más y si lo necesitas urgentemente, no lo puedes usar, pero en caso de PcComponentes sí. Esto es otro punto positivo que reflejo con mi compra ya que no esperaba que llegase tan pronto. El portátil funciona perfectamente y además, con la opción Aplazame de PcComponentes, puedes cambiar hasta tres veces la forma de tu financiación, o directamente, puedes pagar toda la cantidad que queda en el momento que tú quieras. Estoy muy contenta y sé que voy a seguir comprando artículos de tecnología aquí. :)!",c3.getCorreo());
+Opinion  o4 = new Opinion(3, "Ni fu ni fa, esperaba más la verdad",c1.getCorreo()); 
+Opinion  o5 = new Opinion(0, "Es un autentico timo",c2.getCorreo()); 
+Opinion  o6 = new Opinion(5, "INcreible, va como una bala",c3.getCorreo());
 //Crear inventario y añadir productos a inventario
 Inventario i1 = new Inventario();
 // ********************************************************************************************************************
@@ -665,7 +665,14 @@ private boolean checkLoginInterfaz(){
     InventoryServices.addProduct("dellXps138", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
             
        
-            this.listOfProductos=  InventoryServices.orderByStarts();
+            
+            if(listOfProductos.isEmpty() ) {
+                                        this.listOfProductos=  InventoryServices.orderByStarts();
+                                        SetNumberOfUserPagesToZero();
+                                        createHomePageProductos(0);
+                                        System.out.println(listOfProductos);
+
+            }  
           
  
             
@@ -1956,7 +1963,10 @@ private void createHomePageProductos(int i){
         
         System.out.println(jComboBoxSearchRelevancia.getSelectedItem());
         System.out.println(jComboBoxSearchCategoria.getSelectedItem());
+        SetNumberOfUserPagesToZero();
         
+        listOfProductos.removeAll(listOfProductos);
+        System.out.println(listOfProductos);
         
         if (jTextFieldSearchUser.getText().trim().isEmpty()) {
             System.out.println("El usuario no ha añadido nada al campo de busqueda");
@@ -1966,6 +1976,7 @@ private void createHomePageProductos(int i){
                 //InventoryServices.orderByStarts();
                 if (!jComboBoxSearchRelevancia.isVisible()){
                     listOfProductos= InventoryServices.orderByStarts();
+                    System.out.println(listOfProductos);
                     SetNumberOfUserPagesToZero();
                     createHomePageProductos(0);
                 }
@@ -1978,13 +1989,12 @@ private void createHomePageProductos(int i){
                                 if(!listOfProductos.isEmpty() ) {
                                         SetNumberOfUserPagesToZero();
                                         createHomePageProductos(0);
+                                        System.out.println(listOfProductos);
 
                                 }  
                                 else {
                                     System.out.println("No han encontrado resultados");
-                                    //TODO poner el jpanel en visibel 
-                                    //jPanelUsersFound.setVisible(false);
-                                    System.out.println("No han encontrado resultados");
+                                    System.out.println(listOfProductos);
                                 } 
                             }
                     else if (jComboBoxSearchRelevancia.getSelectedItem().equals("precio mayor")) {
@@ -1993,11 +2003,11 @@ private void createHomePageProductos(int i){
                                 if(!listOfProductos.isEmpty() ) {
                                         SetNumberOfUserPagesToZero();
                                         createHomePageProductos(0);
+                                        System.out.println(listOfProductos);
                                 }  
                                 else {
-                                    //TODO poner el jpanel en visibel 
-                                    //jPanelUsersFound.setVisible(false);
                                     System.out.println("No han encontrado resultados");
+                                    System.out.println(listOfProductos);
 
                                 }
                             } 
@@ -2008,11 +2018,13 @@ private void createHomePageProductos(int i){
                                 if(!listOfProductos.isEmpty() ) {
                                         SetNumberOfUserPagesToZero();
                                         createHomePageProductos(0);
+                                        System.out.println(listOfProductos);
                                 }  
                                 else {
                                     //TODO poner el jpanel en visibel 
                                     //jPanelUsersFound.setVisible(false);
                                     System.out.println("No han encontrado resultados");
+                                    System.out.println(listOfProductos);
                                 }
                             } 
                       
@@ -2037,6 +2049,7 @@ private void createHomePageProductos(int i){
         else {
             System.out.println("El usuario SÏ ha añadido nada al campo de busqueda");
             
+            
             try {
                 
                 if (jComboBoxSearchRelevancia.getSelectedItem().equals("relevancia")) {
@@ -2046,6 +2059,7 @@ private void createHomePageProductos(int i){
                     if(!listOfProductos.isEmpty() ) {
                             SetNumberOfUserPagesToZero();
                             createHomePageProductos(0);
+                            System.out.println(listOfProductos);
                     }  
                     else {
                          //TODO poner el jpanel en visibel 
@@ -2060,6 +2074,7 @@ private void createHomePageProductos(int i){
                     if(!listOfProductos.isEmpty() ) {
                             SetNumberOfUserPagesToZero();
                             createHomePageProductos(0);
+                            System.out.println(listOfProductos);
                            
                     }  
                     else {
@@ -2067,6 +2082,7 @@ private void createHomePageProductos(int i){
                          //TODO poner el jpanel en visibel 
                                 //jPanelUsersFound.setVisible(false);
                                 System.out.println("No han encontrado resultados");
+                                System.out.println(listOfProductos);
                     }
                     
                     
@@ -2078,12 +2094,14 @@ private void createHomePageProductos(int i){
                     if(!listOfProductos.isEmpty() ) {
                             SetNumberOfUserPagesToZero();
                             createHomePageProductos(0);
+                            System.out.println(listOfProductos);
                            
                     }  
                     else {
                          //TODO poner el jpanel en visibel 
                                 //jPanelUsersFound.setVisible(false);
                                 System.out.println("No han encontrado resultados");
+                                System.out.println(listOfProductos);
                     }
                 }  
                 
@@ -2093,6 +2111,7 @@ private void createHomePageProductos(int i){
                  //TODO poner el jpanel en visibel 
                                 //jPanelUsersFound.setVisible(false);
                                 System.out.println("No han encontrado resultados");
+                                
              }
         
         

@@ -91,6 +91,7 @@ com/allsafe/ui/WindowsMyAccount$1.class
 com/allsafe/ui/WindowsMyAccount$16.class
 com/allsafe/ui/WindowsAdminProductMngtSearch$8.class
 com/allsafe/ui/WindowsMyAccount.class
+com/allsafe/ui/Home$20.class
 com/allsafe/ui/WindowsMyAccount$15.class
 com/allsafe/ui/WindowsAdminProductMngt.class
 com/allsafe/ui/WindowsUserShoppingCart$8.class
@@ -107,6 +108,7 @@ com/allsafe/ui/WindowsUserShoppingCart$12.class
 com/allsafe/ui/WindowsAdminUserMngt$10.class
 com/allsafe/ui/WindowsAdminProductMngtAdd$10.class
 com/allsafe/ui/WindowsMyAccount$2.class
+com/allsafe/ui/WindowsProduct$10.class
 com/allsafe/ui/WindowsMyAccountAdmin$2.class
 com/allsafe/ui/WindowsMyAccountAdmin$7.class
 com/allsafe/ui/Home$5.class

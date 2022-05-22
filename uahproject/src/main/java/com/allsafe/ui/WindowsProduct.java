@@ -305,6 +305,11 @@ private boolean checkLoginInterfaz(){
 
         jTextField2NameClient.setText("jTextField2");
         jTextField2NameClient.setBorder(null);
+        jTextField2NameClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2NameClientActionPerformed(evt);
+            }
+        });
 
         jTextArea2Comentarios.setColumns(20);
         jTextArea2Comentarios.setLineWrap(true);
@@ -724,6 +729,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
        
     }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void jTextField2NameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2NameClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2NameClientActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
