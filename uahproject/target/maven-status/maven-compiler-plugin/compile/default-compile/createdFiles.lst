@@ -12,6 +12,7 @@ com/allsafe/model/ClienteParticular.class
 com/allsafe/ui/WindowsAdminProductMngtAdd$2.class
 com/allsafe/model/CarritoCompra.class
 com/allsafe/model/Direccion.class
+com/allsafe/ui/WindowsProductCreateOpinion$1.class
 com/allsafe/ui/WindowsAdminProductMngtSearch$14.class
 com/allsafe/service/prueba.class
 com/allsafe/ui/WindowsAdmin$2.class
@@ -39,6 +40,7 @@ com/allsafe/ui/Home$17.class
 com/allsafe/ui/WindowsCreateUser$5.class
 com/allsafe/ui/WindowsMyAccount$23.class
 com/allsafe/ui/WindowsAdminUserMngt$19.class
+com/allsafe/ui/WindowsProductCreateOpinion$6.class
 com/allsafe/model/TarjetaDeCredito.class
 com/allsafe/ui/WindowsAdminProductMngtSearch$5.class
 com/allsafe/ui/Home$1.class
@@ -88,6 +90,7 @@ com/allsafe/ui/Home$13.class
 com/allsafe/model/Producto.class
 com/allsafe/ui/WindowsAdmin$4.class
 com/allsafe/ui/WindowsMyAccount$1.class
+com/allsafe/ui/WindowsProductCreateOpinion.class
 com/allsafe/ui/WindowsMyAccount$16.class
 com/allsafe/ui/WindowsAdminProductMngtSearch$8.class
 com/allsafe/ui/WindowsMyAccount.class
@@ -167,6 +170,7 @@ com/allsafe/ui/WindowsAdminProductMngtSearch$10.class
 com/allsafe/prueba.class
 com/allsafe/ui/WindowsProductManagingInfo$2.class
 com/allsafe/ui/WindowsProductManagingInfo.class
+com/allsafe/ui/WindowsProductCreateOpinion$2.class
 com/allsafe/ui/WindowsAdminProductMngtAdd.class
 com/allsafe/ui/WindowsCreateUser$18.class
 com/allsafe/ui/WindowsMyAccount$6.class
@@ -189,6 +193,7 @@ com/allsafe/ui/WindowsCreateUser$15.class
 com/allsafe/ui/WindowsUserShoppingCart$3.class
 com/allsafe/ui/WindowsLogin$2.class
 com/allsafe/mock/InventoryData.class
+com/allsafe/ui/WindowsProductCreateOpinion$5.class
 com/allsafe/ui/WindowsCreateUser$3.class
 com/allsafe/ui/WindowsAdminProductMngt$1.class
 com/allsafe/ui/WindowsLogin$5.class
@@ -207,6 +212,7 @@ com/allsafe/ui/WindowsProductManagingInfo$4.class
 com/allsafe/ui/WindowsCreateUser$16.class
 com/allsafe/ui/WindowsMyAccount$26.class
 com/allsafe/ui/WindowsAdminUserMngt$2.class
+com/allsafe/ui/WindowsProductCreateOpinion$4.class
 com/allsafe/mock/UserData.class
 com/allsafe/ui/WindowsCreateUser$22.class
 com/allsafe/ui/WindowsCreateUser$17.class
@@ -223,4 +229,5 @@ com/allsafe/ui/WindowsProductReportingInfo$1.class
 com/allsafe/ui/WindowsAdminProductMngtSearch$2.class
 com/allsafe/ui/WindowsCreateUser$1.class
 com/allsafe/ui/WindowsAdminProductMngtAdd$1.class
+com/allsafe/ui/WindowsProductCreateOpinion$3.class
 com/allsafe/service/InventoryServices.class
