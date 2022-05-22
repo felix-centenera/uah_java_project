@@ -11,6 +11,7 @@ import com.allsafe.model.Inventario;
 import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Usuario;
+import com.allsafe.service.InventoryServices;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
 import java.time.LocalDate;
@@ -24,9 +25,9 @@ import javax.swing.JFrame;
  * @author felixcentenera
  */
 
-public class WindowsProduct extends javax.swing.JFrame  {
+public class WindowsProductCreateOpinion extends javax.swing.JFrame  {
 
-    private Home principal;
+    private WindowsProduct principal;
     private  Producto producto;
     private Usuario user;
     private int opinion=0;
@@ -41,7 +42,7 @@ public class WindowsProduct extends javax.swing.JFrame  {
 //    }
     
     /** Creates new form WindowProduct */
-    public WindowsProduct(Home ventana, Producto producto, Usuario u) {
+    public WindowsProductCreateOpinion(WindowsProduct ventana, Producto producto, Usuario u) {
         //Ocultamos la ventana principal
         principal = ventana;
         principal.setVisible(false);
@@ -59,25 +60,23 @@ public class WindowsProduct extends javax.swing.JFrame  {
             //Set ICONS HWINDOWSPRODUCT
             jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/AllSafe.png"));
             //jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
-            jButtonMiCarrito.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
+            
             //jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             if (checkLoginInterfaz()){
-            jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
-            jButtonLogin.setText("Mi cuenta");
+       
              if (user.isAdministrador()){
                  System.out.println("Eres un administrador");
-                   jButtonMiCarrito.setVisible(false);
-                   jButtonLogin.setVisible(false);
+                 
+               
                    jButton1Opinar.setVisible(false);
-                   jButton1AnadirCarrito.setVisible(false);
+               
 //                 jButtonLogin.jButtonMiCarrito(false);
 //                 jButtonMiCarrito.setVisible(false);
 //                 jButtonAdmin.setVisible(true);
              }
             }
             else{
-            jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
-            jButtonLogin.setText("Login");
+         
             }
             jLabelTimeline8.setIcon(new javax.swing.ImageIcon("Icons/png/TimelineCoversA.jpg"));
             jLabelTimeline7.setIcon(new javax.swing.ImageIcon("Icons/png/TimelineCoversB.jpg"));
@@ -89,7 +88,7 @@ public class WindowsProduct extends javax.swing.JFrame  {
             
             //SET BOTTON HOME PAGE.
             
-            jButton1AnadirCarrito.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
+           
             jButton1Opinar.setIcon(new javax.swing.ImageIcon("Icons/png/opinar.png"));
             
             
@@ -104,36 +103,13 @@ public class WindowsProduct extends javax.swing.JFrame  {
             // Set the title of the product
             jTextFieldProductoTitulo2.setText(producto.getTitulo());
             // Set   the Caracteristicas of the product
-            jTextFieldProductoCaracteristicas3.setText(producto.getCaracteristicas());
-            // Set the Categoria of the product
-            jTextFieldProductoCategoria5.setText(producto.getCategoria());
-            // Set the Precio of the product
-            jFormattedTextFieldProductoPrecio1.setValue(producto.getPrecio());
+          
+            jTextFieldVasACrearOpinion.setText("Hola " + user.getCorreo() + " vas a registrar una opinión.");
+      
+     
             
             
-            // Set title of the producto 
-            //jLabel1Calificacion.
-            if (!producto.getArrayOpiniones().isEmpty()){
-                int opcion =  producto.getOpiniones(opinion).getCalificacion();
-                switch (opcion) {
-                case 0 : jLabel1Calificacion.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
-                    break;
-                case 1 : jLabel1Calificacion.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
-                    break;
-                case 2 : jLabel1Calificacion.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
-                    break;
-                case 3: jLabel1Calificacion.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
-                    break;
-                case 4: jLabel1Calificacion.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
-                    break;
-                case 5: jLabel1Calificacion.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
-                    break;
-                 }
-                      
-                  jTextArea2Comentarios.setText(producto.getOpiniones(opinion).getComentario());
-                  jTextField2NameClient.setText(producto.getOpiniones(opinion).getCliente());
-                  jTextFieldFechaCom.setText((String) producto.getOpiniones(opinion).getFecha().format(DateTimeFormatter.ISO_DATE));
-            } 
+            
         } 
         catch (Exception e) {
             System.out.println("Error: " + e.toString()); 
@@ -230,30 +206,25 @@ private boolean checkLoginInterfaz(){
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
+        buttonGroup6 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jTextFieldProductoTitulo2 = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        jTextFieldProductoCaracteristicas3 = new javax.swing.JTextField();
-        jTextFieldProductoCategoria5 = new javax.swing.JTextField();
-        jFormattedTextFieldProductoPrecio1 = new javax.swing.JFormattedTextField();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel1Calificacion = new javax.swing.JLabel();
-        jTextField2NameClient = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2Comentarios = new javax.swing.JTextArea();
-        jTextFieldFechaCom = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaOpinion = new javax.swing.JTextArea();
+        jComboBoxStarts = new javax.swing.JComboBox<>();
         jPanel10 = new javax.swing.JPanel();
         jLabel3Product = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jButton1Opinar = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
-        jButton1AnadirCarrito = new javax.swing.JButton();
+        jTextFieldVasACrearOpinion = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabelHomeIcon4 = new javax.swing.JLabel();
-        jButtonMiCarrito = new javax.swing.JButton();
-        jButtonLogin = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabelTimeline8 = new javax.swing.JLabel();
         jLabelTimeline7 = new javax.swing.JLabel();
@@ -283,69 +254,14 @@ private boolean checkLoginInterfaz(){
             }
         });
 
-        jTextFieldProductoCaracteristicas3.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jTextFieldProductoCaracteristicas3.setBorder(null);
-        jTextFieldProductoCaracteristicas3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldProductoCaracteristicas3ActionPerformed(evt);
-            }
-        });
+        jTextAreaOpinion.setColumns(20);
+        jTextAreaOpinion.setRows(5);
+        jTextAreaOpinion.setText("Añada su opnión");
+        jScrollPane1.setViewportView(jTextAreaOpinion);
 
-        jTextFieldProductoCategoria5.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jTextFieldProductoCategoria5.setBorder(null);
-
-        jFormattedTextFieldProductoPrecio1.setBorder(null);
-        jFormattedTextFieldProductoPrecio1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
-        jFormattedTextFieldProductoPrecio1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel1Calificacion.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
-
-        jTextField2NameClient.setText("jTextField2");
-        jTextField2NameClient.setBorder(null);
-        jTextField2NameClient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2NameClientActionPerformed(evt);
-            }
-        });
-
-        jTextArea2Comentarios.setColumns(20);
-        jTextArea2Comentarios.setLineWrap(true);
-        jTextArea2Comentarios.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2Comentarios);
-
-        jTextFieldFechaCom.setText("jTextField2");
-        jTextFieldFechaCom.setBorder(null);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldFechaCom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2NameClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1Calificacion)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1Calificacion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField2NameClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldFechaCom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jComboBoxStarts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0 Estrellas", "1 Estrellas", "2 Estrellas", "3 Estrellas", "4 Estrellas", "5 Estrellas" }));
+        jComboBoxStarts.setSelectedIndex(5);
+        jComboBoxStarts.setToolTipText("");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -353,14 +269,14 @@ private boolean checkLoginInterfaz(){
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldProductoCaracteristicas3, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldProductoCategoria5, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldProductoTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldProductoPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jTextFieldProductoTitulo2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                    .addComponent(jSeparator2)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jComboBoxStarts, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,15 +285,11 @@ private boolean checkLoginInterfaz(){
                 .addComponent(jTextFieldProductoTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldProductoCaracteristicas3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldProductoCategoria5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jFormattedTextFieldProductoPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBoxStarts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
@@ -387,7 +299,7 @@ private boolean checkLoginInterfaz(){
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1Opinar.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jButton1Opinar.setText("Opinar");
+        jButton1Opinar.setText("Registrar opinión");
         jButton1Opinar.setBorderPainted(false);
         jButton1Opinar.setContentAreaFilled(false);
         jButton1Opinar.addActionListener(new java.awt.event.ActionListener() {
@@ -400,48 +312,26 @@ private boolean checkLoginInterfaz(){
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(jButton1Opinar)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addComponent(jButton1Opinar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(0, 51, Short.MAX_VALUE))
         );
 
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-
-        jButton1AnadirCarrito.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jButton1AnadirCarrito.setText("Añadir a mi carrito");
-        jButton1AnadirCarrito.setBorder(null);
-        jButton1AnadirCarrito.setBorderPainted(false);
-        jButton1AnadirCarrito.setContentAreaFilled(false);
-        jButton1AnadirCarrito.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldVasACrearOpinion.setEditable(false);
+        jTextFieldVasACrearOpinion.setText("Vas a crear una opnión:");
+        jTextFieldVasACrearOpinion.setBorder(null);
+        jTextFieldVasACrearOpinion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1AnadirCarritoActionPerformed(evt);
+                jTextFieldVasACrearOpinionActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jButton1AnadirCarrito)
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jButton1AnadirCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -450,14 +340,16 @@ private boolean checkLoginInterfaz(){
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(120, 120, 120)
-                        .addComponent(jLabel3Product, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addComponent(jLabel3Product, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel10Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jTextFieldVasACrearOpinion))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                            .addGap(139, 139, 139)
+                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -465,10 +357,10 @@ private boolean checkLoginInterfaz(){
                 .addContainerGap(19, Short.MAX_VALUE)
                 .addComponent(jLabel3Product, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addComponent(jTextFieldVasACrearOpinion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -501,28 +393,6 @@ private boolean checkLoginInterfaz(){
 
         jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/AllSafe.png")); // NOI18N
         jPanel3.add(jLabelHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jButtonMiCarrito.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/shopping-cart.png")); // NOI18N
-        jButtonMiCarrito.setText("Mi Carrito");
-        jButtonMiCarrito.setBorderPainted(false);
-        jButtonMiCarrito.setContentAreaFilled(false);
-        jButtonMiCarrito.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMiCarritoActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButtonMiCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 50, 120, 60));
-
-        jButtonLogin.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/user.png")); // NOI18N
-        jButtonLogin.setText("Mi Cuenta");
-        jButtonLogin.setBorderPainted(false);
-        jButtonLogin.setContentAreaFilled(false);
-        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLoginActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 50, 120, 60));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 100));
 
@@ -589,22 +459,6 @@ private boolean checkLoginInterfaz(){
 
 
 
-    private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
-        // TODO add your handling code here:
-        //System.out.println("Estas entrando en el carrito");
-        if (checkLogin()){
-            System.out.println("INFO: Estas entrando en el carrito");
-            WindowsUserShoppingCart windowsUserShoppingCart = new WindowsUserShoppingCart(this , user);
-        }
-        else{
-            System.out.println("INFO: Necesitas estar logado para ver tu carrito");
-            
-        }
-        
-        
-        
-    }//GEN-LAST:event_jButtonMiCarritoActionPerformed
-
     private JFrame getFrame(){
      return this;
     }
@@ -614,8 +468,7 @@ private boolean checkLoginInterfaz(){
         this.dispose();
         principal.setVisible(true);
        
-        
-      
+       
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
 
     /**
@@ -644,114 +497,49 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         //TODO Execptio!!!!!
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
 
-    private void jButton1AnadirCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1AnadirCarritoActionPerformed
-        // TODO add your handling code here:
-        if (checkLogin()){
-            System.out.println("INFO: Estas añadiendo un producto a tu carrito");
-            //user.
-            //user.getClass().getSimpleName()
-            String clase = user.getClass().getSimpleName();
-            if (  clase.equals("ClienteParticular")){
-                ClienteParticular c1 = (ClienteParticular) user;
-                if (c1.getCarritoCompra().addToProducto(producto)){
-                    System.out.println("INFO: Se ha añadido correctamente el producto a el carrito");
-                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
-                }
-                else {
-                    System.out.println("ERROR: No se ha añadido correctamente el producto a el carrito");
-                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
-                     }
-            }
-            else if (clase.equals("ClienteEmpresa")){
-                ClienteEmpresa c1 = (ClienteEmpresa) user;
-                //c1.getCarritoCompra().addToProducto(producto);
-                if (c1.getCarritoCompra().addToProducto(producto)){
-                    System.out.println("INFO: Se ha añadido correctamente el producto a el carrito");
-                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
-                }
-                else {
-                    System.out.println("ERROR: No se ha añadido correctamente el producto a el carrito");
-                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
-                     }   
-            }
-        }
-        else{
-            System.out.println("INFO: Necesitas estar logado para añadir productos a tu carrito");
-            
-        }
-        
-    }//GEN-LAST:event_jButton1AnadirCarritoActionPerformed
-
     private void jButton1OpinarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1OpinarActionPerformed
         // TODO add your handling code here:
          if (checkLogin()){
             System.out.println("INFO: Vas a crear una opnión");
-             WindowsProductCreateOpinion windowsproductcreateopinion = new WindowsProductCreateOpinion(this , producto, user);
+            //sString titulo, int calificacion, String comentario, String cliente
+            //jTextFieldProductoTitulo2.getText()
+            //int hola = (int) jComboBoxStarts.getSelectedItem();
+            if(InventoryServices.addOpinionToAProducto(jTextFieldProductoTitulo2.getText(),Integer.parseInt( jComboBoxStarts.getSelectedItem().toString().substring(0, 1)), jTextAreaOpinion.getText(), user.getCorreo())) {
+                System.out.println("INFO: Se ha registrado correctamente la opinión");
+            }
+            else{
+                System.out.println("INFO: No se ha podido registrar la opnión");
+            }
             
         }
         else{
             System.out.println("INFO: Necesita estar logado para opinar");
+            this.dispose();
+            principal.setVisible(true);
             
         }
     }//GEN-LAST:event_jButton1OpinarActionPerformed
 
-    private void jTextFieldProductoCaracteristicas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProductoCaracteristicas3ActionPerformed
+    private void jTextFieldVasACrearOpinionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVasACrearOpinionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldProductoCaracteristicas3ActionPerformed
-
-    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        // TODO add your handling code here:
-        //WindowsLogin windowslogin = new WindowsLogin(this , user, principal);
-        
-        if (jButtonLogin.getText().equals("Mi cuenta") ){
-            System.out.println("Vas a entrar en tu cuenta primero tengo que comprobar tu token");
-            if (checkLogin()){
-                System.out.println("Vas a entrar en tu cuenta el token esta ok");
-            WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , user);
-            }
-            else {
-                    System.out.println("No vas a entrar en tu cuenta el token esta KO");
-                    createWindowsProductPage();
-                
-                }
-        }
-        else {
-            WindowsLogin windowslogin = new WindowsLogin(this , user, principal);
-            System.out.println("vas a logarte");
-        }
-        
-        
-        
-        
-        
-        
-//        createWindowsProductPage(); principal
-
-//        
-
-       
-    }//GEN-LAST:event_jButtonLoginActionPerformed
-
-    private void jTextField2NameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2NameClientActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2NameClientActionPerformed
+    }//GEN-LAST:event_jTextFieldVasACrearOpinionActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButton1AnadirCarrito;
     private javax.swing.JButton jButton1Opinar;
     private javax.swing.JButton jButtonHomeIconsGround5;
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
     private javax.swing.JButton jButtonHomeIconsGround8;
     private javax.swing.JButton jButtonHomeIconsGround9;
-    private javax.swing.JButton jButtonLogin;
-    private javax.swing.JButton jButtonMiCarrito;
-    private javax.swing.JFormattedTextField jFormattedTextFieldProductoPrecio1;
-    private javax.swing.JLabel jLabel1Calificacion;
+    private javax.swing.JComboBox<String> jComboBoxStarts;
     private javax.swing.JLabel jLabel3Product;
     private javax.swing.JLabel jLabelHomeIcon4;
     private javax.swing.JLabel jLabelTimeline7;
@@ -761,19 +549,14 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextArea jTextArea2Comentarios;
-    private javax.swing.JTextField jTextField2NameClient;
-    private javax.swing.JTextField jTextFieldFechaCom;
-    private javax.swing.JTextField jTextFieldProductoCaracteristicas3;
-    private javax.swing.JTextField jTextFieldProductoCategoria5;
+    private javax.swing.JTextArea jTextAreaOpinion;
     private javax.swing.JTextField jTextFieldProductoTitulo2;
+    private javax.swing.JTextField jTextFieldVasACrearOpinion;
     // End of variables declaration//GEN-END:variables
 }

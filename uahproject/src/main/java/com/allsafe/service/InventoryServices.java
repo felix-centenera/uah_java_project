@@ -6,6 +6,7 @@ package com.allsafe.service;
 
 import com.allsafe.mock.InventoryData;
 import com.allsafe.model.Inventario;
+import com.allsafe.model.Opinion;
 import com.allsafe.model.Producto;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -73,6 +74,30 @@ public class InventoryServices {
         else {
            return false;
        }
+    }
+    
+    
+    public static boolean addOpinionToAProducto(String titulo, int calificacion, String comentario, String cliente) {
+            System.out.println("hola");
+            
+            if (  InventoryData.getInstance().getInventoryHashMap().containsKey(titulo)) {
+            try {
+                
+                //Producto p1  = InventoryData.getInstance().getInventoryHashMap().get(titulo);
+                Opinion o1 = new Opinion(calificacion, comentario, cliente);
+                InventoryData.getInstance().getInventoryHashMap().get(titulo).introducirOpinion(o1);
+                //p1.introducirOpinion(o1);
+                return true;
+            }
+            catch (Exception e){
+                System.out.println("Error: No se ha podido eliminar al producto: " + e.toString()); 
+               return false;
+            }
+        }
+        else {
+           return false;
+       }
+           
     }
   
   
