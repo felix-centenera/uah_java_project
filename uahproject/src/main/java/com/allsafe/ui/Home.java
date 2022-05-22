@@ -15,6 +15,7 @@ import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Token;
 import com.allsafe.model.Usuario;
+import com.allsafe.service.InventoryServices;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
 import com.allsafe.service.UsersServices;
@@ -35,8 +36,9 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-        createHomePageProductos();
         createHomePage();
+        createHomePageProductos(0);
+        
         initUserMock();
         
         
@@ -89,11 +91,14 @@ public class Home extends javax.swing.JFrame {
         jLabelStars7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldSearchUser = new javax.swing.JTextField();
         jLabelHomeIcon4 = new javax.swing.JLabel();
         jButtonMiCarrito = new javax.swing.JButton();
         jButtonLogin = new javax.swing.JButton();
-        jButtonHomeIcon4 = new javax.swing.JButton();
+        jButtonHomeIconSearch = new javax.swing.JButton();
+        jComboBoxSearchRelevancia = new javax.swing.JComboBox<>();
+        jComboBoxSearchCategoria = new javax.swing.JComboBox<>();
+        jButtonHomeIconCustomSearch = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabelTimeline8 = new javax.swing.JLabel();
         jLabelTimeline7 = new javax.swing.JLabel();
@@ -347,15 +352,15 @@ public class Home extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 350, 10));
+        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 350, 10));
 
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldSearchUser.setBorder(null);
+        jTextFieldSearchUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldSearchUserActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 350, 20));
+        jPanel3.add(jTextFieldSearchUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 320, 20));
 
         jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/AllSafe.png")); // NOI18N
         jPanel3.add(jLabelHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -382,10 +387,34 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel3.add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 50, 120, 60));
 
-        jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/search.png")); // NOI18N
-        jButtonHomeIcon4.setBorderPainted(false);
-        jButtonHomeIcon4.setContentAreaFilled(false);
-        jPanel3.add(jButtonHomeIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
+        jButtonHomeIconSearch.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/search.png")); // NOI18N
+        jButtonHomeIconSearch.setBorderPainted(false);
+        jButtonHomeIconSearch.setContentAreaFilled(false);
+        jButtonHomeIconSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconSearchActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButtonHomeIconSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, -1, -1));
+
+        jComboBoxSearchRelevancia.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBoxSearchRelevancia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "relevancia", "precio mayor", "precio menor" }));
+        jPanel3.add(jComboBoxSearchRelevancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 40, 150, -1));
+
+        jComboBoxSearchCategoria.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBoxSearchCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consolas y videojuegos" }));
+        jPanel3.add(jComboBoxSearchCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, 150, -1));
+
+        jButtonHomeIconCustomSearch.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/menu.png")); // NOI18N
+        jButtonHomeIconCustomSearch.setBorder(null);
+        jButtonHomeIconCustomSearch.setBorderPainted(false);
+        jButtonHomeIconCustomSearch.setContentAreaFilled(false);
+        jButtonHomeIconCustomSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconCustomSearchActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButtonHomeIconCustomSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, 30, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 100));
 
@@ -416,11 +445,21 @@ public class Home extends javax.swing.JFrame {
         jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/ArrowDown.png")); // NOI18N
         jButtonHomeIconsGround7.setBorderPainted(false);
         jButtonHomeIconsGround7.setContentAreaFilled(false);
+        jButtonHomeIconsGround7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround7ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 40, 40));
 
         jButtonHomeIconsGround8.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/arrowUp.png")); // NOI18N
         jButtonHomeIconsGround8.setBorderPainted(false);
         jButtonHomeIconsGround8.setContentAreaFilled(false);
+        jButtonHomeIconsGround8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround8ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 40, 40));
 
         jButtonLogOut.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/LogOut.png")); // NOI18N
@@ -455,6 +494,11 @@ public class Home extends javax.swing.JFrame {
 //atributos customs para proyecto:
 private Usuario user;
 ArrayList<Producto> RandomProductsHome;
+ArrayList<Producto> listOfProductos = new ArrayList();
+private int numberOfProductPages=0;
+
+
+
 
 //Creamos la referencia a nuestro servio de login
 Login miservicioDeLogin = Login.getInstance();
@@ -498,12 +542,12 @@ Usuario c4 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pa
 
 
 
-Opinion  o1 = new Opinion(3, "Satisfecho con la compra",c1); 
-Opinion  o2 = new Opinion(0, "No comprar, malisimo, por ese precido debería hacerme la cama",c2); 
-Opinion  o3 = new Opinion(5, "Estoy muy contenta con la compra realizada, tanto por el artículo como por la atención de la plataforma. Fue muy sencillo realizar la selección y el pago ya que el poder financiar un producto da mucho que decir sobre PcComponentes. Para mí, es un punto a favor ya que no siempre viene bien hacer un pago entero. En cuanto al MacBook Air es un encanto, vino muy bien embalado y protegido. El paquete me llegó en menos de 48 horas, una cosa increíble ya que en otras plataformas te tarda mucho más y si lo necesitas urgentemente, no lo puedes usar, pero en caso de PcComponentes sí. Esto es otro punto positivo que reflejo con mi compra ya que no esperaba que llegase tan pronto. El portátil funciona perfectamente y además, con la opción Aplazame de PcComponentes, puedes cambiar hasta tres veces la forma de tu financiación, o directamente, puedes pagar toda la cantidad que queda en el momento que tú quieras. Estoy muy contenta y sé que voy a seguir comprando artículos de tecnología aquí. :)!",c3);
-Opinion  o4 = new Opinion(3, "Ni fu ni fa, esperaba más la verdad",c1); 
-Opinion  o5 = new Opinion(0, "Es un autentico timo",c2); 
-Opinion  o6 = new Opinion(5, "INcreible, va como una bala",c3);
+Opinion  o1 = new Opinion(3, "Satisfecho con la compra",c1.getCorreo()); 
+Opinion  o2 = new Opinion(0, "No comprar, malisimo, por ese precido debería hacerme la cama",c2.getCorreo()); 
+Opinion  o3 = new Opinion(5, "Estoy muy contenta con la compra realizada, tanto por el artículo como por la atención de la plataforma. Fue muy sencillo realizar la selección y el pago ya que el poder financiar un producto da mucho que decir sobre PcComponentes. Para mí, es un punto a favor ya que no siempre viene bien hacer un pago entero. En cuanto al MacBook Air es un encanto, vino muy bien embalado y protegido. El paquete me llegó en menos de 48 horas, una cosa increíble ya que en otras plataformas te tarda mucho más y si lo necesitas urgentemente, no lo puedes usar, pero en caso de PcComponentes sí. Esto es otro punto positivo que reflejo con mi compra ya que no esperaba que llegase tan pronto. El portátil funciona perfectamente y además, con la opción Aplazame de PcComponentes, puedes cambiar hasta tres veces la forma de tu financiación, o directamente, puedes pagar toda la cantidad que queda en el momento que tú quieras. Estoy muy contenta y sé que voy a seguir comprando artículos de tecnología aquí. :)!",c3.getCorreo());
+Opinion  o4 = new Opinion(3, "Ni fu ni fa, esperaba más la verdad",c1.getCorreo()); 
+Opinion  o5 = new Opinion(0, "Es un autentico timo",c2.getCorreo()); 
+Opinion  o6 = new Opinion(5, "INcreible, va como una bala",c3.getCorreo());
 //Crear inventario y añadir productos a inventario
 Inventario i1 = new Inventario();
 // ********************************************************************************************************************
@@ -585,80 +629,61 @@ private boolean checkLoginInterfaz(){
  
 // ********************************************************************************************************************
  // metodos para crear la home
-private void createHomePageProductos(){    
-    i1.introducirProducto(p1, 4);
-    i1.introducirProducto(p2, 4);
-    i1.introducirProducto(p3, 4);
-    p1.introducirOpinion(o1);
-    p1.introducirOpinion(o2);
-    p1.introducirOpinion(o4);
-    p1.introducirOpinion(o6);
-    p2.introducirOpinion(o2);
-    p2.introducirOpinion(o3);
-    p2.introducirOpinion(o5);
-    p2.introducirOpinion(o6);
-    p3.introducirOpinion(o3);
-    p3.introducirOpinion(o1);
-    p3.introducirOpinion(o2);
-    p3.introducirOpinion(o4);
-    //ArrayList<Producto> RandomProductsHome;
-    RandomProductsHome = new ArrayList<>();
-    
-    
-    RandomProductsHome = RandomHomeProductos.seleccionarProductos(i1);
-    //jTextFieldProducts1.setText(RandomProductsHome.get(0).getTitulo());
-    javax.swing.JButton[] jButtonProductsArray = new javax.swing.JButton[]{jButtonProducts0,jButtonProducts1,jButtonProducts2,jButtonProducts3,jButtonProducts4,jButtonProducts5,jButtonProducts6,jButtonProducts7};
-    javax.swing.JTextField[] jTextFieldProducts = new javax.swing.JTextField[]{jTextFieldProducts0,jTextFieldProducts1,jTextFieldProducts2,jTextFieldProducts3,jTextFieldProducts4,jTextFieldProducts5,jTextFieldProducts6,jTextFieldProducts7};
-    javax.swing.JLabel[] jLabelFieldStarts = new javax.swing.JLabel[]{jLabelStars0,jLabelStars1,jLabelStars2,jLabelStars3,jLabelStars4,jLabelStars5,jLabelStars6,jLabelStars7};
-    
-     //System.out.println(RandomProductsHome);  
-     int i=0;
-     for (javax.swing.JButton f : jButtonProductsArray  ) {
-        f.setIcon(new javax.swing.ImageIcon(RandomProductsHome.get(i).getFotografia()));
-        i++;
-    }
-     i=0;
-       for (javax.swing.JTextField f : jTextFieldProducts  ) {
-        //System.out.println(i);
-        //System.out.println(RandomProductsHome.get(i).getTitulo());
-        f.setText(RandomProductsHome.get(i).getTitulo() + "-" +RandomProductsHome.get(i).getPrecio() + "€");
-        i++;
-    }
-       i=0;
-       for (javax.swing.JLabel f : jLabelFieldStarts  ) {
-        //System.out.println(i);
-        //System.out.println(RandomProductsHome.get(i).getTitulo());
-        //f.setIcon(RandomProductsHome.get(i).getTitulo() + "-" +RandomProductsHome.get(i).getPrecio() + "€");
-        int opcion = RandomProductsHome.get(i).getEstrella();
-        switch (opcion) {
-            case 0 : f.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
-                break;
-            case 1 : f.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
-                break;
-            case 2 : f.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
-                break;
-            case 3: f.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
-                break;
-            case 4: f.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
-                break;
-            case 5: f.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
-        break;
+  
+ public  void  SetNumberOfUserPagesToZero() {
+        this.numberOfProductPages = 0;
+ } 
+ 
 
-                }
-        
-        i++;
-    }
-    
-    
-}
-
-    public void createHomePage() {
+ 
+ public void createHomePage() {
         try {
-            //jLabelImg.setSize(130, 100)
+            InventoryServices.addProduct("MacBookAirM1", "Apple", "Ordenadores", 1500, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o1);
+            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o3);
+            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o5);
+            
+                
+    InventoryServices.addProduct("appleMacbookProM1", "Apple", "Ordenadores",3000, "Img/laptops/macbook/appleMacbookProM1.png", 10);
+    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
+    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
+    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o1);
+    
+    
+    InventoryServices.addProduct("dellXps13", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o5);
+    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
+    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o3);
+    
+    
+    InventoryServices.addProduct("dellXps132", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+    InventoryServices.addProduct("dellXps133", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+    InventoryServices.addProduct("dellXps134", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+    InventoryServices.addProduct("dellXps135", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+    InventoryServices.addProduct("dellXps136", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+    InventoryServices.addProduct("dellXps137", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+    InventoryServices.addProduct("dellXps138", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+            
+       
+            
+            if(listOfProductos.isEmpty() ) {
+                                        this.listOfProductos=  InventoryServices.orderByStarts();
+                                        SetNumberOfUserPagesToZero();
+                                        createHomePageProductos(0);
+                                        System.out.println(listOfProductos);
+
+            }  
+          
+ 
+            
             jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/AllSafe.png"));
-            jButtonHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
+            jButtonHomeIconSearch.setIcon(new javax.swing.ImageIcon("Icons/png/search.png"));
+            jButtonHomeIconCustomSearch.setIcon(new javax.swing.ImageIcon("Icons/png/menu.png"));
             jButtonMiCarrito.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
             jButtonAdmin.setVisible(false);
+            jComboBoxSearchRelevancia.setVisible(false);
+            jComboBoxSearchCategoria.setVisible(false);
+            
             if (checkLoginInterfaz()){
              
                 System.out.println("Vas a esta logado 1");
@@ -697,12 +722,1087 @@ private void createHomePageProductos(){
 
 // ********************************************************************************************************************
     
+  
+  
+private void createHomePageProductos(int i){   
+    
+    
+        
+    
+    i1.introducirProducto(p1, 4);
+    i1.introducirProducto(p2, 4);
+    i1.introducirProducto(p3, 4);
+    
+//    Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookAirM1.png", 1);
+//    Producto p2 = new Producto("MacBookProM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookProM1.png", 1);
+//    Producto p3 = new Producto("Dell XPS","Dell", "Portatiles",1000,"Img/laptops/dell/dellXps13.png", 1);   
+
+    
+    
+    
+//    
+//    InventoryServices.addProduct("appleMacbookProM1", "Apple", "Ordenadores",3000, "Img/laptops/macbook/appleMacbookProM1.png", 10);
+//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
+//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
+//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o1);
+//    
+//    
+//    InventoryServices.addProduct("dellXps13", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o5);
+//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
+//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o3);
+//    
+//    
+//    InventoryServices.addProduct("dellXps132", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.addProduct("dellXps133", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.addProduct("dellXps134", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.addProduct("dellXps135", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.addProduct("dellXps136", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.addProduct("dellXps137", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.addProduct("dellXps138", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+    
+
+            
+    p1.introducirOpinion(o1);
+    p1.introducirOpinion(o2);
+    p1.introducirOpinion(o4);
+    p1.introducirOpinion(o6);
+    p2.introducirOpinion(o2);
+    p2.introducirOpinion(o3);
+    p2.introducirOpinion(o5);
+    p2.introducirOpinion(o6);
+    p3.introducirOpinion(o3);
+    p3.introducirOpinion(o1);
+    p3.introducirOpinion(o2);
+    p3.introducirOpinion(o4);
+    //ArrayList<Producto> RandomProductsHome;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    RandomProductsHome = new ArrayList<>();
+//    
+//    
+//    RandomProductsHome = RandomHomeProductos.seleccionarProductos(i1);
+//    //jTextFieldProducts1.setText(RandomProductsHome.get(0).getTitulo());
+//    javax.swing.JButton[] jButtonProductsArray = new javax.swing.JButton[]{jButtonProducts0,jButtonProducts1,jButtonProducts2,jButtonProducts3,jButtonProducts4,jButtonProducts5,jButtonProducts6,jButtonProducts7};
+//    javax.swing.JTextField[] jTextFieldProducts = new javax.swing.JTextField[]{jTextFieldProducts0,jTextFieldProducts1,jTextFieldProducts2,jTextFieldProducts3,jTextFieldProducts4,jTextFieldProducts5,jTextFieldProducts6,jTextFieldProducts7};
+//    javax.swing.JLabel[] jLabelFieldStarts = new javax.swing.JLabel[]{jLabelStars0,jLabelStars1,jLabelStars2,jLabelStars3,jLabelStars4,jLabelStars5,jLabelStars6,jLabelStars7};
+//    
+//     //System.out.println(RandomProductsHome);  
+//     //int i=0;
+//     for (javax.swing.JButton f : jButtonProductsArray  ) {
+//        f.setIcon(new javax.swing.ImageIcon(RandomProductsHome.get(i).getFotografia()));
+//        i++;
+//    }
+//     i=0;
+//       for (javax.swing.JTextField f : jTextFieldProducts  ) {
+//      
+//        f.setText(RandomProductsHome.get(i).getTitulo() + "-" +RandomProductsHome.get(i).getPrecio() + "€");
+//        i++;
+//    }
+//       i=0;
+//       for (javax.swing.JLabel f : jLabelFieldStarts  ) {
+//        //System.out.println(i);
+//        //System.out.println(RandomProductsHome.get(i).getTitulo());
+//        //f.setIcon(RandomProductsHome.get(i).getTitulo() + "-" +RandomProductsHome.get(i).getPrecio() + "€");
+//        int opcion = RandomProductsHome.get(i).getEstrella();
+//        switch (opcion) {
+//            case 0 : f.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+//                break;
+//            case 1 : f.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+//                break;
+//            case 2 : f.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+//                break;
+//            case 3: f.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+//                break;
+//            case 4: f.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+//                break;
+//            case 5: f.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+//        break;
+//
+//                }
+//        
+//        i++;
+//    }
+    
+    ////////////////////////////////////////////////NEW HOME
+       
+      //private void printUsers(int i){
+        
+                
+                jButtonProducts0.setVisible(true);        
+                jButtonProducts1.setVisible(false);
+                jButtonProducts2.setVisible(false);
+                jButtonProducts3.setVisible(false);
+                jButtonProducts4.setVisible(false);
+                jButtonProducts5.setVisible(false);
+                jButtonProducts6.setVisible(false);
+                jButtonProducts7.setVisible(false);
+                
+                
+                jTextFieldProducts0.setVisible(false);
+                jTextFieldProducts1.setVisible(false);
+                jTextFieldProducts2.setVisible(false);
+                jTextFieldProducts3.setVisible(false);
+                jTextFieldProducts4.setVisible(false);
+                jTextFieldProducts5.setVisible(false);
+                jTextFieldProducts6.setVisible(false);
+                jTextFieldProducts7.setVisible(false);
+               
+                jLabelStars0.setVisible(false);
+                jLabelStars1.setVisible(false);
+                jLabelStars2.setVisible(false);
+                jLabelStars3.setVisible(false);
+                jLabelStars4.setVisible(false);
+                jLabelStars5.setVisible(false);
+                jLabelStars6.setVisible(false);
+                jLabelStars7.setVisible(false);
+                
+                
+                
+               // UsersServices.TypeUser(user.getCorreo(), user.getClave());
+           
+                //listOfProductos=  InventoryServices.orderByStarts("Ordenadores");
+                
+                int sizeProductData=listOfProductos.size();
+                numberOfProductPages = numberOfProductPages +i;
+                System.out.println("la lista tiene un tamño de: " + sizeProductData);
+                
+               
+                switch (sizeProductData) {
+                
+                case 0: 
+                    try{
+                        
+                    }
+                    catch (Exception e) {
+                        System.out.println("Error: No hay nada que mostrar " + e.toString()); 
+                        SetNumberOfUserPagesToZero();
+                        //System.out.println("Voy a poner los user a 0");
+                        //createHomePageProductos(0);
+                        
+                        //createWindowsProductPage();
+                    }
+                case 1 : 
+                    try {
+                        System.out.println("caso1");
+                    jButtonProducts0.setVisible(true);
+                    jTextFieldProducts0.setVisible(true);
+                    jLabelStars0.setVisible(true);
+                    
+                    jTextFieldProducts0.setText(listOfProductos.get(numberOfProductPages).getTitulo() + "-"+ listOfProductos.get(numberOfProductPages).getPrecio() + "€");
+                    jButtonProducts0.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages).getFotografia()));
+                    //jButtonProducts0.setIcon(new javax.swing.ImageIcon("Img/laptops/dell/dellXps13.png"));
+                    //int opcion = listOfProductos.get(inumberOfProductPages).getEstrella();
+                    int option= listOfProductos.get(numberOfProductPages).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    }
+                    catch (Exception e) {
+                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        SetNumberOfUserPagesToZero();
+                        System.out.println("Voy a poner los user a 0");
+                        createHomePageProductos(0);
+                        
+                        //createWindowsProductPage();
+                    }
+                    break;
+                case 2 :
+                    try {
+                        System.out.println("caso2");
+                    jButtonProducts0.setVisible(true);
+                    jTextFieldProducts0.setVisible(true);
+                    jLabelStars0.setVisible(true);
+                    jTextFieldProducts0.setText(listOfProductos.get(numberOfProductPages).getTitulo() + "-" + listOfProductos.get(numberOfProductPages).getPrecio() + "€");
+                    jButtonProducts0.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages).getFotografia()));
+                    //int opcion = listOfProductos.get(inumberOfProductPages).getEstrella();
+                    int option= listOfProductos.get(numberOfProductPages).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    
+                    jButtonProducts1.setVisible(true);
+                    jTextFieldProducts1.setVisible(true);
+                    jLabelStars1.setVisible(true);
+                    jTextFieldProducts1.setText(listOfProductos.get(numberOfProductPages +1).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +1).getPrecio() + "€");
+                    jButtonProducts1.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +1).getFotografia()));
+                    //int opcion = listOfProductos.get(inumberOfProductPages).getEstrella();
+                    option= listOfProductos.get(numberOfProductPages+1).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    }
+                    catch (Exception e) {
+                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        SetNumberOfUserPagesToZero();
+                        System.out.println("Voy a poner los user a 0");
+                        createHomePageProductos(0);
+                        //createWindowsProductPage();
+                    }
+                    
+                    break;
+                case 3:
+                    try {
+                        System.out.println("caso2");
+                    jButtonProducts0.setVisible(true);
+                    jTextFieldProducts0.setVisible(true);
+                    jLabelStars0.setVisible(true);
+                    
+                    jTextFieldProducts0.setText(listOfProductos.get(numberOfProductPages).getTitulo() + "-" + listOfProductos.get(numberOfProductPages).getPrecio() + "€");
+                    jButtonProducts0.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages).getFotografia()));
+                    int option= listOfProductos.get(numberOfProductPages).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    
+                    
+                    jButtonProducts1.setVisible(true);
+                    jTextFieldProducts1.setVisible(true);
+                    jLabelStars1.setVisible(true);
+                    jTextFieldProducts1.setText(listOfProductos.get(numberOfProductPages +1).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +1).getPrecio() + "€");
+                    jButtonProducts1.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +1).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages+1).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    
+                    
+                    
+                    jButtonProducts2.setVisible(true);
+                    jTextFieldProducts2.setVisible(true);
+                    jLabelStars2.setVisible(true);
+                    jTextFieldProducts2.setText(listOfProductos.get(numberOfProductPages +2).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +2).getPrecio() + "€");
+                    jButtonProducts2.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +2).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +2).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    }
+                    catch (Exception e) {
+                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        SetNumberOfUserPagesToZero();
+                        System.out.println("Voy a poner los user a 0");
+                        createHomePageProductos(0);
+                        //createWindowsProductPage();
+                    }
+                    break;
+                case 4:
+                    try {
+                        System.out.println("caso2");
+                    jButtonProducts0.setVisible(true);
+                    jTextFieldProducts0.setVisible(true);
+                    jLabelStars0.setVisible(true);
+                    jTextFieldProducts0.setText(listOfProductos.get(numberOfProductPages).getTitulo() + "-" + listOfProductos.get(numberOfProductPages).getPrecio() + "€");
+                    jButtonProducts0.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages).getFotografia()));
+                    int option= listOfProductos.get(numberOfProductPages).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    
+                    
+                    jButtonProducts1.setVisible(true);
+                    jTextFieldProducts1.setVisible(true);
+                    jLabelStars1.setVisible(true);
+                    jTextFieldProducts1.setText(listOfProductos.get(numberOfProductPages +1).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +1).getPrecio() + "€");
+                    jButtonProducts1.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +1).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages+1).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    
+                    
+                    
+                    jButtonProducts2.setVisible(true);
+                    jTextFieldProducts2.setVisible(true);
+                    jLabelStars2.setVisible(true);
+                    jTextFieldProducts2.setText(listOfProductos.get(numberOfProductPages +2).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +2).getPrecio() + "€");
+                    jButtonProducts2.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +2).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +2).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts3.setVisible(true);
+                    jTextFieldProducts3.setVisible(true);
+                    jLabelStars3.setVisible(true);
+                    jTextFieldProducts3.setText(listOfProductos.get(numberOfProductPages +3).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +3).getPrecio() + "€");
+                    jButtonProducts3.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +3).getFotografia()));
+                     option= listOfProductos.get(numberOfProductPages +3).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    
+                    
+                    
+                    }
+                    catch (Exception e) {
+                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        SetNumberOfUserPagesToZero();
+                        System.out.println("Voy a poner los user a 0");
+                        createHomePageProductos(0);
+                        //createWindowsProductPage();
+                    }
+                    
+                    break;
+                case 5:
+                    try {
+                        System.out.println("caso2");
+                    jButtonProducts0.setVisible(true);
+                    jTextFieldProducts0.setVisible(true);
+                    jLabelStars0.setVisible(true);
+                    jTextFieldProducts0.setText(listOfProductos.get(numberOfProductPages).getTitulo() + "-" + listOfProductos.get(numberOfProductPages).getPrecio() + "€");
+                    jButtonProducts0.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages).getFotografia()));
+                    int option= listOfProductos.get(numberOfProductPages).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts1.setVisible(true);
+                    jTextFieldProducts1.setVisible(true);
+                    jLabelStars1.setVisible(true);
+                    jTextFieldProducts1.setText(listOfProductos.get(numberOfProductPages +1).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +1).getPrecio() + "€");
+                    jButtonProducts1.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +1).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages+1).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts2.setVisible(true);
+                    jTextFieldProducts2.setVisible(true);
+                    jLabelStars2.setVisible(true);
+                    jTextFieldProducts2.setText(listOfProductos.get(numberOfProductPages +2).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +2 ).getPrecio() + "€");
+                    jButtonProducts2.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +2).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +2).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts3.setVisible(true);
+                    jTextFieldProducts3.setVisible(true);
+                    jLabelStars3.setVisible(true);
+                    jTextFieldProducts3.setText(listOfProductos.get(numberOfProductPages +3).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +3 ).getPrecio() + "€");
+                    jButtonProducts3.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +3).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +3).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts4.setVisible(true);
+                    jTextFieldProducts4.setVisible(true);
+                    jLabelStars4.setVisible(true);
+                    jTextFieldProducts4.setText(listOfProductos.get(numberOfProductPages +4).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +4 ).getPrecio() + "€");
+                    jButtonProducts4.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +4).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +4).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3:  jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4:  jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5:  jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    }
+                    catch (Exception e) {
+                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        SetNumberOfUserPagesToZero();
+                        System.out.println("Voy a poner los user a 0");
+                        createHomePageProductos(0);
+                        //createWindowsProductPage();
+                    }
+                    break;
+                case 6:
+                    try {
+                        System.out.println("caso2");
+                    jButtonProducts0.setVisible(true);
+                    jTextFieldProducts0.setVisible(true);
+                    jLabelStars0.setVisible(true);
+                    jTextFieldProducts0.setText(listOfProductos.get(numberOfProductPages).getTitulo() + "-" + listOfProductos.get(numberOfProductPages).getPrecio() + "€");
+                    jButtonProducts0.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages).getFotografia()));
+                    int option= listOfProductos.get(numberOfProductPages).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts1.setVisible(true);
+                    jTextFieldProducts1.setVisible(true);
+                    jLabelStars1.setVisible(true);
+                    jTextFieldProducts1.setText(listOfProductos.get(numberOfProductPages +1).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +1).getPrecio() + "€");
+                    jButtonProducts1.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +1).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages+1).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts2.setVisible(true);
+                    jTextFieldProducts2.setVisible(true);
+                    jLabelStars2.setVisible(true);
+                    jTextFieldProducts2.setText(listOfProductos.get(numberOfProductPages +2).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +2).getPrecio() + "€");
+                    jButtonProducts2.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +2).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +2).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts3.setVisible(true);
+                    jTextFieldProducts3.setVisible(true);
+                    jLabelStars3.setVisible(true);
+                    jTextFieldProducts3.setText(listOfProductos.get(numberOfProductPages +3).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +3).getPrecio() + "€");
+                    jButtonProducts3.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +3).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +3).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    
+                    jButtonProducts4.setVisible(true);
+                    jTextFieldProducts4.setVisible(true);
+                    jLabelStars4.setVisible(true);
+                    jTextFieldProducts4.setText(listOfProductos.get(numberOfProductPages +4).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +4).getPrecio() + "€");
+                    jButtonProducts4.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +4).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +4).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3:  jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4:  jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5:  jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts5.setVisible(true);
+                    jTextFieldProducts5.setVisible(true);
+                    jLabelStars5.setVisible(true);
+                    jTextFieldProducts5.setText(listOfProductos.get(numberOfProductPages +5).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +5).getPrecio() + "€");
+                    jButtonProducts5.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +5).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +5).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3:  jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4:  jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5:  jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    }
+                    catch (Exception e) {
+                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        SetNumberOfUserPagesToZero();
+                        System.out.println("Voy a poner los user a 0");
+                        createHomePageProductos(0);
+                        //createWindowsProductPage();
+                    }
+                    break;
+                case 7:
+                    try {
+                        System.out.println("caso2");
+                    jButtonProducts0.setVisible(true);
+                    jTextFieldProducts0.setVisible(true);
+                    jLabelStars0.setVisible(true);
+                    jTextFieldProducts0.setText(listOfProductos.get(numberOfProductPages).getTitulo() + "-"+ listOfProductos.get(numberOfProductPages).getPrecio() + "€");
+                    jButtonProducts0.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages).getFotografia()));
+                    
+                    int option= listOfProductos.get(numberOfProductPages).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts1.setVisible(true);
+                    jTextFieldProducts1.setVisible(true);
+                    jLabelStars1.setVisible(true);
+                    jTextFieldProducts1.setText(listOfProductos.get(numberOfProductPages +1).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +1).getPrecio() + "€");
+                    jButtonProducts1.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +1).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages+1).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts2.setVisible(true);
+                    jTextFieldProducts2.setVisible(true);
+                    jLabelStars2.setVisible(true);
+                    jTextFieldProducts2.setText(listOfProductos.get(numberOfProductPages +2).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +2).getPrecio() + "€");
+                    jButtonProducts2.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +2).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +2).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts3.setVisible(true);
+                    jTextFieldProducts3.setVisible(true);
+                    jLabelStars3.setVisible(true);
+                    jTextFieldProducts3.setText(listOfProductos.get(numberOfProductPages +3).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +3).getPrecio() + "€");
+                    jButtonProducts3.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +3).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +3).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    
+                    jButtonProducts4.setVisible(true);
+                    jTextFieldProducts4.setVisible(true);
+                    jLabelStars4.setVisible(true);
+                    jTextFieldProducts4.setText(listOfProductos.get(numberOfProductPages +4).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +4).getPrecio() + "€");
+                    jButtonProducts4.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +4).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +4).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3:  jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4:  jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5:  jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts5.setVisible(true);
+                    jTextFieldProducts5.setVisible(true);
+                    jLabelStars5.setVisible(true);
+                    jTextFieldProducts5.setText(listOfProductos.get(numberOfProductPages +5).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +5).getPrecio() + "€");
+                    jButtonProducts5.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +5).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +5).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3:  jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4:  jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5:  jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts6.setVisible(true);
+                    jTextFieldProducts6.setVisible(true);
+                    jLabelStars6.setVisible(true);
+                    jTextFieldProducts6.setText(listOfProductos.get(numberOfProductPages +6).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +6).getPrecio() + "€");
+                    jButtonProducts6.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +6).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +6).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars6.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars6.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars6.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3:  jLabelStars6.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4:  jLabelStars6.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5:  jLabelStars6.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    }
+                    catch (Exception e) {
+                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        SetNumberOfUserPagesToZero();
+                        System.out.println("Voy a poner los user a 0");
+                        createHomePageProductos(0);
+                        //createWindowsProductPage();
+                    }
+                    break;
+                default:
+                    System.out.println("somos 8 o mas elementos "  );    
+                    try {
+                        System.out.println("caso2");
+                    jButtonProducts0.setVisible(true);
+                    jTextFieldProducts0.setVisible(true);
+                    jLabelStars0.setVisible(true);        
+                    jTextFieldProducts0.setText(listOfProductos.get(numberOfProductPages).getTitulo() + "-" + listOfProductos.get(numberOfProductPages).getPrecio() + " €");
+                    jButtonProducts0.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages).getFotografia()));
+                    int option= listOfProductos.get(numberOfProductPages).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars0.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts1.setVisible(true);
+                    jTextFieldProducts1.setVisible(true);
+                    jLabelStars1.setVisible(true);        
+                    jTextFieldProducts1.setText(listOfProductos.get(numberOfProductPages +1).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +1).getPrecio() + "€");
+                    jButtonProducts1.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +1).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages+1).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars1.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts2.setVisible(true);
+                    jTextFieldProducts2.setVisible(true);
+                    jLabelStars2.setVisible(true);        
+                    jTextFieldProducts2.setText(listOfProductos.get(numberOfProductPages +2).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +2).getPrecio() + "€");
+                    jButtonProducts2.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +2).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +2).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars2.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts3.setVisible(true);
+                    jTextFieldProducts3.setVisible(true);
+                    jLabelStars3.setVisible(true);
+                    jTextFieldProducts3.setText(listOfProductos.get(numberOfProductPages +3).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +3).getPrecio() + "€");
+                    jButtonProducts3.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +3).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +3).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    
+                    jButtonProducts4.setVisible(true);
+                    jTextFieldProducts4.setVisible(true);
+                    jLabelStars4.setVisible(true);
+                    jTextFieldProducts4.setText(listOfProductos.get(numberOfProductPages +4).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +4).getPrecio() + "€");
+                    jButtonProducts4.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +4).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +4).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3:  jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4:  jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5:  jLabelStars4.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts5.setVisible(true);
+                    jTextFieldProducts5.setVisible(true);
+                    jLabelStars5.setVisible(true);
+                    jTextFieldProducts5.setText(listOfProductos.get(numberOfProductPages +5).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +5).getPrecio() + "€");
+                    jButtonProducts5.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +5).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +5).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3:  jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4:  jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5:  jLabelStars5.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                    
+                    jButtonProducts6.setVisible(true);
+                    jTextFieldProducts6.setVisible(true);
+                    jLabelStars6.setVisible(true);
+                    jTextFieldProducts6.setText(listOfProductos.get(numberOfProductPages +6).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +6).getPrecio() + "€");
+                    jButtonProducts6.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +6).getFotografia()));
+                    option= listOfProductos.get(numberOfProductPages +6).getEstrella();
+                    switch (option) {
+                        case 0 : jLabelStars6.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars6.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars6.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3:  jLabelStars6.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4:  jLabelStars6.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5:  jLabelStars6.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }
+                            
+                    jButtonProducts7.setVisible(true);
+                    jTextFieldProducts7.setVisible(true);
+                    jLabelStars7.setVisible(true);
+                    jTextFieldProducts7.setText(listOfProductos.get(numberOfProductPages +7).getTitulo() + "-" + listOfProductos.get(numberOfProductPages +7).getPrecio() + "€");
+                    jButtonProducts7.setIcon(new javax.swing.ImageIcon(listOfProductos.get(numberOfProductPages +7).getFotografia()));
+                    switch (option) {
+                        case 0 : jLabelStars7.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
+                            break;
+                        case 1 : jLabelStars7.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
+                            break;
+                        case 2 : jLabelStars7.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
+                            break;
+                        case 3:  jLabelStars7.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
+                            break;
+                        case 4:  jLabelStars7.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
+                            break;
+                        case 5:  jLabelStars7.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
+                        break;
+                    }        
+                            
+                    }
+                    catch (Exception e) {
+                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        SetNumberOfUserPagesToZero();
+                        System.out.println("Voy a poner los user a 0");
+                        createHomePageProductos(0);
+                        //createWindowsProductPage();
+                    }
+                    break;
+                }
+    
+    
+    
+    ///////////////////////////////////////////////NEW  HOME
+       
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     
 //BOTONES Y CAJAS DE TEXTO
  // ********************************************************************************************************************
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldSearchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextFieldSearchUserActionPerformed
 
     private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
@@ -726,44 +1826,51 @@ private void createHomePageProductos(){
     
     private void jButtonProducts0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts0ActionPerformed
         // TODO add your handling code here:
-        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(0), user);
+        WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages), user);
+        System.out.println("pagina" + numberOfProductPages);
         createHomePage();
         
     }//GEN-LAST:event_jButtonProducts0ActionPerformed
 
     private void jButtonProducts2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts2ActionPerformed
         // TODO add your handling code here:
-        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(2), user);
+        WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+2), user);
+        System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts2ActionPerformed
 
     private void jButtonProducts3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts3ActionPerformed
         // TODO add your handling code here:
-        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(3), user);
+        WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+3), user);
+        System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts3ActionPerformed
 
     private void jButtonProducts4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts4ActionPerformed
         // TODO add your handling code here:
-        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(4), user);
+        WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+4), user);
+        System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts4ActionPerformed
 
     private void jButtonProducts6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts6ActionPerformed
         // TODO add your handling code here:
-        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(6), user);
+        WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+6), user);
+        System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts6ActionPerformed
 
     private void jButtonProducts7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts7ActionPerformed
         // TODO add your handling code here:
-        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(7), user);
+        WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+7), user);
+        System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts7ActionPerformed
 
     private void jButtonProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts1ActionPerformed
         // TODO add your handling code here:
-        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(1), user);
+        WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+1), user);
+        System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts1ActionPerformed
 
@@ -801,7 +1908,8 @@ private void createHomePageProductos(){
 
     private void jButtonProducts5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts5ActionPerformed
         // TODO add your handling code here:
-        WindowsProduct windowsproduct = new WindowsProduct(this , RandomProductsHome.get(5), user);
+       WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+5), user);
+        System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts5ActionPerformed
 
@@ -823,6 +1931,195 @@ private void createHomePageProductos(){
                 }
         
     }//GEN-LAST:event_jButtonAdminActionPerformed
+
+    private void jButtonHomeIconCustomSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconCustomSearchActionPerformed
+        // TODO add your handling code here:
+        if (jComboBoxSearchRelevancia.isVisible()) {
+            jComboBoxSearchRelevancia.setVisible(false);
+            jComboBoxSearchCategoria.setVisible(false);
+        }
+        else {
+            jComboBoxSearchRelevancia.setVisible(true);
+            jComboBoxSearchCategoria.setVisible(true);
+        }
+    }//GEN-LAST:event_jButtonHomeIconCustomSearchActionPerformed
+
+    private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
+        // TODO add your handling code here:
+        createHomePageProductos(1);
+        
+        
+        
+    }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
+
+    private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
+        // TODO add your handling code here:
+        createHomePageProductos(-1);
+    }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
+
+    private void jButtonHomeIconSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconSearchActionPerformed
+        // TODO add your handling code here:
+        //this.listOfProductos=  InventoryServices.orderByStarts("Ordenadores");
+        
+        System.out.println(jComboBoxSearchRelevancia.getSelectedItem());
+        System.out.println(jComboBoxSearchCategoria.getSelectedItem());
+        SetNumberOfUserPagesToZero();
+        
+        listOfProductos.removeAll(listOfProductos);
+        System.out.println(listOfProductos);
+        
+        if (jTextFieldSearchUser.getText().trim().isEmpty()) {
+            System.out.println("El usuario no ha añadido nada al campo de busqueda");
+            
+            try {
+                
+                //InventoryServices.orderByStarts();
+                if (!jComboBoxSearchRelevancia.isVisible()){
+                    listOfProductos= InventoryServices.orderByStarts();
+                    System.out.println(listOfProductos);
+                    SetNumberOfUserPagesToZero();
+                    createHomePageProductos(0);
+                }
+                
+                else    {
+                    
+                    if (jComboBoxSearchRelevancia.getSelectedItem().equals("relevancia")) {
+                                //System.out.println(InventoryServices.orderByStarts());
+                                listOfProductos= InventoryServices.orderByStarts((String) jComboBoxSearchCategoria.getSelectedItem());
+                                if(!listOfProductos.isEmpty() ) {
+                                        SetNumberOfUserPagesToZero();
+                                        createHomePageProductos(0);
+                                        System.out.println(listOfProductos);
+
+                                }  
+                                else {
+                                    System.out.println("No han encontrado resultados");
+                                    System.out.println(listOfProductos);
+                                } 
+                            }
+                    else if (jComboBoxSearchRelevancia.getSelectedItem().equals("precio mayor")) {
+                                //System.out.println(InventoryServices.orderByHighPrice());
+                                listOfProductos= InventoryServices.orderByHighPrice( (String) jComboBoxSearchCategoria.getSelectedItem()  );
+                                if(!listOfProductos.isEmpty() ) {
+                                        SetNumberOfUserPagesToZero();
+                                        createHomePageProductos(0);
+                                        System.out.println(listOfProductos);
+                                }  
+                                else {
+                                    System.out.println("No han encontrado resultados");
+                                    System.out.println(listOfProductos);
+
+                                }
+                            } 
+
+                    else if (jComboBoxSearchRelevancia.getSelectedItem().equals("precio menor")) {
+                                //System.out.println(InventoryServices.orderByLowtPrice());
+                                listOfProductos=InventoryServices.orderByLowtPrice((String) jComboBoxSearchCategoria.getSelectedItem());                    
+                                if(!listOfProductos.isEmpty() ) {
+                                        SetNumberOfUserPagesToZero();
+                                        createHomePageProductos(0);
+                                        System.out.println(listOfProductos);
+                                }  
+                                else {
+                                    //TODO poner el jpanel en visibel 
+                                    //jPanelUsersFound.setVisible(false);
+                                    System.out.println("No han encontrado resultados");
+                                    System.out.println(listOfProductos);
+                                }
+                            } 
+                      
+                }
+                
+//                else {
+//                    System.out.println("No han encontrado resultados");
+//                    //TODO poner el jpanel en visibel 
+//                    //jPanelUsersFound.setVisible(false);
+//                    System.out.println("No han encontrado resultados");
+//                }
+                
+                
+                }
+            
+            catch (Exception e){
+                    System.out.println("Error: El producto no existe o no se ha encontrado en esa categoria: " + e.toString()); 
+                    //jPanelUsersFound.setVisible(false);
+            }
+        }
+        
+        else {
+            System.out.println("El usuario SÏ ha añadido nada al campo de busqueda");
+            
+            
+            try {
+                
+                if (jComboBoxSearchRelevancia.getSelectedItem().equals("relevancia")) {
+                    //System.out.println(InventoryServices.orderByStarts());
+                    listOfProductos= InventoryServices.orderByStarts(jTextFieldSearchUser.getText(), (String) jComboBoxSearchCategoria.getSelectedItem());
+           
+                    if(!listOfProductos.isEmpty() ) {
+                            SetNumberOfUserPagesToZero();
+                            createHomePageProductos(0);
+                            System.out.println(listOfProductos);
+                    }  
+                    else {
+                         //TODO poner el jpanel en visibel 
+                                //jPanelUsersFound.setVisible(false);
+                                System.out.println("No han encontrado resultados");
+                    } 
+                }   
+
+                else if (jComboBoxSearchRelevancia.getSelectedItem().equals("precio mayor")) {
+                    //System.out.println(InventoryServices.orderByHighPrice());
+                    listOfProductos= InventoryServices.orderByHighPrice(jTextFieldSearchUser.getText(), (String) jComboBoxSearchCategoria.getSelectedItem()  );
+                    if(!listOfProductos.isEmpty() ) {
+                            SetNumberOfUserPagesToZero();
+                            createHomePageProductos(0);
+                            System.out.println(listOfProductos);
+                           
+                    }  
+                    else {
+                        System.out.println("No han encontrado resultados");
+                         //TODO poner el jpanel en visibel 
+                                //jPanelUsersFound.setVisible(false);
+                                System.out.println("No han encontrado resultados");
+                                System.out.println(listOfProductos);
+                    }
+                    
+                    
+                }  
+
+                else if (jComboBoxSearchRelevancia.getSelectedItem().equals("precio menor")) {
+                    //System.out.println(InventoryServices.orderByLowtPrice());
+                    listOfProductos=InventoryServices.orderByLowtPrice(jTextFieldSearchUser.getText(),(String) jComboBoxSearchCategoria.getSelectedItem());  
+                    if(!listOfProductos.isEmpty() ) {
+                            SetNumberOfUserPagesToZero();
+                            createHomePageProductos(0);
+                            System.out.println(listOfProductos);
+                           
+                    }  
+                    else {
+                         //TODO poner el jpanel en visibel 
+                                //jPanelUsersFound.setVisible(false);
+                                System.out.println("No han encontrado resultados");
+                                System.out.println(listOfProductos);
+                    }
+                }  
+                
+            }
+            catch (Exception e){
+                System.out.println("Error: El producto no existe: " + e.toString());
+                 //TODO poner el jpanel en visibel 
+                                //jPanelUsersFound.setVisible(false);
+                                System.out.println("No han encontrado resultados");
+                                
+             }
+        
+        
+        
+        }  
+       
+        
+    }//GEN-LAST:event_jButtonHomeIconSearchActionPerformed
 
  // ********************************************************************************************************************
     
@@ -864,7 +2161,8 @@ private void createHomePageProductos(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButtonAdmin;
-    private javax.swing.JButton jButtonHomeIcon4;
+    private javax.swing.JButton jButtonHomeIconCustomSearch;
+    private javax.swing.JButton jButtonHomeIconSearch;
     private javax.swing.JButton jButtonHomeIconsGround5;
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
@@ -880,6 +2178,8 @@ private void createHomePageProductos(){
     private javax.swing.JButton jButtonProducts5;
     private javax.swing.JButton jButtonProducts6;
     private javax.swing.JButton jButtonProducts7;
+    private javax.swing.JComboBox<String> jComboBoxSearchCategoria;
+    private javax.swing.JComboBox<String> jComboBoxSearchRelevancia;
     private javax.swing.JLabel jLabelHomeIcon4;
     private javax.swing.JLabel jLabelStars0;
     private javax.swing.JLabel jLabelStars1;
@@ -906,7 +2206,6 @@ private void createHomePageProductos(){
     private javax.swing.JPanel jPanelProducts7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldProducts0;
     private javax.swing.JTextField jTextFieldProducts1;
     private javax.swing.JTextField jTextFieldProducts2;
@@ -915,5 +2214,6 @@ private void createHomePageProductos(){
     private javax.swing.JTextField jTextFieldProducts5;
     private javax.swing.JTextField jTextFieldProducts6;
     private javax.swing.JTextField jTextFieldProducts7;
+    private javax.swing.JTextField jTextFieldSearchUser;
     // End of variables declaration//GEN-END:variables
 }

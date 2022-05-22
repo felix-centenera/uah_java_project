@@ -18,11 +18,11 @@ public class Opinion {
     
     private LocalDateTime fecha;
     
-    private Clientes cliente;
+    private String cliente;
     
     
 
-    public Opinion(int calificacion, String comentario, Clientes cliente) {
+    public Opinion(int calificacion, String comentario, String cliente) {
         this.calificacion = calificacion;
         this.comentario = comentario;
         this.fecha = LocalDateTime.now();
@@ -51,7 +51,7 @@ public class Opinion {
     }
     
      public String getCliente() {
-        return cliente.getNombre();
+        return cliente;
     }
 
 

@@ -810,7 +810,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                  
                if (  listOfKeys.get(i).getTitulo() == jLabelProductlSelected.getText() ) {
                   found = true;
-                  WindowsProductFromShoppingCart windowsproductFromShoppingCart = new WindowsProductFromShoppingCart(this , listOfKeys.get(i));
+                  WindowsProductReportingInfo windowsproductFromShoppingCart = new WindowsProductReportingInfo(this , listOfKeys.get(i));
 //                  if (UsersServices.deleteObjectShoppingCart(user, listOfKeys.get(i))) {
 //                      System.out.println("INFO El procuto ha podido ser eliminado");
 //                  }
