@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.allsafe.model;
+import java.io.Serializable;
 import static java.lang.Math.round;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author felixcentenera
  */
-public class Producto {
+public class Producto implements Serializable{
     
     private String titulo;
     

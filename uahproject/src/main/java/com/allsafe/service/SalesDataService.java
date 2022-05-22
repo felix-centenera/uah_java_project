@@ -8,6 +8,7 @@ import com.allsafe.mock.InventoryData;
 import com.allsafe.mock.SalesData;
 import com.allsafe.model.Producto;
 import com.allsafe.model.Venta;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -94,52 +95,81 @@ public class SalesDataService {
         //Generate document .txt
         
         FileWriter SaleFacture = new FileWriter("SalesFactures/" + id + ".txt");
+        BufferedWriter bw = new BufferedWriter(SaleFacture);
+        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
         Venta vent = SalesData.getInstance().getSalesDataHashMap().get(id);
         String[] ProductSales = vent.getProductList().split("/");
-        
-        SaleFacture.write("FACTURA DE VENTA");
-        SaleFacture.write("-----------------------------------------------------------------------------------------------------------------------");
-        SaleFacture.write("El Usuario " + vent.getUser() + "relalizo el pedido a AllSafe." + "                                            ID Factura: " +  vent.getID());
-        SaleFacture.write("                                                                                   Targeta de credito: " + vent.getTargetaCredito());
-        SaleFacture.write("                                                                                           A fecha de: " + vent.getDateConfirmedSale());
-        SaleFacture.write("Lista de productos comprados.");
-        SaleFacture.write("-----------------------------------------------------------------------------------------------------------------------");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
+        String ant = "";
+        //SaleFacture.newLine();
+        SaleFacture.write("_______________________________________________________________________________________________________________________\n");
+        SaleFacture.write("FACTURA DE VENTA\n");
+        SaleFacture.write("_______________________________________________________________________________________________________________________\n");
+        SaleFacture.write("El Usuario " + vent.getUser() + " relalizo el pedido a AllSafe." + "                                            ID Factura: " +  vent.getID() +"\n");
+        SaleFacture.write("                                                                                   Targeta de credito: " + vent.getTargetaCredito() +"\n");
+        SaleFacture.write("                                                                                           A fecha de: " + vent.getDateConfirmedSale().format(formatoCorto) + "\n");
+        SaleFacture.write("_______________________________________________________________________________________________________________________\n");
+        SaleFacture.write("Lista de productos comprados.\n");
+        SaleFacture.write("_______________________________________________________________________________________________________________________\n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
         for(String i : ProductSales){
-            String[] arr = i.split(",");
-            System.out.println("Producto:       " + arr[0] + "              Precio: " + arr[1]);
-            
+            if(ant.length() == i.length()){
+                String[] arr = i.split(",");
+                SaleFacture.write("Producto:       " + arr[0] + (SalesDataService.StringCreator(61)) + "Precio: " + arr[1] + "\n");
+                ant = arr[0];
+            }else if(ant.length() > i.length()){
+                int carc = ant.length() - i.length();
+                String[] arr = i.split(",");
+                SaleFacture.write("Producto:       " + arr[0] + (SalesDataService.StringCreator(61 - carc)) + "Precio: " + arr[1] + "\n");
+                ant = arr[0];
+
+            }else if(ant.length() < i.length()){
+                int carc = i.length() - ant.length();
+                String[] arr = i.split(",");
+                SaleFacture.write("Producto:       " + arr[0] + (SalesDataService.StringCreator(61 + carc)) + "Precio: " + arr[1] + "\n");
+                ant = arr[0];
+
+            }
+                
         }
-        SaleFacture.write("-----------------------------------------------------------------------------------------------------------------------");
-        SaleFacture.write("                                                                                                        Total: " + vent.getTotal());
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write(" ");
-        SaleFacture.write("CONDICIONES Y FORMA DE PAGO");
-        SaleFacture.write(" ");
-        SaleFacture.write("El pago podra realizarse en un plazo de 15 dias.");
-        SaleFacture.write("AllSafe todos los derechos reservados");
-        
+        SaleFacture.write("_______________________________________________________________________________________________________________________\n");
+        SaleFacture.write("                                                                                                        Total: " + vent.getTotal() +"\n");
+        SaleFacture.write("_______________________________________________________________________________________________________________________\n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write(" \n");
+        SaleFacture.write("CONDICIONES Y FORMA DE PAGO\n");
+        SaleFacture.write(" \n");
+        SaleFacture.write("El pago podra realizarse en un plazo de 15 dias.\n");
+        SaleFacture.write("AllSafe todos los derechos reservados\n");
+        SaleFacture.write("_______________________________________________________________________________________________________________________\n");
+
         
         SaleFacture.close();
     }
     
+    public static String StringCreator(int numero){
+       String chart = "";
+       for(int i = 0; i < numero; i++){
+           chart = chart + " ";
+       }
+       return(chart);
+    }
 }

@@ -4,11 +4,13 @@
  */
 package com.allsafe.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author felixcentenera
  */
-public class Direccion {
+public class Direccion implements Serializable{
     
     private String calle;
     
