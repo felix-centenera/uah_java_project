@@ -518,6 +518,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             principal.setVisible(true);
             
         }
+        this.dispose();
+        principal.setVisible(true);
     }//GEN-LAST:event_jButton1OpinarActionPerformed
 
     private void jTextFieldVasACrearOpinionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVasACrearOpinionActionPerformed
