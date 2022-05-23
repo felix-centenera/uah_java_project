@@ -86,8 +86,17 @@ public class WindowsProductReportingInfo extends javax.swing.JFrame  {
             jTextFieldProductoCategoria5.setText(producto.getCategoria());
             // Set the Precio of the product
             jFormattedTextFieldProductoPrecio.setValue(producto.getPrecio());
-            jFormattedTextFieldProductoStock.setValue(producto.getStock());
             
+           
+            if (producto.getStock() == 0){
+                jTextFieldProductoStock.setVisible(true);
+                //jFormattedTextFieldProductoStock.setValue(producto.getStock());
+                jTextFieldProductoStock.setText("ProductoAgotado");
+            } 
+            else {
+            jTextFieldProductoStock.setVisible(false);
+            }
+         
             
             // Set title of the producto 
             //jLabel1Calificacion.
@@ -222,7 +231,7 @@ private boolean checkLoginInterfaz(){
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2Comentarios = new javax.swing.JTextArea();
         jTextFieldFechaCom = new javax.swing.JTextField();
-        jFormattedTextFieldProductoStock = new javax.swing.JFormattedTextField();
+        jTextFieldProductoStock = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         jLabel3Product = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -270,10 +279,16 @@ private boolean checkLoginInterfaz(){
         jTextFieldProductoCategoria5.setText("Tipo");
         jTextFieldProductoCategoria5.setBorder(null);
 
-        jFormattedTextFieldProductoPrecio.setBackground(new java.awt.Color(255, 153, 0));
+        jFormattedTextFieldProductoPrecio.setEditable(false);
         jFormattedTextFieldProductoPrecio.setBorder(null);
         jFormattedTextFieldProductoPrecio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        jFormattedTextFieldProductoPrecio.setText("12");
         jFormattedTextFieldProductoPrecio.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jFormattedTextFieldProductoPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldProductoPrecioActionPerformed(evt);
+            }
+        });
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -319,10 +334,13 @@ private boolean checkLoginInterfaz(){
                 .addContainerGap())
         );
 
-        jFormattedTextFieldProductoStock.setBackground(new java.awt.Color(255, 153, 0));
-        jFormattedTextFieldProductoStock.setBorder(null);
-        jFormattedTextFieldProductoStock.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
-        jFormattedTextFieldProductoStock.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jTextFieldProductoStock.setText("Agotado");
+        jTextFieldProductoStock.setBorder(null);
+        jTextFieldProductoStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldProductoStockActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -331,7 +349,7 @@ private boolean checkLoginInterfaz(){
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jFormattedTextFieldProductoStock, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldProductoStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldProductoCaracteristicas3, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -352,10 +370,10 @@ private boolean checkLoginInterfaz(){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextFieldProductoCategoria5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jFormattedTextFieldProductoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jFormattedTextFieldProductoStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(jFormattedTextFieldProductoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextFieldProductoStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -399,7 +417,7 @@ private boolean checkLoginInterfaz(){
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1170, 470));
@@ -518,6 +536,14 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProductoCaracteristicas3ActionPerformed
 
+    private void jFormattedTextFieldProductoPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldProductoPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldProductoPrecioActionPerformed
+
+    private void jTextFieldProductoStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProductoStockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldProductoStockActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -529,7 +555,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JButton jButtonHomeIconsGround8;
     private javax.swing.JButton jButtonHomeIconsGround9;
     private javax.swing.JFormattedTextField jFormattedTextFieldProductoPrecio;
-    private javax.swing.JFormattedTextField jFormattedTextFieldProductoStock;
     private javax.swing.JLabel jLabel1Calificacion;
     private javax.swing.JLabel jLabel3Product;
     private javax.swing.JLabel jLabelHomeIcon4;
@@ -551,6 +576,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JTextField jTextFieldFechaCom;
     private javax.swing.JTextField jTextFieldProductoCaracteristicas3;
     private javax.swing.JTextField jTextFieldProductoCategoria5;
+    private javax.swing.JTextField jTextFieldProductoStock;
     private javax.swing.JTextField jTextFieldProductoTitulo2;
     // End of variables declaration//GEN-END:variables
 }

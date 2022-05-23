@@ -186,6 +186,11 @@ private JFrame getFrame(){
         });
 
         jButtonSalesManagement.setText("Sales Management");
+        jButtonSalesManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalesManagementActionPerformed(evt);
+            }
+        });
 
         jButtonProductManagement.setText("Product Management");
         jButtonProductManagement.addActionListener(new java.awt.event.ActionListener() {
@@ -352,6 +357,11 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         //WindowsAdminUserMngt windowsadminusermngt = new WindowsAdminUserMngt(this ,  user);
         WindowsAdminProductMngt windowsadminproductmngt = new WindowsAdminProductMngt(this ,  user);
     }//GEN-LAST:event_jButtonProductManagementActionPerformed
+
+    private void jButtonSalesManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalesManagementActionPerformed
+        // TODO add your handling code here:
+        WindowsAdminSalesSearch SalesSearch = new WindowsAdminSalesSearch(this , user);
+    }//GEN-LAST:event_jButtonSalesManagementActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
