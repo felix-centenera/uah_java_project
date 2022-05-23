@@ -864,17 +864,22 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
         //Comprobar stock carrito:
         
-        if (SalesDataService.CheckInventoryForSales(user)) {
-            System.out.println("puede continuar la compra");
+        if (SalesDataService.Sales(user)) {
+            System.out.println("La compra se ha realizado con exito, procedemos a vaciar el carrito");
+            if (UsersServices.cleanShoppingCart(user)){
+            System.out.println("INFO: Se ha limpiado el carrito");
+             }
+             else {
+                System.out.println("ERROR: no ha podido limpiarse el carrito");
+        
+                }
+        createWindowsProductPage();
+              
         }
         else {
             System.out.println("no se puede continuar el proceso de compra");
         }
-            
-        
-        
-        
-        
+              
     }//GEN-LAST:event_jButton1ActionPerformed
 
     

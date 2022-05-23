@@ -27,6 +27,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
@@ -110,8 +112,8 @@ public class SalesDataService {
         SaleFacture.write("_______________________________________________________________________________________________________________________\n");
         SaleFacture.write("FACTURA DE VENTA\n");
         SaleFacture.write("_______________________________________________________________________________________________________________________\n");
-        SaleFacture.write("El Usuario " + vent.getUser() + " relalizo el pedido a AllSafe." + "                                            ID Factura: " +  vent.getID() +"\n");
-        SaleFacture.write("                                                                                   Tarjeta de credito: " + vent.getTarjetaCredito() +"\n");
+        SaleFacture.write("El Usuario " + vent.getUser() + " realizó el pedido a AllSafe." + "                                            ID Factura: " +  vent.getID() +"\n");
+        SaleFacture.write("                                                                                   Tarjeta de crédito: " + vent.getTarjetaCredito() +"\n");
         SaleFacture.write("                                                                                           A fecha de: " + vent.getDateConfirmedSale().format(formatoCorto) + "\n");
         SaleFacture.write("_______________________________________________________________________________________________________________________\n");
         SaleFacture.write("Lista de productos comprados.\n");
@@ -164,7 +166,7 @@ public class SalesDataService {
         SaleFacture.write(" \n");
         SaleFacture.write("CONDICIONES Y FORMA DE PAGO\n");
         SaleFacture.write(" \n");
-        SaleFacture.write("El pago podra realizarse en un plazo de 15 dias.\n");
+        SaleFacture.write("El pago podrá realizarse en un plazo de 15 días.\n");
         SaleFacture.write("AllSafe todos los derechos reservados\n");
         SaleFacture.write("_______________________________________________________________________________________________________________________\n");
 
@@ -209,33 +211,82 @@ public class SalesDataService {
                 return false;
             } 
         }
-        
         return true; 
-    }    
+    }
+
+    public static boolean SalesInventoryDepart(Usuario user){
+        
+        ArrayList<Producto> listOfProducts  = UsersServices.getObjectShoppingCart(user);
+        Map<String,Integer> mapCarrito = new HashMap();
+        
+        for (Producto producto : listOfProducts ){
+            if (!mapCarrito.containsKey(producto.getTitulo()) ){
+                mapCarrito.put(producto.getTitulo(), 1);
+            }
+            else {
+                mapCarrito.put(producto.getTitulo(), +1);
+            }
+        }
+        
+        
+        for (String producto :  mapCarrito.keySet()) {
+              if (! InventoryServices.deleteStockProduct(producto, mapCarrito.get(producto)))
+                  return false;
+        }
+        System.out.println("INFO: Se han eliminado los productos vendidos del inventario");
+        return true; 
+    } 
+    
 
     public static boolean Sales(Usuario user){
-    
-        ArrayList<Producto> listOfProducts  = UsersServices.getObjectShoppingCart(user);
-        String[] ProductList = new String[ listOfProducts.size()];
-      
         
-         for (int i = 0; i < listOfProducts.size(); i++) {
-            ProductList[i]= listOfProducts.get(i).getTitulo();
-        } 
-       
-        int total= SumTotal(listOfProducts);
-        
-        if ((UsersServices.TypeUser(user.getCorreo(),user.getClave())).equals("ClienteParticular")) {
-            ClienteParticular c1 = (ClienteParticular) user;
-            Venta v1 = new Venta(ProductList,c1.getCorreo(), total, c1.getTarjetaDeCredito().getnumeroTarjetaCredito());
-            SalesData.getInstance().getSalesDataHashMap().put(v1.getID(), v1);
-                   
+        if ( CheckInventoryForSales(user)) { 
+            System.out.println("INFO: Tenemos la cantidad suficiente del producto");
+            
+            ArrayList<Producto> listOfProducts  = UsersServices.getObjectShoppingCart(user);
+            String[] ProductList = new String[ listOfProducts.size()];
+            
+            for (int i = 0; i < listOfProducts.size(); i++) {
+                ProductList[i]= listOfProducts.get(i).getTitulo();
+            } 
+            int total= SumTotal(listOfProducts);
+            
+            if (SalesInventoryDepart (user)){
+                        if ((UsersServices.TypeUser(user.getCorreo(),user.getClave())).equals("ClienteParticular")) {
+                            ClienteParticular c1 = (ClienteParticular) user;
+                            Venta v1 = new Venta(ProductList,c1.getCorreo(), total, c1.getTarjetaDeCredito().getnumeroTarjetaCredito());
+                            SalesData.getInstance().getSalesDataHashMap().put(v1.getID(), v1);
+                            System.out.println("INFO: La compra se ha realizado con éxito");
+                            
+                            try {
+                                generateSaleDocument(v1.getID());
+                            } catch (IOException ex) {
+                                Logger.getLogger(SalesDataService.class.getName()).log(Level.SEVERE, null, ex);
+                                System.out.println("INFO: NO se ha podido generar la factura, contactar con Ventas");
+                            }
+                             
+                            return true;
+
+                        }
+                        else{
+                            ClienteEmpresa c1 = (ClienteEmpresa) user;
+                            Venta v1 = new Venta(ProductList,c1.getCorreo(), total, c1.getTarjetaDeCredito().getnumeroTarjetaCredito());
+                            SalesData.getInstance().getSalesDataHashMap().put(v1.getID(), v1);
+                            System.out.println("INFO: La compra se ha realizado con éxito");
+                            return true;
+                        }
+            }
+            
+            else {
+                 System.out.println("INFO: La compra no se ha realizado con éxito, no ha sido posible eliminar los productos del inventario");
+                 return false;
+            }
+                        
+                        
         }
-        else{
-            ClienteEmpresa c1 = (ClienteEmpresa) user;
-            Venta v1 = new Venta(ProductList,c1.getCorreo(), total, c1.getTarjetaDeCredito().getnumeroTarjetaCredito());
-            SalesData.getInstance().getSalesDataHashMap().put(v1.getID(), v1);
+        else {
+            System.out.println("INFO: No Tenemos la cantidad suficiente del producto");
+            return false;
         }
-        return true;
     }
 }

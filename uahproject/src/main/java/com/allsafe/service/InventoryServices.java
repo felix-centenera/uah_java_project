@@ -77,6 +77,32 @@ public class InventoryServices {
     }
     
     
+    // metodo borrar:
+    public static boolean deleteStockProduct(String titulo, int stock){
+        //Eliminar producto teniendo la Key
+        //inv.getInventario().remove(titulo);
+        //InventoryData.getInstance().getInventoryHashMap().remove(titulo);
+        
+        if (  InventoryData.getInstance().getInventoryHashMap().containsKey(titulo)) {
+            try {
+                int currentlyStock = InventoryData.getInstance().getInventoryHashMap().get(titulo).getStock();
+                InventoryData.getInstance().getInventoryHashMap().get(titulo).setStock( currentlyStock - stock);
+                return true;
+            }
+            catch (Exception e){
+                System.out.println("Error: No se ha podido modificar el stock al producto: " + e.toString()); 
+               return false;
+            }
+        }
+        else {
+           return false;
+       }
+    }
+    
+    
+    
+    
+    
     public static boolean addOpinionToAProducto(String titulo, int calificacion, String comentario, String cliente) {
             System.out.println("hola");
             
