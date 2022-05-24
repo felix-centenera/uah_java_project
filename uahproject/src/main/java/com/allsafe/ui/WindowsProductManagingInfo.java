@@ -602,8 +602,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
         //InventoryServices.setProduct(titulo, caracteristicas, categoria, ERROR, fotografia, ABORT);
         if ( InventoryServices.setProduct(jTextFieldProductoTitulo.getText(), jTextFieldProductoCaracteristicas.getText(), jTextFieldProductoCategoria.getText(), ((Number) jFormattedTextFieldProductoPrecio.getValue()).intValue(), jTextFieldProductoPathImg.getText(), ( (Number) jFormattedTextFieldProductoStock.getValue()).intValue())) {
-            //SAVE INVENTORY DATA
-            InventoryServices.saveInventoryData();
             System.out.println("INFO: El producto se ha modificado con exito");
             this.dispose();
             principal.setVisible(true);

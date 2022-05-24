@@ -38,7 +38,6 @@ public class Venta implements Serializable {
      * Nos parece un gasto innecesario de memoria almacenar los productos en un arrayList o alguna estructura de datos debido a
      * que esto solo se va a leer para hacer la consulta de venta si realizar modificacion
      * 
-     * @param DateConfirmedSale
      * @param ProductList
      * @param user
      * @param Total
@@ -55,43 +54,71 @@ public class Venta implements Serializable {
         this.Total = Total;
         this.TarjetaCredito = TarjetaCredito;
     }
-
+    /**
+     * @return ID. 
+     * Getter*/
     public String getID() {
         return ID;
     }
-
+    /**
+     * @param ID 
+     * Setter*/
     public void setID(String ID) {
         this.ID = ID;
     }
-
+    /**
+     * @return  DateConfirmedSale
+     * Getter*/
     public LocalDateTime getDateConfirmedSale() {
         return DateConfirmedSale;
     }
-
+    /**
+     * @param DateConfirmedSale 
+     * Setter*/
     public void setDateConfirmedSale(LocalDateTime DateConfirmedSale) {
         this.DateConfirmedSale = DateConfirmedSale;
     }
+    /**
+     * @param Total 
+     * Setter*/
     public void setTotal(double Total){
         this.Total = Total;
     }
+    /**
+     * @return 
+     * Getter*/
     public double getTotal(){
         return(Total);
     }
-
+    /**
+     * @return 
+     * Getter*/
     public String getUser() {
         return user;
     }
+    /**
+     * @param user 
+     * Setter*/
     public void setUser(String user) {
         this.user = user;
     }
+    /**
+     * @return 
+     * Getter*/
 
     public String[] getProductList() {
         return ProductList;
     }
+    /**
+     * @param ProductList
+     * Setter*/
 
     public void setProductList(String[] ProductList) {
         this.ProductList = ProductList;
     }
+    /**
+     * @return 
+     * Getter*/
     public long getTarjetaCredito() {
         return TarjetaCredito;
     }
@@ -117,7 +144,9 @@ public class Venta implements Serializable {
 //    }
 //    
  
-
+    /**
+     * Se encarga de mostrarlo el contenido de los atributos del objeto
+     */
     @Override
     public String toString() {
         return "Venta{" + "ID=" + ID + ", DateConfirmedSale=" + DateConfirmedSale + ", user=" + user + ", Total=" + Total + '}';

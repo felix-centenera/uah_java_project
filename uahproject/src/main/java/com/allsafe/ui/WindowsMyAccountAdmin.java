@@ -533,8 +533,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         String clase = user.getClass().getSimpleName();
         if(clase.equals("Administrador")) {
             if (UsersServices.setUser(jPasswordField.getText(),JTextFieldUserMail.getText())) {
-                //SAVE USER DATA:
-                 UsersServices.saveUserData();
                 System.out.println("INFO: El usuario se ha sido modificado con exito");
                 this.dispose();
                 

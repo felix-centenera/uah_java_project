@@ -1099,8 +1099,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         
          if (jLabelProduct.getText() != "Producto"){
              if (InventoryServices.deleteProduct(jLabelProduct.getText())) {
-                 //SAVE INVENTORY DATA
-                 InventoryServices.saveInventoryData();
                  System.out.println("INFO: El producto se ha eliminado del inventario");
              
              }

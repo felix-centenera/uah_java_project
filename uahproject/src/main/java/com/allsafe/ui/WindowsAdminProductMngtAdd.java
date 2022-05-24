@@ -601,8 +601,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         
          String rutaFotoCompleta = "Img/shop/" +jFormattedPathPhoto.getText()  ;
          if ( InventoryServices.addProduct(JTextFieldProductName.getText(), JTextFieldDescriptionProduct.getText(), (String) jComboBoxCategoriaProduct.getSelectedItem(), ((Number) jFormattedPriceProduct.getValue()).intValue(), rutaFotoCompleta, ( (Number) jFormattedUNitsProduct.getValue()).intValue()) ) {
-             //SAVE INVENTORY DATA
-             InventoryServices.saveInventoryData();
              System.out.println("INFO :EL productos se ha creado correctamente");
              
          }
@@ -610,8 +608,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
          else {
              System.out.println("ERROR: El producto no ha podido crearse");
          }
-        this.dispose();
-        secundariaLogin.setVisible(true);
+        
         
     
 //        System.out.println(jFormattedTextTCFechaCaducidad.getValue());

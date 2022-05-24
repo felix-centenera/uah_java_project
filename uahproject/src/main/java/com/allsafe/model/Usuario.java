@@ -4,14 +4,13 @@
  */
 package com.allsafe.model;
 
-import java.io.Serializable;
 import java.util.Random;
 
 /**
  *
  * @author felixcentenera
  */
-public abstract class  Usuario implements Serializable{
+public abstract class  Usuario {
     
     private String clave;
     private String correo;
@@ -19,17 +18,25 @@ public abstract class  Usuario implements Serializable{
     private static int generatorId = 0;
     private Token token ;
     private boolean administrador = false;
-
+    
+    /**
+     * @return Metodo que devuelve booleano si es administrador*/
     public boolean isAdministrador() {
         return administrador;
     }
-
+    /**
+     * @param administrador Setter*/
     public void setAdministrador(boolean administrador) {
             this.administrador = administrador;
     }
 
     
-
+    /**
+     * @param clave
+     * @param correo
+     * @param token
+     * Constructor de Usuario.
+     */
     public Usuario(String clave, String correo, Token token) {
         this.clave = clave;
         this.correo = correo;
@@ -37,51 +44,76 @@ public abstract class  Usuario implements Serializable{
         incrementaId();
         this.token = token;
     } 
-    
+    /**
+     * @return generatorId
+     * Retorna el Id incrementandolo en uno
+     */
     private int incrementaId() {
         generatorId++;
         return generatorId;
     }
-    
+    /**
+     * @return generatorId
+     * Getter*/
     public static int getGeneratorId() {
         return generatorId;
     }
-
+    /**
+     * @return idUser
+     * Getter */
     public String getIdUser() {
         return idUser;
     }
 
-
+    /**
+     * @return correo
+     * Getter*/
     public String getCorreo() {
         return correo;
     }
-
+    /**
+     * @param correo
+     * Setter
+     */
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
-
+    /**
+     * @return clave
+     * Getter*/
     public String getClave() {
         return clave;
     }
-
+    /**
+     * @param clave 
+     * Setter*/
     public void setClave(String clave) {
         this.clave = clave;
     }
-    
+    /**
+     * @return 
+     * Getter*/
     public Token getToken() {
         return token;
     }
-
+    /**
+     * @param token 
+     * Setter*/
     public void setToken(Token token) {
         this.token = token;
     }
-    
+    /**
+     * @return RandomNumber
+     * Genera un numero aleatorio y lo retorna como entero
+     */
     private int generateRandomNumber(){
         Random rand = new Random();
         return rand.nextInt(0, 10000);
     }
-
+    /**
+     * Devuelve los valores de los atributos que hay en pantalla.
+     */
     @Override
     public String toString() {
         return "Usuario{" + "clave=" + clave + ", correo=" + correo + ", idUser=" + idUser + '}';

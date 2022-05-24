@@ -505,8 +505,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             //jTextFieldProductoTitulo2.getText()
             //int hola = (int) jComboBoxStarts.getSelectedItem();
             if(InventoryServices.addOpinionToAProducto(jTextFieldProductoTitulo2.getText(),Integer.parseInt( jComboBoxStarts.getSelectedItem().toString().substring(0, 1)), jTextAreaOpinion.getText(), user.getCorreo())) {
-                //SAVE INVENTORY DATA
-                 InventoryServices.saveInventoryData();
                 System.out.println("INFO: Se ha registrado correctamente la opinión");
             }
             else{

@@ -26,7 +26,10 @@ public class InventoryData {
     
     //Evitamos la instanciacón directa. Constructor vacío.
     private InventoryData(){}
-    
+        /**
+         * @return 
+         * Retorna la instancia de nuestro objeto singelton.
+         */
      public static InventoryData getInstance(){
         if (instance ==null) {
             instance = new InventoryData();

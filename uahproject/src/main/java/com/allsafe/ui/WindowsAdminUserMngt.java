@@ -865,11 +865,9 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             UsersServices.addAdmin(jPasswordUserPass.getText(), jTextFieldUserMail.getText()); 
             jPasswordUserPass.setText("");
             jTextFieldUserMail.setText("");
-            //SAVE USER DATA:
-            UsersServices.saveUserData();
-//            //TO TEST DELETE both prints
-//            System.out.println("Usuarios pedidos directamente:" + UsersServices.getUser());
-//            System.out.println("Usuarios pedidos por servicio:" + UsersServices.getUser());
+            //TO TEST DELETE both prints
+            System.out.println("Usuarios pedidos directamente:" + UsersServices.getUser());
+            System.out.println("Usuarios pedidos por servicio:" + UsersServices.getUser());
         }
         else {
             System.out.println("INFO: DEBE Añadir un usuario");
@@ -1021,8 +1019,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
          if (jLabelMailUser.getText() != "mail"){
              if (UsersServices.deleteUser(jLabelMailUser.getText())) {
-                 //SAVE USER DATA:
-                 UsersServices.saveUserData();
                  System.out.println("INFO: El usuario se ha eliminado con exito");
              
              }

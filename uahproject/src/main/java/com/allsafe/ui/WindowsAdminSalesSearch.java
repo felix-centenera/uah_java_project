@@ -62,16 +62,6 @@ public class WindowsAdminSalesSearch extends javax.swing.JFrame  {
             jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("Icons/png/home.png"));
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
             jButtonHomeIconsGround9.setIcon(new javax.swing.ImageIcon("Icons/png/back.png"));
-            /****************************VISUALIZAR LAS VENTAS QUE TENEMOS INSTANCIADAS*******************************************/
-            /*********************************************************************************************************************/
-//            System.out.println("**************************************************");
-//                for(Venta venta :SalesData.getInstance().getSalesDataHashMap().values()){
-//                    
-//                    System.out.println(venta.getDateConfirmedSale());
-//                
-//                
-//                }
-//                System.out.println("***************************************************");
          
         } 
         catch (Exception e) {
@@ -193,7 +183,7 @@ private JFrame getFrame(){
             }
         });
 
-        jSpinnerDate.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, null, java.util.Calendar.MINUTE));
+        jSpinnerDate.setModel(new javax.swing.SpinnerDateModel());
         jSpinnerDate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jSpinnerDateMouseClicked(evt);
@@ -228,7 +218,7 @@ private JFrame getFrame(){
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
@@ -417,41 +407,19 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                 LocalDateTime localDate = fecha2.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
                 DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
 
-                //System.out.println("-------------" + SalesData.getInstance().getSalesDataHashMap().get(SalesData.getInstance().getSalesDataHashMap().keySet().toArray()[0]).getDateConfirmedSale().format(formatoCorto));
+                System.out.println("-------------" + SalesData.getInstance().getSalesDataHashMap().get(SalesData.getInstance().getSalesDataHashMap().keySet().toArray()[0]).getDateConfirmedSale().format(formatoCorto));
 
                 System.out.println(localDate.format(formatoCorto));
                 boolean i = SalesDataService.IsLocalDateTimeInDDBB(localDate.format(formatoCorto));
                 System.out.println(i);
                 if(i == true){
 
-                    ArrayList <Venta> list = SalesDataService.getSalesFounded(localDate.format(formatoCorto));
-                    
-                    if(list.size() == 1){
-                        System.out.println("INFO: Venta encontrada");
-                        System.out.println(list.get(0));
-                        Venta venta = (Venta)list.get(0);
-                        //Cogemos y llamamos al constructor de WindowsAdminSalesShowOneSale para ver las caracteristicas del producto
+                    Venta venta = SalesDataService.getSalesFounded(localDate.format(formatoCorto));
+                    System.out.println("INFO: Venta encontrada");
+                    System.out.println(venta.toString());
+                    //Cogemos y llamamos al constructor de WindowsAdminSalesShowOneSale para ver las caracteristicas del producto
 
-                        WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , venta);
-                    }else{
-                        //ArrayList<Venta> arr = new ArrayList<>(list);
-                        ArrayList<String> Str = new ArrayList<>();
-                        list.forEach((Venta) -> Str.add(Venta.getID()));
-                        
-                        System.out.println(Arrays.toString(list.toArray()));
-                        System.out.println("INFO: Hay mas de dos Ventas realizadas en esa misma fecha.");
-                        WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , Str);
-                        
-                        }
-                      
-                        
-                    
-                    
-//                    System.out.println("INFO: Venta encontrada");
-//                    System.out.println(venta.toString());
-//                    //Cogemos y llamamos al constructor de WindowsAdminSalesShowOneSale para ver las caracteristicas del producto
-//
-//                    WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , venta);
+                    WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , venta);
 
                 }else{
                     JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);

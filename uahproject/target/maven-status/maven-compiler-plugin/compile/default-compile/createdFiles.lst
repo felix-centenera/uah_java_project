@@ -39,6 +39,7 @@ com/allsafe/ui/WindowsCreateUser$4.class
 com/allsafe/ui/WindowsUserShoppingCart$4.class
 com/allsafe/ui/Home$7.class
 com/allsafe/ui/WindowsAdminSalesShowAllProducts$2.class
+.netbeans_automatic_build
 com/allsafe/ui/WindowsAdmin$1.class
 com/allsafe/ui/WindowsAdminProductMngt$5.class
 com/allsafe/ui/WindowsAdminUserMngt$6.class
@@ -174,7 +175,6 @@ com/allsafe/model/Token.class
 com/allsafe/ui/WindowsProductManagingInfo$6.class
 com/allsafe/ui/WindowsAdminProductMngtAdd$5.class
 com/allsafe/ui/WindowsAdminSalesShowOneSale$2.class
-com/allsafe/ui/WindowsUserShoppingCart$15.class
 com/allsafe/ui/WindowsCreateUser$14.class
 com/allsafe/service/Login.class
 com/allsafe/ui/WindowsProduct$8.class

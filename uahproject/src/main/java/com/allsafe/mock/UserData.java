@@ -4,31 +4,23 @@
  */
 package com.allsafe.mock;
 
-import com.allsafe.model.Administrador;
-import com.allsafe.model.ClienteEmpresa;
-import com.allsafe.model.ClienteParticular;
-import com.allsafe.model.Direccion;
-import com.allsafe.model.TarjetaDeCredito;
-import com.allsafe.model.Token;
 import com.allsafe.model.Usuario;
-import com.allsafe.service.RadomGenerator;
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.stream.Collectors;
 
 /**
  *
  * @author felixcentenera
  */
-public class UserData implements Serializable{
+public class UserData {
     
     //Una instancia del objeto que va a existir
     private static  UserData  instance = null;
     HashMap<String, Usuario> usuarios = new HashMap<>();
     
+    /**
+     * @return usuarios. 
+     *Getter
+     */
     public HashMap<String, Usuario> getUserHashMap(){
        return usuarios;
     }
@@ -37,6 +29,10 @@ public class UserData implements Serializable{
     //Evitamos la instanciacón directa. Constructor vacío.
     private UserData(){}
     
+    /**
+     * @return instance
+     * Retorna la instancia
+     */
      public static UserData getInstance(){
         if (instance ==null) {
             instance = new UserData();

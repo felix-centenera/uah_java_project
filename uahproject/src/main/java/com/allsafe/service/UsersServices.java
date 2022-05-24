@@ -13,18 +13,10 @@ import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Token;
 import com.allsafe.model.Usuario;
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
@@ -372,55 +364,4 @@ public class UsersServices {
         String clase = UserData.getInstance().getUserHashMap().get(correo).getClass().getSimpleName();
         return clase;  
     }
-    
-    
-    /**
-     * SERIALIZACION DE LOS ARCHIVOS
-     */
-    
-    public static void saveUserData() {
-    //Vamos a Serializar el objeto SalesData en memoria no Volatil.
-    /**
-     * Se nos obliga a meter una exception
-     */
-    //UserData userDat = UserData.getInstance();
-    try {
-        FileOutputStream myFileOutStream = new  FileOutputStream ("localDataMock/UserDataLocal.dat");
-        ObjectOutputStream myObjectOutStream = new ObjectOutputStream(myFileOutStream);
-        myObjectOutStream.writeObject(UserData.getInstance().getUserHashMap());
-        
-        myObjectOutStream.close();
-        myFileOutStream.close();
-        System.out.println("INFO: Se guardan los usuarios" );
-    }
-    catch (IOException e){
-                    System.out.println("Error:  No ha podido realizarse el guardado: " + e.toString()); 
-                    //jPanelUsersFound.setVisible(false);
-            }
-    } 
-    
-    
-    public static void initUserDataMock() {
-        try {      
-            FileInputStream fileInput = new FileInputStream("localDataMock/UserDataLocal.dat");
-            ObjectInputStream objectInput = new ObjectInputStream(fileInput);     
-            try {
-                HashMap<String, Usuario> usuarios = new HashMap<>();
-                usuarios = (HashMap)objectInput.readObject();
-                UserData.getInstance().getUserHashMap().putAll(usuarios);
-                System.out.println("INFO : Se realiza la carga de usuarios");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(UsersServices.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            objectInput.close();
-            fileInput.close();    
-        }
-        catch (IOException e){
-                    System.out.println("Error:  No ha podido realizarse la recarga de usuarios: " + e.toString()); 
-            }
-}
-    
-    
-    
-    
 }
