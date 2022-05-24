@@ -12,6 +12,7 @@ import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Token;
 import com.allsafe.model.Usuario;
 import com.allsafe.service.RadomGenerator;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
  *
  * @author felixcentenera
  */
-public class UserData {
+public class UserData implements Serializable{
     
     //Una instancia del objeto que va a existir
     private static  UserData  instance = null;

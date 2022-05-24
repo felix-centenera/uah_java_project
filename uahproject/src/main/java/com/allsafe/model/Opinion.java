@@ -4,13 +4,14 @@
  */
 package com.allsafe.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
  *
  * @author felixcentenera
  */
-public class Opinion {
+public class Opinion implements Serializable{
     
     private int calificacion;
     

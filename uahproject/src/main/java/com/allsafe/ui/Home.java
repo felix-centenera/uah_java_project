@@ -18,10 +18,19 @@ import com.allsafe.model.Usuario;
 import com.allsafe.service.InventoryServices;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
+import static com.allsafe.service.SalesDataService.initSalesDataMock;
 import com.allsafe.service.UsersServices;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -38,10 +47,7 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         createHomePage();
         createHomePageProductos(0);
-        
-        initUserMock();
-        
-        
+        initDataMock();   
     }
 
     /**
@@ -567,11 +573,22 @@ Inventario i1 = new Inventario();
 
 
 
-private void initUserMock(){
+private void initDataMock(){
+    UsersServices.initUserDataMock();
+    InventoryServices.initInventoryDataMock();
+    initSalesDataMock();
+    
+    
     UserData userData = UserData.getInstance();
     UsersServices.createMockUser();
     UsersServices.createMockAdminUser();
+    
 }
+
+
+
+
+
 
 //método comprobar login
 private boolean checkLogin(){

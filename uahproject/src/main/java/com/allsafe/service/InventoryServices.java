@@ -5,13 +5,21 @@
 package com.allsafe.service;
 
 import com.allsafe.mock.InventoryData;
+import com.allsafe.mock.UserData;
 import com.allsafe.model.Inventario;
 import com.allsafe.model.Opinion;
 import com.allsafe.model.Producto;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
@@ -85,6 +93,7 @@ public class InventoryServices {
         
         if (  InventoryData.getInstance().getInventoryHashMap().containsKey(titulo)) {
             try {
+                System.out.println("Voy a borrar: " + stock + " que son los que me has dicho,ahora mismo hay" );
                 int currentlyStock = InventoryData.getInstance().getInventoryHashMap().get(titulo).getStock();
                 InventoryData.getInstance().getInventoryHashMap().get(titulo).setStock( currentlyStock - stock);
                 return true;
@@ -365,5 +374,53 @@ public class InventoryServices {
         }
         return(ArrayCacheKeys);
     }
+    
+    /**
+     * SERIALIZACION DE LOS ARCHIVOS
+     */
+    
+    public static void saveInventoryData() {
+    //Vamos a Serializar el objeto SalesData en memoria no Volatil.
+    /**
+     * Se nos obliga a meter una exception
+     */
+    //UserData userDat = UserData.getInstance();
+    try {
+        FileOutputStream myFileOutStream = new  FileOutputStream ("localDataMock/InventoryDataLocal.dat");
+        ObjectOutputStream myObjectOutStream = new ObjectOutputStream(myFileOutStream);
+        myObjectOutStream.writeObject(InventoryData.getInstance().getInventoryHashMap());
+        
+        myObjectOutStream.close();
+        myFileOutStream.close();
+        System.out.println("INFO: Se guarda el inventario" );
+    }
+    catch (IOException e){
+                    System.out.println("Error:  No ha podido realizarse el guardado: " + e.toString()); 
+                    //jPanelUsersFound.setVisible(false);
+            }
+    } 
+    
+    
+    public static void initInventoryDataMock() {
+        try {      
+            FileInputStream fileInput = new FileInputStream("localDataMock/InventoryDataLocal.dat");
+            ObjectInputStream objectInput = new ObjectInputStream(fileInput);     
+            try {
+                HashMap<String, Producto> inventario = new HashMap<>();
+                inventario = (HashMap)objectInput.readObject();
+                InventoryData.getInstance().getInventoryHashMap().putAll(inventario);
+                System.out.println("INFO : Se realiza la carga de inventario");
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(InventoryServices.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            objectInput.close();
+            fileInput.close();    
+        }
+        catch (IOException e){
+                    System.out.println("Error:  No ha podido realizarse la recarga de inventario: " + e.toString()); 
+            }
+}
+    
+    
     
 }

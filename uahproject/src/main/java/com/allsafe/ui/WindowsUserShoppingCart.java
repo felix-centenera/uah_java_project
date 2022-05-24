@@ -12,6 +12,7 @@ import com.allsafe.model.Inventario;
 import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Usuario;
+import com.allsafe.service.InventoryServices;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
 import com.allsafe.service.SalesDataService;
@@ -865,6 +866,9 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         //Comprobar stock carrito:
         
         if (SalesDataService.Sales(user)) {
+            //SAVE INVENTORY DATA
+            InventoryServices.saveInventoryData();
+            SalesDataService.saveSalesData();
             System.out.println("La compra se ha realizado con exito, procedemos a vaciar el carrito");
             if (UsersServices.cleanShoppingCart(user)){
             System.out.println("INFO: Se ha limpiado el carrito");

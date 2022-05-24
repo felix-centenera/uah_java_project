@@ -4,13 +4,14 @@
  */
 package com.allsafe.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  *
  * @author felixcentenera
  */
-public class TarjetaDeCredito {
+public class TarjetaDeCredito implements Serializable{
     
     private String nombreTitular;
     private long numeroTarjetaCredito;
