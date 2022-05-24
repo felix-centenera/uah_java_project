@@ -60,7 +60,7 @@ public class SalesDataService {
             arr.forEach(y -> cache.add(y.getID()));
             
             
-            return(new ArrayList<>(cache.subList(index - 1, arr.size())));
+            return(new ArrayList<>(cache.subList(index, arr.size())));
 
 //        ArrayList<String> arr = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().keySet());
 //        ArrayList<String> cache = new ArrayList<>();
