@@ -1,0 +1,95 @@
+@options
+@packages
+@argfile
+-classpath
+'C:/Users/Rauld/.m2/repository/org/netbeans/external/AbsoluteLayout/RELEASE126/AbsoluteLayout-RELEASE126.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'uahproject 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'uahproject 1.0-SNAPSHOT API'
+com.allsafe.mock
+com.allsafe.model
+com.allsafe
+com.allsafe.service
+com.allsafe.ui
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/mock/InventoryData.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/mock/SalesData.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/mock/UserData.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/Administrador.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/CarritoCompra.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/ClienteEmpresa.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/ClienteParticular.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/Clientes.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/Direccion.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/Inventario.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/Opinion.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/Producto.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/TarjetaDeCredito.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/Token.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/Usuario.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/model/Venta.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/prueba.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/service/InventoryServices.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/service/Login.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/service/prueba.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/service/RadomGenerator.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/service/RandomHomeProductos.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/service/SalesDataService.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/service/UsersServices.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/Home.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdmin.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminProductMngt.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminProductMngtAdd.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminProductMngtSearch.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminSalesSearch.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminSalesShowAllProducts.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminSalesShowOneSale.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminUserMngt.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsCreateUser.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsLogin.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsMyAccount.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsMyAccountAdmin.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsProduct.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsProductCreateOpinion.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsProductManagingInfo.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsProductReportingInfo.java'
+'C:/Users/Rauld/Downloads/Proyecto final/Cambios Felix en Ventas/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsUserShoppingCart.java'
+C:\Users\Rauld\.m2\repository\org\netbeans\external\AbsoluteLayout\RELEASE126\AbsoluteLayout-RELEASE126.jar = 1650789056898
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\src\main\java = 1653284476742
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\allclasses-index.html = 1653380191405
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\allpackages-index.html = 1653380191408
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\element-list = 1653380191042
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\help-doc.html = 1653380191450
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\index-all.html = 1653380191443
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\index.html = 1653380191379
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\javadoc.bat = 1653379614970
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\jquery-ui.overrides.css = 1653380191495
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\member-search-index.js = 1653380191416
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\module-search-index.js = 1653380191410
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\overview-summary.html = 1653380191445
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\overview-tree.html = 1653380191375
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\package-search-index.js = 1653380191412
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\script.js = 1653380191454
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\search.js = 1653380191458
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\serialized-form.html = 1653380191183
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\stylesheet.css = 1653380191453
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\tag-search-index.js = 1653380191418
+C:\Users\Rauld\Downloads\Proyecto final\Cambios Felix en Ventas\uah_java_project\uahproject\target\site\apidocs\type-search-index.js = 1653380191414
