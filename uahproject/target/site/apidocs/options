@@ -1,0 +1,24 @@
+-classpath
+'C:/Users/Rauld/.m2/repository/org/netbeans/external/AbsoluteLayout/RELEASE126/AbsoluteLayout-RELEASE126.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'C:/Users/Rauld/Downloads/Proyecto final/Subida a rama/uah_java_project/uahproject/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Rauld/Downloads/Proyecto final/Subida a rama/uah_java_project/uahproject/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'uahproject 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'uahproject 1.0-SNAPSHOT API'

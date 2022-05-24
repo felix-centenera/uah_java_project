@@ -48,13 +48,20 @@ public class SalesDataService {
         return(coleccion.stream().anyMatch(x -> x.getDateConfirmedSale().format(formatoCorto).equals(loc)));
     }
     
-    public static ArrayList getSalesFounded(String loc){
-        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
-        ArrayList<Venta> list = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().values().stream()
-                .filter(x -> x.getDateConfirmedSale().format(formatoCorto).equals(loc)).collect(Collectors.toList()));
-        
-        System.out.println(list.toString());
-        return(list);
+    public static  ArrayList getSalesFounded(String loc){
+            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+            ArrayList<Venta> arr = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().values());
+            ArrayList<String> cache = new ArrayList<>();
+          
+            arr.sort((d1,d2) -> d1.getDateConfirmedSale().compareTo(d2.getDateConfirmedSale()));
+            arr.forEach(x -> cache.add(x.getDateConfirmedSale().format(formatoCorto)));
+            int index = cache.indexOf(loc);
+            cache.clear();
+            arr.forEach(y -> cache.add(y.getID()));
+            
+            
+            return(new ArrayList<>(cache.subList(index - 1, arr.size())));
+
 //        ArrayList<String> arr = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().keySet());
 //        ArrayList<String> cache = new ArrayList<>();
 //        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
@@ -331,18 +338,22 @@ public class SalesDataService {
                 SalesData.getInstance().getSalesDataHashMap().putAll(salesData);
                 System.out.println("INFO : Se realiza la carga de Ventas");
                 
-                /*Pruebas de ejecucion venta bug de busqueda por venta*/
-                System.out.println(Arrays.toString(salesData.keySet().toArray()));
-                System.out.println(salesData);
-                System.out.println("**************************************************");
+                /*************************************************************************************************************************************/
                 DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
-                for(Venta venta :salesData.values()){
-                    
-                    System.out.println(venta.getDateConfirmedSale().format(formatoCorto));
-                
-                
+                System.out.println("*****************************************************************************************");
+                for(Venta a : SalesData.getInstance().getSalesDataHashMap().values()){
+
+                    System.out.println(a.getDateConfirmedSale().format(formatoCorto));
+
+
+
                 }
-                System.out.println("***************************************************");
+
+                System.out.println("*****************************************************************************************");
+                /*************************************************************************************************************************************/
+
+    
+    
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(SalesDataService.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -4,6 +4,7 @@
  */
 package com.allsafe.ui;
 
+import com.allsafe.mock.SalesData;
 import com.allsafe.mock.UserData;
 import com.allsafe.model.Administrador;
 import com.allsafe.model.ClienteEmpresa;
@@ -15,6 +16,7 @@ import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Token;
 import com.allsafe.model.Usuario;
+import com.allsafe.model.Venta;
 import com.allsafe.service.InventoryServices;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
@@ -28,6 +30,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -794,11 +797,7 @@ private void createHomePageProductos(int i){
     p3.introducirOpinion(o4);
     //ArrayList<Producto> RandomProductsHome;
     
-    
-    
-    
-    
-    
+
     
     
     
