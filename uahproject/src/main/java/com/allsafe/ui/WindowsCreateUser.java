@@ -999,6 +999,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         
         if(! jRadioButton1.isSelected()) {
             if (UsersServices.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                //SAVE USER DATA:
+                 UsersServices.saveUserData();
                 System.out.println("INFO: El usuario se ha creado con exito");
                 this.dispose();
                 secundariaLogin.setVisible(true);  
@@ -1011,6 +1013,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         
         else {
             if (UsersServices.addUser(JTextFieldUserDNI.getText(),JTextFieldUserWeb.getText(),JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                //SAVE USER DATA:
+                 UsersServices.saveUserData();
                 System.out.println("INFO: El usuario se ha creado con exito");
                 this.dispose();
                 secundariaLogin.setVisible(true);  

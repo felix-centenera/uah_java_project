@@ -306,10 +306,18 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try{
-            String value = JlistElements.getSelectedValue();
-            Venta venta = SalesData.getInstance().getSalesDataHashMap().get(value);
-            WindowsAdminSalesShowOneSale abrir = new WindowsAdminSalesShowOneSale(this ,user,venta);
+       try{
+            if (JlistElements.getSelectedValue() != null) {
+            // String value = JlistElements.getSelectedValue();
+                Venta venta = SalesData.getInstance().getSalesDataHashMap().get(JlistElements.getSelectedValue());
+                WindowsAdminSalesShowOneSale abrir = new WindowsAdminSalesShowOneSale(this ,user,venta);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "No hay ninguna venta que seleccionar","Warning", JOptionPane.WARNING_MESSAGE);
+                System.out.println("INFO: Error definido por el Usuario");
+                System.out.println("hola mundooooooo");
+                
+            }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","Error definido por el usuario, introduzca el campo necesario", JOptionPane.ERROR_MESSAGE);
             System.out.println("INFO: Error definido por el Usuario");

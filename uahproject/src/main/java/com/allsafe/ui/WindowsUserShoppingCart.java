@@ -12,14 +12,18 @@ import com.allsafe.model.Inventario;
 import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Usuario;
+import com.allsafe.service.InventoryServices;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
+import com.allsafe.service.SalesDataService;
 import com.allsafe.service.UsersServices;
 import java.awt.Color;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -179,14 +183,21 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                         System.out.println("caso1");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
+                    
+                    jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
+                    
+                    
+                    
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("Error: No hay mas productos que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         System.out.println("Voy a poner los user a 0");
                         printUsers(0);
                         
-                        //createWindowsProductPage();
+                        
+                        
+                        
                     }
                     break;
                 case 2 :
@@ -196,10 +207,13 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
                     jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1).getTitulo());
+                    jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
+                    
+                    
                     }
                     catch (Exception e) {
                         System.out.println("Error: No hay mas productos que mostrar " + e.toString()); 
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("Voy a poner los productos en indice  0");
                         SetNumberOfUserPages0();
                         printUsers(0);
                         //createWindowsProductPage();
@@ -215,6 +229,9 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1).getTitulo());
                     jButtonUser3.setVisible(true);
                     jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2).getTitulo());
+                    jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
+                    
+                    
                     }
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
@@ -235,6 +252,9 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2).getTitulo());
                     jButtonUser4.setVisible(true);
                     jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3).getTitulo());
+                    jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
+                    
+                    
                     }
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
@@ -258,6 +278,8 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3).getTitulo());
                     jButtonUser5.setVisible(true);
                     jButtonUser5.setText(listOfKeys.get(numberOfUserPages+4).getTitulo());
+                    jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
+                    
                     }
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
@@ -281,6 +303,7 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     jButtonUser5.setText(listOfKeys.get(numberOfUserPages+4).getTitulo());
                     jButtonUser6.setVisible(true);
                     jButtonUser6.setText(listOfKeys.get(numberOfUserPages+5).getTitulo());
+                    jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
                     }
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
@@ -306,6 +329,7 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     jButtonUser6.setText(listOfKeys.get(numberOfUserPages+5).getTitulo());
                     jButtonUser7.setVisible(true);
                     jButtonUser7.setText(listOfKeys.get(numberOfUserPages+6).getTitulo());
+                    jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
                     }
                     catch (Exception e) {
                         System.out.println("Error: No hay mas productos que mostrar " + e.toString()); 
@@ -337,6 +361,7 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     jButtonUser7.setText(listOfKeys.get(numberOfUserPages+6).getTitulo());
                     jButtonUser8.setVisible(true);
                     jButtonUser8.setText(listOfKeys.get(numberOfUserPages+7).getTitulo());
+                    jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");      
                     }
                     catch (Exception e) {
                          System.out.println("somos 8 o mas  y estamos dando error"  );       
@@ -415,6 +440,7 @@ private JFrame getFrame(){
         jButtonUser5 = new javax.swing.JButton();
         jButtonUser6 = new javax.swing.JButton();
         jButtonUser7 = new javax.swing.JButton();
+        jLabelTotal = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -565,9 +591,17 @@ private JFrame getFrame(){
         });
         jPanelUsersFound.add(jButtonUser7, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 314, 217, 41));
 
-        jPanel7.add(jPanelUsersFound, new org.netbeans.lib.awtextra.AbsoluteConstraints(754, 30, 355, 420));
+        jLabelTotal.setText("Total:");
+        jPanelUsersFound.add(jLabelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 150, 20));
+
+        jPanel7.add(jPanelUsersFound, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 355, 450));
 
         jButton1.setText("Comprar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 230, 160, 40));
 
         jButton2.setText("Vaciar carrito");
@@ -594,12 +628,11 @@ private JFrame getFrame(){
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
                 .addComponent(jLabelEmptyCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(0, 14, Short.MAX_VALUE))
         );
 
-        jPanel7.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 342, -1, -1));
+        jPanel7.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 342, -1, 60));
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 1140, 470));
 
@@ -828,6 +861,31 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         jLabelProductlSelected.setText("Selecciona un producto");
     }//GEN-LAST:event_jButtonUserInfoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //Comprobar stock carrito:
+        
+        if (SalesDataService.Sales(user)) {
+            //SAVE INVENTORY DATA
+            InventoryServices.saveInventoryData();
+            SalesDataService.saveSalesData();
+            System.out.println("La compra se ha realizado con exito, procedemos a vaciar el carrito");
+            if (UsersServices.cleanShoppingCart(user)){
+            System.out.println("INFO: Se ha limpiado el carrito");
+             }
+             else {
+                System.out.println("ERROR: no ha podido limpiarse el carrito");
+        
+                }
+        createWindowsProductPage();
+              
+        }
+        else {
+            System.out.println("no se puede continuar el proceso de compra");
+        }
+              
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -857,6 +915,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JLabel jLabelProductlSelected;
     private javax.swing.JLabel jLabelTimeline7;
     private javax.swing.JLabel jLabelTimeline8;
+    private javax.swing.JLabel jLabelTotal;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

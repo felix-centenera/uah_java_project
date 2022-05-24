@@ -113,7 +113,7 @@ public class WindowsProduct extends javax.swing.JFrame  {
             
             // Set title of the producto 
             //jLabel1Calificacion.
-            
+            if (!producto.getArrayOpiniones().isEmpty()){
                 int opcion =  producto.getOpiniones(opinion).getCalificacion();
                 switch (opcion) {
                 case 0 : jLabel1Calificacion.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
@@ -133,6 +133,7 @@ public class WindowsProduct extends javax.swing.JFrame  {
                   jTextArea2Comentarios.setText(producto.getOpiniones(opinion).getComentario());
                   jTextField2NameClient.setText(producto.getOpiniones(opinion).getCliente());
                   jTextFieldFechaCom.setText((String) producto.getOpiniones(opinion).getFecha().format(DateTimeFormatter.ISO_DATE));
+            } 
         } 
         catch (Exception e) {
             System.out.println("Error: " + e.toString()); 
@@ -304,6 +305,11 @@ private boolean checkLoginInterfaz(){
 
         jTextField2NameClient.setText("jTextField2");
         jTextField2NameClient.setBorder(null);
+        jTextField2NameClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2NameClientActionPerformed(evt);
+            }
+        });
 
         jTextArea2Comentarios.setColumns(20);
         jTextArea2Comentarios.setLineWrap(true);
@@ -680,6 +686,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
          if (checkLogin()){
             System.out.println("INFO: Vas a crear una opnión");
+             WindowsProductCreateOpinion windowsproductcreateopinion = new WindowsProductCreateOpinion(this , producto, user);
+            
         }
         else{
             System.out.println("INFO: Necesita estar logado para opinar");
@@ -723,6 +731,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
        
     }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void jTextField2NameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2NameClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2NameClientActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

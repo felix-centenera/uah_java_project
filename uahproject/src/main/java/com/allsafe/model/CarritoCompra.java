@@ -12,7 +12,7 @@ import java.util.Random;
  *
  * @author felixcentenera
  */
-public class CarritoCompra implements Serializable {
+public class CarritoCompra implements Serializable{
     
     private int total = 0;
     private final String idCarrito;

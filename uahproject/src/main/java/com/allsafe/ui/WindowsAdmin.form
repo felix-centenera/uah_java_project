@@ -36,7 +36,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,44,0,0,4,-44"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,40,0,0,4,-44"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -107,7 +107,7 @@
                       <Component id="jButtonProductManagement" min="-2" pref="64" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButtonSalesManagement" min="-2" pref="64" max="-2" attributes="0"/>
-                      <EmptySpace pref="119" max="32767" attributes="0"/>
+                      <EmptySpace pref="120" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -174,6 +174,11 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabelHomeIcon4">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/AllSafe.png"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
@@ -199,6 +204,11 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabelTimeline8">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/TimelineCoversA.jpg"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="-10" width="660" height="150"/>
@@ -206,6 +216,11 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelTimeline7">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/TimelineCoversB.jpg"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="610" y="0" width="630" height="140"/>
@@ -232,6 +247,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButtonHomeIconsGround5">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/home.png"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
@@ -243,6 +261,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonHomeIconsGround7">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/ArrowDown.png"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
@@ -257,6 +278,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonHomeIconsGround8">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/arrowUp.png"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
@@ -271,6 +295,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonHomeIconsGround9">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/back.png"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
@@ -285,6 +312,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonHomeIconsGround6">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="/Users/felixcentenera/Documents/Learning/GISI/2&#xba;Cuatrimestre/Programaci&#xf3;n/uah_java_project/uahproject/Icons/png/mail.png"/>
+            </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>

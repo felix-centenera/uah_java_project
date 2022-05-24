@@ -21,19 +21,16 @@ public class SalesData implements Serializable{
      * 
      */
    
+    //Una instancia del objeto que va a existir
     private static SalesData instance = null;
-    HashMap<String, Venta> SalesData = new HashMap<>();
+    HashMap<String, Venta> salesData = new HashMap<>();
     
     public HashMap<String, Venta> getSalesDataHashMap(){
-       return(SalesData);
-    
-    }
-    public void setHasMap(HashMap<String, Venta> has){
-        
-        this.SalesData = has;
+       return(salesData);
     
     }
     
+     //Evitamos la instanciacón directa. Constructor vacío.
     private SalesData(){}
     
     public static SalesData getInstance(){
@@ -42,5 +39,15 @@ public class SalesData implements Serializable{
         }
         return instance;
     }
+   
+    public void setHasMap(HashMap<String, Venta> has){
+        
+        this.salesData = has;
+    
+    }
+    
+    
+    
+    
     
 }

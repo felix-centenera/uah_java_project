@@ -5,6 +5,7 @@
 package com.allsafe.model;
 
 import com.allsafe.mock.InventoryData;
+import com.allsafe.service.RadomGenerator;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,10 +21,10 @@ public class Venta implements Serializable {
     private String ID;
     private LocalDateTime DateConfirmedSale;
     //HashMap<String, Integer> InShoppingCart;
-    private String ProductList;
+    private String[] ProductList;
     private String user;
     private double Total;
-    private String TargetaCredito;
+    private long TarjetaCredito;
 
     
     /**INFORMACION ACERCA DEL ALMACENAMIENTO DE DATOS DE VENTA EN STRING
@@ -43,13 +44,16 @@ public class Venta implements Serializable {
      * @param Total
      */
     
-    public Venta(LocalDateTime DateConfirmedSale,String ProductList, String user ,double Total, String TargetaCredito) {
-        this.ID = llenerateID() ;
-        this.DateConfirmedSale = DateConfirmedSale;
+    
+    //this.fechaEntradaTienda = LocalDateTime.now();
+    
+    public Venta(String[] ProductList, String user ,double Total, long TarjetaCredito) {
+        this.ID = RadomGenerator.generateRandomPassword(20);
+        this.DateConfirmedSale = LocalDateTime.now();
         this.ProductList = ProductList;
         this.user = user;
         this.Total = Total;
-        this.TargetaCredito = TargetaCredito;
+        this.TarjetaCredito = TarjetaCredito;
     }
 
     public String getID() {
@@ -81,37 +85,37 @@ public class Venta implements Serializable {
         this.user = user;
     }
 
-    public String getProductList() {
+    public String[] getProductList() {
         return ProductList;
     }
 
-    public void setProductList(String ProductList) {
+    public void setProductList(String[] ProductList) {
         this.ProductList = ProductList;
     }
-    public String getTargetaCredito() {
-        return TargetaCredito;
+    public long getTarjetaCredito() {
+        return TarjetaCredito;
     }
 
-    public void setTargetaCredito(String TargetaCredito) {
-        this.TargetaCredito = TargetaCredito;
-    }
+//    public void setTargetaCredito(String TargetaCredito) {
+//        this.TargetaCredito = TargetaCredito;
+//    }
 
   
 
-    public String llenerateID() {
-        Random random = new Random();
-        String cad = "";
-
-        for (int i = 0; i < 10; i++) {
-            int randomInt = random.nextInt(48, 58);
-            char charac = (char) randomInt;
-
-            cad += charac;
-        }
-        return(cad);
-
-    }
-    
+//    public String llenerateID() {
+//        Random random = new Random();
+//        String cad = "";
+//
+//        for (int i = 0; i < 10; i++) {
+//            int randomInt = random.nextInt(48, 58);
+//            char charac = (char) randomInt;
+//
+//            cad += charac;
+//        }
+//        return(cad);
+//
+//    }
+//    
  
 
     @Override

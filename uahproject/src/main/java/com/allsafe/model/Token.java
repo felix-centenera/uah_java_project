@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  *
  * @author felixcentenera
  */
-public class Token implements Serializable {
+public class Token implements Serializable{
     
     private String token;
     private LocalDateTime fechaExpiracion;//atributo que mira cuando caduca nuestro token

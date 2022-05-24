@@ -4,13 +4,11 @@
  */
 package com.allsafe.model;
 
-import java.io.Serializable;
-
 /**
  *
  * @author felixcentenera
  */
-public class ClienteParticular extends Clientes implements Serializable{
+public class ClienteParticular extends Clientes{
     
     private String dni;
 

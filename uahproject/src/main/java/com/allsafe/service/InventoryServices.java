@@ -5,11 +5,11 @@
 package com.allsafe.service;
 
 import com.allsafe.mock.InventoryData;
-import com.allsafe.mock.SalesData;
+import com.allsafe.mock.UserData;
 import com.allsafe.model.Inventario;
+import com.allsafe.model.Opinion;
 import com.allsafe.model.Producto;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
@@ -81,6 +83,57 @@ public class InventoryServices {
            return false;
        }
     }
+    
+    
+    // metodo borrar:
+    public static boolean deleteStockProduct(String titulo, int stock){
+        //Eliminar producto teniendo la Key
+        //inv.getInventario().remove(titulo);
+        //InventoryData.getInstance().getInventoryHashMap().remove(titulo);
+        
+        if (  InventoryData.getInstance().getInventoryHashMap().containsKey(titulo)) {
+            try {
+                System.out.println("Voy a borrar: " + stock + " que son los que me has dicho,ahora mismo hay" );
+                int currentlyStock = InventoryData.getInstance().getInventoryHashMap().get(titulo).getStock();
+                InventoryData.getInstance().getInventoryHashMap().get(titulo).setStock( currentlyStock - stock);
+                return true;
+            }
+            catch (Exception e){
+                System.out.println("Error: No se ha podido modificar el stock al producto: " + e.toString()); 
+               return false;
+            }
+        }
+        else {
+           return false;
+       }
+    }
+    
+    
+    
+    
+    
+    public static boolean addOpinionToAProducto(String titulo, int calificacion, String comentario, String cliente) {
+            System.out.println("hola");
+            
+            if (  InventoryData.getInstance().getInventoryHashMap().containsKey(titulo)) {
+            try {
+                
+                //Producto p1  = InventoryData.getInstance().getInventoryHashMap().get(titulo);
+                Opinion o1 = new Opinion(calificacion, comentario, cliente);
+                InventoryData.getInstance().getInventoryHashMap().get(titulo).introducirOpinion(o1);
+                //p1.introducirOpinion(o1);
+                return true;
+            }
+            catch (Exception e){
+                System.out.println("Error: No se ha podido eliminar al producto: " + e.toString()); 
+               return false;
+            }
+        }
+        else {
+           return false;
+       }
+           
+    }
   
   
      public static ArrayList<Producto>  orderByStarts(String titulo, String categoria) {
@@ -101,11 +154,25 @@ public class InventoryServices {
         
         ArrayList<Producto> ordenadro = (ArrayList<Producto>) arrayCacheFiltradoNombre
                 .stream()
-                .sorted(Comparator.comparingInt(Producto::getEstrella))
+                .sorted(Comparator.comparingInt(Producto::getEstrella).reversed())
                 .collect(Collectors.toList());
                 
         return ordenadro;
      }
+     
+     public static ArrayList<Producto>  orderByStarts() {
+        HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
+        ArrayList<Producto> ArrayCache = new ArrayList<>(inv.values());
+        
+    
+        ArrayList<Producto> ordenadro = (ArrayList<Producto>) ArrayCache
+                .stream()
+                .sorted(Comparator.comparingInt(Producto::getEstrella).reversed())
+                .collect(Collectors.toList());
+        return ordenadro;
+     }
+     
+     
      
      public static ArrayList<Producto>  orderByStarts(String categoria) {
         HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
@@ -118,7 +185,7 @@ public class InventoryServices {
     
         ArrayList<Producto> ordenadro = (ArrayList<Producto>) arrayCacheFiltradoCategoria
                 .stream()
-                .sorted(Comparator.comparingInt(Producto::getEstrella))
+                .sorted(Comparator.comparingInt(Producto::getEstrella).reversed())
                 .collect(Collectors.toList());
         
         
@@ -255,7 +322,7 @@ public class InventoryServices {
      
      
     
-    // ORDENADO POR PRECIO MENOR
+    // ORDENADO POR PRECIO MENOR NO SE UTILIZA. Se deja por historico en caso de que se quieran hacer pruebas con este algoritmo.
     public static ArrayList productsWithCheaperPrice() {
         //HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
         ArrayList<Producto> arrayProductCheaper = bubbleAlgorithmPrice();
@@ -308,29 +375,52 @@ public class InventoryServices {
         return(ArrayCacheKeys);
     }
     
-    
-    
     /**
-     * Serializacion de Inventory
-     * @throws java.io.FileNotFoundException
+     * SERIALIZACION DE LOS ARCHIVOS
      */
-
-    public static void SerializateSalesData() throws FileNotFoundException, IOException{
+    
+    public static void saveInventoryData() {
+    //Vamos a Serializar el objeto SalesData en memoria no Volatil.
+    /**
+     * Se nos obliga a meter una exception
+     */
+    //UserData userDat = UserData.getInstance();
+    try {
+        FileOutputStream myFileOutStream = new  FileOutputStream ("localDataMock/InventoryDataLocal.dat");
+        ObjectOutputStream myObjectOutStream = new ObjectOutputStream(myFileOutStream);
+        myObjectOutStream.writeObject(InventoryData.getInstance().getInventoryHashMap());
         
-        /**
-        * Se nos obliga a meter una exception
-        */
-        InventoryData Inventory = InventoryData.getInstance();
-        ObjectOutputStream writtingDat = new ObjectOutputStream(new FileOutputStream("src/main/java/com/allsafe/localData/InventoryDataLocal.dat"));
-        writtingDat.writeObject(Inventory);
-        writtingDat.close();
-    
+        myObjectOutStream.close();
+        myFileOutStream.close();
+        System.out.println("INFO: Se guarda el inventario" );
     }
+    catch (IOException e){
+                    System.out.println("Error:  No ha podido realizarse el guardado: " + e.toString()); 
+                    //jPanelUsersFound.setVisible(false);
+            }
+    } 
     
-    public static InventoryData bringSalesSata() throws FileNotFoundException, IOException, ClassNotFoundException{
-        ObjectInputStream readingDat = new ObjectInputStream(new FileInputStream("src/main/java/com/allsafe/localData/InventoryDataLocal.dat"));
-        InventoryData inventory = (InventoryData) readingDat.readObject();
-        return(inventory);
-    }
+    
+    public static void initInventoryDataMock() {
+        try {      
+            FileInputStream fileInput = new FileInputStream("localDataMock/InventoryDataLocal.dat");
+            ObjectInputStream objectInput = new ObjectInputStream(fileInput);     
+            try {
+                HashMap<String, Producto> inventario = new HashMap<>();
+                inventario = (HashMap)objectInput.readObject();
+                InventoryData.getInstance().getInventoryHashMap().putAll(inventario);
+                System.out.println("INFO : Se realiza la carga de inventario");
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(InventoryServices.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            objectInput.close();
+            fileInput.close();    
+        }
+        catch (IOException e){
+                    System.out.println("Error:  No ha podido realizarse la recarga de inventario: " + e.toString()); 
+            }
+}
+    
+    
     
 }

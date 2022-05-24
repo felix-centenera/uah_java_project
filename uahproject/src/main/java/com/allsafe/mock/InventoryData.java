@@ -6,7 +6,6 @@ package com.allsafe.mock;
 
 import com.allsafe.model.Producto;
 import com.allsafe.model.Usuario;
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -15,7 +14,7 @@ import java.util.stream.Stream;
  *
  * @author felixcentenera
  */
-public class InventoryData implements Serializable{
+public class InventoryData {
     //Una instancia del objeto que va a existir
     private static  InventoryData  instance = null;
     HashMap<String, Producto> inventario = new HashMap<>();

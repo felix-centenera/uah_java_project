@@ -86,8 +86,10 @@ public class WindowsAdminSalesShowOneSale extends javax.swing.JFrame  {
             DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
             jTextFieldDate.setText(venta.getDateConfirmedSale().format(formatoCorto));
             jTextTotalCompra.setText("" + venta.getTotal());
-            JTextTarget.setText(venta.getTargetaCredito());
-            jListVenta.setListData(SalesDataService.SplittingProductList(venta.getProductList()));//hay que splitear la cadena y mostrarla por pantalla
+            JTextTarget.setText(  Long.toString(venta.getTarjetaCredito()));
+            //jListVenta.setListData(SalesDataService.SplittingProductList(venta.getProductList()));//hay que splitear la cadena y mostrarla por pantalla
+            jListVenta.setListData(venta.getProductList());
+            
             
             IDCompra.setEditable(false);
             JTextUserName.setEditable(false);

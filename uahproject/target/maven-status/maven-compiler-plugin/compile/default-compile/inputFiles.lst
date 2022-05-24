@@ -1,41 +1,42 @@
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\Usuario.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\mock\InventoryData.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsAdminSalesShowOneSale.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsAdminProductMngtSearch.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\prueba.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\Token.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsAdminProductMngtAdd.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\Producto.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsMyAccount.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\service\Login.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\Administrador.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\Direccion.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsProduct.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsProductManagingInfo.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsAdminUserMngt.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\Clientes.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsCreateUser.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\ClienteParticular.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\TarjetaDeCredito.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\mock\UserData.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\service\InventoryServices.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\Home.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\mock\SalesData.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\service\SalesDataService.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsAdmin.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\CarritoCompra.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsAdminProductMngt.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsLogin.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\service\UsersServices.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsAdminSalesSearch.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsMyAccountAdmin.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\Inventario.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsUserShoppingCart.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\Opinion.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\Venta.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\service\RadomGenerator.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\service\RandomHomeProductos.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\model\ClienteEmpresa.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\service\prueba.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsAdminSalesShowAllProducts.java
-C:\Users\Rauld\Downloads\Gestion de Usuarios\uah_java_project-2.0.0\uahproject\src\main\java\com\allsafe\ui\WindowsProductReportingInfo.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsProductReportingInfo.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/CarritoCompra.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Opinion.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminSalesSearch.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsProduct.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Direccion.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsMyAccount.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/Home.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsProductCreateOpinion.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminProductMngt.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsUserShoppingCart.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/ClienteEmpresa.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsCreateUser.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Producto.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/ClienteParticular.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Clientes.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/Login.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/UsersServices.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/mock/InventoryData.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Venta.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/InventoryServices.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsProductManagingInfo.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminSalesShowAllProducts.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Inventario.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/SalesDataService.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminProductMngtSearch.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/TarjetaDeCredito.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsMyAccountAdmin.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Administrador.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/RadomGenerator.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsLogin.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminProductMngtAdd.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/mock/UserData.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Token.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/prueba.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdmin.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Usuario.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/mock/SalesData.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/prueba.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminUserMngt.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/RandomHomeProductos.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminSalesShowOneSale.java
