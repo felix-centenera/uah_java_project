@@ -33,6 +33,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -1829,6 +1830,7 @@ private void createHomePageProductos(int i){
         }
         else{
             System.out.println("INFO: Necesitas estar logado para ver tu carrito");
+            JOptionPane.showMessageDialog(null, "Necesitas estar logado para ver tu carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             
         }
            
@@ -2011,6 +2013,7 @@ private void createHomePageProductos(int i){
                                 }  
                                 else {
                                     System.out.println("No han encontrado resultados");
+                                    JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                                     System.out.println(listOfProductos);
                                 } 
                             }
@@ -2024,6 +2027,7 @@ private void createHomePageProductos(int i){
                                 }  
                                 else {
                                     System.out.println("No han encontrado resultados");
+                                    JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                                     System.out.println(listOfProductos);
 
                                 }
@@ -2041,6 +2045,7 @@ private void createHomePageProductos(int i){
                                     //TODO poner el jpanel en visibel 
                                     //jPanelUsersFound.setVisible(false);
                                     System.out.println("No han encontrado resultados");
+                                    JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                                     System.out.println(listOfProductos);
                                 }
                             } 
@@ -2059,6 +2064,7 @@ private void createHomePageProductos(int i){
             
             catch (Exception e){
                     System.out.println("Error: El producto no existe o no se ha encontrado en esa categoria: " + e.toString()); 
+                    JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                     //jPanelUsersFound.setVisible(false);
             }
         }
@@ -2082,6 +2088,7 @@ private void createHomePageProductos(int i){
                          //TODO poner el jpanel en visibel 
                                 //jPanelUsersFound.setVisible(false);
                                 System.out.println("No han encontrado resultados");
+                                JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                     } 
                 }   
 
@@ -2099,6 +2106,7 @@ private void createHomePageProductos(int i){
                          //TODO poner el jpanel en visibel 
                                 //jPanelUsersFound.setVisible(false);
                                 System.out.println("No han encontrado resultados");
+                                JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                                 System.out.println(listOfProductos);
                     }
                     
@@ -2118,6 +2126,7 @@ private void createHomePageProductos(int i){
                          //TODO poner el jpanel en visibel 
                                 //jPanelUsersFound.setVisible(false);
                                 System.out.println("No han encontrado resultados");
+                                JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                                 System.out.println(listOfProductos);
                     }
                 }  
@@ -2128,6 +2137,7 @@ private void createHomePageProductos(int i){
                  //TODO poner el jpanel en visibel 
                                 //jPanelUsersFound.setVisible(false);
                                 System.out.println("No han encontrado resultados");
+                                JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                                 
              }
         

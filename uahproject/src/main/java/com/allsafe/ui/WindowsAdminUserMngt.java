@@ -25,6 +25,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 
 /**
@@ -867,12 +868,14 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             jTextFieldUserMail.setText("");
             //SAVE USER DATA:
             UsersServices.saveUserData();
+            JOptionPane.showMessageDialog(null, "Se ha añadido un nuevo administrador, welcome to Allsafe","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
 //            //TO TEST DELETE both prints
 //            System.out.println("Usuarios pedidos directamente:" + UsersServices.getUser());
 //            System.out.println("Usuarios pedidos por servicio:" + UsersServices.getUser());
         }
         else {
             System.out.println("INFO: DEBE Añadir un usuario");
+            JOptionPane.showMessageDialog(null, "Debe Añadir un nombre de usuario","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         
         }
         jPanelUsersFound.setVisible(false);
@@ -953,6 +956,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
         else {
             System.out.println("INFO: No se ha seleeccionado ningún usuario");
+            JOptionPane.showMessageDialog(null, "No se ha seleeccionado ningún usuario","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButtonUserInfoActionPerformed
 
@@ -1024,14 +1028,17 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                  //SAVE USER DATA:
                  UsersServices.saveUserData();
                  System.out.println("INFO: El usuario se ha eliminado con exito");
+                 JOptionPane.showMessageDialog(null, "El usuario se ha eliminado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
              
              }
              else {
                  System.out.println("El usuario no ha podido ser eliminado");
+                 JOptionPane.showMessageDialog(null, "El usuario no ha podido ser eliminado, contacte con nosostros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
              }
          }
         else {
             System.out.println("INFO: No se ha seleeccionado ningún usuario");
+            JOptionPane.showMessageDialog(null, "No se ha seleeccionado ningún usuario","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         }
         jLabelMailUser.setText("mail");
         jPanelUsersFound.setVisible(false);

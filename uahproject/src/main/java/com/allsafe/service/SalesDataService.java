@@ -23,6 +23,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -47,11 +48,20 @@ public class SalesDataService {
         return(coleccion.stream().anyMatch(x -> x.getDateConfirmedSale().format(formatoCorto).equals(loc)));
     }
     
-    public static Venta getSalesFounded(String loc){
-        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
-        List<Venta>  list = SalesData.getInstance().getSalesDataHashMap().values().stream().filter(x -> x.getDateConfirmedSale().format(formatoCorto).equals(loc)).collect(Collectors.toList());
-        System.out.println(list.toString());
-        return(list.get(0));
+    public static  ArrayList getSalesFounded(String loc){
+            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+            ArrayList<Venta> arr = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().values());
+            ArrayList<String> cache = new ArrayList<>();
+          
+            arr.sort((d1,d2) -> d1.getDateConfirmedSale().compareTo(d2.getDateConfirmedSale()));
+            arr.forEach(x -> cache.add(x.getDateConfirmedSale().format(formatoCorto)));
+            int index = cache.indexOf(loc);
+            cache.clear();
+            arr.forEach(y -> cache.add(y.getID()));
+            
+            
+            return(new ArrayList<>(cache.subList(index, arr.size())));
+
 //        ArrayList<String> arr = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().keySet());
 //        ArrayList<String> cache = new ArrayList<>();
 //        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
@@ -154,6 +164,7 @@ public class SalesDataService {
 //            }
                 
         }
+        SaleFacture.write("Gastos de envío:       " + (SalesDataService.StringCreator(61)) + "Precio: " + "5"                                   + "\n");
         SaleFacture.write("_______________________________________________________________________________________________________________________\n");
         SaleFacture.write("                                                                                                        Total: " + vent.getTotal() +"\n");
         SaleFacture.write("_______________________________________________________________________________________________________________________\n");
@@ -187,8 +198,9 @@ public class SalesDataService {
         for (Producto p : listaProductos) {
             total+= p.getPrecio();
         }
-        
-        return total;
+        // Se añaden 5 euros de gastos de envío
+        int GASTOS_DE_ENVIO =5;
+        return total + GASTOS_DE_ENVIO;
     }
     
     
@@ -274,6 +286,12 @@ public class SalesDataService {
                             Venta v1 = new Venta(ProductList,c1.getCorreo(), total, c1.getTarjetaDeCredito().getnumeroTarjetaCredito());
                             SalesData.getInstance().getSalesDataHashMap().put(v1.getID(), v1);
                             System.out.println("INFO: La compra se ha realizado con éxito");
+                            try {
+                                generateSaleDocument(v1.getID());
+                            } catch (IOException ex) {
+                                Logger.getLogger(SalesDataService.class.getName()).log(Level.SEVERE, null, ex);
+                                System.out.println("INFO: NO se ha podido generar la factura, contactar con Ventas");
+                            }
                             return true;
                         }
             }
@@ -327,6 +345,23 @@ public class SalesDataService {
                 salesData = (HashMap)objectInput.readObject();
                 SalesData.getInstance().getSalesDataHashMap().putAll(salesData);
                 System.out.println("INFO : Se realiza la carga de Ventas");
+                
+                /*************************************************************************************************************************************/
+                DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+                System.out.println("*****************************************************************************************");
+                for(Venta a : SalesData.getInstance().getSalesDataHashMap().values()){
+
+                    System.out.println(a.getDateConfirmedSale().format(formatoCorto));
+
+
+
+                }
+
+                System.out.println("*****************************************************************************************");
+                /*************************************************************************************************************************************/
+
+    
+    
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(SalesDataService.class.getName()).log(Level.SEVERE, null, ex);
             }

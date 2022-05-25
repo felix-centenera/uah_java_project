@@ -1,9 +1,9 @@
 _______________________________________________________________________________________________________________________
 FACTURA DE VENTA
 _______________________________________________________________________________________________________________________
-El Usuario felix@uah.es realizó el pedido a AllSafe.                                            ID Factura: qNe&%yM4cZCc$srVXsdW
-                                                                                   Tarjeta de crédito: 1234123412341234
-                                                                                           A fecha de: 23/05/2022:21:59
+El Usuario test realizó el pedido a AllSafe.                                            ID Factura: nB##o8aKaEUbSFWMnfYj
+                                                                                   Tarjeta de crédito: -572890676
+                                                                                           A fecha de: 25/05/2022:03:01
 _______________________________________________________________________________________________________________________
 Lista de productos comprados.
 _______________________________________________________________________________________________________________________
@@ -22,17 +22,18 @@ ________________________________________________________________________________
  
  
  
-Producto:       MacBookAirM1                                                             Precio: 1500
-Producto:       MacBookAirM1                                                             Precio: 1500
-Producto:       MacBookAirM1                                                             Precio: 1500
-Producto:       MacBookAirM1                                                             Precio: 1500
-Producto:       MacBookAirM1                                                             Precio: 1500
 Producto:       dellXps136                                                             Precio: 2000
 Producto:       dellXps136                                                             Precio: 2000
 Producto:       dellXps136                                                             Precio: 2000
 Producto:       dellXps136                                                             Precio: 2000
+Producto:       dellXps136                                                             Precio: 2000
+Producto:       dellXps136                                                             Precio: 2000
+Producto:       dellXps136                                                             Precio: 2000
+Producto:       dellXps136                                                             Precio: 2000
+Producto:       dellXps136                                                             Precio: 2000
+Gastos de envío:                                                                    Precio: 5
 _______________________________________________________________________________________________________________________
-                                                                                                        Total: 15500.0
+                                                                                                        Total: 18005.0
 _______________________________________________________________________________________________________________________
  
  

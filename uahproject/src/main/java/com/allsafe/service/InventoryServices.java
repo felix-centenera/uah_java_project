@@ -300,82 +300,7 @@ public class InventoryServices {
      
      
      
-     
-     
-     
-     
-     
-     
-    
-    
-    
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-    
-    // ORDENADO POR PRECIO MENOR NO SE UTILIZA. Se deja por historico en caso de que se quieran hacer pruebas con este algoritmo.
-    public static ArrayList productsWithCheaperPrice() {
-        //HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
-        ArrayList<Producto> arrayProductCheaper = bubbleAlgorithmPrice();
-        Collections.reverse(arrayProductCheaper);
-        return (arrayProductCheaper);
-    }
-    
-    public static ArrayList productsWithHightPrice() {
-        //HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
-        ArrayList<Producto> arrayProductCheaper = bubbleAlgorithmPrice();
-        return (arrayProductCheaper);
-    }
-    
-    
-   
-    
-    
-    
-    
-    
-    // ORDENADO POR PRECIO MAYOR
-    public static ArrayList bubbleAlgorithmPrice() {
-        
-        HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
-
-        /**
-         * Metodo de ordenacion en burbuja para mostrar los objetos del
-         * inventario por mayor o menor precio
-         */
-        ArrayList<Producto> ArrayCache = new ArrayList<>(inv.values());
-        ArrayList<String> ArrayCacheKeys = new ArrayList<>(inv.keySet());
-        
-        for (int i = 0; i < ArrayCache.size(); i++) {
-
-            for (int j = 0; j < ArrayCache.size() - 1; j++) {
-
-                int elemAct = ArrayCache.get(j).getPrecio();
-                int elemSig = ArrayCache.get(j + 1).getPrecio();
-
-                if (elemAct > elemSig) {
-
-                    ArrayCacheKeys.set(j, ArrayCacheKeys.get(j + 1));
-                    ArrayCacheKeys.set(j + 1, ArrayCacheKeys.get(j));
-
-                }
-
-            }
-
-        }
-        return(ArrayCacheKeys);
-    }
-    
-    /**
+     /**
      * SERIALIZACION DE LOS ARCHIVOS
      */
     
@@ -420,6 +345,75 @@ public class InventoryServices {
                     System.out.println("Error:  No ha podido realizarse la recarga de inventario: " + e.toString()); 
             }
 }
+     
+     
+     
+     
+     
+    
+    
+    
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    
+    // ORDENADO POR PRECIO MENOR NO SE UTILIZA. Se deja por historico en caso de que se quieran hacer pruebas con este algoritmo.
+    public static ArrayList productsWithCheaperPrice() {
+        //HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
+        ArrayList<Producto> arrayProductCheaper = bubbleAlgorithmPrice();
+        Collections.reverse(arrayProductCheaper);
+        return (arrayProductCheaper);
+    }
+    
+    public static ArrayList productsWithHightPrice() {
+        //HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
+        ArrayList<Producto> arrayProductCheaper = bubbleAlgorithmPrice();
+        return (arrayProductCheaper);
+    }
+    
+    
+    // ORDENADO POR PRECIO MAYOR
+    public static ArrayList bubbleAlgorithmPrice() {
+        
+        HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
+
+        /**
+         * Metodo de ordenacion en burbuja para mostrar los objetos del
+         * inventario por mayor o menor precio
+         */
+        ArrayList<Producto> ArrayCache = new ArrayList<>(inv.values());
+        ArrayList<String> ArrayCacheKeys = new ArrayList<>(inv.keySet());
+        
+        for (int i = 0; i < ArrayCache.size(); i++) {
+
+            for (int j = 0; j < ArrayCache.size() - 1; j++) {
+
+                int elemAct = ArrayCache.get(j).getPrecio();
+                int elemSig = ArrayCache.get(j + 1).getPrecio();
+
+                if (elemAct > elemSig) {
+
+                    ArrayCacheKeys.set(j, ArrayCacheKeys.get(j + 1));
+                    ArrayCacheKeys.set(j + 1, ArrayCacheKeys.get(j));
+
+                }
+
+            }
+
+        }
+        return(ArrayCacheKeys);
+    }
+    
+    
     
     
     

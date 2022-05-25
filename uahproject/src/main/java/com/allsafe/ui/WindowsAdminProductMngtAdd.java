@@ -25,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -378,7 +379,7 @@ public class WindowsAdminProductMngtAdd extends javax.swing.JFrame  {
         jFormattedUNitsProduct.setBorder(null);
         jFormattedUNitsProduct.setForeground(new java.awt.Color(204, 204, 204));
         jFormattedUNitsProduct.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        jFormattedUNitsProduct.setText("24");
+        jFormattedUNitsProduct.setText("1");
         jFormattedUNitsProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jFormattedUNitsProductMousePressed(evt);
@@ -584,7 +585,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     // TODO ADAPTAR A ESTA PÄGINA
     private void JTextFieldProductNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldProductNameMousePressed
         // TODO add your handling code here:
-        if(JTextFieldProductName.getText().equals("Ingrese su nombre de usuario.")){
+        if(JTextFieldProductName.getText().equals("Ingrese el nombre del producto.")){
             JTextFieldProductName.setText("");
             JTextFieldProductName.setForeground(Color.black);
         }
@@ -604,11 +605,13 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
              //SAVE INVENTORY DATA
              InventoryServices.saveInventoryData();
              System.out.println("INFO :EL productos se ha creado correctamente");
+             JOptionPane.showMessageDialog(null, "EL productos se ha creado correctamente","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
              
          }
          
          else {
              System.out.println("ERROR: El producto no ha podido crearse");
+             JOptionPane.showMessageDialog(null, "El producto no ha podido crearse","Información para el usuario", JOptionPane.WARNING_MESSAGE);
          }
         this.dispose();
         secundariaLogin.setVisible(true);
@@ -643,7 +646,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     private void JTextFieldDescriptionProductMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldDescriptionProductMousePressed
         // TODO add your handling code here:
-        if(JTextFieldDescriptionProduct.getText().equals("Ingrese su nombre.")){
+        if(JTextFieldDescriptionProduct.getText().equals("Ingrese las caracteristicas.")){
             JTextFieldDescriptionProduct.setText("");
             JTextFieldDescriptionProduct.setForeground(Color.black);
         }
@@ -653,20 +656,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private void JTextFieldDescriptionProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldDescriptionProductActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldDescriptionProductActionPerformed
-
-    private void jFormattedPathPhotoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedPathPhotoMousePressed
-        // TODO add your handling code here:
-        //jFormattedTCTitular
-        if(jFormattedPathPhoto.getText().equals("Ingrese el nombre que aparece en su tarjeta.")){
-            jFormattedPathPhoto.setText("");
-            jFormattedPathPhoto.setForeground(Color.black);
-        }
-        
-    }//GEN-LAST:event_jFormattedPathPhotoMousePressed
-
-    private void jFormattedPathPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedPathPhotoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedPathPhotoActionPerformed
 
     private void jFormattedPriceProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedPriceProductActionPerformed
         // TODO add your handling code here:
@@ -680,7 +669,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             Logger.getLogger(WindowsAdminProductMngtAdd.class.getName()).log(Level.SEVERE, null, ex);
         }
         //((Number) jFormattedDireccionNumero.getValue()).intValue();
-        if(  (((Number) jFormattedPriceProduct.getValue()).intValue()) == 24    ) {
+        if(  (((Number) jFormattedPriceProduct.getValue()).intValue()) == 1000    ) {
             jFormattedPriceProduct.setValue(0);
             jFormattedPriceProduct.setForeground(Color.black);
         }
@@ -690,6 +679,17 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     private void jFormattedUNitsProductMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedUNitsProductMousePressed
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            jFormattedUNitsProduct.commitEdit();
+        } catch (ParseException ex) {
+            Logger.getLogger(WindowsAdminProductMngtAdd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //((Number) jFormattedDireccionNumero.getValue()).intValue();
+        if(  (((Number) jFormattedUNitsProduct.getValue()).intValue()) == 1    ) {
+            jFormattedUNitsProduct.setValue(0);
+            jFormattedUNitsProduct.setForeground(Color.black);
+        }
     }//GEN-LAST:event_jFormattedUNitsProductMousePressed
 
     private void jFormattedUNitsProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedUNitsProductActionPerformed
@@ -702,6 +702,20 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         
         
     }//GEN-LAST:event_jComboBoxCategoriaProductActionPerformed
+
+    private void jFormattedPathPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedPathPhotoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedPathPhotoActionPerformed
+
+    private void jFormattedPathPhotoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedPathPhotoMousePressed
+        // TODO add your handling code here:
+        //jFormattedTCTitular
+        if(jFormattedPathPhoto.getText().equals("Ingrese el nombre del archivo.")){
+            jFormattedPathPhoto.setText("");
+            jFormattedPathPhoto.setForeground(Color.black);
+        }
+
+    }//GEN-LAST:event_jFormattedPathPhotoMousePressed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -395,10 +395,11 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     private void JButtomBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtomBuscarActionPerformed
         /**
-         * OBJ:Buscar dada una fecha si hay alguna venta que contenga dicha
-         * fecha PRE:SalesData ha sido inicializado y instanciado void --> new
-         * JFrame
-         */
+        * OBJ:Buscar dada una fecha si hay alguna venta que contenga dicha
+        * fecha PRE:SalesData ha sido inicializado y instanciado void --> new
+        * JFrame
+        */
+             
         try{
             if(jTextFieldFindID.getText().equals("")){//Inserte ID.
                 System.out.println("############################################################################################################");
@@ -414,12 +415,14 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                 System.out.println(i);
                 if(i == true){
 
-                    Venta venta = SalesDataService.getSalesFounded(localDate.format(formatoCorto));
+                    ArrayList<String> ArrayKeys = SalesDataService.getSalesFounded(localDate.format(formatoCorto));
                     System.out.println("INFO: Venta encontrada");
-                    System.out.println(venta.toString());
+                    System.out.println("Estoy aqui" + ArrayKeys.toString());
                     //Cogemos y llamamos al constructor de WindowsAdminSalesShowOneSale para ver las caracteristicas del producto
-
-                    WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , venta);
+                    
+                    //Pasame un array de keys de los objetos
+                    WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , ArrayKeys);
+                    
 
                 }else{
                     JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);
@@ -444,6 +447,75 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                 }
                 
             }
+        
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        try{
+//            if(jTextFieldFindID.getText().equals("")){//Inserte ID.
+//                System.out.println("############################################################################################################");
+//                //Cogemos la fecha nuestra
+//                Date fecha2 = (Date) jSpinnerDate.getValue();
+//                LocalDateTime localDate = fecha2.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+//                DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+//
+//                System.out.println("-------------" + SalesData.getInstance().getSalesDataHashMap().get(SalesData.getInstance().getSalesDataHashMap().keySet().toArray()[0]).getDateConfirmedSale().format(formatoCorto));
+//
+//                System.out.println(localDate.format(formatoCorto));
+//                boolean i = SalesDataService.IsLocalDateTimeInDDBB(localDate.format(formatoCorto));
+//                System.out.println(i);
+//                if(i == true){
+//
+//                    Venta venta = SalesDataService.getSalesFounded(localDate.format(formatoCorto));
+//                    System.out.println("INFO: Venta encontrada");
+//                    System.out.println(venta.toString());
+//                    //Cogemos y llamamos al constructor de WindowsAdminSalesShowOneSale para ver las caracteristicas del producto
+//
+//                    WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , venta);
+//
+//                }else{
+//                    JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);
+//                    System.out.println("INFO: No se ha encontrado en el registor los datos");
+//
+//
+//
+//                }
+//            }else{
+//                System.out.println("INFO: Vamos a buscar por fecha de  compra.");
+//                String ID = jTextFieldFindID.getText();
+//                
+//                if(SalesData.getInstance().getSalesDataHashMap().keySet().contains(ID)){
+//                    WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , SalesData.getInstance().getSalesDataHashMap().get(ID));
+//                }else if(ID.equals("")){
+//                    SalesData sales = SalesData.getInstance();
+//                    ArrayList<String> ArrayKeys = SalesDataService.getAllSales();
+//                    WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , ArrayKeys);
+//                }else{
+//                    JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);
+//                    System.out.println("INFO: No se ha encontrado en el registor los datos");
+//                }
+//                
+//            }
 
     }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);

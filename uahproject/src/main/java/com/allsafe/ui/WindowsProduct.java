@@ -18,6 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -70,6 +71,7 @@ public class WindowsProduct extends javax.swing.JFrame  {
                    jButtonLogin.setVisible(false);
                    jButton1Opinar.setVisible(false);
                    jButton1AnadirCarrito.setVisible(false);
+                   jSpinnerUnits.setVisible(false);
 //                 jButtonLogin.jButtonMiCarrito(false);
 //                 jButtonMiCarrito.setVisible(false);
 //                 jButtonAdmin.setVisible(true);
@@ -250,6 +252,7 @@ private boolean checkLoginInterfaz(){
         jButton1Opinar = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jButton1AnadirCarrito = new javax.swing.JButton();
+        jSpinnerUnits = new javax.swing.JSpinner();
         jPanel3 = new javax.swing.JPanel();
         jLabelHomeIcon4 = new javax.swing.JLabel();
         jButtonMiCarrito = new javax.swing.JButton();
@@ -426,6 +429,8 @@ private boolean checkLoginInterfaz(){
             }
         });
 
+        jSpinnerUnits.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -433,13 +438,17 @@ private boolean checkLoginInterfaz(){
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jButton1AnadirCarrito)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSpinnerUnits, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jButton1AnadirCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1AnadirCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinnerUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -598,6 +607,7 @@ private boolean checkLoginInterfaz(){
         }
         else{
             System.out.println("INFO: Necesitas estar logado para ver tu carrito");
+            JOptionPane.showMessageDialog(null, "Necesitas estar logado para ver tu carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             
         }
         
@@ -646,40 +656,64 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     private void jButton1AnadirCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1AnadirCarritoActionPerformed
         // TODO add your handling code here:
+        // jSpinnerUnits
+        
         if (checkLogin()){
             System.out.println("INFO: Estas añadiendo un producto a tu carrito");
+            int units= (int) jSpinnerUnits.getValue();
+            
             //user.
             //user.getClass().getSimpleName()
-            String clase = user.getClass().getSimpleName();
-            if (  clase.equals("ClienteParticular")){
-                ClienteParticular c1 = (ClienteParticular) user;
-                if (c1.getCarritoCompra().addToProducto(producto)){
-                    System.out.println("INFO: Se ha añadido correctamente el producto a el carrito");
-                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                if (units < producto.getStock() || units == producto.getStock() ) {
+                        String clase = user.getClass().getSimpleName();
+                        if (  clase.equals("ClienteParticular")){
+                            ClienteParticular c1 = (ClienteParticular) user;
+                                for (int i=1; i <= units; i++) {
+                                    if (c1.getCarritoCompra().addToProducto(producto)){
+                                        System.out.println("INFO: Se ha añadido correctamente el producto a el carrito");
+                                        
+                                        if (i==units) {
+                                            JOptionPane.showMessageDialog(null, "Se ha añadido correctamente el producto a el carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                                        }
+                                        
+                                        System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                                    }
+                                    else {
+                                        System.out.println("ERROR: No se ha añadido correctamente el producto a el carrito");
+                                        JOptionPane.showMessageDialog(null, "No se ha añadido correctamente el producto a el carrito, contacte con nosotros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                                        System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                                         }
+                                }
+                        }
+                        else if (clase.equals("ClienteEmpresa")){
+                            ClienteEmpresa c1 = (ClienteEmpresa) user;
+                            //c1.getCarritoCompra().addToProducto(producto);
+                                for (int i=1; i <= units; i++) {
+                                    if (c1.getCarritoCompra().addToProducto(producto)){
+                                        System.out.println("INFO: Se ha añadido correctamente el producto a el carrito");
+                                        if (i==units) {
+                                            JOptionPane.showMessageDialog(null, "Se ha añadido correctamente el producto a el carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                                        }
+                                        System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                                    }
+                                    else {
+                                        System.out.println("ERROR: No se ha añadido correctamente el producto a el carrito");
+                                        JOptionPane.showMessageDialog(null, "No se ha añadido correctamente el producto a el carrito, contacte con nosotros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                                        System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                                         }
+                                }
+                        }
+                    }
+                else{
+                    System.out.println("INFO: No hay suficiente stock");
+                    JOptionPane.showMessageDialog(null, "Actualmente no tenemos ese stock" ,"Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                 }
-                else {
-                    System.out.println("ERROR: No se ha añadido correctamente el producto a el carrito");
-                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
-                     }
-            }
-            else if (clase.equals("ClienteEmpresa")){
-                ClienteEmpresa c1 = (ClienteEmpresa) user;
-                //c1.getCarritoCompra().addToProducto(producto);
-                if (c1.getCarritoCompra().addToProducto(producto)){
-                    System.out.println("INFO: Se ha añadido correctamente el producto a el carrito");
-                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
-                }
-                else {
-                    System.out.println("ERROR: No se ha añadido correctamente el producto a el carrito");
-                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
-                     }   
-            }
+        
         }
         else{
-            System.out.println("INFO: Necesitas estar logado para añadir productos a tu carrito");
-            
-        }
-        
+                System.out.println("INFO: Necesitas estar logado para añadir productos a tu carrito");
+                JOptionPane.showMessageDialog(null, "Necesitas estar logado para añadir productos a tu carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+            }
     }//GEN-LAST:event_jButton1AnadirCarritoActionPerformed
 
     private void jButton1OpinarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1OpinarActionPerformed
@@ -691,6 +725,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
         else{
             System.out.println("INFO: Necesita estar logado para opinar");
+            JOptionPane.showMessageDialog(null, "Necesita estar logado para opinar","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             
         }
     }//GEN-LAST:event_jButton1OpinarActionPerformed
@@ -769,6 +804,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSpinner jSpinnerUnits;
     private javax.swing.JTextArea jTextArea2Comentarios;
     private javax.swing.JTextField jTextField2NameClient;
     private javax.swing.JTextField jTextFieldFechaCom;
