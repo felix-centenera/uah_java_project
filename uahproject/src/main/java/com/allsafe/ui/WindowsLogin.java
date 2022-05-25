@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -464,7 +465,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             }
         }
         else{
-            System.out.println("INFO: El mail o contraseña no son correctos");  
+            System.out.println("INFO: El mail o contraseña no son correctos"); 
+            JOptionPane.showMessageDialog(null, "El mail o contraseña no son correctos","Información para el usuario", JOptionPane.WARNING_MESSAGE);
         }  
     }//GEN-LAST:event_jButton1LoginActionPerformed
 

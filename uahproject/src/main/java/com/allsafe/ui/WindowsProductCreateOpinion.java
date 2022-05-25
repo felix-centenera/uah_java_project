@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -508,14 +509,18 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                 //SAVE INVENTORY DATA
                  InventoryServices.saveInventoryData();
                 System.out.println("INFO: Se ha registrado correctamente la opinión");
+                JOptionPane.showMessageDialog(null, "Se ha registrado correctamente la opinión","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                
             }
             else{
                 System.out.println("INFO: No se ha podido registrar la opnión");
+                JOptionPane.showMessageDialog(null, "No se ha podido registrar la opnión","Información para el usuario", JOptionPane.WARNING_MESSAGE);
             }
             
         }
         else{
             System.out.println("INFO: Necesita estar logado para opinar");
+            JOptionPane.showMessageDialog(null, "Necesita estar logado para opinar","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
             principal.setVisible(true);
             

@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -605,6 +606,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             //SAVE INVENTORY DATA
             InventoryServices.saveInventoryData();
             System.out.println("INFO: El producto se ha modificado con exito");
+            JOptionPane.showMessageDialog(null, "El producto se ha modificado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
             principal.setVisible(true);
         
@@ -612,6 +614,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         
         else {
              System.out.println("INFO: El producto no se ha modificado con exito");
+             JOptionPane.showMessageDialog(null, "El producto no se ha modificado con exito, contacte con nosotros.","Información para el usuario", JOptionPane.WARNING_MESSAGE);
              this.dispose();
             principal.setVisible(true);
         

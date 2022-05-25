@@ -25,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -1075,6 +1076,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                 //SAVE USER DATA:
                  UsersServices.saveUserData();
                 System.out.println("INFO: El usuario se ha sido modificado con exito");
+                JOptionPane.showMessageDialog(null, "INFO: El usuario se ha sido modificado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                 this.dispose();
                 
                 if (principal !=null) {
@@ -1090,6 +1092,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             }
             else{
                 System.out.println("ERROR: El usuario no ha podido ser modificado");
+                JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser modificado","Información para el usuario", JOptionPane.WARNING_MESSAGE);
 
             }
         }
@@ -1099,6 +1102,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                 //SAVE USER DATA:
                  UsersServices.saveUserData();
                 System.out.println("INFO: El usuario se ha sido modificado con exito");
+                JOptionPane.showMessageDialog(null, "INFO: El usuario se ha sido modificado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                 this.dispose();
                 
                 if (principal !=null) {
@@ -1114,6 +1118,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             }
             else{
                 System.out.println("ERROR: El usuario no ha podido ser modificado");
+                JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser modificado","Información para el usuario", JOptionPane.WARNING_MESSAGE);
 
             }
         }

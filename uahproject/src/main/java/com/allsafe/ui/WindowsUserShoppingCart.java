@@ -30,6 +30,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 
 /**
@@ -823,9 +824,11 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
         if (UsersServices.cleanShoppingCart(user)){
             System.out.println("INFO: Se ha limpiado el carrito");
+            JOptionPane.showMessageDialog(null, "Se ha limpiado el carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         }
         else {
             System.out.println("ERROR: no ha podido limpiarse el carrito");
+            JOptionPane.showMessageDialog(null, "No ha podido limpiarse el carrito, contacte con nosotros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
         
         }
         createWindowsProductPage();
@@ -865,24 +868,56 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
         //Comprobar stock carrito:
         
-        if (SalesDataService.Sales(user)) {
-            //SAVE INVENTORY DATA
-            InventoryServices.saveInventoryData();
-            SalesDataService.saveSalesData();
-            System.out.println("La compra se ha realizado con exito, procedemos a vaciar el carrito");
-            if (UsersServices.cleanShoppingCart(user)){
-            System.out.println("INFO: Se ha limpiado el carrito");
-             }
-             else {
-                System.out.println("ERROR: no ha podido limpiarse el carrito");
+//        if (!UsersServices.getObjectShoppingCart(user).isEmpty()){
+//                printUsers(0);
+//            }
+//            else{
+//                jLabelEmptyCarrito.setVisible(true);
+//            
+//            }
         
+//     int options = JOptionPane.YES_NO_OPTION;   
+//     int result = JOptionPane.showConfirmDialog(this, "La compra lleva unos gastos de envío de 5 euros, acepta la compra" ,"Condiciones de compra", options, 3);
+//     if (result == JOptionPane.YES_OPTION){
+//         System.out.println("hola mundo");
+//     }
+//     
+    String[] options = new String[] {"Yes", "No"};
+    int response = JOptionPane.showOptionDialog(null, "La compra lleva asociados unos gastos de envío de 5 euros. ¿Acepta los términos?", "Condiciones de compra", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+    
+    if (response == 0){
+        System.out.println("INFO: Procedemos con el proceso de compra"); 
+             if (!UsersServices.getObjectShoppingCart(user).isEmpty()){   
+                if (SalesDataService.Sales(user)) {
+                    //SAVE INVENTORY DATA
+                    InventoryServices.saveInventoryData();
+                    SalesDataService.saveSalesData();
+                    System.out.println("La compra se ha realizado con exito, procedemos a vaciar el carrito");
+                    JOptionPane.showMessageDialog(null, "La compra se ha realizado con exito, procedemos a vaciar el carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                    if (UsersServices.cleanShoppingCart(user)){
+                    System.out.println("INFO: Se ha limpiado el carrito");
+                     }
+                     else {
+                        System.out.println("ERROR: no ha podido limpiarse el carrito");
+
+                        }
+                createWindowsProductPage();
+
                 }
-        createWindowsProductPage();
-              
-        }
-        else {
-            System.out.println("no se puede continuar el proceso de compra");
-        }
+                else {
+                    System.out.println("no se puede continuar el proceso de compra");
+                    JOptionPane.showMessageDialog(null, "La compra no se puede realizar, no hay stock suficiente hay un problema en el servicio de venta.","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                }
+             }
+             else{
+                 JOptionPane.showMessageDialog(null, "El carrito no tiene nada, echa un vistazo en nuestro catálogo ;) ","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+             }
+    }
+    else {
+        System.out.println("INFO: Al no aceptar las condiciones de compra, interrumpimos la compra");
+        JOptionPane.showMessageDialog(null, "El proceso de compra no ha continuado ya que no se han aceptado las condiciones de compra.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+    }
+        
               
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -26,6 +26,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 
 /**
@@ -406,7 +407,6 @@ private JFrame getFrame(){
         jSeparator2 = new javax.swing.JSeparator();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBoxCategoria = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
         jPanelUsersFound = new javax.swing.JPanel();
         jButtonUser1 = new javax.swing.JButton();
         jButtonUser2 = new javax.swing.JButton();
@@ -554,8 +554,6 @@ private JFrame getFrame(){
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jLabel3.setText("Buscar Producto");
-
         jPanelUsersFound.setBackground(new java.awt.Color(255, 255, 255));
         jPanelUsersFound.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
 
@@ -670,13 +668,9 @@ private JFrame getFrame(){
                 .addGap(391, 391, 391))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addGap(562, 562, 562)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                            .addGap(24, 24, 24)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(215, 215, 215)
                         .addComponent(jLabelProductSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -691,9 +685,7 @@ private JFrame getFrame(){
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -848,7 +840,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                             printUsers(0);
                     }  
                     else {
-                        System.out.println("No han encontrado resultados");
+                        System.out.println("No se han encontrado resultados");
+                        JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                         jPanelUsersFound.setVisible(false);
                     } 
                 }   
@@ -862,6 +855,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                     }  
                     else {
                         System.out.println("No han encontrado resultados");
+                        JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                         jPanelUsersFound.setVisible(false);
                     }
                 }  
@@ -875,6 +869,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                     }  
                     else {
                         System.out.println("No han encontrado resultados");
+                        JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                         jPanelUsersFound.setVisible(false);
                     }
                 }  
@@ -882,6 +877,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             }
             catch (Exception e){
                 System.out.println("Error: El producto no existe: " + e.toString()); 
+                JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                 jPanelUsersFound.setVisible(false);
              }
         }
@@ -900,6 +896,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                     }  
                     else {
                         System.out.println("No han encontrado resultados");
+                        JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                         jPanelUsersFound.setVisible(false);
                     } 
                 }   
@@ -913,6 +910,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                     }  
                     else {
                         System.out.println("No han encontrado resultados");
+                        JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                         jPanelUsersFound.setVisible(false);
                     }
                     
@@ -928,6 +926,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                     }  
                     else {
                         System.out.println("No han encontrado resultados");
+                        JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                         jPanelUsersFound.setVisible(false);
                     }
                 }  
@@ -935,6 +934,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             }
             catch (Exception e){
                 System.out.println("Error: El producto no existe: " + e.toString());
+                JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                 jPanelUsersFound.setVisible(false);
              }
         
@@ -977,6 +977,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
          }
         else {
             System.out.println("INFO: No se ha seleeccionado ningún producto");
+            JOptionPane.showMessageDialog(null, "No se ha seleeccionado ningún producto","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         }
         jLabelProduct.setText("Producto");
         jPanelUsersFound.setVisible(false);
@@ -1084,7 +1085,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     
     private void jTextFieldSearchUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserMousePressed
         // TODO add your handling code here:
-        if(jTextFieldSearchUser.getText().equals("Ingrese el situtlo del producto")){
+        if(jTextFieldSearchUser.getText().equals("Ingrese el titulo del producto")){
             jTextFieldSearchUser.setText("");
             jTextFieldSearchUser.setForeground(Color.black);
         }
@@ -1102,14 +1103,17 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                  //SAVE INVENTORY DATA
                  InventoryServices.saveInventoryData();
                  System.out.println("INFO: El producto se ha eliminado del inventario");
+                 JOptionPane.showMessageDialog(null, "El producto se ha eliminado del inventario","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
              
              }
              else {
                  System.out.println("El producto no se ha eliminado del inventario");
+                 JOptionPane.showMessageDialog(null, " El producto no se ha eliminado del inventario, contacte con nosotros","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
              }
          }
         else {
-            System.out.println("INFO: No se ha seleeccionado ningún producto");
+            System.out.println("INFO: No se ha seleccionado ningún producto");
+            JOptionPane.showMessageDialog(null, " No se ha seleccionado ningún producto","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         }
         jLabelProduct.setText("Producto");
         jPanelUsersFound.setVisible(false);
@@ -1154,7 +1158,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JComboBox<String> jComboBoxCategoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2UserMail1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelHomeIcon4;
     private javax.swing.JLabel jLabelProduct;
     private javax.swing.JLabel jLabelProductSelected;
