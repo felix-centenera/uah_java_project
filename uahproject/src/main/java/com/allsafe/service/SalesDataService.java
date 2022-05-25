@@ -31,7 +31,6 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  *
@@ -39,49 +38,44 @@ import java.util.stream.Stream;
  */
 public class SalesDataService {
     
-    /**
-     * DEPRECATED FUNCTION
-     * @param loc
-     * @return 
-     * @deprecated 
-     */
-    public static boolean IsLocalDateTimeInDDBB(LocalDateTime loc){
+    
+    public static boolean IsLocalDateTimeInDDBB(String loc){
         
         Collection<Venta> coleccion= SalesData.getInstance().getSalesDataHashMap().values();
         System.out.println(coleccion.toString());
         //IntStream.of(numbers).anyMatch(x -> x == numberToSearch)
         DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
-        return(coleccion.stream().anyMatch(x -> x.getDateConfirmedSale().equals(loc)));
+        return(coleccion.stream().anyMatch(x -> x.getDateConfirmedSale().format(formatoCorto).equals(loc)));
     }
     
-    public static  ArrayList getSalesFounded(LocalDateTime loc){
-            //DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
-            ArrayList<Venta> OrderedArray = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().values());
-            //ArrayList<LocalDateTime> cache = new ArrayList<>();
+    public static  ArrayList getSalesFounded(String loc){
+            DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+            ArrayList<Venta> arr = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().values());
             ArrayList<String> cache = new ArrayList<>();
-            //int index = 0;
-            OrderedArray.sort((d1,d2) -> d1.getDateConfirmedSale().compareTo(d2.getDateConfirmedSale()));
+          
+            arr.sort((d1,d2) -> d1.getDateConfirmedSale().compareTo(d2.getDateConfirmedSale()));
+            arr.forEach(x -> cache.add(x.getDateConfirmedSale().format(formatoCorto)));
+            int index = cache.indexOf(loc);
+            cache.clear();
+            arr.forEach(y -> cache.add(y.getID()));
             
-            //System.out.println("array ordenado: " + arr.toString());
-            //System.out.println(arr.get(arr.size()-4).getDateConfirmedSale().format(formatoCorto));
-            //System.out.println("");
-            //arr.forEach(x -> cache.add(x.getDateConfirmedSale()));
-            OrderedArray.stream().filter(x -> x.getDateConfirmedSale().isAfter(loc)).forEach(x -> cache.add(x.getID()));
             
-//            for(LocalDateTime i : cache){
-//                if(i.isBefore(loc)){
-//                    index = cache.indexOf(i);
-//                    arr1.add(arr.get(index).getID());
-//                    
-//                }
+            return(new ArrayList<>(cache.subList(index, arr.size())));
+
+//        ArrayList<String> arr = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().keySet());
+//        ArrayList<String> cache = new ArrayList<>();
+//        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+//        for(String i : arr){
+//        
+//            if(loc.equals(SalesData.getInstance().getSalesDataHashMap().get(i).getDateConfirmedSale().format(formatoCorto))){
+//                
+//                cache.add(i);
 //            }
-            
-           
-            
-            //System.out.println(arr1);
-            return(cache);
-
-
+//        
+//        }
+//        System.out.println(cache);
+//        return(SalesData.getInstance().getSalesDataHashMap().get(cache.get(0)));
+//    
     }
     public static ArrayList<String> getAllSales(){
         ArrayList<String> arr = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().keySet());
