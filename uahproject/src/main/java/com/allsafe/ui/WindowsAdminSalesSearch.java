@@ -62,7 +62,9 @@ public class WindowsAdminSalesSearch extends javax.swing.JFrame  {
             jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("Icons/png/home.png"));
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
             jButtonHomeIconsGround9.setIcon(new javax.swing.ImageIcon("Icons/png/back.png"));
-         
+            jLabelTipFormatted.setVisible(false);
+            
+            
         } 
         catch (Exception e) {
             System.out.println("Error: " + e.toString()); 
@@ -126,14 +128,12 @@ private JFrame getFrame(){
         jSeparator4123 = new javax.swing.JSeparator();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         JButtomBuscar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jSpinnerDate = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldFindID = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        JTextDate = new javax.swing.JFormattedTextField();
+        jLabelTipFormatted = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabelHomeIcon4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -166,9 +166,6 @@ private JFrame getFrame(){
 
         jLabel1.setText("Buscar por Fecha:");
 
-        jLabel2.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        jLabel2.setText("Venta");
-
         JButtomBuscar.setText("Buscar");
         JButtomBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,16 +180,6 @@ private JFrame getFrame(){
             }
         });
 
-        jSpinnerDate.setModel(new javax.swing.SpinnerDateModel());
-        jSpinnerDate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jSpinnerDateMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jSpinnerDateMousePressed(evt);
-            }
-        });
-
         jLabel4.setText("Buscar por ID:");
 
         jTextFieldFindID.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -201,30 +188,41 @@ private JFrame getFrame(){
             }
         });
 
+        JTextDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy:HH:mm"))));
+        JTextDate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTextDateMouseClicked(evt);
+            }
+        });
+
+        jLabelTipFormatted.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelTipFormatted.setText("Introduzca la fecha en el siguiente formato: dd/MM/yyyy:HH:mm");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(331, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(JButtomBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                            .addComponent(jSpinnerDate)
-                            .addComponent(jTextFieldFindID))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JTextDate, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelTipFormatted, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldFindID, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(130, 130, 130)
+                        .addComponent(JButtomBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,24 +230,19 @@ private JFrame getFrame(){
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jSpinnerDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTextDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addComponent(jLabelTipFormatted)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextFieldFindID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(5, 5, 5)
+                    .addComponent(jTextFieldFindID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JButtomBuscar)
-                    .addComponent(jButton2))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(jButton2)
+                    .addComponent(JButtomBuscar))
+                .addGap(55, 55, 55))
         );
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel3.setText("Buscar ventas");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -260,10 +253,8 @@ private JFrame getFrame(){
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel112, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3)
-                        .addComponent(jSeparator4123, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(362, Short.MAX_VALUE))
+                    .addComponent(jSeparator4123, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(314, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,11 +263,9 @@ private JFrame getFrame(){
                 .addComponent(jLabel112, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4123, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addGap(37, 37, 37)
+                .addGap(64, 64, 64)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 1030, 470));
@@ -381,16 +370,21 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
 
+    private void jTextFieldFindIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldFindIDMouseClicked
+        // TODO add your handling code here:
+        jTextFieldFindID.setText("");
+    }//GEN-LAST:event_jTextFieldFindIDMouseClicked
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         /**
-         * OBJ:Se encarga de pasar a WindowsAdminSalesShowAllProducts todos las venta que hay disponible en el inventario.
-         * PRE: El Inventario debe haber sido creado antes y inicializazo
-         */
+        * OBJ:Se encarga de pasar a WindowsAdminSalesShowAllProducts todos las venta que hay disponible en el inventario.
+        * PRE: El Inventario debe haber sido creado antes y inicializazo
+        */
         SalesData sales = SalesData.getInstance();
-        
+
         ArrayList<String> ArrayKeys = SalesDataService.getAllSales();
         WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , ArrayKeys);
-         
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void JButtomBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtomBuscarActionPerformed
@@ -399,154 +393,125 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         * fecha PRE:SalesData ha sido inicializado y instanciado void --> new
         * JFrame
         */
-             
+
         try{
             if(jTextFieldFindID.getText().equals("")){//Inserte ID.
                 System.out.println("############################################################################################################");
                 //Cogemos la fecha nuestra
-                Date fecha2 = (Date) jSpinnerDate.getValue();
-                LocalDateTime localDate = fecha2.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+                String localDateStr = JTextDate.getText();
                 DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+                LocalDateTime localDate= LocalDateTime.parse(localDateStr, formatoCorto);
+                System.out.println(localDate);
 
-                System.out.println("-------------" + SalesData.getInstance().getSalesDataHashMap().get(SalesData.getInstance().getSalesDataHashMap().keySet().toArray()[0]).getDateConfirmedSale().format(formatoCorto));
+                //                LocalDateTime localDate = fecha2.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+                //
+                //                System.out.println(localDate);
+                //                DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
 
-                System.out.println(localDate.format(formatoCorto));
-                boolean i = SalesDataService.IsLocalDateTimeInDDBB(localDate.format(formatoCorto));
-                System.out.println(i);
-                if(i == true){
+                //System.out.println(localDate.format(formatoCorto));
+                //boolean i = SalesDataService.IsLocalDateTimeInDDBB(localDate);
 
-                    ArrayList<String> ArrayKeys = SalesDataService.getSalesFounded(localDate.format(formatoCorto));
+                //System.out.println("INFO: Se ha encontrado el producto" + i);
+                //if(i == true){
+
+                    ArrayList<String> ArrayKeys = SalesDataService.getSalesFounded(localDate);
                     System.out.println("INFO: Venta encontrada");
                     System.out.println("Estoy aqui" + ArrayKeys.toString());
-                    //Cogemos y llamamos al constructor de WindowsAdminSalesShowOneSale para ver las caracteristicas del producto
-                    
-                    //Pasame un array de keys de los objetos
-                    WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , ArrayKeys);
-                    
 
+                    System.out.println(ArrayKeys.size());
+
+                    if(!ArrayKeys.isEmpty()){
+                        WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , ArrayKeys);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "No se han encontrado datos en el registro","ErrorMessage", JOptionPane.ERROR_MESSAGE);
+                        System.out.println("INFO: No se ha encontrado en el registor los datos");
+                    }
                 }else{
-                    JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);
-                    System.out.println("INFO: No se ha encontrado en el registor los datos");
+                    System.out.println("INFO: Vamos a buscar por ID de compra.");
+                    String ID = jTextFieldFindID.getText();
 
-
+                    if(SalesData.getInstance().getSalesDataHashMap().keySet().contains(ID)){
+                        WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , SalesData.getInstance().getSalesDataHashMap().get(ID));
+                    }else if(ID.equals("")){
+                        SalesData sales = SalesData.getInstance();
+                        ArrayList<String> ArrayKeys = SalesDataService.getAllSales();
+                        WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , ArrayKeys);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "La Fecha nos es correcta","ErrorMessage", JOptionPane.ERROR_MESSAGE);
+                        System.out.println("INFO: No se ha encontrado en el registor los datos");
+                    }
 
                 }
-            }else{
-                System.out.println("INFO: Vamos a buscar por fecha de  compra.");
-                String ID = jTextFieldFindID.getText();
-                
-                if(SalesData.getInstance().getSalesDataHashMap().keySet().contains(ID)){
-                    WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , SalesData.getInstance().getSalesDataHashMap().get(ID));
-                }else if(ID.equals("")){
-                    SalesData sales = SalesData.getInstance();
-                    ArrayList<String> ArrayKeys = SalesDataService.getAllSales();
-                    WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , ArrayKeys);
-                }else{
-                    JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);
-                    System.out.println("INFO: No se ha encontrado en el registor los datos");
-                }
-                
-            }
-        
-        
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        try{
-//            if(jTextFieldFindID.getText().equals("")){//Inserte ID.
-//                System.out.println("############################################################################################################");
-//                //Cogemos la fecha nuestra
-//                Date fecha2 = (Date) jSpinnerDate.getValue();
-//                LocalDateTime localDate = fecha2.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-//                DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
-//
-//                System.out.println("-------------" + SalesData.getInstance().getSalesDataHashMap().get(SalesData.getInstance().getSalesDataHashMap().keySet().toArray()[0]).getDateConfirmedSale().format(formatoCorto));
-//
-//                System.out.println(localDate.format(formatoCorto));
-//                boolean i = SalesDataService.IsLocalDateTimeInDDBB(localDate.format(formatoCorto));
-//                System.out.println(i);
-//                if(i == true){
-//
-//                    Venta venta = SalesDataService.getSalesFounded(localDate.format(formatoCorto));
-//                    System.out.println("INFO: Venta encontrada");
-//                    System.out.println(venta.toString());
-//                    //Cogemos y llamamos al constructor de WindowsAdminSalesShowOneSale para ver las caracteristicas del producto
-//
-//                    WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , venta);
-//
-//                }else{
-//                    JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);
-//                    System.out.println("INFO: No se ha encontrado en el registor los datos");
-//
-//
-//
-//                }
-//            }else{
-//                System.out.println("INFO: Vamos a buscar por fecha de  compra.");
-//                String ID = jTextFieldFindID.getText();
-//                
-//                if(SalesData.getInstance().getSalesDataHashMap().keySet().contains(ID)){
-//                    WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , SalesData.getInstance().getSalesDataHashMap().get(ID));
-//                }else if(ID.equals("")){
-//                    SalesData sales = SalesData.getInstance();
-//                    ArrayList<String> ArrayKeys = SalesDataService.getAllSales();
-//                    WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , ArrayKeys);
-//                }else{
-//                    JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);
-//                    System.out.println("INFO: No se ha encontrado en el registor los datos");
-//                }
-//                
-//            }
 
-    }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);
-            System.out.println("INFO: El Usuario ha metido un fecha incorrecta  ###" + e.toString());
-            
-    }
+                //        try{
+                    //            if(jTextFieldFindID.getText().equals("")){//Inserte ID.
+                        //                System.out.println("############################################################################################################");
+                        //                //Cogemos la fecha nuestra
+                        //                Date fecha2 = (Date) jSpinnerDate.getValue();
+                        //                LocalDateTime localDate = fecha2.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+                        //                DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
+                        //
+                        //                System.out.println("-------------" + SalesData.getInstance().getSalesDataHashMap().get(SalesData.getInstance().getSalesDataHashMap().keySet().toArray()[0]).getDateConfirmedSale().format(formatoCorto));
+                        //
+                        //                System.out.println(localDate.format(formatoCorto));
+                        //                boolean i = SalesDataService.IsLocalDateTimeInDDBB(localDate.format(formatoCorto));
+                        //                System.out.println(i);
+                        //                if(i == true){
+                            //
+                            //                    Venta venta = SalesDataService.getSalesFounded(localDate.format(formatoCorto));
+                            //                    System.out.println("INFO: Venta encontrada");
+                            //                    System.out.println(venta.toString());
+                            //                    //Cogemos y llamamos al constructor de WindowsAdminSalesShowOneSale para ver las caracteristicas del producto
+                            //
+                            //                    WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , venta);
+                            //
+                            //                }else{
+                            //                    JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);
+                            //                    System.out.println("INFO: No se ha encontrado en el registor los datos");
+                            //
+                            //
+                            //
+                            //                }
+                        //            }else{
+                        //                System.out.println("INFO: Vamos a buscar por fecha de  compra.");
+                        //                String ID = jTextFieldFindID.getText();
+                        //
+                        //                if(SalesData.getInstance().getSalesDataHashMap().keySet().contains(ID)){
+                            //                    WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , SalesData.getInstance().getSalesDataHashMap().get(ID));
+                            //                }else if(ID.equals("")){
+                            //                    SalesData sales = SalesData.getInstance();
+                            //                    ArrayList<String> ArrayKeys = SalesDataService.getAllSales();
+                            //                    WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , ArrayKeys);
+                            //                }else{
+                            //                    JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);
+                            //                    System.out.println("INFO: No se ha encontrado en el registor los datos");
+                            //                }
+                        //
+                        //            }
+
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "No se ha encontrar ninguna coincidencia, utilice otro rango.","Información para el usuario.", JOptionPane.INFORMATION_MESSAGE);
+                    System.out.println("INFO: El Usuario ha metido un fecha incorrecta  ###" + e.toString());
+
+                }
+                finally{
+                jLabelTipFormatted.setVisible(false);
+        }
         
-        
-        
+
     }//GEN-LAST:event_JButtomBuscarActionPerformed
 
-    private void jTextFieldFindIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldFindIDMouseClicked
+    private void JTextDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextDateMouseClicked
         // TODO add your handling code here:
-        jTextFieldFindID.setText("");
-    }//GEN-LAST:event_jTextFieldFindIDMouseClicked
-
-    private void jSpinnerDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSpinnerDateMouseClicked
-        // TODO add your handling code here:
-        jTextFieldFindID.setText("");
-        jTextFieldFindID.setText("Inserte ID.");
-    }//GEN-LAST:event_jSpinnerDateMouseClicked
-
-    private void jSpinnerDateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSpinnerDateMousePressed
-        // TODO add your handling code here:
-        jTextFieldFindID.setText("");
-        jTextFieldFindID.setText("Inserte ID.");
-    }//GEN-LAST:event_jSpinnerDateMousePressed
+        jLabelTipFormatted.setVisible(true);
+        
+        
+    }//GEN-LAST:event_JTextDateMouseClicked
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JButtomBuscar;
+    private javax.swing.JFormattedTextField JTextDate;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.Box.Filler filler1;
@@ -558,12 +523,11 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JButton jButtonHomeIconsGround9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel112;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelHomeIcon4;
     private javax.swing.JLabel jLabelTimeline7;
     private javax.swing.JLabel jLabelTimeline8;
+    private javax.swing.JLabel jLabelTipFormatted;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -571,9 +535,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4123;
-    private javax.swing.JSpinner jSpinnerDate;
     private javax.swing.JTextField jTextFieldFindID;
     // End of variables declaration//GEN-END:variables
 }
