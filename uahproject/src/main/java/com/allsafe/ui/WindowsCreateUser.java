@@ -15,10 +15,14 @@ import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
 import com.allsafe.service.UsersServices;
 import java.awt.Color;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Year;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -357,7 +361,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jLabel3.setText("DNI:");
 
         JTextFieldUserDNI.setForeground(new java.awt.Color(204, 204, 204));
-        JTextFieldUserDNI.setText("Ingrese su DNI / CIF.");
+        JTextFieldUserDNI.setText("Ingrese su DNI (22124220Z) / CIF.");
         JTextFieldUserDNI.setBorder(null);
         JTextFieldUserDNI.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -687,7 +691,7 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         jFormattedTextTCFechaCaducidad.setBorder(null);
         jFormattedTextTCFechaCaducidad.setForeground(new java.awt.Color(204, 204, 204));
         jFormattedTextTCFechaCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        jFormattedTextTCFechaCaducidad.setText("30/4/22");
+        jFormattedTextTCFechaCaducidad.setText("26/2/22");
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -988,48 +992,101 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     
     private void jButtonRegistarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarUsuarioActionPerformed
         // TODO add your handling code here: UserMail
+        //long tarjeta= (((Number) jFormattedTCNumero.getValue()).intValue());
+        
+        //jFormattedTCNumero.getText().length();
+        
+        
+        //if (jFormattedTCNumero.getText().length() == 16   && UsersServices.checkDNI(JTextFieldUserDNI.getText()) ){
+
+                    String fecha1txt = (String) jFormattedTextTCFechaCaducidad.getText();
+                    System.out.println(fecha1txt);
+                    String[] partes = fecha1txt.split("/");     
+                    int d1 = Integer.parseInt(partes[0]);
+                    int m1 = Integer.parseInt(partes[1]);
+                    int a1 = Integer.parseInt(partes[2]);
+                    LocalDate fecha = LocalDate.of(Integer.parseInt("20" + partes[2]), Integer.parseInt(partes[1]), Integer.parseInt( partes[0])); 
+                    System.out.println(fecha);
+                   
+                    
+                    
+                    
+                    if(! jRadioButton1.isSelected()) {                   
+                        if (jFormattedTCNumero.getText().length() == 16   && UsersServices.checkDNI(JTextFieldUserDNI.getText())  &&  fecha.isAfter(LocalDate.now()) ){
+                            if (UsersServices.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                                //SAVE USER DATA:
+                                 UsersServices.saveUserData();
+                                System.out.println("INFO: El usuario se ha creado con exito");
+                                JOptionPane.showMessageDialog(null, "INFO: El usuario ha sido creado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                                this.dispose();
+                                secundariaLogin.setVisible(true);  
+                            }
+                            else{
+                                System.out.println("ERROR: El usuario no ha podido ser creado");
+                                //JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser creado, contacte con nosotros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                        }
+                        
+                        else {
+                            System.out.println("hay algun campo mal");
+                            if (jFormattedTCNumero.getText().length() != 16){
+                                JOptionPane.showMessageDialog(null, "La tarjeta de credito debe tener 16 dígitos","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+
+                            else if( !UsersServices.checkDNI(JTextFieldUserDNI.getText())) {
+                                JOptionPane.showMessageDialog(null, "El DNI proporcionado no es correcto","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                            
+                            else if( fecha.isBefore(LocalDate.now()) || fecha.isEqual(LocalDate.now()) ) {
+                                JOptionPane.showMessageDialog(null, "La tarjeta de crédito esta caducada, añada otra por favor","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                                
+                        }
+                    }
+                    
+                    
+                    else {
+                        if (jFormattedTCNumero.getText().length() == 16    &&  fecha.isAfter(LocalDate.now())){
+                                if (UsersServices.addUser(JTextFieldUserDNI.getText(),JTextFieldUserWeb.getText(),JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                                    //SAVE USER DATA:
+                                     UsersServices.saveUserData();
+                                    System.out.println("INFO: El usuario se ha creado con exito");
+                                    JOptionPane.showMessageDialog(null, "INFO: El usuario ha sido creado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                                    this.dispose();
+                                    secundariaLogin.setVisible(true);  
+                                }
+                                else{
+                                    System.out.println("ERROR: El usuario no ha podido ser creado");
+                                    //JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser creado, contacte con nosotros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+
+                                }
+                        }
+                        
+                        else {
+                            System.out.println("hay algun campo mal");
+                            if (jFormattedTCNumero.getText().length() != 16){
+                                JOptionPane.showMessageDialog(null, "La tarjeta de credito debe tener 16 dígitos","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                            else if( fecha.isBefore(LocalDate.now())  || fecha.isEqual(LocalDate.now()) ) {
+                                JOptionPane.showMessageDialog(null, "La tarjeta de crédito esta caducada, añada otra por favor","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                                
+                        }
+  
+                    }
     
-//        System.out.println(jFormattedTextTCFechaCaducidad.getValue());
-        String fecha1txt = (String) jFormattedTextTCFechaCaducidad.getText();
-        System.out.println(fecha1txt);
-        String[] partes = fecha1txt.split("/");     
-        int d1 = Integer.parseInt(partes[0]);
-        int m1 = Integer.parseInt(partes[1]);
-        int a1 = Integer.parseInt(partes[2]);
-        LocalDate fecha = LocalDate.of(Integer.parseInt(partes[2]), Integer.parseInt(partes[1]), Integer.parseInt(partes[0])); 
-        
-        if(! jRadioButton1.isSelected()) {
-            if (UsersServices.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
-                //SAVE USER DATA:
-                 UsersServices.saveUserData();
-                System.out.println("INFO: El usuario se ha creado con exito");
-                JOptionPane.showMessageDialog(null, "INFO: El usuario ha sido creado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-                this.dispose();
-                secundariaLogin.setVisible(true);  
-            }
-            else{
-                System.out.println("ERROR: El usuario no ha podido ser creado");
-                JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser creado, contacte con nosotros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
-
-            }
-        }
-        
-        else {
-            if (UsersServices.addUser(JTextFieldUserDNI.getText(),JTextFieldUserWeb.getText(),JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
-                //SAVE USER DATA:
-                 UsersServices.saveUserData();
-                System.out.println("INFO: El usuario se ha creado con exito");
-                JOptionPane.showMessageDialog(null, "INFO: El usuario ha sido creado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-                this.dispose();
-                secundariaLogin.setVisible(true);  
-            }
-            else{
-                System.out.println("ERROR: El usuario no ha podido ser creado");
-                JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser creado, contacte con nosotros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
-
-            }
-        }
-        
+//        else {
+//            System.out.println("hay algun campo mal");
+//            if (jFormattedTCNumero.getText().length() != 16){
+//                JOptionPane.showMessageDialog(null, "La tarjeta de credito debe tener 16 dígitos","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+//            }
+//            
+//            else if( UsersServices.checkDNI(JTextFieldUserDNI.getText())) {
+//                JOptionPane.showMessageDialog(null, "El DNI proporcionado no es correcto","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+//            }
+//            
+//   
+//        }
            
         
     }//GEN-LAST:event_jButtonRegistarUsuarioActionPerformed
@@ -1060,7 +1117,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     }//GEN-LAST:event_JTextFieldUserNameActionPerformed
 
     private void JTextFieldUserDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserDNIMousePressed
-        if(JTextFieldUserDNI.getText().equals("Ingrese su DNI / CIF.")){
+        if(JTextFieldUserDNI.getText().equals("Ingrese su DNI (22124220Z) / CIF.")){
             JTextFieldUserDNI.setText("");
             JTextFieldUserDNI.setForeground(Color.black);
         }

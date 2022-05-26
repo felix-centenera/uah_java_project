@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -71,12 +72,14 @@ public class UsersServices {
             return true;
         }catch (Exception ex) {
             System.out.println("Error: " + ex.toString()); 
+            JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser creado, contacte con nosotros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
             return false;
         }
     
         }
         else {
             System.out.println("Error: El usuario ya existe"); 
+            JOptionPane.showMessageDialog(null, "INFO: El usuario ya existe","Información para el usuario", JOptionPane.WARNING_MESSAGE);
             return false;
         
         }
@@ -91,6 +94,7 @@ public class UsersServices {
             Usuario a1 = new Administrador(clave, correo, to1);
             UserData.getInstance().getUserHashMap().put(correo, a1);    
             System.out.println(UserData.getInstance().getUserHashMap().toString());
+            JOptionPane.showMessageDialog(null, "Se ha añadido un nuevo administrador, welcome to Allsafe","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             return true;
         }catch (Exception ex) {
             System.out.println("Error: " + ex.toString()); 
@@ -100,6 +104,7 @@ public class UsersServices {
         }
         else {
             System.out.println("Error: El usuario ya existe"); 
+            JOptionPane.showMessageDialog(null, "El usuario ya existe","Información para el usuario", JOptionPane.WARNING_MESSAGE);
             return false;
         
         }
@@ -225,11 +230,13 @@ public class UsersServices {
             return true;
         }catch (Exception ex) {
             System.out.println("Error: " + ex.toString()); 
+            JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser creado, contacte con nosotros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
             return false;
         }
         }
         else {
             System.out.println("Error: El usuario ya existe"); 
+            JOptionPane.showMessageDialog(null, "INFO: El usuario ya existe","Información para el usuario", JOptionPane.WARNING_MESSAGE);
             return false;
         }     
     }
@@ -419,6 +426,32 @@ public class UsersServices {
                     System.out.println("Error:  No ha podido realizarse la recarga de usuarios: " + e.toString()); 
             }
 }
+    
+    
+    public static boolean checkDNI(String DNI){
+        try{
+            if (DNI.charAt(DNI.length() -1 ) == letterDNI(DNI) ){
+                System.out.println("El DNI es correcto");
+                return true;
+            }    
+            else {
+                System.out.println("El DNI no es correcto");
+                return false;
+            }
+        }
+      
+        catch (Exception ex) {
+            System.out.println("Error: " + ex.toString()); 
+            return false;
+        }   
+    }
+    
+    private static char letterDNI(String DNI){
+        int dniNumber = Integer.parseInt(DNI.substring(0, DNI.length()-1 )  );
+        dniNumber = dniNumber % 23;
+        char lettersDNI[] = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
+        return lettersDNI[dniNumber];
+    }
     
     
     

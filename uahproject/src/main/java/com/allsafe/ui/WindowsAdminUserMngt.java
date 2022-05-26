@@ -868,7 +868,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             jTextFieldUserMail.setText("");
             //SAVE USER DATA:
             UsersServices.saveUserData();
-            JOptionPane.showMessageDialog(null, "Se ha añadido un nuevo administrador, welcome to Allsafe","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+            
 //            //TO TEST DELETE both prints
 //            System.out.println("Usuarios pedidos directamente:" + UsersServices.getUser());
 //            System.out.println("Usuarios pedidos por servicio:" + UsersServices.getUser());
