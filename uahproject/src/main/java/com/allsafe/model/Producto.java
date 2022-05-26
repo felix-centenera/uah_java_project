@@ -123,10 +123,11 @@ public class Producto implements Serializable{
 
     public void introducirOpinion(Opinion o){
                opiniones.add(o);
+               estrellas =0;
                for (int i=0; i < opiniones.size(); i++ ){
                    estrellas= estrellas + opiniones.get(i).getCalificacion();
                }
-               estrellas = round(estrellas / opiniones.size());
+               this.estrellas = round(estrellas / opiniones.size());
        }
 
     @Override
