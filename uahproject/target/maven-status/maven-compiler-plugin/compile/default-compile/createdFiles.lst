@@ -36,6 +36,7 @@ com/allsafe/ui/WindowsAdminProductMngtAdd$15.class
 com/allsafe/service/RandomHomeProductos.class
 com/allsafe/ui/WindowsAdminUserMngt$5.class
 com/allsafe/ui/WindowsCreateUser$4.class
+com/allsafe/ui/WindowsMyAccount$29.class
 com/allsafe/ui/WindowsUserShoppingCart$4.class
 com/allsafe/ui/Home$7.class
 com/allsafe/ui/WindowsAdminSalesShowAllProducts$2.class
@@ -65,6 +66,7 @@ com/allsafe/ui/Home$11.class
 com/allsafe/ui/WindowsCreateUser$9.class
 com/allsafe/ui/WindowsAdminProductMngtAdd$9.class
 com/allsafe/ui/WindowsAdmin$3.class
+com/allsafe/ui/WindowsCreateUser$28.class
 com/allsafe/ui/WindowsUserShoppingCart$11.class
 com/allsafe/ui/WindowsAdminProductMngtSearch.class
 com/allsafe/ui/WindowsMyAccount$18.class
@@ -198,6 +200,7 @@ com/allsafe/ui/WindowsMyAccount$6.class
 com/allsafe/ui/WindowsAdminProductMngtAdd$14.class
 com/allsafe/model/Usuario.class
 com/allsafe/ui/WindowsAdminUserMngt$17.class
+com/allsafe/ui/WindowsMyAccount$28.class
 com/allsafe/mock/SalesData.class
 com/allsafe/model/ClienteEmpresa.class
 com/allsafe/model/Clientes.class
@@ -249,6 +252,7 @@ com/allsafe/ui/WindowsAdminProductMngt$3.class
 com/allsafe/ui/WindowsAdminUserMngt$16.class
 com/allsafe/ui/WindowsAdminSalesSearch$5.class
 com/allsafe/ui/WindowsLogin$3.class
+com/allsafe/ui/WindowsMyAccount$27.class
 com/allsafe/ui/WindowsProductManagingInfo$3.class
 com/allsafe/ui/WindowsAdminUserMngt$3.class
 com/allsafe/ui/WindowsProductReportingInfo$1.class

@@ -665,6 +665,11 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
                 jFormattedTCNumeroMousePressed(evt);
             }
         });
+        jFormattedTCNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTCNumeroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -697,6 +702,16 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jFormattedTextTCFechaCaducidad.setBorder(null);
         jFormattedTextTCFechaCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         jFormattedTextTCFechaCaducidad.setText("30/4/22");
+        jFormattedTextTCFechaCaducidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jFormattedTextTCFechaCaducidadMouseClicked(evt);
+            }
+        });
+        jFormattedTextTCFechaCaducidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextTCFechaCaducidadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -1058,69 +1073,108 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     
     
     private void jButtonRegistarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarUsuarioActionPerformed
-        // TODO add your handling code here: UserMail
-    
+        
+            // TODO add your handling code here: UserMail
+            
 //        System.out.println(jFormattedTextTCFechaCaducidad.getValue());
+        
         String fecha1txt = (String) jFormattedTextTCFechaCaducidad.getText();
         System.out.println(fecha1txt);
         String[] partes = fecha1txt.split("/");     
         int d1 = Integer.parseInt(partes[0]);
         int m1 = Integer.parseInt(partes[1]);
         int a1 = Integer.parseInt(partes[2]);
-        LocalDate fecha = LocalDate.of(Integer.parseInt(partes[2]), Integer.parseInt(partes[1]), Integer.parseInt(partes[0])); 
+        
+        if (partes[2].length() == 2) {
+            int firstTwoDigitsOfYear = (LocalDate.now().getYear()) /100 ;
+            partes[2] = String.valueOf(firstTwoDigitsOfYear) + partes[2];
+        }
+        //String a = String.valueOf(firstTwoDigitsOfYear);
+        //LocalDate fecha = LocalDate.of(Integer.parseInt(partes[2]), Integer.parseInt(partes[1]), Integer.parseInt(partes[0])); 
+        LocalDate fecha = LocalDate.of(Integer.parseInt(  partes[2]), Integer.parseInt(partes[1]), Integer.parseInt( partes[0])); 
         String clase = user.getClass().getSimpleName();
         
         
         if(clase.equals("ClienteParticular")) {
-            if (UsersServices.setUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
-                //SAVE USER DATA:
-                 UsersServices.saveUserData();
-                System.out.println("INFO: El usuario se ha sido modificado con exito");
-                JOptionPane.showMessageDialog(null, "INFO: El usuario se ha sido modificado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-                this.dispose();
-                
-                if (principal !=null) {
-                    principal.setVisible(true);
-                }
-                else if (secundariaProductos != null){
-                    secundariaProductos.setVisible(true);
-                }
-                else if (secundariaWindowsAdminUserMngt != null){
-                    secundariaWindowsAdminUserMngt.setVisible(true);
-                }
-                //principal.setVisible(true);  
-            }
-            else{
-                System.out.println("ERROR: El usuario no ha podido ser modificado");
-                JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser modificado","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+            if (jFormattedTCNumero.getText().length() == 16   && UsersServices.checkDNI(JTextFieldUserDNI.getText())  &&  fecha.isAfter(LocalDate.now()) ){
+                    if (UsersServices.setUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).longValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                        //SAVE USER DATA:
+                         UsersServices.saveUserData();
+                        System.out.println("INFO: El usuario se ha sido modificado con exito");
+                        JOptionPane.showMessageDialog(null, "INFO: El usuario se ha sido modificado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                        this.dispose();
 
+                        if (principal !=null) {
+                            principal.setVisible(true);
+                        }
+                        else if (secundariaProductos != null){
+                            secundariaProductos.setVisible(true);
+                        }
+                        else if (secundariaWindowsAdminUserMngt != null){
+                            secundariaWindowsAdminUserMngt.setVisible(true);
+                        }
+                        //principal.setVisible(true);  
+                    }
+                    else{
+                        System.out.println("ERROR: El usuario no ha podido ser modificado");
+                        JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser modificado","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+
+                    }
             }
+            else {
+                            System.out.println("hay algun campo mal");
+                            if (jFormattedTCNumero.getText().length() != 16){
+                                JOptionPane.showMessageDialog(null, "La tarjeta de credito debe tener 16 dígitos","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+
+                            else if( !UsersServices.checkDNI(JTextFieldUserDNI.getText())) {
+                                JOptionPane.showMessageDialog(null, "El DNI proporcionado no es correcto","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                            
+                            else if( fecha.isBefore(LocalDate.now()) || fecha.isEqual(LocalDate.now()) ) {
+                                JOptionPane.showMessageDialog(null, "La tarjeta de crédito esta caducada, añada otra por favor","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                                
+                    }
         }
         
         else {
-            if (UsersServices.setUser(JTextFieldUserDNI.getText(), JTextFieldUserWeb.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
-                //SAVE USER DATA:
-                 UsersServices.saveUserData();
-                System.out.println("INFO: El usuario se ha sido modificado con exito");
-                JOptionPane.showMessageDialog(null, "INFO: El usuario se ha sido modificado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-                this.dispose();
-                
-                if (principal !=null) {
-                    principal.setVisible(true);
-                }
-                else if (secundariaProductos != null){
-                    secundariaProductos.setVisible(true);
-                }
-                else if (secundariaWindowsAdminUserMngt != null){
-                    secundariaWindowsAdminUserMngt.setVisible(true);
-                }
-               // principal.setVisible(true);  
-            }
-            else{
-                System.out.println("ERROR: El usuario no ha podido ser modificado");
-                JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser modificado","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+            
+            if (jFormattedTCNumero.getText().length() == 16    &&  fecha.isAfter(LocalDate.now())){
+                    if (UsersServices.setUser(JTextFieldUserDNI.getText(), JTextFieldUserWeb.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                        //SAVE USER DATA:
+                         UsersServices.saveUserData();
+                        System.out.println("INFO: El usuario se ha sido modificado con exito");
+                        JOptionPane.showMessageDialog(null, "INFO: El usuario se ha sido modificado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                        this.dispose();
 
+                        if (principal !=null) {
+                            principal.setVisible(true);
+                        }
+                        else if (secundariaProductos != null){
+                            secundariaProductos.setVisible(true);
+                        }
+                        else if (secundariaWindowsAdminUserMngt != null){
+                            secundariaWindowsAdminUserMngt.setVisible(true);
+                        }
+                       // principal.setVisible(true);  
+                    }
+                    else{
+                        System.out.println("ERROR: El usuario no ha podido ser modificado");
+                        JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser modificado","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+
+                    }
             }
+            else {
+                            System.out.println("hay algun campo mal");
+                            if (jFormattedTCNumero.getText().length() != 16){
+                                JOptionPane.showMessageDialog(null, "La tarjeta de credito debe tener 16 dígitos","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                            else if( fecha.isBefore(LocalDate.now())  || fecha.isEqual(LocalDate.now()) ) {
+                                JOptionPane.showMessageDialog(null, "La tarjeta de crédito esta caducada, añada otra por favor","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                                
+                        }
         }
         
            
@@ -1265,6 +1319,20 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             jFormattedTCNumero.setForeground(Color.black);
         }
     }//GEN-LAST:event_jFormattedTCNumeroMousePressed
+
+    private void jFormattedTextTCFechaCaducidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextTCFechaCaducidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextTCFechaCaducidadActionPerformed
+
+    private void jFormattedTextTCFechaCaducidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextTCFechaCaducidadMouseClicked
+        // TODO add your handling code here:
+        jFormattedTextTCFechaCaducidad.setText("26/2/23");
+        
+    }//GEN-LAST:event_jFormattedTextTCFechaCaducidadMouseClicked
+
+    private void jFormattedTCNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTCNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTCNumeroActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

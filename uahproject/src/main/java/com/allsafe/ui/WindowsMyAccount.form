@@ -935,6 +935,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jFormattedTCNumeroMousePressed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTCNumeroActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -996,6 +997,10 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="30/4/22"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jFormattedTextTCFechaCaducidadMouseClicked"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextTCFechaCaducidadActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

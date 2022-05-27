@@ -814,7 +814,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
              }  
          }
         else {
-            System.out.println("INFO: No se ha seleeccionado ningún producto");
+            System.out.println("INFO: No se ha seleccionado ningún producto");
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún producto","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         }
         createWindowsProductPage();
         jLabelProductlSelected.setText("Selecciona un producto");
@@ -887,32 +888,51 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     
     if (response == 0){
         System.out.println("INFO: Procedemos con el proceso de compra"); 
-             if (!UsersServices.getObjectShoppingCart(user).isEmpty()){   
-                if (SalesDataService.Sales(user)) {
-                    //SAVE INVENTORY DATA
-                    InventoryServices.saveInventoryData();
-                    SalesDataService.saveSalesData();
-                    System.out.println("La compra se ha realizado con exito, procedemos a vaciar el carrito");
-                    JOptionPane.showMessageDialog(null, "La compra se ha realizado con exito, procedemos a vaciar el carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-                    if (UsersServices.cleanShoppingCart(user)){
-                    System.out.println("INFO: Se ha limpiado el carrito");
-                     }
-                     else {
-                        System.out.println("ERROR: no ha podido limpiarse el carrito");
+             if (!UsersServices.getObjectShoppingCart(user).isEmpty()){
+                 
+                //if (jFormattedTCNumero.getText().length() == 16 
+                // fecha.isAfter(LocalDate.now()
+                if (UsersServices.checkDateCreditCard(user)) {
+                 
+                            if (SalesDataService.Sales(user)) {
+                                //SAVE INVENTORY DATA
+                                InventoryServices.saveInventoryData();
+                                SalesDataService.saveSalesData();
+                                System.out.println("La compra se ha realizado con exito, procedemos a vaciar el carrito");
+                                JOptionPane.showMessageDialog(null, "La compra se ha realizado con exito, procedemos a vaciar el carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                                if (UsersServices.cleanShoppingCart(user)){
+                                System.out.println("INFO: Se ha limpiado el carrito");
+                                 }
+                                 else {
+                                    System.out.println("ERROR: no ha podido limpiarse el carrito");
 
-                        }
-                createWindowsProductPage();
-
-                }
+                                    }
+                            createWindowsProductPage();
+                            }
+                            
+                           else {
+                            System.out.println("INFO: No se puede continuar el proceso de compra");
+                            JOptionPane.showMessageDialog(null, "La compra no se puede realizar, no hay stock suficiente hay un problema en el servicio de venta.","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                            
+                }      
+                            
                 else {
-                    System.out.println("no se puede continuar el proceso de compra");
-                    JOptionPane.showMessageDialog(null, "La compra no se puede realizar, no hay stock suficiente hay un problema en el servicio de venta.","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                    System.out.println("INFO: No se puede continuar el proceso de compra, la tarjeta esta caducada");
+                    JOptionPane.showMessageDialog(null, "No se puede continuar el proceso de compra, la tarjeta esta caducada, por favor actualicela desde su cuenta de usuario","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                        
                 }
+                
+                
              }
              else{
                  JOptionPane.showMessageDialog(null, "El carrito no tiene nada, echa un vistazo en nuestro catálogo ;) ","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
              }
     }
+    
+    
+    
+    
     else {
         System.out.println("INFO: Al no aceptar las condiciones de compra, interrumpimos la compra");
         JOptionPane.showMessageDialog(null, "El proceso de compra no ha continuado ya que no se han aceptado las condiciones de compra.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);

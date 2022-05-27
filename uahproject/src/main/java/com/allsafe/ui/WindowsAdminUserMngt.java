@@ -935,9 +935,11 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             userMgmt =  UsersServices.getUser(jTextFieldSearchUser.getText());
             jTextFieldSearchUser.setText("Ingrese su nombre de usuario");
             jLabelMailUser.setText(userMgmt.getCorreo());
+            JOptionPane.showMessageDialog(null, "Se ha encontrado y seleccionado al usuario buscado","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             }
             catch (Exception e){
-                System.out.println("Error: El usuario no existe: " + e.toString()); 
+                System.out.println("Error: El usuario no existe: " + e.toString());
+                JOptionPane.showMessageDialog(null, "No se ha encontrado al usuario buscado","Información para el usuario", JOptionPane.WARNING_MESSAGE);
             }
         }     
     }//GEN-LAST:event_jButtonSearchActionPerformed

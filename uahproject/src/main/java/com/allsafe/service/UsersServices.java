@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import static java.time.LocalDate.now;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -245,7 +246,7 @@ public class UsersServices {
      //Metodo para crear un usuario de forma automatica sin formulario
     
      public  static void createMockUser() {
-         LocalDate fecha = LocalDate.of(2023, 9, 18); 
+         LocalDate fecha = LocalDate.of(2020, 9, 18); 
          LocalDateTime fechaTime = LocalDateTime.now();
          Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
          TarjetaDeCredito t1 = new TarjetaDeCredito("Felix",1234_1234_1234_1234L,fecha);
@@ -451,6 +452,48 @@ public class UsersServices {
         dniNumber = dniNumber % 23;
         char lettersDNI[] = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
         return lettersDNI[dniNumber];
+    }
+    
+    
+    
+    public static boolean checkDateCreditCard(Usuario u){
+        if ((UsersServices.TypeUser(u.getCorreo(),u.getClave())).equals("ClienteParticular")) {
+            ClienteParticular c1 = (ClienteParticular) u;
+            try{
+                //c1.getCarritoCompra().getProductos().clear();
+                //c1.getTarjetaDeCredito().getFechaCaducidad();
+                // fecha.isAfter(LocalDate.now()
+                if (c1.getTarjetaDeCredito().getFechaCaducidad().isAfter(LocalDate.now()) ) {
+                    System.out.println("INFO: La tarjeta de credito esta actualizada.");
+                    return true;
+                }
+                else {
+                    System.out.println("INFO: La tarjeta de credito esta caducada.");
+                    return false;
+                }
+            }
+            catch (Exception e) {
+                System.out.println("Error: " + e.toString());  
+                return false;
+              }
+        }
+        else{
+            ClienteEmpresa c1 = (ClienteEmpresa) u;
+            try{
+                if (c1.getTarjetaDeCredito().getFechaCaducidad().isAfter(LocalDate.now()) ) {
+                    System.out.println("INFO: La tarjeta de credito esta actualizada.");
+                    return true;
+                }
+                else {
+                    System.out.println("INFO: La tarjeta de credito esta caducada.");
+                    return false;
+                }
+            }
+            catch (Exception e) {
+                System.out.println("Error: " + e.toString());  
+                return false;
+            }
+        }
     }
     
     

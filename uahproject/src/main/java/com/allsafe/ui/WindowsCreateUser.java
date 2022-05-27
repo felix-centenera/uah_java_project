@@ -659,6 +659,11 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
                 jFormattedTCNumeroMousePressed(evt);
             }
         });
+        jFormattedTCNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTCNumeroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1005,7 +1010,9 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                     int d1 = Integer.parseInt(partes[0]);
                     int m1 = Integer.parseInt(partes[1]);
                     int a1 = Integer.parseInt(partes[2]);
-                    LocalDate fecha = LocalDate.of(Integer.parseInt("20" + partes[2]), Integer.parseInt(partes[1]), Integer.parseInt( partes[0])); 
+                    int firstTwoDigitsOfYear = (LocalDate.now().getYear()) /100 ;
+                    // LocalDate fecha = LocalDate.of(Integer.parseInt("20" + partes[2]), Integer.parseInt(partes[1]), Integer.parseInt( partes[0]));
+                    LocalDate fecha = LocalDate.of(Integer.parseInt( String.valueOf(firstTwoDigitsOfYear)  + partes[2]), Integer.parseInt(partes[1]), Integer.parseInt( partes[0])); 
                     System.out.println(fecha);
                    
                     
@@ -1013,7 +1020,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                     
                     if(! jRadioButton1.isSelected()) {                   
                         if (jFormattedTCNumero.getText().length() == 16   && UsersServices.checkDNI(JTextFieldUserDNI.getText())  &&  fecha.isAfter(LocalDate.now()) ){
-                            if (UsersServices.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                            if (UsersServices.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).longValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
                                 //SAVE USER DATA:
                                  UsersServices.saveUserData();
                                 System.out.println("INFO: El usuario se ha creado con exito");
@@ -1245,6 +1252,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             jFormattedTCNumero.setForeground(Color.black);
         }
     }//GEN-LAST:event_jFormattedTCNumeroMousePressed
+
+    private void jFormattedTCNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTCNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTCNumeroActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
