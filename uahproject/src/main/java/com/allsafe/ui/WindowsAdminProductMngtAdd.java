@@ -292,7 +292,7 @@ public class WindowsAdminProductMngtAdd extends javax.swing.JFrame  {
         jLabel8.setText("Ruta de la foto");
 
         jFormattedPathPhoto.setForeground(new java.awt.Color(204, 204, 204));
-        jFormattedPathPhoto.setText("Ingrese el nombre que aparece en su tarjeta.");
+        jFormattedPathPhoto.setText("Ingrese el nombre del fichero png.");
         jFormattedPathPhoto.setBorder(null);
         jFormattedPathPhoto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
