@@ -245,15 +245,15 @@ public class UsersServices {
     
      //Metodo para crear un usuario de forma automatica sin formulario
     
-     public  static void createMockUser() {
-         LocalDate fecha = LocalDate.of(2020, 9, 18); 
-         LocalDateTime fechaTime = LocalDateTime.now();
-         Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
-         TarjetaDeCredito t1 = new TarjetaDeCredito("Felix",1234_1234_1234_1234L,fecha);
-         Direccion d1 = new Direccion("calleEjemplo",2,28829,"Madrid");
-         ClienteParticular c1 = new ClienteParticular("20120000-F", "Felix", d1,t1,"91-2240234","pass","felix@uah.es",to1);
-         UserData.getInstance().getUserHashMap().put("felix@uah.es", c1);
-    }
+//     public  static void createMockUser() {
+//         LocalDate fecha = LocalDate.of(2020, 9, 18); 
+//         LocalDateTime fechaTime = LocalDateTime.now();
+//         Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
+//         TarjetaDeCredito t1 = new TarjetaDeCredito("Felix",1234_1234_1234_1234L,fecha);
+//         Direccion d1 = new Direccion("calleEjemplo",2,28829,"Madrid");
+//         ClienteParticular c1 = new ClienteParticular("20120000-F", "Felix", d1,t1,"91-2240234","pass","felix@uah.es",to1);
+//         UserData.getInstance().getUserHashMap().put("felix@uah.es", c1);
+//    }
      
      public static void createMockAdminUser() {         
          Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));

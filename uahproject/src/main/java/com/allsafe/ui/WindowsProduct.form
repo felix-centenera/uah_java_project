@@ -110,13 +110,15 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="jSeparator2" min="-2" pref="350" max="-2" attributes="0"/>
-                              <Component id="jTextFieldProductoCaracteristicas3" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
-                              <Component id="jTextFieldProductoCategoria5" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
-                              <Component id="jTextFieldProductoTitulo2" alignment="0" min="-2" pref="377" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldProductoPrecio1" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jTextFieldProductoCategoria5" alignment="1" min="-2" pref="461" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldProductoTitulo2" alignment="0" min="-2" pref="377" max="-2" attributes="0"/>
+                                  <Component id="jFormattedTextFieldProductoPrecio1" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
+                                  <Component id="jSeparator2" alignment="0" min="-2" pref="350" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldProductoCaracteristicas3" alignment="0" min="-2" pref="461" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace pref="84" max="32767" attributes="0"/>
                       </Group>
@@ -132,8 +134,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jTextFieldProductoCaracteristicas3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextFieldProductoCategoria5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="jTextFieldProductoCategoria5" min="-2" pref="17" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jFormattedTextFieldProductoPrecio1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                           <Component id="jPanel5" min="-2" max="-2" attributes="0"/>

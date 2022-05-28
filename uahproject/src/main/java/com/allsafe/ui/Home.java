@@ -18,6 +18,7 @@ import com.allsafe.model.Usuario;
 import com.allsafe.service.InventoryServices;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
+import com.allsafe.service.SalesDataService;
 import static com.allsafe.service.SalesDataService.initSalesDataMock;
 import com.allsafe.service.UsersServices;
 import java.io.FileInputStream;
@@ -46,9 +47,9 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        initDataMock(); 
         createHomePage();
         createHomePageProductos(0);
-        initDataMock();   
     }
 
     /**
@@ -517,46 +518,46 @@ Login miservicioDeLogin = Login.getInstance();
 // Inicialización de objetos para pruebas:
 
 //Fecha prueba.
-LocalDate fecha = LocalDate.of(2023, 9, 18); 
-LocalDateTime fechaTime = LocalDateTime.now();
+//LocalDate fecha = LocalDate.of(2023, 9, 18); 
+//LocalDateTime fechaTime = LocalDateTime.now();
 
-//Crear producto
-//(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock)
-Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookAirM1.png", 1);
-Producto p2 = new Producto("MacBookProM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookProM1.png", 1);
-Producto p3 = new Producto("Dell XPS","Dell", "Portatiles",1000,"Img/laptops/dell/dellXps13.png", 1);
+////Crear producto
+////(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock)
+//Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookAirM1.png", 1);
+//Producto p2 = new Producto("MacBookProM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookProM1.png", 1);
+//Producto p3 = new Producto("Dell XPS","Dell", "Portatiles",1000,"Img/laptops/dell/dellXps13.png", 1);
 
-//Crear Dirección
-//(String calle, int numero, int cp, String ciudad)
-Direccion d1 = new Direccion("calleEjemplo",2,28829,"Madrid");
+////Crear Dirección
+////(String calle, int numero, int cp, String ciudad)
+//Direccion d1 = new Direccion("calleEjemplo",2,28829,"Madrid");
+//
+////Crear TarjetaCredito
+////(String nombreTitular, long numeroTarjetaCredito, LocalDate fechaCaducidad)
+//TarjetaDeCredito t1 = new TarjetaDeCredito("Manolo",1234_1234_1234_1234L,fecha);
+//
+////Crear token LocalDateTime
+//Token to1 = new Token("asdaskldjdasa",fechaTime);
+//Token to2 = new Token("asdaskldjdasa",fechaTime);
+//Token to3 = new Token("asdaskldjdasa",fechaTime);
+//
+////Crear clienteParticular
+//// (String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo)
+////(String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo, Token token)
+//ClienteParticular c1 = new ClienteParticular("20120000-F", "Manolo", d1,t1,"91-2240234","pass","manolo@miempresa.com",to1);
+//ClienteParticular c2 = new ClienteParticular("201200d0-F", "Pepe", d1,t1,"91-2240234","pass","pepe@miempresa.com",to2);
+//ClienteParticular c3 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com",to3);
+//Usuario c4 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com",to3);
 
-//Crear TarjetaCredito
-//(String nombreTitular, long numeroTarjetaCredito, LocalDate fechaCaducidad)
-TarjetaDeCredito t1 = new TarjetaDeCredito("Manolo",1234_1234_1234_1234L,fecha);
-
-//Crear token LocalDateTime
-Token to1 = new Token("asdaskldjdasa",fechaTime);
-Token to2 = new Token("asdaskldjdasa",fechaTime);
-Token to3 = new Token("asdaskldjdasa",fechaTime);
-
-//Crear clienteParticular
-// (String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo)
-//(String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo, Token token)
-ClienteParticular c1 = new ClienteParticular("20120000-F", "Manolo", d1,t1,"91-2240234","pass","manolo@miempresa.com",to1);
-ClienteParticular c2 = new ClienteParticular("201200d0-F", "Pepe", d1,t1,"91-2240234","pass","pepe@miempresa.com",to2);
-ClienteParticular c3 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com",to3);
-Usuario c4 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com",to3);
 
 
-
-Opinion  o1 = new Opinion(3, "Satisfecho con la compra",c1.getCorreo()); 
-Opinion  o2 = new Opinion(0, "No comprar, malisimo, por ese precido debería hacerme la cama",c2.getCorreo()); 
-Opinion  o3 = new Opinion(5, "Estoy muy contenta con la compra realizada, tanto por el artículo como por la atención de la plataforma. Fue muy sencillo realizar la selección y el pago ya que el poder financiar un producto da mucho que decir sobre PcComponentes. Para mí, es un punto a favor ya que no siempre viene bien hacer un pago entero. En cuanto al MacBook Air es un encanto, vino muy bien embalado y protegido. El paquete me llegó en menos de 48 horas, una cosa increíble ya que en otras plataformas te tarda mucho más y si lo necesitas urgentemente, no lo puedes usar, pero en caso de PcComponentes sí. Esto es otro punto positivo que reflejo con mi compra ya que no esperaba que llegase tan pronto. El portátil funciona perfectamente y además, con la opción Aplazame de PcComponentes, puedes cambiar hasta tres veces la forma de tu financiación, o directamente, puedes pagar toda la cantidad que queda en el momento que tú quieras. Estoy muy contenta y sé que voy a seguir comprando artículos de tecnología aquí. :)!",c3.getCorreo());
-Opinion  o4 = new Opinion(3, "Ni fu ni fa, esperaba más la verdad",c1.getCorreo()); 
-Opinion  o5 = new Opinion(0, "Es un autentico timo",c2.getCorreo()); 
-Opinion  o6 = new Opinion(5, "INcreible, va como una bala",c3.getCorreo());
+//Opinion  o1 = new Opinion(3, "Satisfecho con la compra",c1.getCorreo()); 
+//Opinion  o2 = new Opinion(0, "No comprar, malisimo, por ese precido debería hacerme la cama",c2.getCorreo()); 
+//Opinion  o3 = new Opinion(5, "Estoy muy contenta con la compra realizada, tanto por el artículo como por la atención de la plataforma. Fue muy sencillo realizar la selección y el pago ya que el poder financiar un producto da mucho que decir sobre PcComponentes. Para mí, es un punto a favor ya que no siempre viene bien hacer un pago entero. En cuanto al MacBook Air es un encanto, vino muy bien embalado y protegido. El paquete me llegó en menos de 48 horas, una cosa increíble ya que en otras plataformas te tarda mucho más y si lo necesitas urgentemente, no lo puedes usar, pero en caso de PcComponentes sí. Esto es otro punto positivo que reflejo con mi compra ya que no esperaba que llegase tan pronto. El portátil funciona perfectamente y además, con la opción Aplazame de PcComponentes, puedes cambiar hasta tres veces la forma de tu financiación, o directamente, puedes pagar toda la cantidad que queda en el momento que tú quieras. Estoy muy contenta y sé que voy a seguir comprando artículos de tecnología aquí. :)!",c3.getCorreo());
+//Opinion  o4 = new Opinion(3, "Ni fu ni fa, esperaba más la verdad",c1.getCorreo()); 
+//Opinion  o5 = new Opinion(0, "Es un autentico timo",c2.getCorreo()); 
+//Opinion  o6 = new Opinion(5, "INcreible, va como una bala",c3.getCorreo());
 //Crear inventario y añadir productos a inventario
-Inventario i1 = new Inventario();
+//Inventario i1 = new Inventario();
 // ********************************************************************************************************************
 
 
@@ -577,16 +578,14 @@ Inventario i1 = new Inventario();
 private void initDataMock(){
     UsersServices.initUserDataMock();
     InventoryServices.initInventoryDataMock();
-    initSalesDataMock();
+    //initSalesDataMock();
+    SalesDataService.initSalesDataMock();
+    //UserData userData = UserData.getInstance();
     
-    
-    UserData userData = UserData.getInstance();
-    UsersServices.createMockUser();
+    //UsersServices.createMockUser();
     UsersServices.createMockAdminUser();
     
 }
-
-
 
 
 
@@ -656,31 +655,31 @@ private boolean checkLoginInterfaz(){
  
  public void createHomePage() {
         try {
-            InventoryServices.addProduct("MacBookAirM1", "Apple", "Ordenadores", 1500, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
-            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o1);
-            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o3);
-            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o5);
-            
-                
-    InventoryServices.addProduct("appleMacbookProM1", "Apple", "Ordenadores",3000, "Img/laptops/macbook/appleMacbookProM1.png", 10);
-    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
-    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
-    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o1);
-    
-    
-    InventoryServices.addProduct("dellXps13", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o5);
-    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
-    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o3);
-    
-    
-    InventoryServices.addProduct("dellXps132", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-    InventoryServices.addProduct("dellXps133", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-    InventoryServices.addProduct("dellXps134", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-    InventoryServices.addProduct("dellXps135", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-    InventoryServices.addProduct("dellXps136", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-    InventoryServices.addProduct("dellXps137", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-    InventoryServices.addProduct("dellXps138", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//            InventoryServices.addProduct("MacBookAirM1", "Apple", "Ordenadores", 1500, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
+//            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o1);
+//            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o3);
+//            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o5);
+//            
+//                
+//    InventoryServices.addProduct("appleMacbookProM1", "Apple", "Ordenadores",3000, "Img/laptops/macbook/appleMacbookProM1.png", 10);
+//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
+//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
+//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o1);
+//    
+//    
+//    InventoryServices.addProduct("dellXps13", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o5);
+//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
+//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o3);
+//    
+//    
+//    InventoryServices.addProduct("dellXps132", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.addProduct("dellXps133", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.addProduct("dellXps134", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.addProduct("dellXps135", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.addProduct("dellXps136", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.addProduct("dellXps137", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
+//    InventoryServices.addProduct("dellXps138", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
             
        
             
@@ -747,9 +746,9 @@ private void createHomePageProductos(int i){
     
         
     
-    i1.introducirProducto(p1, 4);
-    i1.introducirProducto(p2, 4);
-    i1.introducirProducto(p3, 4);
+//    i1.introducirProducto(p1, 4);
+//    i1.introducirProducto(p2, 4);
+//    i1.introducirProducto(p3, 4);
     
 //    Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookAirM1.png", 1);
 //    Producto p2 = new Producto("MacBookProM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookProM1.png", 1);
@@ -781,18 +780,18 @@ private void createHomePageProductos(int i){
     
 
             
-    p1.introducirOpinion(o1);
-    p1.introducirOpinion(o2);
-    p1.introducirOpinion(o4);
-    p1.introducirOpinion(o6);
-    p2.introducirOpinion(o2);
-    p2.introducirOpinion(o3);
-    p2.introducirOpinion(o5);
-    p2.introducirOpinion(o6);
-    p3.introducirOpinion(o3);
-    p3.introducirOpinion(o1);
-    p3.introducirOpinion(o2);
-    p3.introducirOpinion(o4);
+//    p1.introducirOpinion(o1);
+//    p1.introducirOpinion(o2);
+//    p1.introducirOpinion(o4);
+//    p1.introducirOpinion(o6);
+//    p2.introducirOpinion(o2);
+//    p2.introducirOpinion(o3);
+//    p2.introducirOpinion(o5);
+//    p2.introducirOpinion(o6);
+//    p3.introducirOpinion(o3);
+//    p3.introducirOpinion(o1);
+//    p3.introducirOpinion(o2);
+//    p3.introducirOpinion(o4);
     //ArrayList<Producto> RandomProductsHome;
     
     
@@ -857,7 +856,7 @@ private void createHomePageProductos(int i){
       //private void printUsers(int i){
         
                 
-                jButtonProducts0.setVisible(true);        
+                jButtonProducts0.setVisible(false);        
                 jButtonProducts1.setVisible(false);
                 jButtonProducts2.setVisible(false);
                 jButtonProducts3.setVisible(false);
@@ -900,7 +899,8 @@ private void createHomePageProductos(int i){
                 
                 case 0: 
                     try{
-                        
+                        System.out.println("La tienda esta sin stock");
+                        break;
                     }
                     catch (Exception e) {
                         System.out.println("Error: No hay nada que mostrar " + e.toString()); 

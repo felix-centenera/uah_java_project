@@ -11,14 +11,19 @@ import com.allsafe.model.Inventario;
 import com.allsafe.model.Producto;
 import com.allsafe.model.TarjetaDeCredito;
 import com.allsafe.model.Usuario;
+import com.allsafe.service.GenerateMockDemoObjects;
+import com.allsafe.service.InventoryServices;
 import com.allsafe.service.Login;
 import com.allsafe.service.RandomHomeProductos;
+import com.allsafe.service.SalesDataService;
+import com.allsafe.service.UsersServices;
 import java.awt.Color;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -151,6 +156,7 @@ private JFrame getFrame(){
         jButtonUserManagement = new javax.swing.JButton();
         jButtonSalesManagement = new javax.swing.JButton();
         jButtonProductManagement = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabelHomeIcon4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -199,6 +205,13 @@ private JFrame getFrame(){
             }
         });
 
+        jButton1.setText("CreateDemoShop");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -211,10 +224,11 @@ private JFrame getFrame(){
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(144, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonProductManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSalesManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUserManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonProductManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                    .addComponent(jButtonSalesManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                    .addComponent(jButtonUserManagement, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(139, 139, 139))
         );
         jPanel7Layout.setVerticalGroup(
@@ -230,7 +244,9 @@ private JFrame getFrame(){
                 .addComponent(jButtonProductManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonSalesManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(30, 30, 30))
         );
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 490, 470));
@@ -363,11 +379,30 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         WindowsAdminSalesSearch SalesSearch = new WindowsAdminSalesSearch(this , user);
     }//GEN-LAST:event_jButtonSalesManagementActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            GenerateMockDemoObjects.generateDemoData();
+            UsersServices.saveUserData();
+            SalesDataService.saveSalesData();
+            InventoryServices.saveInventoryData();
+            JOptionPane.showMessageDialog(null, "Bienvenido. Se ha generado la tienda en modo demo. Se añaden usuarios, productos, inventario","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+
+        }
+        catch (Exception e){
+                    System.out.println("Error: No se ha podido generar la tienda demo: " + e.toString()); 
+                    JOptionPane.showMessageDialog(null, "No se ha podido generar la tienda demo, contacte con administración.","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                    //jPanelUsersFound.setVisible(false);
+            }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonHomeIconsGround5;
     private javax.swing.JButton jButtonHomeIconsGround6;
     private javax.swing.JButton jButtonHomeIconsGround7;
