@@ -40,16 +40,9 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
     private WindowsLogin secundariaLogin;
     //Creamos la referencia a nuestro servio de login
     UserData usuariosMock = UserData.getInstance(); 
-//    Login miservicioDeLogin = Login.getInstance();
-    /**
-     * Creates new form Home
-     */
-//    public WindowsProduct() {
-//        initComponents();
-//        createHomePageProductos();
-//        createHomePage();
-//    }
-    
+
+
+// ********************************************************************************************************************    
     /** Creates new form WindowProduct */
     public WindowsCreateUser(WindowsLogin ventana) {
         //Ocultamos la ventana principal
@@ -59,7 +52,10 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         this.setVisible(true);
         createWindowsCreateUserPage();
     }
-    
+// ********************************************************************************************************************
+
+
+// ********************************************************************************************************************    
 /**
 * Nos permite crear la interfaz createWindowsCreateUserPage con todos lo elementos necesarios de forma dinámica.
 */
@@ -87,12 +83,11 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
             createWindowsCreateUserPage();
         }
     }
-
-    // ********************************************************************************************************************
-
+// ********************************************************************************************************************
 
 
-    
+
+ // ********************************************************************************************************************   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -936,26 +931,28 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
 
 
-
-
+// ********************************************************************************************************************
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
-//    private JFrame getFrame(){
-//     return this;
-//    }
+// ********************************************************************************************************************
     
+    
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
         secundariaLogin.setVisible(true);
         
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      */
@@ -964,21 +961,30 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     // TODO add your handling code here:
     secundariaLogin.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+
+
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
         ///TODO Execptio!!!!
         //TODO en esta pantalla posiblemente no tenga sentido este botón
             createWindowsCreateUserPage();
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
         // TODO add your handling code here:
          //TODO en esta pantalla posiblemente no tenga sentido este botón
         createWindowsCreateUserPage();
         //TODO Execptio!!!!!
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
-    // TODO ADAPTAR A ESTA PÄGINA
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************
     private void JTextFieldUserMailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserMailMousePressed
         // TODO add your handling code here:
         if(JTextFieldUserMail.getText().equals("Ingrese su nombre de usuario.")){
@@ -986,11 +992,16 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             JTextFieldUserMail.setForeground(Color.black);
         }
     }//GEN-LAST:event_JTextFieldUserMailMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserMailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserMailActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jPasswordFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldMousePressed
         // TODO add your handling code here:
         if(String.valueOf(jPasswordField.getPassword()).equals("********")){
@@ -1004,20 +1015,15 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
 
     }//GEN-LAST:event_jPasswordFieldMousePressed
-
-    //TODO TIENEN SENTIDO LO SIGUIENTE MËTODOS
+// ********************************************************************************************************************
     
+    
+    
+// ********************************************************************************************************************    
     private void jButtonRegistarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarUsuarioActionPerformed
         // TODO add your handling code here: UserMail
-        //long tarjeta= (((Number) jFormattedTCNumero.getValue()).intValue());
-        
-        //jFormattedTCNumero.getText().length();
-        
-        
-        //if (jFormattedTCNumero.getText().length() == 16   && UsersServices.checkDNI(JTextFieldUserDNI.getText()) ){
-
                     String fecha1txt = (String) jFormattedTextTCFechaCaducidad.getText();
-                    System.out.println(fecha1txt);
+                    //System.out.println(fecha1txt);
                     String[] partes = fecha1txt.split("/");     
                     int d1 = Integer.parseInt(partes[0]);
                     int m1 = Integer.parseInt(partes[1]);
@@ -1025,11 +1031,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                     int firstTwoDigitsOfYear = (LocalDate.now().getYear()) /100 ;
                     // LocalDate fecha = LocalDate.of(Integer.parseInt("20" + partes[2]), Integer.parseInt(partes[1]), Integer.parseInt( partes[0]));
                     LocalDate fecha = LocalDate.of(Integer.parseInt( String.valueOf(firstTwoDigitsOfYear)  + partes[2]), Integer.parseInt(partes[1]), Integer.parseInt( partes[0])); 
-                    System.out.println(fecha);
-                   
-                    
-                    
-                    
+                    //System.out.println(fecha);
+   
                     if(! jRadioButton1.isSelected()) {                   
                         if (jFormattedTCNumero.getText().length() == 16   && UsersServices.checkDNI(JTextFieldUserDNI.getText())  &&  fecha.isAfter(LocalDate.now()) ){
                             if (UsersServices.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).longValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
@@ -1047,7 +1050,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                         }
                         
                         else {
-                            System.out.println("hay algun campo mal");
+                            System.out.println("INFO: Hay algun campo mal generado");
                             if (jFormattedTCNumero.getText().length() != 16){
                                 JOptionPane.showMessageDialog(null, "La tarjeta de credito debe tener 16 dígitos","Información para el usuario", JOptionPane.WARNING_MESSAGE);
                             }
@@ -1082,7 +1085,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                         }
                         
                         else {
-                            System.out.println("hay algun campo mal");
+                            System.out.println("INFO: Hay algun campo mal generado");
                             if (jFormattedTCNumero.getText().length() != 16){
                                 JOptionPane.showMessageDialog(null, "La tarjeta de credito debe tener 16 dígitos","Información para el usuario", JOptionPane.WARNING_MESSAGE);
                             }
@@ -1093,23 +1096,12 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                         }
   
                     }
-    
-//        else {
-//            System.out.println("hay algun campo mal");
-//            if (jFormattedTCNumero.getText().length() != 16){
-//                JOptionPane.showMessageDialog(null, "La tarjeta de credito debe tener 16 dígitos","Información para el usuario", JOptionPane.WARNING_MESSAGE);
-//            }
-//            
-//            else if( UsersServices.checkDNI(JTextFieldUserDNI.getText())) {
-//                JOptionPane.showMessageDialog(null, "El DNI proporcionado no es correcto","Información para el usuario", JOptionPane.WARNING_MESSAGE);
-//            }
-//            
-//   
-//        }
-           
-        
+         
     }//GEN-LAST:event_jButtonRegistarUsuarioActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserTelefonoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserTelefonoMousePressed
         // TODO add your handling code here:
         if(JTextFieldUserTelefono.getText().equals("Ingrese su teléfono.")){
@@ -1117,11 +1109,16 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             JTextFieldUserTelefono.setForeground(Color.black);
         }
     }//GEN-LAST:event_JTextFieldUserTelefonoMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserTelefonoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserTelefonoActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserNameMousePressed
         // TODO add your handling code here:
         if(JTextFieldUserName.getText().equals("Ingrese su nombre.")){
@@ -1130,22 +1127,32 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
          
     }//GEN-LAST:event_JTextFieldUserNameMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserNameActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserDNIMousePressed
         if(JTextFieldUserDNI.getText().equals("Ingrese su DNI (22124220Z) / CIF.")){
             JTextFieldUserDNI.setText("");
             JTextFieldUserDNI.setForeground(Color.black);
         }
     }//GEN-LAST:event_JTextFieldUserDNIMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserDNIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserDNIActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserWebMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserWebMousePressed
         // TODO add your handling code here:
         if(JTextFieldUserWeb.getText().equals("Ingrese su dirección web.")){
@@ -1153,11 +1160,16 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             JTextFieldUserWeb.setForeground(Color.black);
         }
     }//GEN-LAST:event_JTextFieldUserWebMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserWebActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserWebActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+ // ********************************************************************************************************************   
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
         if (jRadioButton1.isSelected()){
@@ -1169,11 +1181,12 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             System.out.println("INFO: EL usuario a registrar es un cliente particular");
             jPanel13.setVisible(false);
             jLabel3.setText("DNI");
-        }
-        
-        
+        }    
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+// ********************************************************************************************************************
+    
 
+// ********************************************************************************************************************    
     private void JTextFieldUserDireccionCalleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCalleMousePressed
         // TODO add your handling code here:
         if(JTextFieldUserDireccionCalle.getText().equals("Ingrese la calle de dirección.")){
@@ -1182,43 +1195,56 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
         
     }//GEN-LAST:event_JTextFieldUserDireccionCalleMousePressed
+// ********************************************************************************************************************
+    
 
+// ********************************************************************************************************************
     private void JTextFieldUserDireccionCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCalleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserDireccionCalleActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserDireccionCiudadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCiudadMousePressed
         // TODO add your handling code here:
         if(JTextFieldUserDireccionCiudad.getText().equals("Ingrese el nombre de su ciudad.")){
             JTextFieldUserDireccionCiudad.setText("");
             JTextFieldUserDireccionCiudad.setForeground(Color.black);
-        }
-        
-        
+        }     
     }//GEN-LAST:event_JTextFieldUserDireccionCiudadMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserDireccionCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCiudadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserDireccionCiudadActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jFormattedTCTitularMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTCTitularMousePressed
         // TODO add your handling code here:
         //jFormattedTCTitular
         if(jFormattedTCTitular.getText().equals("Ingrese el nombre que aparece en su tarjeta.")){
             jFormattedTCTitular.setText("");
             jFormattedTCTitular.setForeground(Color.black);
-        }
-        
+        }        
     }//GEN-LAST:event_jFormattedTCTitularMousePressed
-
+// ********************************************************************************************************************
     private void jFormattedTCTitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTCTitularActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTCTitularActionPerformed
+// ********************************************************************************************************************
+    
 
+// ********************************************************************************************************************    
     private void jFormattedDireccionNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedDireccionNumeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedDireccionNumeroActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jFormattedDireccionNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedDireccionNumeroMousePressed
         try {
             // TODO add your handling code here:
@@ -1230,11 +1256,12 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         if(  (((Number) jFormattedDireccionNumero.getValue()).intValue()) == 24    ) {
             jFormattedDireccionNumero.setValue(0);
             jFormattedDireccionNumero.setForeground(Color.black);
-        }
-        
-        
+        }     
     }//GEN-LAST:event_jFormattedDireccionNumeroMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jFormattedTextDireccionCPMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextDireccionCPMousePressed
         // TODO add your handling code here:
          try {
@@ -1249,7 +1276,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             jFormattedTextDireccionCP.setForeground(Color.black);
         }
     }//GEN-LAST:event_jFormattedTextDireccionCPMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jFormattedTCNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTCNumeroMousePressed
         // TODO add your handling code here:
         try {
@@ -1264,22 +1294,34 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             jFormattedTCNumero.setForeground(Color.black);
         }
     }//GEN-LAST:event_jFormattedTCNumeroMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jFormattedTCNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTCNumeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTCNumeroActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
-
+// ********************************************************************************************************************
     
+    
+    
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTextFieldUserDNI;
     private javax.swing.JTextField JTextFieldUserDireccionCalle;
@@ -1348,3 +1390,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

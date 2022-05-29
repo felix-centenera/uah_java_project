@@ -11,7 +11,8 @@ import java.util.Random;
  * @author felixcentenera
  */
 public class RadomGenerator {
-    
+  
+// ********************************************************************************************************************     
     /**
      * Nos devuelve un cadena de caracteres utilizada aleatoria de un número determinado por el 
      * parametro enviado.
@@ -29,4 +30,6 @@ public class RadomGenerator {
 			sb.append(chars.charAt(rnd.nextInt(chars.length())));
 		return sb.toString();
 	}
+// ******************************************************************************************************************** 
+    
 }

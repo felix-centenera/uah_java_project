@@ -26,6 +26,8 @@ public class Token implements Serializable{
         this.fechaExpiracion = fechaExpiracion;
     }
 
+    
+// ******************************************************************************************************************** 
     /**
      * Nos devuelve el token  atributo del Token, que se asociará con un usuario.
      * @return
@@ -36,7 +38,10 @@ public class Token implements Serializable{
     public String getToken() {
         return token;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer el token atributo de Token, que se asociará con un usuario.
      * @param token
@@ -44,7 +49,10 @@ public class Token implements Serializable{
     public void setToken(String token) {
         this.token = token;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+ // ********************************************************************************************************************    
     /**
      *  Nos devuelve la fechaExpiracion atributo del Token, que se asociará con un usuario.
      * @return
@@ -55,7 +63,10 @@ public class Token implements Serializable{
     public LocalDateTime getFechaExpiracion() {
         return fechaExpiracion;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer la fechaExpiracion atributo de Token, que se asociará con un usuario.
      * @param fechaExpiracion
@@ -63,6 +74,6 @@ public class Token implements Serializable{
     public void setFechaExpiracion(LocalDateTime fechaExpiracion) {
         this.fechaExpiracion = fechaExpiracion;
     }
-    
+// ********************************************************************************************************************     
    
 }

@@ -29,6 +29,7 @@ public class TarjetaDeCredito implements Serializable{
         this.fechaCaducidad = fechaCaducidad;
     }
     
+// ******************************************************************************************************************** 
     /**
      * Nos devuelve el nombreTitular  atributo de la Tarjeta de credito, que se asociará con un usuario.
      * @return
@@ -39,7 +40,9 @@ public class TarjetaDeCredito implements Serializable{
     public String getNombreTitular() {
         return nombreTitular;
     }
-
+// ******************************************************************************************************************** 
+    
+// ******************************************************************************************************************** 
     /**
      * Nos permite etablecer el nombreTitular atributo de la TarjetaDeCredito, que se asociará con un usuario.
      * @param nombreTitular
@@ -47,7 +50,9 @@ public class TarjetaDeCredito implements Serializable{
     public void setNombreTitular(String nombreTitular) {
         this.nombreTitular = nombreTitular;
     }
+  // ******************************************************************************************************************** 
     
+ // ******************************************************************************************************************** 
     /**
      * Nos devuelve el numeroTarjetaCredito  atributo de la Tarjeta de credito, que se asociará con un usuario.
      * @return
@@ -58,7 +63,10 @@ public class TarjetaDeCredito implements Serializable{
     public long getnumeroTarjetaCredito() {
         return numeroTarjetaCredito;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer el numeroTarjetaCredito atributo de la TarjetaDeCredito, que se asociará con un usuario.
      * @param numeroTarjetaCredito
@@ -66,7 +74,10 @@ public class TarjetaDeCredito implements Serializable{
     public void setNumeronumeroTarjetaCredito(long numeroTarjetaCredito) {
         this.numeroTarjetaCredito = numeroTarjetaCredito;
     }
+// ******************************************************************************************************************** 
+    
 
+// ********************************************************************************************************************     
     /**
      * Nos devuelve la fechaCaducidad  atributo de la Tarjeta de credito, que se asociará con un usuario.
      * @return
@@ -77,7 +88,10 @@ public class TarjetaDeCredito implements Serializable{
     public LocalDate getFechaCaducidad() {
         return fechaCaducidad;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer la fechaCaducidad atributo de la TarjetaDeCredito, que se asociará con un usuario.
      * @param fechaCaducidad
@@ -85,7 +99,9 @@ public class TarjetaDeCredito implements Serializable{
     public void setFechaCaducidad(LocalDate fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
-
+// ******************************************************************************************************************** 
+    
+ // ********************************************************************************************************************    
     /**
      *
      * @return
@@ -94,6 +110,6 @@ public class TarjetaDeCredito implements Serializable{
     public String toString() {
         return "TarjetaDeCredito{" + "nombreTitular=" + nombreTitular + ", numeroTarjetaCredito=" + numeroTarjetaCredito + ", fechaCaducidad=" + fechaCaducidad + '}';
     }
-    
+// ********************************************************************************************************************     
     
 }

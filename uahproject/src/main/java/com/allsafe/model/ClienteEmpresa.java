@@ -31,7 +31,8 @@ public class ClienteEmpresa extends Clientes{
         this.cif = cif;
         this.web = web;
     }
-    
+
+// ********************************************************************************************************************     
     /**
      * Nos devuelve la web asociada a un cliente de tipo empresa.
      * @return
@@ -42,7 +43,11 @@ public class ClienteEmpresa extends Clientes{
     public String getWeb() {
         return web;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer la web asociada a un cliente de tipo empresa.
      * @param web
@@ -50,7 +55,10 @@ public class ClienteEmpresa extends Clientes{
     public void setWeb(String web) {
         this.web = web;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el Cif asociada a un cliente de tipo empresa.
      * @return
@@ -61,7 +69,10 @@ public class ClienteEmpresa extends Clientes{
     public String getCif() {
         return cif;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      *
      * Nos permite etablecer el cif asociada a un cliente de tipo empresa.
@@ -70,7 +81,10 @@ public class ClienteEmpresa extends Clientes{
     public void setCif(String cif) {
         this.cif = cif;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+    
     /**
      *
      * @return

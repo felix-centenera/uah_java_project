@@ -38,7 +38,8 @@ import java.util.stream.Stream;
  * @author Rauld
  */
 public class SalesDataService {
-    
+
+// ********************************************************************************************************************     
     /**
      * DEPRECATED FUNCTION
      * @param loc
@@ -48,12 +49,16 @@ public class SalesDataService {
     public static boolean IsLocalDateTimeInDDBB(LocalDateTime loc){
         
         Collection<Venta> coleccion= SalesData.getInstance().getSalesDataHashMap().values();
-        System.out.println(coleccion.toString());
+        
+        //COMENTADO EL SIGUIENTE PRINT, VIGILAR Lógica:
+        //System.out.println(coleccion.toString());
         //IntStream.of(numbers).anyMatch(x -> x == numberToSearch)
         DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
         return(coleccion.stream().anyMatch(x -> x.getDateConfirmedSale().equals(loc)));
     }
+ // ******************************************************************************************************************** 
     
+// ********************************************************************************************************************     
     /**
      * Nos devuelve la ventas encontradas HashMap de ventas que la fecha de las mismas
      * sea posterior a la indicada como parámetro de entrada.
@@ -81,25 +86,27 @@ public class SalesDataService {
 //                    
 //                }
 //            }
-            
-           
-            
+             
             //System.out.println(arr1);
             return(cache);
-
-
     }
-
+ // ******************************************************************************************************************** 
+    
+    
+// ******************************************************************************************************************** 
     /**
      * Nos devuelve todas las ventas del HashMap de ventas.
      * @return
      */
     public static ArrayList<String> getAllSales(){
         ArrayList<String> arr = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().keySet());
-        System.out.println(arr.toString());
+        //System.out.println(arr.toString());
         return(arr);
     }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      *
      * @param ProductList
@@ -109,9 +116,10 @@ public class SalesDataService {
         
         return(ProductList.split("/"));
     
-    
     }
-    
+// ******************************************************************************************************************** 
+
+// ********************************************************************************************************************     
     /**
      * Nos permite guardar en un fichero local SalesData para su posterior recuperación.
      * @throws FileNotFoundException
@@ -126,9 +134,11 @@ public class SalesDataService {
         ObjectOutputStream writtingDat = new ObjectOutputStream(new FileOutputStream("src/main/java/com/allsafe/localData/SalesDataLocal.dat"));
         writtingDat.writeObject(sales);
         writtingDat.close();
-    
     }
+// ******************************************************************************************************************** 
     
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite recuperar desde un fichero local toda la información de ventas.
      * @return
@@ -141,7 +151,10 @@ public class SalesDataService {
         SalesData sales = (SalesData) readingDat.readObject();
         return(sales);
     }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      * Nos permite generar un documento de venta o factura a partir de una calve
      * Id de la venta.
@@ -221,10 +234,12 @@ public class SalesDataService {
         SaleFacture.write("AllSafe todos los derechos reservados\n");
         SaleFacture.write("_______________________________________________________________________________________________________________________\n");
 
-        
         SaleFacture.close();
     }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      *
      * @param numero
@@ -237,7 +252,10 @@ public class SalesDataService {
        }
        return(chart);
     }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      * Permite la cuantía total de un ArrayList de productos añadiendo gastos de envío a
      * dicha cuantía.
@@ -254,7 +272,11 @@ public class SalesDataService {
         int GASTOS_DE_ENVIO =5;
         return total + GASTOS_DE_ENVIO;
     }
+// ********************************************************************************************************************
     
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos premite comprobar si de productos alojados el carrito de un  usuario recibio 
      * por parámetro, hay el suficiente stock en el inventario.
@@ -286,7 +308,11 @@ public class SalesDataService {
         }
         return true; 
     }
-
+// ******************************************************************************************************************** 
+    
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite reducir el stock  del inventario de todos los productos que un usuario 
      * contiene en su carrito en función de las unidades solicitadas de cada producto.
@@ -311,7 +337,7 @@ public class SalesDataService {
             }
         }
         
-        System.out.println(mapCarrito);
+        //System.out.println(mapCarrito);
         
         for (String producto :  mapCarrito.keySet()) {
               if (! InventoryServices.deleteStockProduct(producto, mapCarrito.get(producto)))
@@ -320,7 +346,10 @@ public class SalesDataService {
         System.out.println("INFO: Se han eliminado los productos vendidos del inventario");
         return true; 
     } 
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      * Nos permite gestionar la venta de un usuario, mediante el uso de otro métodos, comprobará
      * que hay stock suficiente para la venta, reducirá el stock del inventario en función de la venta, generará una venta 
@@ -389,8 +418,11 @@ public class SalesDataService {
             return false;
         }
     }
+ // ******************************************************************************************************************** 
     
     
+    
+// ********************************************************************************************************************     
     /**
      * SERIALIZACION DE LOS ARCHIVOS
      *  Permite la escritura en un fichero local para su futura recuperación de los datos
@@ -416,7 +448,11 @@ public class SalesDataService {
                     
             }
     } 
-    
+// ******************************************************************************************************************** 
+
+
+
+// ********************************************************************************************************************     
     /**
      * Permite la recuperación de datos desde un fichero local.
      */
@@ -432,16 +468,16 @@ public class SalesDataService {
                 
                 /*************************************************************************************************************************************/
                 DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
-                System.out.println("*****************************************************************************************");
-                for(Venta a : SalesData.getInstance().getSalesDataHashMap().values()){
-
-                    System.out.println(a.getDateConfirmedSale().format(formatoCorto));
-
-
-
-                }
-
-                System.out.println("*****************************************************************************************");
+//                System.out.println("*****************************************************************************************");
+//                for(Venta a : SalesData.getInstance().getSalesDataHashMap().values()){
+//
+//                    System.out.println(a.getDateConfirmedSale().format(formatoCorto));
+//
+//
+//
+//                }
+//
+//                System.out.println("*****************************************************************************************");
                 /*************************************************************************************************************************************/
 
     
@@ -456,14 +492,7 @@ public class SalesDataService {
                     System.out.println("Error:  No ha podido realizarse la recarga de ventas: " + e.toString()); 
             }
 }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+// ********************************************************************************************************************     
+   
     
 }

@@ -27,7 +27,8 @@ import java.util.stream.Collectors;
  * @author felixcentenera
  */
 public class InventoryServices {
-    
+ 
+// ********************************************************************************************************************     
     /**
      * Nos devuelve un producto a partir de un su clave título.
      * @param titulo
@@ -37,9 +38,11 @@ public class InventoryServices {
        Producto p1  = InventoryData.getInstance().getInventoryHashMap().get(titulo);
        return p1;
     }
+// ******************************************************************************************************************** 
     
+    
+// ********************************************************************************************************************     
     // Método para añadir producto:
-
     /**
      * Nos permite añadir un producto al inventario, para ello se deben enviar los atributos que forman parte de un producto,
      * el producto se construirá y se añadira al inventario. Si el producto no existe actualmente en inventario, se 
@@ -63,14 +66,14 @@ public class InventoryServices {
             //Mirar si podemos annadir algun producto que no este repetido
             if ( !InventoryData.getInstance().getInventoryHashMap().containsKey(titulo) ) {
                 InventoryData.getInstance().getInventoryHashMap().put(titulo,  new Producto(titulo, caracteristicas, categoria, precio, fotografia, unidades));
-                System.out.println (InventoryData.getInstance().getInventoryHashMap().toString());
+                //System.out.println (InventoryData.getInstance().getInventoryHashMap().toString());
                 return true;
             }
             
             else {
                 int stockActual= InventoryData.getInstance().getInventoryHashMap().get(titulo).getStock();
                 InventoryData.getInstance().getInventoryHashMap().get(titulo).setStock(stockActual + unidades);
-                System.out.println (InventoryData.getInstance().getInventoryHashMap().toString());
+                //System.out.println (InventoryData.getInstance().getInventoryHashMap().toString());
                 return true;
           
             }
@@ -83,10 +86,10 @@ public class InventoryServices {
            // JOptionPane.showMessageDialog(null, "Se ha introducido mal el producto reintentelo completando correctamente los campos", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
             }
       }
+// ********************************************************************************************************************     
     
-    
+ // ********************************************************************************************************************    
     // metodo borrar:
-
     /**
      * Nos permite borrar un producto del inventario, el producto ha borrar se identica por su clave título,
      * el cual es esperado por el método.
@@ -117,10 +120,10 @@ public class InventoryServices {
            return false;
        }
     }
+ // ********************************************************************************************************************    
     
-    
+// ********************************************************************************************************************     
     // metodo borrar:
-
     /**
      * Nos permite recortar el stock de un producto dado por clave título. La cantidad de unidades
      * a recortar son esperadas como parametro del método.
@@ -139,7 +142,7 @@ public class InventoryServices {
         
         if (  InventoryData.getInstance().getInventoryHashMap().containsKey(titulo)) {
             try {
-                System.out.println("Voy a borrar: " + stock + " que son los que me has dicho,ahora mismo hay" );
+                System.out.println("INFO: Voy a borrar: " + stock + " que son los que me has dicho,ahora mismo hay" );
                 int currentlyStock = InventoryData.getInstance().getInventoryHashMap().get(titulo).getStock();
                 InventoryData.getInstance().getInventoryHashMap().get(titulo).setStock( currentlyStock - stock);
                 return true;
@@ -153,7 +156,10 @@ public class InventoryServices {
            return false;
        }
     }
+   // ******************************************************************************************************************** 
     
+  
+ // ********************************************************************************************************************    
     /**
      * NOs permite añadir una opinión aun producto. Para ello se espera la clave titulo del producto, la calificación, comentario
      * y clave cliente para contruir la opinión y asociarla al producto.
@@ -168,7 +174,7 @@ public class InventoryServices {
      * </ul>
      */
     public static boolean addOpinionToAProducto(String titulo, int calificacion, String comentario, String cliente) {
-            System.out.println("hola");
+            
             
             if (  InventoryData.getInstance().getInventoryHashMap().containsKey(titulo)) {
             try {
@@ -189,7 +195,10 @@ public class InventoryServices {
        }
            
     }
+  // ******************************************************************************************************************** 
+    
   
+// ********************************************************************************************************************     
     /**
      * Nos permite ordenar el inventario por la calificacion de estrellas de mayor puntuación a menor puntuación en función de una categoría,
      * atributo del producto y una clave título del producto que se usará para buscar coincidencias.
@@ -223,7 +232,10 @@ public class InventoryServices {
                 
         return ordenadro;
      }
-     
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite ordenar el inventario por la calificacion de estrellas de mayor puntuación a menor puntuación.
      * atributo del producto.
@@ -243,7 +255,11 @@ public class InventoryServices {
                 .collect(Collectors.toList());
         return ordenadro;
      }
-     
+// ******************************************************************************************************************** 
+    
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite ordenar el inventario por la calificacion de estrellas de mayor puntuación a menor puntuación en función de una categoría,
      * atributo del producto.
@@ -270,7 +286,10 @@ public class InventoryServices {
         
         return ordenadro;
      }
- 
+ // ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite ordenar el inventario por precio, de menor precio a mayor precio en función de una categoría,
      * atributo del producto y una clave título del producto que se usará para buscar coincidencias.
@@ -299,7 +318,10 @@ public class InventoryServices {
                 
         return ordenadro;
      }
-     
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite ordenar el inventario por precio, de menor precio a mayor precio en función de una categoría,
      * atributo del producto.
@@ -324,7 +346,10 @@ public class InventoryServices {
                 
         return ordenadro;
      }
-     
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite ordenar el inventario por precio, de mayor precio a menor precio en función de una categoría,
      * atributo del producto y una clave título del producto que se usará para buscar coincidencias.
@@ -353,7 +378,10 @@ public class InventoryServices {
         
         return ordenadro;
      }
-     
+ // ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      * Nos permite ordenar el inventario por precio, de mayor precio a menor precio en función de una categoría,
      * atributo del producto.
@@ -378,7 +406,10 @@ public class InventoryServices {
         
         return ordenadro;
      }
-     
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite modificar la información de un producto del inventario. La clave título será 
      * utilizada para indentificar el producto a modificar.
@@ -414,14 +445,14 @@ public class InventoryServices {
             }
         }
         else {
-                System.out.println("INFO: el producto ya no existe");
+                System.out.println("INFO: El producto ya no existe");
            return false;
        }
-
 }
+// ********************************************************************************************************************      
      
-     
-     
+
+// ********************************************************************************************************************     
      /**
      * SERIALIZACION DE LOS ARCHIVOS. Los inventario se guardará en un fichero para su futura recuperación
      */
@@ -445,7 +476,10 @@ public class InventoryServices {
                     //jPanelUsersFound.setVisible(false);
             }
     } 
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      * Nos permite recuperar la información del inventario desde un archivo local.
      */
@@ -468,12 +502,12 @@ public class InventoryServices {
                     System.out.println("Error:  No ha podido realizarse la recarga de inventario: " + e.toString()); 
             }
 }
-     
+ // ********************************************************************************************************************     
      
      
     
+// ********************************************************************************************************************     
     // ORDENADO POR PRECIO MENOR NO SE UTILIZA. Se deja por historico en caso de que se quieran hacer pruebas con este algoritmo.
-
     /**
      *
      * @return
@@ -485,7 +519,10 @@ public class InventoryServices {
         Collections.reverse(arrayProductCheaper);
         return (arrayProductCheaper);
     }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      *
      * @return
@@ -496,8 +533,10 @@ public class InventoryServices {
         ArrayList<Producto> arrayProductCheaper = bubbleAlgorithmPrice();
         return (arrayProductCheaper);
     }
+// ******************************************************************************************************************** 
+
     
-    
+// ********************************************************************************************************************     
     // ORDENADO POR PRECIO MAYOR
 
     /**
@@ -535,9 +574,7 @@ public class InventoryServices {
         }
         return(ArrayCacheKeys);
     }
+// ********************************************************************************************************************     
     
-    
-    
-    
-    
+       
 }

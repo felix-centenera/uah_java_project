@@ -34,8 +34,9 @@ public class WindowsAdminSalesSearch extends javax.swing.JFrame  {
     private Usuario user;
     private int opinion=0;
     Login miservicioDeLogin = Login.getInstance();
-    // just for mock delete after test:
     UserData userData = UserData.getInstance();
+    
+// ********************************************************************************************************************
     /**
      * Creates new form Home
      * @param ventana3
@@ -50,7 +51,10 @@ public class WindowsAdminSalesSearch extends javax.swing.JFrame  {
         createWindowsProductPage();
     
     }
-    
+// ********************************************************************************************************************
+   
+   
+// ********************************************************************************************************************    
 /**
 * Nos permite crear la interfaz WindowsProductPage con todos lo elementos necesarios de forma dinámica.
 */
@@ -64,9 +68,7 @@ public class WindowsAdminSalesSearch extends javax.swing.JFrame  {
             jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("Icons/png/home.png"));
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
             jButtonHomeIconsGround9.setIcon(new javax.swing.ImageIcon("Icons/png/back.png"));
-            jLabelTipFormatted.setVisible(false);
-            
-            
+            jLabelTipFormatted.setVisible(false);     
         } 
         catch (Exception e) {
             System.out.println("Error: " + e.toString()); 
@@ -74,43 +76,20 @@ public class WindowsAdminSalesSearch extends javax.swing.JFrame  {
             createWindowsProductPage();
         }
     }
+// ********************************************************************************************************************
 
-    // ********************************************************************************************************************
 
+    
 
-//método comprobar login
-//private boolean checkLogin(){
-//    boolean operationAccepted=false;
-//    if (user == null){
-//        this.dispose();
-//        principal.setVisible(true);
-//        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//        return false;
-//    }
-//     else{
-//        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
-//        System.out.println("INFO: Voy a comprobar el token");
-//        if (operationAccepted == false){
-//            this.dispose();
-//            principal.setVisible(true);
-//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//            return false;
-//        }
-//        return true;
-//    }
-//}
-
-// public  void  SetUsuario(Usuario user) {
-//        this.user = user;
-//        
-// }
- // ********************************************************************************************************************
- 
+// ******************************************************************************************************************** 
 private JFrame getFrame(){
      return this;
     }
+// ********************************************************************************************************************
+  
 
-    
+
+// ********************************************************************************************************************
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -344,15 +323,10 @@ private JFrame getFrame(){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
 
-
-
-
-//    private JFrame getFrame(){
-//     return this;
-//    }
-    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -365,12 +339,15 @@ private JFrame getFrame(){
           adm.setVisible(true);
         }
         else{
-            System.out.println("INFO: No podemos volver");
+            System.out.println("ERROR: No se puede volver al jframe anterior");
             
         
         }
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      */
@@ -378,20 +355,33 @@ private JFrame getFrame(){
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
 
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+
+
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
 
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
 
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextFieldFindIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldFindIDMouseClicked
         // TODO add your handling code here:
         jTextFieldFindID.setText("");
     }//GEN-LAST:event_jTextFieldFindIDMouseClicked
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         /**
         * OBJ:Se encarga de pasar a WindowsAdminSalesShowAllProducts todos las venta que hay disponible en el inventario.
@@ -401,41 +391,31 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
         ArrayList<String> ArrayKeys = SalesDataService.getAllSales();
         WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , ArrayKeys);
-
     }//GEN-LAST:event_jButton2ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JButtomBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtomBuscarActionPerformed
         /**
         * OBJ:Buscar dada una fecha si hay alguna venta que contenga dicha
         * fecha PRE:SalesData ha sido inicializado y instanciado void --> new
         * JFrame
         */
-
         try{
             if(jTextFieldFindID.getText().equals("")){//Inserte ID.
-                System.out.println("############################################################################################################");
+                //System.out.println("############################################################################################################");
                 //Cogemos la fecha nuestra
                 String localDateStr = JTextDate.getText();
                 DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
                 LocalDateTime localDate= LocalDateTime.parse(localDateStr, formatoCorto);
-                System.out.println(localDate);
-
-                //                LocalDateTime localDate = fecha2.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-                //
-                //                System.out.println(localDate);
-                //                DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
-
-                //System.out.println(localDate.format(formatoCorto));
-                //boolean i = SalesDataService.IsLocalDateTimeInDDBB(localDate);
-
-                //System.out.println("INFO: Se ha encontrado el producto" + i);
-                //if(i == true){
+                //System.out.println(localDate);
 
                     ArrayList<String> ArrayKeys = SalesDataService.getSalesFounded(localDate);
                     System.out.println("INFO: Venta encontrada");
-                    System.out.println("Estoy aqui" + ArrayKeys.toString());
+                    //System.out.println("Estoy aqui" + ArrayKeys.toString());
 
-                    System.out.println(ArrayKeys.size());
+                    //System.out.println(ArrayKeys.size());
 
                     if(!ArrayKeys.isEmpty()){
                         WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , ArrayKeys);
@@ -460,52 +440,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
                 }
 
-                //        try{
-                    //            if(jTextFieldFindID.getText().equals("")){//Inserte ID.
-                        //                System.out.println("############################################################################################################");
-                        //                //Cogemos la fecha nuestra
-                        //                Date fecha2 = (Date) jSpinnerDate.getValue();
-                        //                LocalDateTime localDate = fecha2.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-                        //                DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
-                        //
-                        //                System.out.println("-------------" + SalesData.getInstance().getSalesDataHashMap().get(SalesData.getInstance().getSalesDataHashMap().keySet().toArray()[0]).getDateConfirmedSale().format(formatoCorto));
-                        //
-                        //                System.out.println(localDate.format(formatoCorto));
-                        //                boolean i = SalesDataService.IsLocalDateTimeInDDBB(localDate.format(formatoCorto));
-                        //                System.out.println(i);
-                        //                if(i == true){
-                            //
-                            //                    Venta venta = SalesDataService.getSalesFounded(localDate.format(formatoCorto));
-                            //                    System.out.println("INFO: Venta encontrada");
-                            //                    System.out.println(venta.toString());
-                            //                    //Cogemos y llamamos al constructor de WindowsAdminSalesShowOneSale para ver las caracteristicas del producto
-                            //
-                            //                    WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , venta);
-                            //
-                            //                }else{
-                            //                    JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);
-                            //                    System.out.println("INFO: No se ha encontrado en el registor los datos");
-                            //
-                            //
-                            //
-                            //                }
-                        //            }else{
-                        //                System.out.println("INFO: Vamos a buscar por fecha de  compra.");
-                        //                String ID = jTextFieldFindID.getText();
-                        //
-                        //                if(SalesData.getInstance().getSalesDataHashMap().keySet().contains(ID)){
-                            //                    WindowsAdminSalesShowOneSale ventanaNueva = new WindowsAdminSalesShowOneSale(this , user , SalesData.getInstance().getSalesDataHashMap().get(ID));
-                            //                }else if(ID.equals("")){
-                            //                    SalesData sales = SalesData.getInstance();
-                            //                    ArrayList<String> ArrayKeys = SalesDataService.getAllSales();
-                            //                    WindowsAdminSalesShowAllProducts ventana1 = new WindowsAdminSalesShowAllProducts(this , user , ArrayKeys);
-                            //                }else{
-                            //                    JOptionPane.showMessageDialog(null, "Este es un mensaje de Advertencia","ErrorMesage, fecha incorrecta intentelo de nuevo", JOptionPane.ERROR_MESSAGE);
-                            //                    System.out.println("INFO: No se ha encontrado en el registor los datos");
-                            //                }
-                        //
-                        //            }
-
                 }catch(Exception e){
                     JOptionPane.showMessageDialog(null, "No se ha encontrar ninguna coincidencia, utilice otro rango.","Información para el usuario.", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("INFO: El Usuario ha metido un fecha incorrecta  ###" + e.toString());
@@ -517,27 +451,38 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         
 
     }//GEN-LAST:event_JButtomBuscarActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+// ********************************************************************************************************************
     private void JTextDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextDateMouseClicked
         // TODO add your handling code here:
         jLabelTipFormatted.setVisible(true);
-        
-        
+         
     }//GEN-LAST:event_JTextDateMouseClicked
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
-
+// ********************************************************************************************************************
     
+    
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JButtomBuscar;
     private javax.swing.JFormattedTextField JTextDate;
@@ -568,3 +513,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JTextField jTextFieldFindID;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

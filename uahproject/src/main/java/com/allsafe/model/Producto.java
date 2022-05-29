@@ -52,7 +52,8 @@ public class Producto implements Serializable{
         opiniones = new ArrayList<>();
         estrellas = 0;
     }
-     
+
+// ******************************************************************************************************************** 
     /**
      * Nos devuelve la fechaEntradaTienda  atributo del producto.
      * @return
@@ -63,7 +64,10 @@ public class Producto implements Serializable{
     public LocalDateTime getFechaEntradaTienda() {
         return fechaEntradaTienda;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el stock  atributo del producto.
      * @return
@@ -74,7 +78,9 @@ public class Producto implements Serializable{
     public int getStock() {
         return stock;
     }
-
+// ******************************************************************************************************************** 
+    
+ // ******************************************************************************************************************** 
     /**
       * Nos permite etablecer el stock atributo de un producto.
      * @param stock
@@ -82,7 +88,10 @@ public class Producto implements Serializable{
     public void setStock(int stock) {
         this.stock = stock;
     }
+// ******************************************************************************************************************** 
+    
 
+// ******************************************************************************************************************** 
     /**
      * Nos devuelve la fotografia  atributo del producto.
      * @return
@@ -93,7 +102,9 @@ public class Producto implements Serializable{
     public String getFotografia() {
         return fotografia;
     }
-
+// ******************************************************************************************************************** 
+    
+// ******************************************************************************************************************** 
     /**
      * Nos permite etablecer la fotografia atributo de un producto.
      * @param fotografia
@@ -101,7 +112,8 @@ public class Producto implements Serializable{
     public void setFotografia(String fotografia) {
         this.fotografia = fotografia;
     }
-
+    
+// ******************************************************************************************************************** 
     /**
      * Nos devuelve el precio  atributo del producto.
      * @return
@@ -112,7 +124,9 @@ public class Producto implements Serializable{
     public int getPrecio() {
         return precio;
     }
-
+// ******************************************************************************************************************** 
+    
+// ******************************************************************************************************************** 
     /**
      * Nos permite etablecer el precio atributo de un producto.
      * @param precio
@@ -120,7 +134,10 @@ public class Producto implements Serializable{
     public void setPrecio(int precio) {
         this.precio = precio;
     }
-
+// ******************************************************************************************************************** 
+    
+ 
+// ******************************************************************************************************************** 
     /**
      * Nos devuelve la categoria  atributo del producto.
      * @return
@@ -131,7 +148,10 @@ public class Producto implements Serializable{
     public String getCategoria() {
         return categoria;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ******************************************************************************************************************** 
     /**
      * Nos permite etablecer la categoria atributo de un producto.
      * @param categoria
@@ -139,7 +159,9 @@ public class Producto implements Serializable{
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-
+// ******************************************************************************************************************** 
+    
+// ******************************************************************************************************************** 
     /**
      * Nos devuelve las caracteristicas  atributo del producto.
      * @return
@@ -150,7 +172,10 @@ public class Producto implements Serializable{
     public String getCaracteristicas() {
         return caracteristicas;
     }
+// ******************************************************************************************************************** 
+    
 
+// ******************************************************************************************************************** 
     /**
      * Nos permite etablecer las caracteristicas atributo de un producto.
      * @param caracteristicas
@@ -158,7 +183,10 @@ public class Producto implements Serializable{
     public void setCaracteristicas(String caracteristicas) {
         this.caracteristicas = caracteristicas;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el titulo  atributo del producto.
      * @return
@@ -169,7 +197,10 @@ public class Producto implements Serializable{
     public String getTitulo() {
         return titulo;
     }
+// ******************************************************************************************************************** 
+    
 
+// ******************************************************************************************************************** 
     /**
      * Nos permite etablecer el titulo atributo de un producto.
      * @param titulo
@@ -177,7 +208,9 @@ public class Producto implements Serializable{
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+// ******************************************************************************************************************** 
     
+// ******************************************************************************************************************** 
     /**
      * Nos devuelve las estrellas  atributo del producto.
      * @return
@@ -188,7 +221,10 @@ public class Producto implements Serializable{
     public int getEstrella() {
         return estrellas;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ******************************************************************************************************************** 
     /**
      * Nos devuelve la  opinión,  atributo del producto, opinión de la posición indicada como parametro.
      * @param a
@@ -197,7 +233,10 @@ public class Producto implements Serializable{
     public Opinion getOpiniones(int a) {
         return opiniones.get(a);
     }
+// ********************************************************************************************************************   
+  
     
+// ********************************************************************************************************************   
     /**
      * Nos devuelve las opiniones  atributo del producto.
      * @return
@@ -208,7 +247,10 @@ public class Producto implements Serializable{
     public ArrayList<Opinion>  getArrayOpiniones() {
         return opiniones;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ******************************************************************************************************************** 
     /**
      * Nos permite introducir una opinión al arrayList de opiniones del producto. Añadida la opinión,
      * que contiene una calificación se recalcula el número de estrellas, que es la media de todas
@@ -224,7 +266,10 @@ public class Producto implements Serializable{
                }
                this.estrellas = round(estrellas / opiniones.size());
        }
-
+// ******************************************************************************************************************** 
+    
+    
+// ******************************************************************************************************************** 
     /**
      *
      * @return
@@ -233,6 +278,6 @@ public class Producto implements Serializable{
     public String toString() {
         return "Producto{" + "titulo=" + titulo + ", caracteristicas=" + caracteristicas + ", categoria=" + categoria + ", precio=" + precio + ", fotografia=" + fotografia + ", stock=" + stock + ", fechaEntradaTienda=" + fechaEntradaTienda + ", opinion=" + opiniones + '}';
     }
-
+// ******************************************************************************************************************** 
     
 }

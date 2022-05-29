@@ -24,6 +24,8 @@ public class Inventario {
         inventario = new ArrayList<>();
     }
 
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el inventario, arrayList atributo  del inventario.
      * @return
@@ -34,7 +36,10 @@ public class Inventario {
     public ArrayList<Producto> getInventario() {
         return inventario;
     }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      * Nos devuelve un producto en la posición indicada por el parametro que se recibe.
      * @param a
@@ -46,7 +51,9 @@ public class Inventario {
     public Producto getInventario(int a) {
         return inventario.get(a);
     }
-
+// ******************************************************************************************************************** 
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite introducir un producto en una cantidad indicada en el inventario
      * si y solo si este no se encuentra ya en el inventario, de lo contrario aumentará 
@@ -62,8 +69,6 @@ public class Inventario {
                p.setStock(p.getStock()+ cantidad);  
            }
        }
-    
-    
-    
+// ********************************************************************************************************************     
 }
 

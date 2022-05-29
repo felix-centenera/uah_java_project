@@ -34,7 +34,8 @@ import javax.swing.JOptionPane;
  * @author felixcentenera
  */
 public class UsersServices {
-    
+
+// ********************************************************************************************************************     
     /**
      *
      * @param correo
@@ -43,7 +44,7 @@ public class UsersServices {
      */
     public  static boolean checkUser(String correo,String clave) {
        //System.out.println("HOLA SOY USERDATA" + usuarios.get(correo).getClave());
-        System.out.println(correo);
+        System.out.println("INFO: Se va a comprobar las credenciales de : " + correo);
         //System.out.println(clave);
        if (  UserData.getInstance().getUserHashMap().containsKey(correo)   ){
            System.out.println("INFO: He encontrado el correo entre los datos ");
@@ -61,10 +62,11 @@ public class UsersServices {
            return false; 
        }
     }
+    // ******************************************************************************************************************** 
     
     
+    // ******************************************************************************************************************** 
     // Método para añadir usuarios clientes particulares.
-
     /**
      * Nos permite añadir un nuevo usuario de tipo clienteParticular al sistema. El usuario se creará y añadirá a
      * la estructura de datos que contiene a todos los usuarios.
@@ -89,13 +91,13 @@ public class UsersServices {
     public static boolean addUser(String dni, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
         if (!UserData.getInstance().getUserHashMap().containsKey(correo)){
         try{
-            System.out.println( dni + nombre + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
+            //System.out.println( dni + nombre + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
             Direccion d1 =  new Direccion(direccionCalle,direccionNumero,direccionCP,direccionCiudad);
             TarjetaDeCredito t1 = new TarjetaDeCredito(tarjetaDeCreditoTitular,tarjetaDeCreditoNumero,tarjetaDeCreditoCaducidad);
             Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
             Usuario u1 = new ClienteParticular(dni, nombre, d1,t1,telefono,clave,correo,to1);
             UserData.getInstance().getUserHashMap().put(correo, u1);    
-            System.out.println(UserData.getInstance().getUserHashMap().toString());
+            //System.out.println(UserData.getInstance().getUserHashMap().toString());
             return true;
         }catch (Exception ex) {
             System.out.println("Error: " + ex.toString()); 
@@ -111,7 +113,10 @@ public class UsersServices {
         
         }
     }
+    // ******************************************************************************************************************** 
     
+    
+    // ******************************************************************************************************************** 
     /**
      *
      * Nos permite añadir un nuevo usuario de tipo administrador al sistema. El usuario se creará y añadirá a
@@ -127,11 +132,11 @@ public class UsersServices {
     public static boolean addAdmin(String clave, String correo){
         if (!UserData.getInstance().getUserHashMap().containsKey(correo)){
         try{
-            System.out.println( clave + correo);
+            //System.out.println( clave + correo);
             Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
             Usuario a1 = new Administrador(clave, correo, to1);
             UserData.getInstance().getUserHashMap().put(correo, a1);    
-            System.out.println(UserData.getInstance().getUserHashMap().toString());
+            //System.out.println(UserData.getInstance().getUserHashMap().toString());
             JOptionPane.showMessageDialog(null, "Se ha añadido un nuevo administrador, welcome to Allsafe","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             return true;
         }catch (Exception ex) {
@@ -147,10 +152,12 @@ public class UsersServices {
         
         }
     }
+    // ******************************************************************************************************************** 
     
     
+    
+    // ******************************************************************************************************************** 
      // Método para modificar usuarios clientes particulares.
-
     /**
      * Nos permite modificar la informacón de usuario de tipo cliente particular a partir
      * de la información prevista como método.
@@ -175,13 +182,12 @@ public class UsersServices {
     public static boolean setUser(String dni, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
         if (UserData.getInstance().getUserHashMap().containsKey(correo)){
         try{
-            System.out.println( dni + nombre + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
+            //System.out.println( dni + nombre + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
 //            Direccion d1 =  new Direccion(direccionCalle,direccionNumero,direccionCP,direccionCiudad);
 //            TarjetaDeCredito t1 = new TarjetaDeCredito(tarjetaDeCreditoTitular,tarjetaDeCreditoNumero,tarjetaDeCreditoCaducidad);
 //            Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
 //            Usuario u1 = new ClienteParticular(dni, nombre, d1,t1,telefono,clave,correo,to1);
-//            usuarios.put(correo, u1);    
-            
+//            usuarios.put(correo, u1);      
             ClienteParticular c1 = (ClienteParticular) UserData.getInstance().getUserHashMap().get(correo);
             c1.setDni(dni);
             c1.setNombre(nombre);
@@ -195,7 +201,7 @@ public class UsersServices {
             c1.setTelefono(telefono);
             c1.setClave(clave);
             
-            System.out.println(UserData.getInstance().getUserHashMap().toString());
+            //System.out.println(UserData.getInstance().getUserHashMap().toString());
             return true;
         }catch (Exception ex) {
             System.out.println("Error: " + ex.toString()); 
@@ -209,7 +215,10 @@ public class UsersServices {
         
         }
     }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      * Nos permite modificar la informacón de usuario de tipo cliente Empresa a partir
      * de la información prevista como método.
@@ -235,7 +244,7 @@ public class UsersServices {
     public static boolean setUser(String cif,String web, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
         if (UserData.getInstance().getUserHashMap().containsKey(correo)){
         try{
-            System.out.println( cif + nombre + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
+            //System.out.println( cif + nombre + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
 //            Direccion d1 =  new Direccion(direccionCalle,direccionNumero,direccionCP,direccionCiudad);
 //            TarjetaDeCredito t1 = new TarjetaDeCredito(tarjetaDeCreditoTitular,tarjetaDeCreditoNumero,tarjetaDeCreditoCaducidad);
 //            Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
@@ -256,7 +265,7 @@ public class UsersServices {
             c1.setTelefono(telefono);
             c1.setClave(clave);
             
-            System.out.println(UserData.getInstance().getUserHashMap().toString());
+            //System.out.println(UserData.getInstance().getUserHashMap().toString());
             return true;
         }catch (Exception ex) {
             System.out.println("Error: " + ex.toString()); 
@@ -270,7 +279,11 @@ public class UsersServices {
         
         }
     }
+    // ******************************************************************************************************************** 
     
+    
+    
+    // ******************************************************************************************************************** 
     /**
      * Nos permite modificar la clave de un usuario.
      * @param clave
@@ -284,14 +297,14 @@ public class UsersServices {
     public static boolean setUser(String clave, String correo){
         if (UserData.getInstance().getUserHashMap().containsKey(correo)){
         try{
-            System.out.println( clave + correo);
+            //System.out.println( clave + correo);
 //            Direccion d1 =  new Direccion(direccionCalle,direccionNumero,direccionCP,direccionCiudad);
 //            TarjetaDeCredito t1 = new TarjetaDeCredito(tarjetaDeCreditoTitular,tarjetaDeCreditoNumero,tarjetaDeCreditoCaducidad);
 //            Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
 //            Usuario u1 = new ClienteParticular(dni, nombre, d1,t1,telefono,clave,correo,to1);
 //            usuarios.put(correo, u1);    
             UserData.getInstance().getUserHashMap().get(correo).setClave(clave);
-            System.out.println(UserData.getInstance().getUserHashMap().toString());
+            //System.out.println(UserData.getInstance().getUserHashMap().toString());
             return true;
         }catch (Exception ex) {
             System.out.println("Error: " + ex.toString()); 
@@ -305,9 +318,12 @@ public class UsersServices {
         
         }
     }
+    // ******************************************************************************************************************** 
     
+    
+    
+    // ******************************************************************************************************************** 
     // Método para añadir usuarios clientes empresa. String cif, String web
-
     /**
      * Nos permite añadir un nuevo usuario de tipo clienteParticular al sistema. El usuario se creará y añadirá a
      * la estructura de datos que contiene a todos los usuarios.
@@ -334,13 +350,13 @@ public class UsersServices {
         
         if (!UserData.getInstance().getUserHashMap().containsKey(correo)){
         try{
-            System.out.println( cif + nombre + web + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
+            //System.out.println( cif + nombre + web + direccionCalle + direccionCiudad + direccionNumero + direccionCP + tarjetaDeCreditoNumero + tarjetaDeCreditoTitular + tarjetaDeCreditoCaducidad + telefono + clave + correo);
             Direccion d1 =  new Direccion(direccionCalle,direccionNumero,direccionCP,direccionCiudad);
             TarjetaDeCredito t1 = new TarjetaDeCredito(tarjetaDeCreditoTitular,tarjetaDeCreditoNumero,tarjetaDeCreditoCaducidad);
             Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
             Usuario u1 = new ClienteEmpresa(cif, web, nombre, d1,t1,telefono,clave,correo,to1);
             UserData.getInstance().getUserHashMap().put(correo, u1);    
-            System.out.println(UserData.getInstance().getUserHashMap().toString());
+            //System.out.println(UserData.getInstance().getUserHashMap().toString());
             return true;
         }catch (Exception ex) {
             System.out.println("Error: " + ex.toString()); 
@@ -354,10 +370,10 @@ public class UsersServices {
             return false;
         }     
     }
+// ********************************************************************************************************************     
     
     
-     //Metodo para crear un usuario de forma automatica sin formulario
-    
+ //Metodo para crear un usuario de forma automatica sin formulario
 //     public  static void createMockUser() {
 //         LocalDate fecha = LocalDate.of(2020, 9, 18); 
 //         LocalDateTime fechaTime = LocalDateTime.now();
@@ -368,18 +384,22 @@ public class UsersServices {
 //         UserData.getInstance().getUserHashMap().put("felix@uah.es", c1);
 //    }
 
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite crear el usuario administrador en la plataforma.
      */
      public static void createMockAdminUser() {    
          
-         if (existsUser("admin@javacomp.com")) {
+         if (!existsUser("admin@javacomp.com")) {
              Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
              if (!UserData.getInstance().getUserHashMap().containsKey("admin@javacomp.com")) {
+                System.out.println("INFO: El usuario admin no exite, vamos a crearlo, usuario: admin@javacomp.com, pass: admin. Recuerde cambiar la password "); 
                 Usuario a1 = new Administrador("admin","admin@javacomp.com",to1 );
                 a1.setAdministrador(true);
                 UserData.getInstance().getUserHashMap().put(a1.getCorreo(), a1);
                 UsersServices.saveUserData();
+                //JOptionPane.showMessageDialog(null, "Se ha creado el usuario administrador: admin@javacomp.com, pass: admin. Recuerde cambiar la password","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
              }
          }
          else {
@@ -387,7 +407,9 @@ public class UsersServices {
          }
      
      }
+// ******************************************************************************************************************** 
      
+// ********************************************************************************************************************      
     /**
      * Nos permite obtener un usuario mediante la clave correo y el valor clave.
      * @param correo
@@ -401,7 +423,11 @@ public class UsersServices {
        Usuario u1  = UserData.getInstance().getUserHashMap().get(correo);
        return u1;
     }
-    
+// ******************************************************************************************************************** 
+
+
+
+// ********************************************************************************************************************     
     /**
      * Nos permite obtener un usuario mediante el la clave correo.
      * @param correo
@@ -414,8 +440,12 @@ public class UsersServices {
        Usuario u1  = UserData.getInstance().getUserHashMap().get(correo);
        return u1;
     }
+ // ********************************************************************************************************************    
+ 
     
     
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite preguntar si existe un usario en la estructura de datos UserHashMap
      * @param correo
@@ -427,13 +457,18 @@ public class UsersServices {
      */
     public static boolean existsUser(String correo){
        if (UserData.getInstance().getUserHashMap().containsKey(correo)) {
+           System.out.println("INFO: EL usuario" + correo + " sí existe");
         return true;
        }
        else {
+           System.out.println("INFO: EL usuario " + correo + " no existe");
            return false;
        }
     }
+// ******************************************************************************************************************** 
     
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite borrar un usuario de la estrutura de datos UserHashMap mediante 
      * el paso de un String correo que se utilizará como clave para la busqueda y
@@ -460,7 +495,10 @@ public class UsersServices {
            return false;
        }
     }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      * Nos permite recuperar un ArrayList String con todas las claves "keys" de los 
      * usuarios de las estructura de datos 
@@ -474,7 +512,10 @@ public class UsersServices {
          ArrayList<String> listOfKeys = UserData.getInstance().getUserHashMap().keySet().stream().collect(Collectors.toCollection(ArrayList::new));
          return listOfKeys;
     }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      * NOs permite obtener un ArrayList de productos, con todos los productos 
      * de un usuario proporcionado.
@@ -494,7 +535,10 @@ public class UsersServices {
             return (c1.getCarritoCompra().getProductos());
         }
 }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      * Nos permite borrar un articulo del carrito de un usuario proporcionado.
      * @param u
@@ -541,7 +585,10 @@ public class UsersServices {
               }
         }
     }
+    // ******************************************************************************************************************** 
     
+    
+    // ******************************************************************************************************************** 
     /**
      * Permite quitar todos los productos del carrito de un usuario proporcionado.
      * @param u
@@ -575,12 +622,19 @@ public class UsersServices {
             }
         }
     }
+    // ******************************************************************************************************************** 
     
     
+    
+// ********************************************************************************************************************     
 //    public static ArrayList<String>  getUser(){
 //         return UserData.getInstance().getUserHashMap().keySet().stream().collect(Collectors.toCollection(ArrayList::new));
 //    }
-
+// ******************************************************************************************************************** 
+    
+    
+    
+ // ********************************************************************************************************************    
     /**
      * Nos permite conocer el tipo de usuario metiante el paso de la clave (key) correo
      * el valor clave de un usuario.
@@ -597,12 +651,14 @@ public class UsersServices {
         String clase = UserData.getInstance().getUserHashMap().get(correo).getClass().getSimpleName();
         return clase;  
     }
+ // ******************************************************************************************************************** 
     
     
+    
+ // ********************************************************************************************************************   
     /**
      * SERIALIZACION DE LOS ARCHIVOS
-     */
-    
+     */ 
     public static void saveUserData() {
     //Vamos a Serializar el objeto SalesData en memoria no Volatil.
     /**
@@ -625,7 +681,9 @@ public class UsersServices {
                     //jPanelUsersFound.setVisible(false);
             }
     } 
+    // ******************************************************************************************************************** 
     
+    // ******************************************************************************************************************** 
     /**
      * Nos permite recuperar de un fichero local toda la información para de la estuctura de datos UserHashMap
      */
@@ -648,7 +706,10 @@ public class UsersServices {
                     System.out.println("Error:  No ha podido realizarse la recarga de usuarios: " + e.toString()); 
             }
 }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      * Nos pemite verificar que el DNI proporcionado tiene la composición apropiada
      * @param DNI
@@ -661,11 +722,11 @@ public class UsersServices {
     public static boolean checkDNI(String DNI){
         try{
             if (DNI.charAt(DNI.length() -1 ) == letterDNI(DNI) ){
-                System.out.println("El DNI es correcto");
+                System.out.println("INFO: El DNI es correcto");
                 return true;
             }    
             else {
-                System.out.println("El DNI no es correcto");
+                System.out.println("INFO: El DNI no es correcto");
                 return false;
             }
         }
@@ -675,14 +736,19 @@ public class UsersServices {
             return false;
         }   
     }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     private static char letterDNI(String DNI){
         int dniNumber = Integer.parseInt(DNI.substring(0, DNI.length()-1 )  );
         dniNumber = dniNumber % 23;
         char lettersDNI[] = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
         return lettersDNI[dniNumber];
     }
-    
+// ******************************************************************************************************************** 
+
+// ********************************************************************************************************************     
     /**
      * Nos permite saber si la tarjeta de crédito, de un usuario proporcionado,
      * ha caducado o sigue vigente.
@@ -732,7 +798,7 @@ public class UsersServices {
             }
         }
     }
-    
+// ********************************************************************************************************************     
     
     
     

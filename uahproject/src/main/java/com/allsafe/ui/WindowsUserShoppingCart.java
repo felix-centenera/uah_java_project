@@ -44,7 +44,6 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
     private WindowsProduct secundariaProductos;
     private  Producto producto;
     private Usuario user;
-   
     //private Usuario userMgmt;
     private Producto productMgmt;
     //private int opinion=0;
@@ -52,15 +51,6 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
     Login miservicioDeLogin = Login.getInstance();
     // just for mock delete after test:
     UserData userData = UserData.getInstance();
-    
-    /**
-     * Creates new form Home
-     */
-//    public WindowsProduct() {
-//        initComponents();
-//        createHomePageProductos();
-//        createHomePage();
-//    }
     
     /** Creates new form WindowProduct */
     public WindowsUserShoppingCart(Home ventana, Usuario u) {
@@ -71,8 +61,7 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
         this.producto =producto;
         initComponents();
         this.setVisible(true);
-        createWindowsProductPage();
-        
+        createWindowsProductPage();   
     }
     
        public WindowsUserShoppingCart(WindowsProduct ventana, Usuario u) {
@@ -87,18 +76,8 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
         
     }
     
-//     public WindowsAdminUserMngt(WindowsProduct ventana2, Usuario u, Home ventana1) {
-//        //Ocultamos la ventana principal
-//        secundariaProductos = ventana2;
-//        principal = ventana1;
-//        secundariaProductos.setVisible(false);
-//        user = u;
-//        initComponents();
-//        this.setVisible(true);
-//        createWindowsProductPage();
-//    }
-//    
 
+// ********************************************************************************************************************
 /**
 * Nos permite crear la interfaz createWindowsProductPage con todos lo elementos necesarios de forma dinámica.
 */ 
@@ -137,9 +116,6 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                 jLabelEmptyCarrito.setVisible(true);
             
             }
-            
-            
-            //SET BOTTON HOME PAGE.
          
         } 
         catch (Exception e) {
@@ -148,12 +124,15 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
             createWindowsProductPage();
         }
     }
-    
+
+// ********************************************************************************************************************    
     public  void  SetNumberOfUserPages0() {
         this.numberOfUserPages = 0;
  }
+// ********************************************************************************************************************    
     
-    
+
+// ********************************************************************************************************************    
 /**
 * Nos permite mostrar los productos interfaz  con todos lo elementos necesarios de forma dinámica.
 * Estos productos están recogidos en un ArrayList Producto listOfKeys, mediante el parametro i mostraremos
@@ -176,62 +155,51 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                // UsersServices.TypeUser(user.getCorreo(), user.getClave());
            
                 //ArrayList<String> listOfKeys  = UsersServices.getUser();
-                String clase = user.getClass().getSimpleName();
-  
-           
+                String clase = user.getClass().getSimpleName();   
                 ArrayList<Producto> listOfKeys  = UsersServices.getObjectShoppingCart(user);
                 //listOfKeys.size();
                 int sizeUserData=listOfKeys.size();
-                System.out.println(numberOfUserPages);
+                //System.out.println(numberOfUserPages);
                 numberOfUserPages = numberOfUserPages +i;
-                System.out.println(numberOfUserPages);
+                //System.out.println(numberOfUserPages);
                 jPanelUsersFound.setVisible(true);
                 switch (sizeUserData) {
                 case 1 : 
                     try {
-                        System.out.println("caso1");
+                        //System.out.println("caso1");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     
-                    jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
-                    
-                    
-                    
+                    jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");             
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas productos que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas productos que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         printUsers(0);
-                        
-                        
-                        
-                        
                     }
                     break;
                 case 2 :
                     try {
-                        System.out.println("caso2");
+                        //System.out.println("caso2");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
                     jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1).getTitulo());
                     jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
-                    
-                    
+
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas productos que mostrar " + e.toString()); 
-                        System.out.println("Voy a poner los productos en indice  0");
+                        System.out.println("INFO: No hay mas productos que mostrar " + e.toString()); 
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         SetNumberOfUserPages0();
                         printUsers(0);
                         //createWindowsProductPage();
                     }
-                    
                     break;
                 case 3:
                     try {
-                        System.out.println("caso3");
+                        //System.out.println("caso3");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
@@ -239,20 +207,18 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     jButtonUser3.setVisible(true);
                     jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2).getTitulo());
                     jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
-                    
-                    
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         //createWindowsProductPage();
                     }
                     break;
                 case 4:
                     try {
-                        System.out.println("caso4");
+                        //System.out.println("caso4");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
@@ -262,21 +228,19 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     jButtonUser4.setVisible(true);
                     jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3).getTitulo());
                     jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
-                    
-                    
+
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         //createWindowsProductPage();
-                    }
-                    
+                    } 
                     break;
                 case 5:
                     try {
-                        System.out.println("caso5");
+                        //System.out.println("caso5");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
@@ -291,15 +255,16 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         //createWindowsProductPage();
                     }
                     break;
                 case 6:
                     try {
-                        System.out.println("caso6");
+                        //System.out.println("caso6");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
@@ -315,15 +280,16 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         //createWindowsProductPage();
                     }
                     break;
                 case 7:
                     try {
-                        System.out.println("caso7");
+                        //System.out.println("caso7");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
@@ -341,19 +307,20 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas productos que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas productos que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         //createWindowsProductPage();
                     }
                     break;
                 default:
-                    System.out.println("somos 8 o mas  "  );   
+                    //System.out.println("somos 8 o mas productos "  );   
                     try {
-                            System.out.println("caso8");
-                            System.out.println("somos 8 o mas  y estamos haciendolo bien"  );   
-                            System.out.println("la i es: " + i + "y i +1 es= " + i +1 ); 
-                            System.out.println(listOfKeys);
+                            //System.out.println("caso8");
+                            //System.out.println("somos 8 o mas  y estamos haciendolo bien"  );   
+                            //System.out.println("la i es: " + i + "y i +1 es= " + i +1 ); 
+                            //System.out.println(listOfKeys);
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
@@ -373,52 +340,29 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
                     jLabelTotal.setText("Total: " + SalesDataService.SumTotal(listOfKeys) + " €");      
                     }
                     catch (Exception e) {
-                         System.out.println("somos 8 o mas  y estamos dando error"  );       
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                         //System.out.println("somos 8 o mas  y estamos dando error"  );       
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         //createWindowsProductPage();
                         printUsers(0);
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                     }
                     break;
                 }
     }
 
-    // ********************************************************************************************************************
+// ********************************************************************************************************************
 
-
-//método comprobar login
-//private boolean checkLogin(){
-//    boolean operationAccepted=false;
-//    if (user == null){
-//        this.dispose();
-//        principal.setVisible(true);
-//        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//        return false;
-//    }
-//     else{
-//        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
-//        System.out.println("INFO: Voy a comprobar el token");
-//        if (operationAccepted == false){
-//            this.dispose();
-//            principal.setVisible(true);
-//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//            return false;
-//        }
-//        return true;
-//    }
-//}
-
-// public  void  SetUsuario(Usuario user) {
-//        this.user = user;
-//        
-// }
- // ********************************************************************************************************************
- 
+    
+    
+// ********************************************************************************************************************
 private JFrame getFrame(){
      return this;
     }
+// ********************************************************************************************************************
+  
 
-    
+// ********************************************************************************************************************
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -723,15 +667,13 @@ private JFrame getFrame(){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
 
 
 
 
-//    private JFrame getFrame(){
-//     return this;
-//    }
-    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -744,23 +686,31 @@ private JFrame getFrame(){
           secundariaProductos.setVisible(true);
         }
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      */
-
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     // TODO add your handling code here:
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
         ///TODO Execptio!!!!!
             //opinion= opinion+1;
             //createWindowsProductPage();
             printUsers(-1);
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+  
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
         // TODO add your handling code here:
         //opinion= opinion-1;
@@ -768,48 +718,74 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         //TODO Execptio!!!!!
         printUsers(1);
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser1ActionPerformed
         // TODO add your handling code here:
         //productMgmt =  UsersServices.getUser(jButtonUser1.getText());
         jLabelProductlSelected.setText(jButtonUser1.getText());
     }//GEN-LAST:event_jButtonUser1ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser2ActionPerformed
         // TODO add your handling code here:
         jLabelProductlSelected.setText(jButtonUser2.getText());
     }//GEN-LAST:event_jButtonUser2ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser3ActionPerformed
         // TODO add your handling code here:
        jLabelProductlSelected.setText(jButtonUser3.getText());
     }//GEN-LAST:event_jButtonUser3ActionPerformed
-
+// ********************************************************************************************************************
+    
+  
+// ********************************************************************************************************************    
     private void jButtonUser4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser4ActionPerformed
         // TODO add your handling code here:
         jLabelProductlSelected.setText(jButtonUser4.getText());
     }//GEN-LAST:event_jButtonUser4ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser5ActionPerformed
         // TODO add your handling code here:
         jLabelProductlSelected.setText(jButtonUser5.getText());
     }//GEN-LAST:event_jButtonUser5ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser6ActionPerformed
         // TODO add your handling code here:
         jLabelProductlSelected.setText(jButtonUser6.getText());
     }//GEN-LAST:event_jButtonUser6ActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jButtonUser7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser7ActionPerformed
         // TODO add your handling code here:
         jLabelProductlSelected.setText(jButtonUser7.getText());
     }//GEN-LAST:event_jButtonUser7ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser8ActionPerformed
         // TODO add your handling code here:
        jLabelProductlSelected.setText(jButtonUser8.getText());
     }//GEN-LAST:event_jButtonUser8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserDeleteActionPerformed
         // TODO add your handling code here:
          if (jLabelProductlSelected.getText() != "Selecciona un producto"){
@@ -817,7 +793,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
              boolean found = false;
              int i=0;
              while (!found){
-                 System.out.println("ESTOY BUSCANDO EL PRODUCTO EN " + jLabelProductlSelected.getText() );
+                 System.out.println("INFO: Estoy buscando el producto en " + jLabelProductlSelected.getText() );
                  
                if (  listOfKeys.get(i).getTitulo() == jLabelProductlSelected.getText() ) {
                   found = true;
@@ -838,7 +814,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         createWindowsProductPage();
         jLabelProductlSelected.setText("Selecciona un producto");
     }//GEN-LAST:event_jButtonUserDeleteActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         if (UsersServices.cleanShoppingCart(user)){
@@ -846,13 +825,16 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             JOptionPane.showMessageDialog(null, "Se ha limpiado el carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         }
         else {
-            System.out.println("ERROR: no ha podido limpiarse el carrito");
+            System.out.println("ERROR: No se ha podido limpiar el carrito");
             JOptionPane.showMessageDialog(null, "No ha podido limpiarse el carrito, contacte con nosotros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
         
         }
         createWindowsProductPage();
     }//GEN-LAST:event_jButton2ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUserInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserInfoActionPerformed
         // TODO add your handling code here:
         // TODO show info of the producto new jframe or show info in the screen:
@@ -861,46 +843,29 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
              boolean found = false;
              int i=0;
              while (!found){
-                 System.out.println("ESTOY BUSCANDO EL PRODUCTO EN " + jLabelProductlSelected.getText() );
+                 System.out.println("INFO: Estoy buscando el producto en " + jLabelProductlSelected.getText() );
                  
                if (  listOfKeys.get(i).getTitulo() == jLabelProductlSelected.getText() ) {
                   found = true;
                   WindowsProductReportingInfo windowsproductFromShoppingCart = new WindowsProductReportingInfo(this , listOfKeys.get(i));
-//                  if (UsersServices.deleteObjectShoppingCart(user, listOfKeys.get(i))) {
-//                      System.out.println("INFO El procuto ha podido ser eliminado");
-//                  }
-//                  else {
-//                      System.out.println("ERROR El producto no ha podido ser eliminado");
-//                  }  
                }
                i++;
              }  
          }
         else {
-            System.out.println("INFO: No se ha seleeccionado ningún producto");
+            System.out.println("INFO: No se ha seleccionado ningún producto");
         }
         createWindowsProductPage();
         jLabelProductlSelected.setText("Selecciona un producto");
     }//GEN-LAST:event_jButtonUserInfoActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+ // ********************************************************************************************************************   
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //Comprobar stock carrito:
-        
-//        if (!UsersServices.getObjectShoppingCart(user).isEmpty()){
-//                printUsers(0);
-//            }
-//            else{
-//                jLabelEmptyCarrito.setVisible(true);
-//            
-//            }
-        
-//     int options = JOptionPane.YES_NO_OPTION;   
-//     int result = JOptionPane.showConfirmDialog(this, "La compra lleva unos gastos de envío de 5 euros, acepta la compra" ,"Condiciones de compra", options, 3);
-//     if (result == JOptionPane.YES_OPTION){
-//         System.out.println("hola mundo");
-//     }
-//     
+    // Preguntar al usuario si acepta los gastos de envío.     
     String[] options = new String[] {"Yes", "No"};
     int response = JOptionPane.showOptionDialog(null, "La compra lleva asociados unos gastos de envío de 5 euros. ¿Acepta los términos?", "Condiciones de compra", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
     
@@ -916,13 +881,13 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                                 //SAVE INVENTORY DATA
                                 InventoryServices.saveInventoryData();
                                 SalesDataService.saveSalesData();
-                                System.out.println("La compra se ha realizado con exito, procedemos a vaciar el carrito");
+                                System.out.println("INFO: La compra se ha realizado con exito, procedemos a vaciar el carrito");
                                 JOptionPane.showMessageDialog(null, "La compra se ha realizado con exito, procedemos a vaciar el carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                                 if (UsersServices.cleanShoppingCart(user)){
                                 System.out.println("INFO: Se ha limpiado el carrito");
                                  }
                                  else {
-                                    System.out.println("ERROR: no ha podido limpiarse el carrito");
+                                    System.out.println("ERROR: No se ha podido limpiar el carrito");
 
                                     }
                             createWindowsProductPage();
@@ -931,8 +896,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                            else {
                             System.out.println("INFO: No se puede continuar el proceso de compra");
                             JOptionPane.showMessageDialog(null, "La compra no se puede realizar, no hay stock suficiente hay un problema en el servicio de venta.","Información para el usuario", JOptionPane.WARNING_MESSAGE);
-                            }
-                            
+                            }              
                 }      
                             
                 else {
@@ -940,37 +904,39 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                     JOptionPane.showMessageDialog(null, "No se puede continuar el proceso de compra, la tarjeta esta caducada, por favor actualicela desde su cuenta de usuario","Información para el usuario", JOptionPane.WARNING_MESSAGE);
                         
                 }
-                
-                
+                   
              }
              else{
                  JOptionPane.showMessageDialog(null, "El carrito no tiene nada, echa un vistazo en nuestro catálogo ;) ","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
              }
     }
     
-    
-    
-    
     else {
         System.out.println("INFO: Al no aceptar las condiciones de compra, interrumpimos la compra");
         JOptionPane.showMessageDialog(null, "El proceso de compra no ha continuado ya que no se han aceptado las condiciones de compra.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-    }
-        
+    }    
               
     }//GEN-LAST:event_jButton1ActionPerformed
-
+// ********************************************************************************************************************
+   
+    
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-
     }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
 
+    
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
-
+// ********************************************************************************************************************
     
+    
+    
+ // ********************************************************************************************************************   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -1011,3 +977,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

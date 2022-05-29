@@ -29,8 +29,9 @@ public class WindowsAdminSalesShowAllProducts extends javax.swing.JFrame  {
     private int opinion=0;
     private ArrayList<String> arraykeys;
     Login miservicioDeLogin = Login.getInstance();
-
     UserData userData = UserData.getInstance();
+    
+// ********************************************************************************************************************
     /**
      * Creates new form Home
      * @param ventana
@@ -48,7 +49,10 @@ public class WindowsAdminSalesShowAllProducts extends javax.swing.JFrame  {
         createWindowsProductPage();
 
     }
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************
 /**
 * Nos permite crear la interfaz createWindowsProductPage con todos lo elementos necesarios de forma dinámica.
 */
@@ -81,42 +85,9 @@ public class WindowsAdminSalesShowAllProducts extends javax.swing.JFrame  {
         }
     }
 
-    // ********************************************************************************************************************
+// ********************************************************************************************************************
 
-
-//método comprobar login
-//private boolean checkLogin(){
-//    boolean operationAccepted=false;
-//    if (user == null){
-//        this.dispose();
-//        principal.setVisible(true);
-//        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//        return false;
-//    }
-//     else{
-//        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
-//        System.out.println("INFO: Voy a comprobar el token");
-//        if (operationAccepted == false){
-//            this.dispose();
-//            principal.setVisible(true);
-//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//            return false;
-//        }
-//        return true;
-//    }
-//}
-
-// public  void  SetUsuario(Usuario user) {
-//        this.user = user;
-//        
-// }
- // ********************************************************************************************************************
-//
-//    private JFrame getFrame(){
-//         return this;
-//        }
-//
-//    
+// ********************************************************************************************************************
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -289,9 +260,10 @@ public class WindowsAdminSalesShowAllProducts extends javax.swing.JFrame  {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
 
-
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -304,25 +276,40 @@ public class WindowsAdminSalesShowAllProducts extends javax.swing.JFrame  {
           ventana.setVisible(true);
         }
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      * 
      */
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
  
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
 
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
 
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
        try{
@@ -334,7 +321,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             else{
                 JOptionPane.showMessageDialog(null, "No hay ninguna venta que seleccionar","Warning", JOptionPane.WARNING_MESSAGE);
                 System.out.println("INFO: Error definido por el Usuario");
-                System.out.println("hola mundooooooo");
                 
             }
         }catch(Exception e){
@@ -343,18 +329,26 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> JlistElements;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -381,3 +375,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JSeparator jSeparator4123;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

@@ -34,17 +34,10 @@ public class WindowsLogin extends javax.swing.JFrame  {
     private Usuario user;
     private int opinion=0;
     Login miservicioDeLogin = Login.getInstance();
-    // just for mock delete after test:
     UserData userData = UserData.getInstance();
-    /**
-     * Creates new form Home
-     */
-//    public WindowsProduct() {
-//        initComponents();
-//        createHomePageProductos();
-//        createHomePage();
-//    }
     
+
+// ********************************************************************************************************************    
     /** Creates new form WindowProduct */
     public WindowsLogin(Home ventana, Usuario u) {
         //Ocultamos la ventana principal
@@ -54,10 +47,12 @@ public class WindowsLogin extends javax.swing.JFrame  {
         this.producto =producto;
         initComponents();
         this.setVisible(true);
-        createWindowsProductPage();
-        
+        createWindowsProductPage();     
     }
-    
+// ********************************************************************************************************************
+
+
+// ********************************************************************************************************************    
      public WindowsLogin(WindowsProduct ventana2, Usuario u, Home ventana1) {
         //Ocultamos la ventana principal
         secundariaProductos = ventana2;
@@ -68,7 +63,10 @@ public class WindowsLogin extends javax.swing.JFrame  {
         this.setVisible(true);
         createWindowsProductPage();
     }
-    
+ // ********************************************************************************************************************
+     
+
+// ********************************************************************************************************************     
 /**
 * Nos permite crear la interfaz createWindowsProductPage con todos lo elementos necesarios de forma dinámica.
 */
@@ -87,9 +85,6 @@ public class WindowsLogin extends javax.swing.JFrame  {
             jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("Icons/png/home.png"));
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
             jButtonHomeIconsGround9.setIcon(new javax.swing.ImageIcon("Icons/png/back.png"));
-            
-            //SET BOTTON HOME PAGE.
-         
         } 
         catch (Exception e) {
             System.out.println("Error: " + e.toString()); 
@@ -98,42 +93,16 @@ public class WindowsLogin extends javax.swing.JFrame  {
         }
     }
 
-    // ********************************************************************************************************************
+// ********************************************************************************************************************
 
 
-//método comprobar login
-//private boolean checkLogin(){
-//    boolean operationAccepted=false;
-//    if (user == null){
-//        this.dispose();
-//        principal.setVisible(true);
-//        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//        return false;
-//    }
-//     else{
-//        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
-//        System.out.println("INFO: Voy a comprobar el token");
-//        if (operationAccepted == false){
-//            this.dispose();
-//            principal.setVisible(true);
-//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//            return false;
-//        }
-//        return true;
-//    }
-//}
-
-// public  void  SetUsuario(Usuario user) {
-//        this.user = user;
-//        
-// }
- // ********************************************************************************************************************
- 
+// ******************************************************************************************************************** 
 private JFrame getFrame(){
      return this;
     }
+// ********************************************************************************************************************
 
-    
+// ******************************************************************************************************************** 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -374,15 +343,13 @@ private JFrame getFrame(){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
 
 
 
 
-//    private JFrame getFrame(){
-//     return this;
-//    }
-    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -395,29 +362,35 @@ private JFrame getFrame(){
           secundariaProductos.setVisible(true);
         }
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      */
-
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     // TODO add your handling code here:
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
         ///TODO Execptio!!!!!
             opinion= opinion+1;
             createWindowsProductPage();
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
         // TODO add your handling code here:
         opinion= opinion-1;
         createWindowsProductPage();
-        //TODO Execptio!!!!!
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void UserNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserNameMousePressed
         // TODO add your handling code here:
         if(UserName.getText().equals("Ingrese su nombre de usuario")){
@@ -430,11 +403,16 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
 
         }
     }//GEN-LAST:event_UserNameMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void UserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UserNameActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jPasswordField1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MousePressed
         // TODO add your handling code here:
         if(String.valueOf(jPasswordField1.getPassword()).equals("********")){
@@ -446,18 +424,16 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             UserName.setText("Ingrese su nombre de usuario");
             UserName.setForeground(Color.gray);
         }
-
     }//GEN-LAST:event_jPasswordField1MousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jButton1LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1LoginActionPerformed
-        // TODO add your handling code here: miservicioDeLogin
-        
-        //userData.createMockUser();
-        //userData.createMockAdminUser();
+        // TODO add your handling code here: miservicioDeLogin 
         String clave = jPasswordField1.getText();
         String correo = UserName.getText();
-        System.out.println(correo);
-        System.out.println(clave);
+        //System.out.println(correo);
+        //System.out.println(clave);
         if (   miservicioDeLogin.checkLogin(correo, clave, principal) ) {
             System.out.println("INFO: El login es correcto y se ha asignado un token");
         this.dispose();
@@ -468,8 +444,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                 secundariaProductos.createWindowsProductPage();
                 secundariaProductos.setVisible(true);
                 //principal.createHomePage();
-                secundariaProductos.createWindowsProductPage();
-                
+                secundariaProductos.createWindowsProductPage();     
             } 
              else  {
                 principal.setVisible(true);
@@ -481,25 +456,33 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             JOptionPane.showMessageDialog(null, "El mail o contraseña no son correctos","Información para el usuario", JOptionPane.WARNING_MESSAGE);
         }  
     }//GEN-LAST:event_jButton1LoginActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         WindowsCreateUser windowscreateuser = new WindowsCreateUser(this);    
     }//GEN-LAST:event_jButton2ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-
     }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
-
+// ********************************************************************************************************************
     
+    
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField UserName;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -531,3 +514,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JSeparator jSeparator6;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

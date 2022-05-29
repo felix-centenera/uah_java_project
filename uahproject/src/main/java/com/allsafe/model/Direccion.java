@@ -33,7 +33,8 @@ public class Direccion implements Serializable{
         this.cp = cp;
         this.ciudad = ciudad;
     }
-    
+ 
+// ********************************************************************************************************************     
     /**
      * Nos devuelve la ciudad atributo de la dirección, que se asociará con un usuario.
      * @return
@@ -44,7 +45,10 @@ public class Direccion implements Serializable{
     public String getCiudad() {
         return ciudad;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer la ciudad  atributo de la dirección, que se asociará con un usuario.
      * @param ciudad
@@ -52,7 +56,10 @@ public class Direccion implements Serializable{
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el código postal  atributo de la dirección, que se asociará con un usuario.
      * @return
@@ -63,7 +70,10 @@ public class Direccion implements Serializable{
     public int getCp() {
         return cp;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer el código postal  atributo de la dirección, que se asociará con un usuario.
      * @param cp
@@ -71,7 +81,10 @@ public class Direccion implements Serializable{
     public void setCp(int cp) {
         this.cp = cp;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el numero  atributo de la dirección, que se asociará con un usuario.
      * @return
@@ -82,7 +95,10 @@ public class Direccion implements Serializable{
     public int getNumero() {
         return numero;
     }
+// ******************************************************************************************************************** 
+    
 
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer el numero atributo de la dirección, que se asociará con un usuario.
      * @param numero
@@ -90,7 +106,10 @@ public class Direccion implements Serializable{
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve la calle  atributo de la dirección, que se asociará con un usuario.
      * @return
@@ -101,7 +120,10 @@ public class Direccion implements Serializable{
     public String getCalle() {
         return calle;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer la calle atributo de la dirección, que se asociará con un usuario.
      * @param calle
@@ -109,7 +131,9 @@ public class Direccion implements Serializable{
     public void setCalle(String calle) {
         this.calle = calle;
     }
-
+// ******************************************************************************************************************** 
+    
+// ********************************************************************************************************************     
     /**
      *
      * @return
@@ -118,8 +142,6 @@ public class Direccion implements Serializable{
     public String toString() {
         return "Direccion{" + "calle=" + calle + ", numero=" + numero + ", cp=" + cp + ", ciudad=" + ciudad + '}';
     }
-    
-    
-
+// ********************************************************************************************************************    
     
 }

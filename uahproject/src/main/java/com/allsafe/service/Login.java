@@ -29,6 +29,7 @@ public class Login {
     //Evitamos la instanciacón directa. Constructor vacío.
     private Login(){}
     
+// ********************************************************************************************************************     
     /**
      * Con este método obligamos a que cualquier servicio que requiera la intancia 
      * Login, utilice únicamente una instancia que es común para todos.
@@ -44,10 +45,10 @@ public class Login {
         }
         return instance;
     }
-    
-    
+  // ********************************************************************************************************************   
+   
+// ********************************************************************************************************************     
     //Métodos de login
-
     /**
      * Nos permite comprobar si el usuario esta o no logado en la plataforma.
      * Siempre que el intento de comprobación de login llegue sin parametros, se
@@ -61,7 +62,9 @@ public class Login {
     public boolean  checkLogin (){
         return false;
     }
+ // ******************************************************************************************************************** 
     
+// ********************************************************************************************************************     
     /**
      * Nos permite comprobar si el usuario esta o no logado en la plataforma. Si el usuario y la contraseña
      * son  correctos se asocia un token al usuario que tendrá una duración valida de 4 minutos.
@@ -76,7 +79,7 @@ public class Login {
      */
     public   boolean  checkLogin (String correo, String clave, Home ventana){         
          System.out.println(correo);
-         System.out.println(clave);
+         //System.out.println(clave);
          if (UsersServices.checkUser(correo, clave )){
              System.out.println("INFO: Userdata store ha validado la información, y es correcta");
                  
@@ -90,7 +93,10 @@ public class Login {
             return false;
          } 
     }
+// ********************************************************************************************************************  
     
+    
+// ********************************************************************************************************************     
     /**
      *
      * Nos permite comprobar si el usuario esta o no logado en la plataforma. Si el usuario y contraseña son
@@ -123,36 +129,7 @@ public class Login {
          
            //token.getFechaExpiracion().isAfter(LocalDateTime.now());   
     }
-
-    
-//     public   boolean  checkLogin (String correo, String clave){
-//         // todo // todo check user exists and information is correct and check token is correct
-//          System.out.println(correo);
-//          System.out.println(clave);
-//         if (userData.checkUser(correo, clave )){
-//             System.out.println("INFO: Userdata store ha validado la información, y es correcta");
-//             if (userData.TypeUser(correo, clave) == "ClienteParticular"){
-//                 ClienteParticular c1 = userData.ReadUserClienteParticular(correo, clave);
-//                 
-//                 
-//             }
-//             return true;
-//         }
-//         else {
-//            System.out.println("INFO: Userdata store ha validado la información, y  no  es correcta");
-//            return false;
-//         }
-////          
-////            
-////            return true;
-////         
-//
-//    }
-     
-//     public String TypeUser(String correo,String clave){
-//       String clase =userData.TypeUser(correo, clave);
-//       return clase;
-//    }
+// ******************************************************************************************************************** 
     
     
 }

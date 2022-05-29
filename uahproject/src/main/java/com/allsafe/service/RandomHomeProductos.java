@@ -9,6 +9,7 @@ import com.allsafe.model.Producto;
 import java.util.ArrayList;
 import java.util.Random;
 
+
 /**
  *
  * @author felixcentenera
@@ -21,6 +22,7 @@ public class RandomHomeProductos {
     private RandomHomeProductos() {
     }
     
+// ********************************************************************************************************************     
     /**
      * 
      * @param i
@@ -40,5 +42,7 @@ public class RandomHomeProductos {
         return RandomProductsHome;
         
     }
+// ******************************************************************************************************************** 
+
     
 }

@@ -24,7 +24,8 @@ public class SalesData implements Serializable{
     //Una instancia del objeto que va a existir
     private static SalesData instance = null;
     HashMap<String, Venta> salesData = new HashMap<>();
-    
+
+// ********************************************************************************************************************     
     /**
      * 
      * @return
@@ -36,10 +37,16 @@ public class SalesData implements Serializable{
        return (salesData);
     
     }
+// ******************************************************************************************************************** 
     
+    
+// ********************************************************************************************************************     
      //Evitamos la instanciacón directa. Constructor vacío.
     private SalesData(){}
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      *  Con este método obligamos a que cualquier servicio que requiera la intancia SalesData, utilice únicamente una instancia que es común para todos.
      * @return
@@ -53,7 +60,10 @@ public class SalesData implements Serializable{
         }
         return instance;
     }
-   
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      *
      * @param has
@@ -61,11 +71,8 @@ public class SalesData implements Serializable{
     public void setHasMap(HashMap<String, Venta> has){
         
         this.salesData = has;
-    
     }
+// ********************************************************************************************************************  
     
-    
-    
-    
-    
+   
 }

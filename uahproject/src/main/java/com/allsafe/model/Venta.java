@@ -26,7 +26,9 @@ public class Venta implements Serializable {
     private double Total;
     private long TarjetaCredito;
 
+  
     
+// ********************************************************************************************************************     
     /**INFORMACION ACERCA DEL ALMACENAMIENTO DE DATOS DE VENTA EN STRING
      * Se debera respetar el siguente formato
      * 
@@ -43,10 +45,7 @@ public class Venta implements Serializable {
      * @param Total
      * @param TarjetaCredito
      */
-    
-    
     //this.fechaEntradaTienda = LocalDateTime.now();
-    
     public Venta(String[] ProductList, String user ,double Total, long TarjetaCredito) {
         this.ID = RadomGenerator.generateRandomPassword(20);
         this.DateConfirmedSale = LocalDateTime.now();
@@ -55,7 +54,10 @@ public class Venta implements Serializable {
         this.Total = Total;
         this.TarjetaCredito = TarjetaCredito;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el ID  atributo de la venta. 
      * @return
@@ -66,7 +68,10 @@ public class Venta implements Serializable {
     public String getID() {
         return ID;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer el ID  atributo de Venta.
      * @param ID
@@ -74,7 +79,10 @@ public class Venta implements Serializable {
     public void setID(String ID) {
         this.ID = ID;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el DateConfirmedSale  atributo de la venta. 
      * @return
@@ -85,7 +93,9 @@ public class Venta implements Serializable {
     public LocalDateTime getDateConfirmedSale() {
         return DateConfirmedSale;
     }
-
+// ******************************************************************************************************************** 
+    
+// ******************************************************************************************************************** 
     /**
      * Nos permite etablecer el DateConfirmedSale  atributo de Venta.
      * @param DateConfirmedSale
@@ -93,7 +103,10 @@ public class Venta implements Serializable {
     public void setDateConfirmedSale(LocalDateTime DateConfirmedSale) {
         this.DateConfirmedSale = DateConfirmedSale;
     }
+// ******************************************************************************************************************** 
+    
 
+// ******************************************************************************************************************** 
     /**
      * Nos permite etablecer el Total  atributo de Venta.
      * @param Total
@@ -101,7 +114,10 @@ public class Venta implements Serializable {
     public void setTotal(double Total){
         this.Total = Total;
     }
-
+// ******************************************************************************************************************** 
+    
+// ******************************************************************************************************************** 
+    
     /**
      * Nos devuelve el Total  atributo de la venta. 
      * @return
@@ -112,7 +128,10 @@ public class Venta implements Serializable {
     public double getTotal(){
         return(Total);
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el user  atributo de la venta. 
      * @return
@@ -123,7 +142,10 @@ public class Venta implements Serializable {
     public String getUser() {
         return user;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el user  atributo de la venta. 
      * @param user
@@ -131,7 +153,10 @@ public class Venta implements Serializable {
     public void setUser(String user) {
         this.user = user;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el ProductList  atributo de la venta. 
      * @return
@@ -142,7 +167,10 @@ public class Venta implements Serializable {
     public String[] getProductList() {
         return ProductList;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * 
      * @param ProductList
@@ -150,7 +178,10 @@ public class Venta implements Serializable {
     public void setProductList(String[] ProductList) {
         this.ProductList = ProductList;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve la TarjetaCredito  atributo de la venta. 
      * @return
@@ -161,13 +192,20 @@ public class Venta implements Serializable {
     public long getTarjetaCredito() {
         return TarjetaCredito;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+    
+    
+// ********************************************************************************************************************     
 //    public void setTargetaCredito(String TargetaCredito) {
 //        this.TargetaCredito = TargetaCredito;
 //    }
-
+// ******************************************************************************************************************** 
   
-
+    
+    
+// ******************************************************************************************************************** 
 //    public String llenerateID() {
 //        Random random = new Random();
 //        String cad = "";
@@ -182,19 +220,18 @@ public class Venta implements Serializable {
 //
 //    }
 //    
-
+// ********************************************************************************************************************
+    
+    
+// ******************************************************************************************************************** 
     /**
      *
      * @return
      */
- 
-
     @Override
     public String toString() {
         return "Venta{" + "ID=" + ID + ", DateConfirmedSale=" + DateConfirmedSale + ", user=" + user + ", Total=" + Total + '}';
     }
-    
-    
-    
-    
+// ******************************************************************************************************************** 
+
 }

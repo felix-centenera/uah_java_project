@@ -23,6 +23,7 @@ import java.time.LocalDateTime;
  */
 public class GenerateMockDemoObjects {
     
+    // ******************************************************************************************************************** 
     /**
      * Nos permite iniciar la tienda en modo Demo, se crearan  ClientesParticulares, ClientesEmpresa, Productos
      * opiniones de productos con proposito de poder hacer una demostración de la aplicación.
@@ -99,41 +100,41 @@ public class GenerateMockDemoObjects {
 //            Producto p3 = new Producto("Dell XPS","Dell", "Portatiles",1000,"Img/shop/dellXps13.png", 1);
         
         // Añadir a inventario productos y opiniones:
-            InventoryServices.addProduct("MacBookAirM1", "Apple", "Ordenadores", 1500, "Img/shop/appleMacbookAirM1.png", 1);
+            InventoryServices.addProduct("MacBookAirM1", "Apple M1 8GB 256GB SSD GPU Hepta Core/13.3\" Plata", "Ordenadores", 1200, "Img/shop/appleMacbookAirM1.png", 1);
             InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o1);
             InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o3);
             InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o5);
             
                 
-            InventoryServices.addProduct("appleMacbookProM1", "Apple", "Ordenadores",3000, "Img/shop/appleMacbookProM1.png", 10);
-            InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
-            InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
-            InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o1);
+            InventoryServices.addProduct("MacbookProM1", "Apple M1/16GB/512GB SSD/13.3\" Gris Espacial", "Ordenadores",2000, "Img/shop/appleMacbookProM1.png", 10);
+            InventoryServices.getProducto("MacbookProM1").introducirOpinion(o4);
+            InventoryServices.getProducto("MacbookProM1").introducirOpinion(o4);
+            InventoryServices.getProducto("MacbookProM1").introducirOpinion(o1);
 
 
-            InventoryServices.addProduct("dellXps13", "dell", "Ordenadores", 2000, "Img/shop/dellXps13.png", 10);
-            InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o5);
-            InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
-            InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o3);
+            InventoryServices.addProduct("dellXps13", "Intel Core i7-10850H/16GB/512GB SSD/Quadro RTX 3000", "Ordenadores", 2500, "Img/shop/dellXps13.png", 10);
+            InventoryServices.getProducto("dellXps13").introducirOpinion(o5);
+            InventoryServices.getProducto("dellXps13").introducirOpinion(o4);
+            InventoryServices.getProducto("dellXps13").introducirOpinion(o3);
 
             
-            InventoryServices.addProduct("hpPavilion", "hp sobremesa", "Ordenadores", 1700, "Img/shop/hpPavilion.png", 10);
+            InventoryServices.addProduct("hpPavilion", "Intel Core i7-10700F/16GB/1TB+512GB SSD/RTX 3060Ti", "Ordenadores", 1350, "Img/shop/hpPavilion.png", 10);
             InventoryServices.getProducto("hpPavilion").introducirOpinion(o5);
             InventoryServices.getProducto("hpPavilion").introducirOpinion(o4);
             InventoryServices.getProducto("hpPavilion").introducirOpinion(o3);
             
-            InventoryServices.addProduct("PcComGOldi5", "PcComGOldi5 potente para jugar como un pro", "Ordenadores", 1500, "Img/shop/PcComGOldi5.png", 10);
+            InventoryServices.addProduct("PcComGOldi5", "PcCom Gold Intel Core i5 12600K/16GB/1TB SSD/RTX3060Ti", "Ordenadores", 1879, "Img/shop/PcComGOldi5.png", 10);
             InventoryServices.getProducto("PcComGOldi5").introducirOpinion(o5);
             InventoryServices.getProducto("PcComGOldi5").introducirOpinion(o4);
             InventoryServices.getProducto("PcComGOldi5").introducirOpinion(o3);
             
-            InventoryServices.addProduct("HpOmeni7", "HpOmeni7 potente para jugar como un pro", "Ordenadores", 1200, "Img/shop/HpOmeni7.png", 10);
+            InventoryServices.addProduct("HpOmeni7", "HP OMEN 45L GT22-0019ns Intel Core i9-12900K/32GB/2TB+1TB SSD/RTX 3080", "Ordenadores", 2999, "Img/shop/HpOmeni7.png", 10);
             InventoryServices.getProducto("HpOmeni7").introducirOpinion(o5);
             InventoryServices.getProducto("HpOmeni7").introducirOpinion(o4);
             InventoryServices.getProducto("HpOmeni7").introducirOpinion(o3);
             
             
-            InventoryServices.addProduct("SurfaceGoi5", "Portabilidad y rapidez", "Ordenadores", 1200, "Img/shop/SurfaceGoi5.png", 10);
+            InventoryServices.addProduct("SurfaceGoi5", "Surface Laptop Go Intel Core i5-1035G1/8GB/128GB SSD/12.4\" Táctil", "Ordenadores", 619, "Img/shop/SurfaceGoi5.png", 10);
             InventoryServices.getProducto("SurfaceGoi5").introducirOpinion(o5);
             InventoryServices.getProducto("SurfaceGoi5").introducirOpinion(o4);
             InventoryServices.getProducto("SurfaceGoi5").introducirOpinion(o3);
@@ -142,58 +143,58 @@ public class GenerateMockDemoObjects {
             InventoryServices.addProduct("Disco1TBHDD", "1 TB de almacenamiento", "Componentes", 300, "Img/shop/Disco1TBHDD.png", 10);
             InventoryServices.addProduct("IntelCore5", "Microprocesador i5", "Componentes", 300, "Img/shop/IntelCore5.png", 10);
             
-            InventoryServices.addProduct("SamsungGalaxy", "SamsungGalaxy comunicate con el mundo", "Móviles y telefonía", 1200, "Img/shop/SamsungGalaxy.png", 10);
+            InventoryServices.addProduct("SamsungGalaxy", "Galaxy A22 5G 64GB Negro Libre", "Móviles y telefonía", 1200, "Img/shop/SamsungGalaxy.png", 10);
             InventoryServices.getProducto("SamsungGalaxy").introducirOpinion(o5);
             InventoryServices.getProducto("SamsungGalaxy").introducirOpinion(o4);
             InventoryServices.getProducto("SamsungGalaxy").introducirOpinion(o3);
             
-            InventoryServices.addProduct("XiaomiRedmi", "XiaomiRedmi comunicate con el mundo", "Móviles y telefonía", 1200, "Img/shop/XiaomiRedmi.png", 10);
+            InventoryServices.addProduct("XiaomiRedmi", "Redmi Note 11 4/128GB Gris Grafito Libre", "Móviles y telefonía", 185, "Img/shop/XiaomiRedmi.png", 10);
             InventoryServices.getProducto("XiaomiRedmi").introducirOpinion(o4);
             InventoryServices.getProducto("XiaomiRedmi").introducirOpinion(o4);
             InventoryServices.getProducto("XiaomiRedmi").introducirOpinion(o1);
             
-            InventoryServices.addProduct("Pocom4", "Pocom4 comunicate con el mundo", "Móviles y telefonía", 1200, "Img/shop/Pocom4.png", 10);
+            InventoryServices.addProduct("Pocom4", "POCO M4 Pro 8 256GB Negro Libre + Auriculares Mi In-Ear", "Móviles y telefonía", 120, "Img/shop/Pocom4.png", 10);
             InventoryServices.getProducto("Pocom4").introducirOpinion(o1);
             InventoryServices.getProducto("Pocom4").introducirOpinion(o3);
             InventoryServices.getProducto("Pocom4").introducirOpinion(o5);
             
             
-            InventoryServices.addProduct("CanonM6", "CanonM6 retrata el mundo", "TV, audio y foto", 1200, "Img/shop/CanonM6.png", 10);
+            InventoryServices.addProduct("CanonM6", "M6 Mark II 32.5MP WiFi Cuerpo", "TV, audio y foto", 979, "Img/shop/CanonM6.png", 10);
             InventoryServices.getProducto("CanonM6").introducirOpinion(o5);
             InventoryServices.getProducto("CanonM6").introducirOpinion(o4);
             InventoryServices.getProducto("CanonM6").introducirOpinion(o3);
             
-            InventoryServices.addProduct("XiaomiTv", "XiaomiTv viajando sin salir de casa", "TV, audio y foto", 1200, "Img/shop/XiaomiTv.png", 10);
+            InventoryServices.addProduct("XiaomiTv", "Xiaomi TV P1E 55\" LED UltraHD 4K HDR10", "TV, audio y foto", 379, "Img/shop/XiaomiTv.png", 10);
             InventoryServices.getProducto("XiaomiTv").introducirOpinion(o5);
             InventoryServices.getProducto("XiaomiTv").introducirOpinion(o4);
             InventoryServices.getProducto("XiaomiTv").introducirOpinion(o3);
             
-            InventoryServices.addProduct("SamsungTv", "SamsungTv viajando sin salir de casa", "TV, audio y foto", 1200, "Img/shop/SamsungTv.png", 10);
+            InventoryServices.addProduct("SamsungTv", "UE55AU8005KXXC 55\" LED UltraHD 4K", "TV, audio y foto", 589, "Img/shop/SamsungTv.png", 10);
             InventoryServices.getProducto("SamsungTv").introducirOpinion(o5);
             InventoryServices.getProducto("SamsungTv").introducirOpinion(o4);
             InventoryServices.getProducto("SamsungTv").introducirOpinion(o3);
             
-            InventoryServices.addProduct("LGTv", "LGTv viajando sin salir de casa", "TV, audio y foto", 1200, "Img/shop/LGTv.png", 10);
+            InventoryServices.addProduct("LGTv", "OLED UltraHD 4K HDR10 ", "TV, audio y foto", 922, "Img/shop/LGTv.png", 10);
             InventoryServices.getProducto("LGTv").introducirOpinion(o5);
             InventoryServices.getProducto("LGTv").introducirOpinion(o4);
             InventoryServices.getProducto("LGTv").introducirOpinion(o3);
             
-            InventoryServices.addProduct("LGTv2", "LGTv2 viajando sin salir de casa", "TV, audio y foto", 1200, "Img/shop/LGTv2.png", 10);
+            InventoryServices.addProduct("LGTv2", "OLED Ultra HD 4K HDR10 Pro", "TV, audio y foto", 1530, "Img/shop/LGTv2.png", 10);
             InventoryServices.getProducto("LGTv2").introducirOpinion(o5);
             InventoryServices.getProducto("LGTv2").introducirOpinion(o4);
             InventoryServices.getProducto("LGTv2").introducirOpinion(o3);
             
-            InventoryServices.addProduct("Ps4TheLastOfUs", "Ps4TheLastOfUs pierza de colección", "Consolas y videojuegos", 60, "Img/shop/Ps4TheLastOfUs.png", 10);
+            InventoryServices.addProduct("Ps4TheLastOfUs", "The Last of Us Parte II PS4", "Consolas y videojuegos", 19, "Img/shop/Ps4TheLastOfUs.png", 10);
             InventoryServices.getProducto("Ps4TheLastOfUs").introducirOpinion(o5);
             InventoryServices.getProducto("Ps4TheLastOfUs").introducirOpinion(o4);
             InventoryServices.getProducto("Ps4TheLastOfUs").introducirOpinion(o3);
             
-            InventoryServices.addProduct("Ps4Battledield", "Ps4Battledield pierza de colección", "Consolas y videojuegos", 60, "Img/shop/Ps4Battledield.png", 10);
+            InventoryServices.addProduct("Ps4Battledield", "Battlefield 2042 PS4", "Consolas y videojuegos", 58, "Img/shop/Ps4Battledield.png", 10);
             InventoryServices.getProducto("Ps4Battledield").introducirOpinion(o5);
             InventoryServices.getProducto("Ps4Battledield").introducirOpinion(o4);
             InventoryServices.getProducto("Ps4Battledield").introducirOpinion(o3);
             
-            InventoryServices.addProduct("LittleHope", "Little Hope pierza de colección", "Consolas y videojuegos", 60, "Img/shop/LittleHope.png", 10);
+            InventoryServices.addProduct("LittleHope", "The Dark Pictures Anthology: Little Hope Xbox One", "Consolas y videojuegos", 25, "Img/shop/LittleHope.png", 10);
             InventoryServices.getProducto("LittleHope").introducirOpinion(o5);
             InventoryServices.getProducto("LittleHope").introducirOpinion(o4);
             InventoryServices.getProducto("LittleHope").introducirOpinion(o3);
@@ -203,17 +204,17 @@ public class GenerateMockDemoObjects {
             InventoryServices.getProducto("RedDeadRedemption2").introducirOpinion(o4);
             InventoryServices.getProducto("RedDeadRedemption2").introducirOpinion(o3);
             
-            InventoryServices.addProduct("Werewolf", "Werewolfpierza de colección", "Consolas y videojuegos", 60, "Img/shop/Werewolf.png", 10);
+            InventoryServices.addProduct("Werewolf", "Werewolfpierza de colección", "Consolas y videojuegos", 55, "Img/shop/Werewolf.png", 10);
             InventoryServices.getProducto("Werewolf").introducirOpinion(o5);
             InventoryServices.getProducto("Werewolf").introducirOpinion(o4);
             InventoryServices.getProducto("Werewolf").introducirOpinion(o3);
             
-            InventoryServices.addProduct("eFootballPES2020", "eFootballPES2020 de colección", "Consolas y videojuegos", 60, "Img/shop/eFootballPES2020.png", 10);
+            InventoryServices.addProduct("eFootballPES2020", "eFootballPES2020 de colección", "Consolas y videojuegos", 43, "Img/shop/eFootballPES2020.png", 10);
             InventoryServices.getProducto("eFootballPES2020").introducirOpinion(o5);
             InventoryServices.getProducto("eFootballPES2020").introducirOpinion(o4);
             InventoryServices.getProducto("eFootballPES2020").introducirOpinion(o3);
             
-            InventoryServices.addProduct("WWE2K22", "WWE2K22 de colección", "Consolas y videojuegos", 60, "Img/shop/WWE2K22.png", 10);
+            InventoryServices.addProduct("WWE2K22", "WWE2K22 de colección", "Consolas y videojuegos", 15, "Img/shop/WWE2K22.png", 10);
             InventoryServices.getProducto("WWE2K22").introducirOpinion(o5);
             InventoryServices.getProducto("WWE2K22").introducirOpinion(o4);
             InventoryServices.getProducto("WWE2K22").introducirOpinion(o3);
@@ -225,46 +226,23 @@ public class GenerateMockDemoObjects {
             InventoryServices.getProducto("TotalWarThree").introducirOpinion(o3);
             
             
-            InventoryServices.addProduct("XboxSeriesS", "XboxSeriesS diversión infinita", "Consolas y videojuegos", 60, "Img/shop/XboxSeriesS.png", 10);
+            InventoryServices.addProduct("XboxSeriesS", " Xbox Series S 512GB", "Consolas y videojuegos", 300, "Img/shop/XboxSeriesS.png", 10);
             InventoryServices.getProducto("XboxSeriesS").introducirOpinion(o5);
             InventoryServices.getProducto("XboxSeriesS").introducirOpinion(o4);
             InventoryServices.getProducto("XboxSeriesS").introducirOpinion(o3);
             
-            InventoryServices.addProduct("XboxSeriesX", "XboxSeriesS diversión infinita", "Consolas y videojuegos", 60, "Img/shop/XboxSeriesX.png", 10);
+            InventoryServices.addProduct("XboxSeriesX", " Xbox Series X 512GB", "Consolas y videojuegos", 220, "Img/shop/XboxSeriesX.png", 10);
             InventoryServices.getProducto("XboxSeriesX").introducirOpinion(o5);
             InventoryServices.getProducto("XboxSeriesX").introducirOpinion(o4);
             InventoryServices.getProducto("XboxSeriesX").introducirOpinion(o3);
 
-//            InventoryServices.addProduct("dellXps132", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//            InventoryServices.addProduct("dellXps133", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//            InventoryServices.addProduct("dellXps134", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//            InventoryServices.addProduct("dellXps135", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//            InventoryServices.addProduct("dellXps136", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//            InventoryServices.addProduct("dellXps137", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//            InventoryServices.addProduct("dellXps138", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-        
-//            Inventario i1 = new Inventario();
-//            i1.introducirProducto(p1, 4);
-//            i1.introducirProducto(p2, 4);
-//            i1.introducirProducto(p3, 4);
-            
-         // Introductir opniones
-//            p1.introducirOpinion(o1);
-//            p1.introducirOpinion(o2);
-//            p1.introducirOpinion(o4);
-//            p1.introducirOpinion(o6);
-//            p2.introducirOpinion(o2);
-//            p2.introducirOpinion(o3);
-//            p2.introducirOpinion(o5);
-//            p2.introducirOpinion(o6);
-//            p3.introducirOpinion(o3);
-//            p3.introducirOpinion(o1);
-//            p3.introducirOpinion(o2);
-//            p3.introducirOpinion(o4);
             
     } 
+
+// ********************************************************************************************************************     
+   
     
-    
+// ********************************************************************************************************************     
 //    public  static void createMockUser() {
 //         LocalDate fecha = LocalDate.of(2020, 9, 18); 
 //         LocalDateTime fechaTime = LocalDateTime.now();
@@ -274,7 +252,7 @@ public class GenerateMockDemoObjects {
 //         ClienteParticular c1 = new ClienteParticular("20120000-F", "Felix", d1,t1,"91-2240234","pass","felix@uah.es",to1);
 //         UserData.getInstance().getUserHashMap().put("felix@uah.es", c1);
 //    }
-    
+ // ********************************************************************************************************************    
     
     
 }

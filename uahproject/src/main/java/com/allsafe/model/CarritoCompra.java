@@ -28,7 +28,8 @@ public class CarritoCompra implements Serializable{
         productos = new ArrayList<>();
         this.idCarrito = generadorId +"-" + RadomGenerator.generateRandomPassword(10);
     }
-    
+
+ // ******************************************************************************************************************** 
     /**
      * El método introduce el producto que recibe como paramétro en el ArrayList de productos del carrito 
      * @param producto
@@ -49,7 +50,10 @@ public class CarritoCompra implements Serializable{
             return false;
         }
     }
+// ******************************************************************************************************************** 
+
     
+// ********************************************************************************************************************     
     /**
      *
      * El método elimina el producto que recibe como paramétro del ArrayList de productos del carrito 
@@ -72,8 +76,10 @@ public class CarritoCompra implements Serializable{
             return false;
         }
     }
+ // ********************************************************************************************************************    
+ 
     
-    
+// ********************************************************************************************************************     
     private static void incrementaId() {
         generadorId++;
     }
@@ -88,7 +94,11 @@ public class CarritoCompra implements Serializable{
     public String getIdCarrito() {
         return idCarrito;
     }
-    
+// ******************************************************************************************************************** 
+
+
+
+// ********************************************************************************************************************     
     /**
      *
      * @return
@@ -100,7 +110,10 @@ public class CarritoCompra implements Serializable{
     public ArrayList<Producto> getProductos() {
         return productos;
     }
+ // ******************************************************************************************************************** 
     
+    
+// ******************************************************************************************************************** 
     /**
      *
      * @return
@@ -112,8 +125,10 @@ public class CarritoCompra implements Serializable{
     public int getTotal() {
         return total;
     }
-    
-    
+// ********************************************************************************************************************     
+
+
+// ********************************************************************************************************************     
 //    /**
 //     *
 //     * Utilizado para generar un identificador asociado al carrito. Todo carrito esta asociado a un único usuario, por lo que es un número de refencia. La duplicidad sería posi
@@ -122,7 +137,9 @@ public class CarritoCompra implements Serializable{
 //        Random rand = new Random();
 //        return rand.nextInt(0, 10000);
 //    }
-    
+// ********************************************************************************************************************   
+
+
     /**
      *
      * @return

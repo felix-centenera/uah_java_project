@@ -32,15 +32,10 @@ public class WindowsProduct extends javax.swing.JFrame  {
     private Usuario user;
     private int opinion=0;
     Login miservicioDeLogin = Login.getInstance();
-    /**
-     * Creates new form Home
-     */
-//    public WindowsProduct() {
-//        initComponents();
-//        createHomePageProductos();
-//        createHomePage();
-//    }
-    
+  
+
+
+// ********************************************************************************************************************    
     /** Creates new form WindowProduct */
     public WindowsProduct(Home ventana, Producto producto, Usuario u) {
         //Ocultamos la ventana principal
@@ -53,7 +48,10 @@ public class WindowsProduct extends javax.swing.JFrame  {
         createWindowsProductPage();
         
     }
-    
+// ********************************************************************************************************************
+
+
+// ********************************************************************************************************************    
 /**
 * Nos permite crear la interfaz createWindowsProductPage con todos lo elementos necesarios de forma dinámica.
 */ 
@@ -69,7 +67,7 @@ public class WindowsProduct extends javax.swing.JFrame  {
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             jButtonLogin.setText("Mi cuenta");
              if (user.isAdministrador()){
-                 System.out.println("Eres un administrador");
+                 System.out.println("INFO: Eres un administrador");
                    jButtonMiCarrito.setVisible(false);
                    jButtonLogin.setVisible(false);
                    jButton1Opinar.setVisible(false);
@@ -96,8 +94,6 @@ public class WindowsProduct extends javax.swing.JFrame  {
             
             jButton1AnadirCarrito.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
             jButton1Opinar.setIcon(new javax.swing.ImageIcon("Icons/png/opinar.png"));
-            
-            
             
             // Set image of the producto
             jLabel3Product.setSize(300,180);
@@ -147,31 +143,11 @@ public class WindowsProduct extends javax.swing.JFrame  {
         }
     }
 
-    // ********************************************************************************************************************
+// ********************************************************************************************************************
 
 
-//método comprobar login. Método antiguo te devuelve a la home si no has hecho login.
-//private boolean checkLogin(){
-//    boolean operationAccepted=false;
-//    if (user == null){
-//        this.dispose();
-//        principal.setVisible(true);
-//        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//        return false;
-//    }
-//     else{
-//        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
-//        System.out.println("INFO: Voy a comprobar el token");
-//        if (operationAccepted == false){
-//            this.dispose();
-//            principal.setVisible(true);
-//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//            return false;
-//        }
-//        return true;
-//    }
-//}
-    
+
+// ********************************************************************************************************************    
  //método comprobar login
 /**
  * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
@@ -205,7 +181,10 @@ private boolean checkLogin(){
         return true;
     }
 }
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
 /**
  * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
  * del método checkLogin para evolucionen de forma independiente, con el objetivo de que 
@@ -220,14 +199,14 @@ private boolean checkLogin(){
 private boolean checkLoginInterfaz(){
     boolean operationAccepted=false;
     if (user == null){
-        System.out.println("INFO: No hay  devuelvo falso para que pintes interfaz de usuario visitante");
+        System.out.println("INFO: No hay un usuario asociado devuelvo falso para que pintes interfaz de usuario visitante");
         return false;
     }
      else{
-        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
+        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         if (operationAccepted == false){
-            System.out.println("INFO: No hay  devuelvo treu para que pintes interfaz de usuario registrado");
+            System.out.println("INFO: Alguno de los siguientes campos, token, correo o clave  no son correctos, devuelvo falso para que pintes interfaz de usuario visitante");
             return false;
         }
         return true;
@@ -241,7 +220,7 @@ private boolean checkLoginInterfaz(){
  // ********************************************************************************************************************
  
 
-    
+// ********************************************************************************************************************    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -379,15 +358,14 @@ private boolean checkLoginInterfaz(){
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldProductoTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldProductoPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldProductoCategoria5, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldProductoTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jFormattedTextFieldProductoPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldProductoCaracteristicas3, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                    .addComponent(jTextFieldProductoCaracteristicas3, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -490,7 +468,7 @@ private boolean checkLoginInterfaz(){
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addComponent(jLabel3Product, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -511,7 +489,7 @@ private boolean checkLoginInterfaz(){
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
@@ -627,11 +605,11 @@ private boolean checkLoginInterfaz(){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
 
 
-
-
+// ********************************************************************************************************************
     private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
         //System.out.println("Estas entrando en el carrito");
@@ -643,51 +621,62 @@ private boolean checkLoginInterfaz(){
             System.out.println("INFO: Necesitas estar logado para ver tu carrito");
             JOptionPane.showMessageDialog(null, "Necesitas estar logado para ver tu carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             
-        }
-        
-        
-        
+        }    
     }//GEN-LAST:event_jButtonMiCarritoActionPerformed
 
+    
+// ********************************************************************************************************************    
     private JFrame getFrame(){
      return this;
     }
-    
+// ********************************************************************************************************************
+
+
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        principal.setVisible(true);
-       
-        
-      
+        principal.setVisible(true);    
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      */
-
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     // TODO add your handling code here:
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
     private void jTextFieldProductoTitulo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProductoTitulo2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProductoTitulo2ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
         ///TODO Execptio!!!!!
             opinion= opinion+1;
             createWindowsProductPage();
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
         // TODO add your handling code here:
         opinion= opinion-1;
         createWindowsProductPage();
         //TODO Execptio!!!!!
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jButton1AnadirCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1AnadirCarritoActionPerformed
         // TODO add your handling code here:
         // jSpinnerUnits
@@ -749,7 +738,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                 JOptionPane.showMessageDialog(null, "Necesitas estar logado para añadir productos a tu carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             }
     }//GEN-LAST:event_jButton1AnadirCarritoActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButton1OpinarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1OpinarActionPerformed
         // TODO add your handling code here:
          if (checkLogin()){
@@ -759,65 +751,69 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
         else{
             System.out.println("INFO: Necesita estar logado para opinar");
-            JOptionPane.showMessageDialog(null, "Necesita estar logado para opinar","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-            
+            JOptionPane.showMessageDialog(null, "Necesita estar logado para opinar","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);        
         }
     }//GEN-LAST:event_jButton1OpinarActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextFieldProductoCaracteristicas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProductoCaracteristicas3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProductoCaracteristicas3ActionPerformed
-
+// ********************************************************************************************************************
+  
+    
+// ********************************************************************************************************************    
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
         //WindowsLogin windowslogin = new WindowsLogin(this , user, principal);
         
         if (jButtonLogin.getText().equals("Mi cuenta") ){
-            System.out.println("Vas a entrar en tu cuenta primero tengo que comprobar tu token");
+            System.out.println("INFO: Vas a entrar en tu cuenta, primero tengo que comprobar tu token");
             if (checkLogin()){
-                System.out.println("Vas a entrar en tu cuenta el token esta ok");
+                System.out.println("INFO: Vas a entrar en tu cuenta, el token esta ok");
             WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , user);
             }
             else {
-                    System.out.println("No vas a entrar en tu cuenta el token esta KO");
+                    System.out.println("INFO: No vas a entrar en tu cuenta el, token esta KO");
                     createWindowsProductPage();
                 
                 }
         }
         else {
             WindowsLogin windowslogin = new WindowsLogin(this , user, principal);
-            System.out.println("vas a logarte");
-        }
-        
-        
-        
-        
-        
-        
-//        createWindowsProductPage(); principal
-
-//        
-
-       
+            System.out.println("INFO: Vas a logarte");
+        }   
     }//GEN-LAST:event_jButtonLoginActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextField2NameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2NameClientActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2NameClientActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
-
+// ********************************************************************************************************************
     
+    
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -859,3 +855,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JTextField jTextFieldProductoTitulo2;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

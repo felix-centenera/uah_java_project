@@ -41,12 +41,9 @@ public class WindowsAdminProductMngtAdd extends javax.swing.JFrame  {
     /**
      * Creates new form Home
      */
-//    public WindowsProduct() {
-//        initComponents();
-//        createHomePageProductos();
-//        createHomePage();
-//    }
-    
+
+
+// ********************************************************************************************************************    
     /** Creates new form WindowProduct
      * @param ventana */
     public WindowsAdminProductMngtAdd(WindowsAdminProductMngt ventana) {
@@ -57,7 +54,10 @@ public class WindowsAdminProductMngtAdd extends javax.swing.JFrame  {
         this.setVisible(true);
         createWindowsCreateUserPage();
     }
-    
+// ********************************************************************************************************************
+
+
+// ********************************************************************************************************************    
 /**
 * Nos permite crear la interfaz home con todos lo elementos necesarios de forma dinámica.
 */
@@ -84,12 +84,11 @@ public class WindowsAdminProductMngtAdd extends javax.swing.JFrame  {
             createWindowsCreateUserPage();
         }
     }
-
-    // ********************************************************************************************************************
-
+// ********************************************************************************************************************
 
 
-    
+
+ // ********************************************************************************************************************   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -553,26 +552,29 @@ public class WindowsAdminProductMngtAdd extends javax.swing.JFrame  {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
 
 
-
-
+// ********************************************************************************************************************
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
-//    private JFrame getFrame(){
-//     return this;
-//    }
+// ********************************************************************************************************************
     
+    
+
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
         secundariaLogin.setVisible(true);
         
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      */
@@ -581,21 +583,30 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     // TODO add your handling code here:
     secundariaLogin.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
         ///TODO Execptio!!!!
         //TODO en esta pantalla posiblemente no tenga sentido este botón
             createWindowsCreateUserPage();
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
         // TODO add your handling code here:
          //TODO en esta pantalla posiblemente no tenga sentido este botón
         createWindowsCreateUserPage();
         //TODO Execptio!!!!!
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
-    // TODO ADAPTAR A ESTA PÄGINA
+// ********************************************************************************************************************
+    
+    
+    
+// ********************************************************************************************************************
     private void JTextFieldProductNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldProductNameMousePressed
         // TODO add your handling code here:
         if(JTextFieldProductName.getText().equals("Ingrese el nombre del producto.")){
@@ -603,13 +614,17 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             JTextFieldProductName.setForeground(Color.black);
         }
     }//GEN-LAST:event_JTextFieldProductNameMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JTextFieldProductNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldProductNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldProductNameActionPerformed
-
-    //TODO TIENEN SENTIDO LO SIGUIENTE MËTODOS
+// ********************************************************************************************************************
     
+
+// ********************************************************************************************************************
     private void jButtonRegistarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarUsuarioActionPerformed
         // TODO add your handling code here:
         
@@ -627,53 +642,34 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
              JOptionPane.showMessageDialog(null, "El producto no ha podido crearse","Información para el usuario", JOptionPane.WARNING_MESSAGE);
          }
         this.dispose();
-        secundariaLogin.setVisible(true);
-        
-    
-//        System.out.println(jFormattedTextTCFechaCaducidad.getValue());
-//        String fecha1txt = (String) jFormattedTextTCFechaCaducidad.getText();
-//        System.out.println(fecha1txt);
-//        String[] partes = fecha1txt.split("/");     
-//        int d1 = Integer.parseInt(partes[0]);
-//        int m1 = Integer.parseInt(partes[1]);
-//        int a1 = Integer.parseInt(partes[2]);
-//        LocalDate fecha = LocalDate.of(Integer.parseInt(partes[2]), Integer.parseInt(partes[1]), Integer.parseInt(partes[0])); 
-//        
-//        
-//        
-//        else {
-//            if (UsersServices.addUser(JTextFieldUserDNI.getText(),JTextFieldUserWeb.getText(),JTextFieldDescriptionProduct.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedPriceProduct.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedPathPhoto.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldProductName.getText())) {
-//                System.out.println("INFO: El usuario se ha creado con exito");
-//                this.dispose();
-//                secundariaLogin.setVisible(true);  
-//            }
-//            else{
-//                System.out.println("ERROR: El usuario no ha podido ser creado");
-//
-//            }
-//        }
-        
-           
-        
+        secundariaLogin.setVisible(true);    
     }//GEN-LAST:event_jButtonRegistarUsuarioActionPerformed
 
+    
+// ********************************************************************************************************************    
     private void JTextFieldDescriptionProductMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldDescriptionProductMousePressed
         // TODO add your handling code here:
         if(JTextFieldDescriptionProduct.getText().equals("Ingrese las caracteristicas.")){
             JTextFieldDescriptionProduct.setText("");
             JTextFieldDescriptionProduct.setForeground(Color.black);
-        }
-         
+        }    
     }//GEN-LAST:event_JTextFieldDescriptionProductMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldDescriptionProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldDescriptionProductActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldDescriptionProductActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+ // ********************************************************************************************************************   
     private void jFormattedPriceProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedPriceProductActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedPriceProductActionPerformed
-
+// ********************************************************************************************************************
+    
+ // ********************************************************************************************************************   
     private void jFormattedPriceProductMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedPriceProductMousePressed
         try {
             // TODO add your handling code here:
@@ -685,11 +681,11 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         if(  (((Number) jFormattedPriceProduct.getValue()).intValue()) == 1000    ) {
             jFormattedPriceProduct.setValue(0);
             jFormattedPriceProduct.setForeground(Color.black);
-        }
-        
-        
+        }    
     }//GEN-LAST:event_jFormattedPriceProductMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jFormattedUNitsProductMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedUNitsProductMousePressed
         // TODO add your handling code here:
         try {
@@ -704,22 +700,30 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             jFormattedUNitsProduct.setForeground(Color.black);
         }
     }//GEN-LAST:event_jFormattedUNitsProductMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jFormattedUNitsProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedUNitsProductActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedUNitsProductActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jComboBoxCategoriaProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaProductActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
+        // TODO add your handling code here:      
     }//GEN-LAST:event_jComboBoxCategoriaProductActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************       
     private void jFormattedPathPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedPathPhotoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedPathPhotoActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jFormattedPathPhotoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedPathPhotoMousePressed
         // TODO add your handling code here:
         //jFormattedTCTitular
@@ -727,22 +731,30 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             jFormattedPathPhoto.setText("");
             jFormattedPathPhoto.setForeground(Color.black);
         }
-
     }//GEN-LAST:event_jFormattedPathPhotoMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+ // ********************************************************************************************************************   
     private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
+// ********************************************************************************************************************
 
-    
+
+
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTextFieldDescriptionProduct;
     private javax.swing.JTextField JTextFieldProductName;
@@ -787,3 +799,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

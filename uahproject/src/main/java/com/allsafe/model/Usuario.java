@@ -21,6 +21,9 @@ public abstract class  Usuario implements Serializable{
     private Token token ;
     private boolean administrador = false;
 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve si el usuario es administrador o no.
      * @return
@@ -32,7 +35,10 @@ public abstract class  Usuario implements Serializable{
     public boolean isAdministrador() {
         return administrador;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer al usuario como administrador o establecerlo como no administrador
      * dependiendo del parametro boolean recibido.
@@ -41,7 +47,10 @@ public abstract class  Usuario implements Serializable{
     public void setAdministrador(boolean administrador) {
             this.administrador = administrador;
     }
+// ******************************************************************************************************************** 
+    
 
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer la clave, el correo y token de un usuario.
      * @param clave
@@ -55,7 +64,10 @@ public abstract class  Usuario implements Serializable{
         incrementaId();
         this.token = token;
     } 
+// ******************************************************************************************************************** 
     
+    
+// ********************************************************************************************************************     
     /**
      * Permite incremendar un ID que se asocia al usuario.
      */
@@ -63,7 +75,10 @@ public abstract class  Usuario implements Serializable{
         generatorId++;
         return generatorId;
     }
+// ******************************************************************************************************************** 
     
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el generatorId  atributo del usuario.
      * @return
@@ -71,7 +86,10 @@ public abstract class  Usuario implements Serializable{
     public static int getGeneratorId() {
         return generatorId;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el idUser  atributo del usuario.
      * @return
@@ -82,7 +100,11 @@ public abstract class  Usuario implements Serializable{
     public String getIdUser() {
         return idUser;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el correo  atributo del usuario.
      * @return
@@ -93,7 +115,11 @@ public abstract class  Usuario implements Serializable{
     public String getCorreo() {
         return correo;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer el correo  atributo del usuario.
      * @param correo
@@ -101,7 +127,10 @@ public abstract class  Usuario implements Serializable{
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+// ******************************************************************************************************************** 
+    
 
+// ******************************************************************************************************************** 
     /**
      * Nos devuelve la clave atributo del usuario.
      * @return
@@ -112,7 +141,10 @@ public abstract class  Usuario implements Serializable{
     public String getClave() {
         return clave;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer la clave  atributo del usuario.
      * @param clave
@@ -121,6 +153,9 @@ public abstract class  Usuario implements Serializable{
         this.clave = clave;
     }
     
+    
+    
+ // ******************************************************************************************************************** 
     /**
      * Nos devuelve el token atributo asociado al usuario.
      * @return
@@ -131,7 +166,10 @@ public abstract class  Usuario implements Serializable{
     public Token getToken() {
         return token;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer el token  atributo del usuario.
      * @param token
@@ -139,13 +177,14 @@ public abstract class  Usuario implements Serializable{
     public void setToken(Token token) {
         this.token = token;
     }
-    
+// ********************************************************************************************************************     
     
 //    private int generateRandomNumber(){
 //        Random rand = new Random();
 //        return rand.nextInt(0, 10000);
 //    }
 
+// ********************************************************************************************************************     
     /**
      *
      * @return
@@ -154,7 +193,7 @@ public abstract class  Usuario implements Serializable{
     public String toString() {
         return "Usuario{" + "clave=" + clave + ", correo=" + correo + ", idUser=" + idUser + '}';
     }
-
+// ******************************************************************************************************************** 
     
 
     

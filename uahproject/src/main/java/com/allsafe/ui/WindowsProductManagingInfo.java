@@ -34,14 +34,6 @@ public class WindowsProductManagingInfo extends javax.swing.JFrame  {
     private Usuario user;
     private int opinion=0;
     Login miservicioDeLogin = Login.getInstance();
-    /**
-     * Creates new form Home
-     */
-//    public WindowsProduct() {
-//        initComponents();
-//        createHomePageProductos();
-//        createHomePage();
-//    }
     
     /** Creates new form WindowProduct */
     public WindowsProductManagingInfo(WindowsAdminProductMngtSearch ventana, Producto producto) {
@@ -56,6 +48,8 @@ public class WindowsProductManagingInfo extends javax.swing.JFrame  {
         
     }
  
+    
+// ********************************************************************************************************************
 /**
 * Nos permite crear la interfaz createWindowsProductPage con todos lo elementos necesarios de forma dinámica.
 */ 
@@ -96,7 +90,7 @@ public class WindowsProductManagingInfo extends javax.swing.JFrame  {
             // Set the Precio of the product
             jFormattedTextFieldProductoPrecio.setValue(producto.getPrecio());
             jFormattedTextFieldProductoStock.setValue(producto.getStock());
-            System.out.println(producto.getStock());
+            //System.out.println(producto.getStock());
             
             
             // Set title of the producto 
@@ -132,32 +126,10 @@ public class WindowsProductManagingInfo extends javax.swing.JFrame  {
             createWindowsProductPage();
         }
     }
+// ********************************************************************************************************************
 
-    // ********************************************************************************************************************
 
-
-//método comprobar login. Método antiguo te devuelve a la home si no has hecho login.
-//private boolean checkLogin(){
-//    boolean operationAccepted=false;
-//    if (user == null){
-//        this.dispose();
-//        principal.setVisible(true);
-//        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//        return false;
-//    }
-//     else{
-//        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
-//        System.out.println("INFO: Voy a comprobar el token");
-//        if (operationAccepted == false){
-//            this.dispose();
-//            principal.setVisible(true);
-//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//            return false;
-//        }
-//        return true;
-//    }
-//}
-    
+// ********************************************************************************************************************
  //método comprobar login
 /**
  * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
@@ -178,20 +150,23 @@ private boolean checkLogin(){
 //            return false;
 //        }
         //return true;
-        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+        System.out.println("INFO: No hay un usuario asociado devuelvo falso para que pintes interfaz de usuario visitante");
         return false;
     }
      else{
-        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
+        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         if (operationAccepted == false){
-            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+            System.out.println("INFO: Alguno de los siguientes campos, token, correo o clave  no son correctos, devuelvo falso para que pintes interfaz de usuario visitante");
             return false;
         }
         return true;
     }
 }
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
 /**
  * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
  * del método checkLogin para evolucionen de forma independiente, con el objetivo de que 
@@ -206,28 +181,30 @@ private boolean checkLogin(){
 private boolean checkLoginInterfaz(){
     boolean operationAccepted=false;
     if (user == null){
-        System.out.println("INFO: No hay  devuelvo falso para que pintes interfaz de usuario visitante");
+        System.out.println("INFO: No hay un usuario asociado devuelvo falso para que pintes interfaz de usuario visitante");
         return false;
     }
      else{
-        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
+        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         if (operationAccepted == false){
-            System.out.println("INFO: No hay  devuelvo treu para que pintes interfaz de usuario registrado");
+            System.out.println("INFO: Alguno de los siguientes campos, token, correo o clave  no son correctos, devuelvo falso para que pintes interfaz de usuario visitante");
             return false;
         }
         return true;
     }
 }
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
  public  void  SetUsuario(Usuario user) {
-        this.user = user;
-        
+        this.user = user;      
  }
  // ********************************************************************************************************************
  
 
-    
+ // ********************************************************************************************************************   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -575,63 +552,86 @@ private boolean checkLoginInterfaz(){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
 
 
-
-
+// ********************************************************************************************************************
     private JFrame getFrame(){
      return this;
     }
+// ********************************************************************************************************************
+
     
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
         principal.setVisible(true);
-  
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
 
+
+// ********************************************************************************************************************
     /**
      * @param args the command line arguments
      */
-
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     // TODO add your handling code here:
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
         ///TODO Execptio!!!!!
             opinion= opinion+1;
             createWindowsProductPage();
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
         // TODO add your handling code here:
         opinion= opinion-1;
         createWindowsProductPage();
         //TODO Execptio!!!!!
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextFieldProductoCaracteristicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProductoCaracteristicasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProductoCaracteristicasActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextFieldProductoTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProductoTituloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProductoTituloActionPerformed
-
+// ********************************************************************************************************************
+    
+ 
+// ********************************************************************************************************************    
     private void jTextFieldProductoCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProductoCategoriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProductoCategoriaActionPerformed
 
+
+// ********************************************************************************************************************
     private void jComboBoxCategoriaCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaCaretPositionChanged
         // TODO add your handling code here:
         //comprobar que funciona
         
         jTextFieldProductoCategoria.setText((String) jComboBoxCategoria.getSelectedItem());
     }//GEN-LAST:event_jComboBoxCategoriaCaretPositionChanged
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //InventoryServices.setProduct(titulo, caracteristicas, categoria, ERROR, fotografia, ABORT);
@@ -641,49 +641,49 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             System.out.println("INFO: El producto se ha modificado con exito");
             JOptionPane.showMessageDialog(null, "El producto se ha modificado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
-            principal.setVisible(true);
-        
+            principal.setVisible(true);   
         }
         
         else {
-             System.out.println("INFO: El producto no se ha modificado con exito");
+             System.out.println("ERROR: El producto no se ha modificado con exito");
              JOptionPane.showMessageDialog(null, "El producto no se ha modificado con exito, contacte con nosotros.","Información para el usuario", JOptionPane.WARNING_MESSAGE);
              this.dispose();
-            principal.setVisible(true);
-        
-        }
-        
-        
-        
-        
-       
-        
-        
-        
+            principal.setVisible(true);  
+        }     
     }//GEN-LAST:event_jButton1ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaActionPerformed
         // TODO add your handling code here:
         jTextFieldProductoCategoria.setText((String) jComboBoxCategoria.getSelectedItem());
     }//GEN-LAST:event_jComboBoxCategoriaActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jFormattedTextFieldProductoPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldProductoPrecioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldProductoPrecioActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-
     }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-
     }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
-
+// ********************************************************************************************************************
     
+    
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -723,3 +723,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JTextField jTextFieldProductoTitulo;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

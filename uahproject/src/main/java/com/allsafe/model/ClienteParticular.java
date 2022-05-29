@@ -28,6 +28,8 @@ public class ClienteParticular extends Clientes{
         this.dni = dni;
     }
 
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el dni asociado a un cliente de tipo particular.
      * @return
@@ -38,7 +40,10 @@ public class ClienteParticular extends Clientes{
     public String getDni() {
         return dni;   
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer el dni asociado a un cliente de tipo particular.
      * @param dni
@@ -46,7 +51,10 @@ public class ClienteParticular extends Clientes{
     public void setDni(String dni) {
         this.dni = dni;  
     }
+// ******************************************************************************************************************** 
+    
 
+// ********************************************************************************************************************     
     /**
      *
      * @return
@@ -55,7 +63,6 @@ public class ClienteParticular extends Clientes{
     public String toString() {
         return super.toString()  +"ClienteParticular{" + "dni=" + dni + '}';
     }
-
-    
-    
+// ******************************************************************************************************************** 
+       
 }

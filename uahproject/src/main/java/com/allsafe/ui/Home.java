@@ -514,76 +514,19 @@ private Usuario user;
 ArrayList<Producto> RandomProductsHome;
 ArrayList<Producto> listOfProductos = new ArrayList();
 private int numberOfProductPages=0;
+// ********************************************************************************************************************
 
 
 
-
+// ********************************************************************************************************************
 //Creamos la referencia a nuestro servio de login
 Login miservicioDeLogin = Login.getInstance();
 // ********************************************************************************************************************
 
 
 
-// ********************************************************************************************************************
-// Inicialización de objetos para pruebas:
-
-//Fecha prueba.
-//LocalDate fecha = LocalDate.of(2023, 9, 18); 
-//LocalDateTime fechaTime = LocalDateTime.now();
-
-////Crear producto
-////(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock)
-//Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookAirM1.png", 1);
-//Producto p2 = new Producto("MacBookProM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookProM1.png", 1);
-//Producto p3 = new Producto("Dell XPS","Dell", "Portatiles",1000,"Img/laptops/dell/dellXps13.png", 1);
-
-////Crear Dirección
-////(String calle, int numero, int cp, String ciudad)
-//Direccion d1 = new Direccion("calleEjemplo",2,28829,"Madrid");
-//
-////Crear TarjetaCredito
-////(String nombreTitular, long numeroTarjetaCredito, LocalDate fechaCaducidad)
-//TarjetaDeCredito t1 = new TarjetaDeCredito("Manolo",1234_1234_1234_1234L,fecha);
-//
-////Crear token LocalDateTime
-//Token to1 = new Token("asdaskldjdasa",fechaTime);
-//Token to2 = new Token("asdaskldjdasa",fechaTime);
-//Token to3 = new Token("asdaskldjdasa",fechaTime);
-//
-////Crear clienteParticular
-//// (String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo)
-////(String dni, String nombre, Direccion direccion, TarjetaDeCredito tarjetaDeCredito, String telefono, String clave, String correo, Token token)
-//ClienteParticular c1 = new ClienteParticular("20120000-F", "Manolo", d1,t1,"91-2240234","pass","manolo@miempresa.com",to1);
-//ClienteParticular c2 = new ClienteParticular("201200d0-F", "Pepe", d1,t1,"91-2240234","pass","pepe@miempresa.com",to2);
-//ClienteParticular c3 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com",to3);
-//Usuario c4 = new ClienteParticular("20112sd0-F", "Maria", d1,t1,"91-2240234","pass","maria@miempresa.com",to3);
-
-
-
-//Opinion  o1 = new Opinion(3, "Satisfecho con la compra",c1.getCorreo()); 
-//Opinion  o2 = new Opinion(0, "No comprar, malisimo, por ese precido debería hacerme la cama",c2.getCorreo()); 
-//Opinion  o3 = new Opinion(5, "Estoy muy contenta con la compra realizada, tanto por el artículo como por la atención de la plataforma. Fue muy sencillo realizar la selección y el pago ya que el poder financiar un producto da mucho que decir sobre PcComponentes. Para mí, es un punto a favor ya que no siempre viene bien hacer un pago entero. En cuanto al MacBook Air es un encanto, vino muy bien embalado y protegido. El paquete me llegó en menos de 48 horas, una cosa increíble ya que en otras plataformas te tarda mucho más y si lo necesitas urgentemente, no lo puedes usar, pero en caso de PcComponentes sí. Esto es otro punto positivo que reflejo con mi compra ya que no esperaba que llegase tan pronto. El portátil funciona perfectamente y además, con la opción Aplazame de PcComponentes, puedes cambiar hasta tres veces la forma de tu financiación, o directamente, puedes pagar toda la cantidad que queda en el momento que tú quieras. Estoy muy contenta y sé que voy a seguir comprando artículos de tecnología aquí. :)!",c3.getCorreo());
-//Opinion  o4 = new Opinion(3, "Ni fu ni fa, esperaba más la verdad",c1.getCorreo()); 
-//Opinion  o5 = new Opinion(0, "Es un autentico timo",c2.getCorreo()); 
-//Opinion  o6 = new Opinion(5, "INcreible, va como una bala",c3.getCorreo());
-//Crear inventario y añadir productos a inventario
-//Inventario i1 = new Inventario();
-// ********************************************************************************************************************
-
 
 // ********************************************************************************************************************
-//método para logarse
-//private boolean useLogin(String clave, String correo ){
-//    boolean operationAccepted=false;
-//    operationAccepted=miservicioDeLogin.checkLogin(clave, correo,this); 
-//     if (operationAccepted == false){
-//            System.out.println("INFO: El usuario o contraseña no son correcto TODO MANDAR AL LOGIN");
-//            return false;
-//        }
-//        return true;
-//}
-
-
 /**
  * Mediante distintos servicios recupera los usuarios, inventario y venta, de los ficheros
  * localdes donde se almacena la informacón de forma permanente.
@@ -597,13 +540,13 @@ private void initDataMock(){
     //UserData userData = UserData.getInstance();
     
     //UsersServices.createMockUser();
-    UsersServices.createMockAdminUser();
-    
+    UsersServices.createMockAdminUser(); 
 }
+// ********************************************************************************************************************
 
 
 
-
+// ********************************************************************************************************************
 //método comprobar login
 /**
  * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
@@ -637,7 +580,12 @@ private boolean checkLogin(){
         return true;
     }
 }
+// ********************************************************************************************************************
 
+
+
+
+// ********************************************************************************************************************
 /**
  * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
  * del método checkLogin para evolucionen de forma independiente, con el objetivo de que 
@@ -652,7 +600,7 @@ private boolean checkLogin(){
 private boolean checkLoginInterfaz(){
     boolean operationAccepted=false;
     if (user == null){
-        System.out.println("INFO: No hay usaurio logado, devuelvo falso para que pintes interfaz de usuario visitante");
+        System.out.println("INFO: No hay usuario logado, devuelvo falso para que pintes interfaz de usuario visitante");
         return false;
     }
      else{
@@ -666,7 +614,11 @@ private boolean checkLoginInterfaz(){
         return true;
     }
 }
+// ********************************************************************************************************************
 
+
+
+// ********************************************************************************************************************
     /**
      * Permite modificar el usuario al JFrame. 
      * @param user
@@ -675,7 +627,12 @@ private boolean checkLoginInterfaz(){
         this.user = user;
         
  }
- 
+ // ********************************************************************************************************************
+    
+    
+
+    
+// ********************************************************************************************************************    
     /**
      * Nos devuelve el usuario asociado al JFrame.
      * @return
@@ -686,9 +643,11 @@ private boolean checkLoginInterfaz(){
     public  Usuario  GetUsuario() {
         return  user;  
  }
- 
  // ********************************************************************************************************************
  
+    
+    
+   
  
 // ********************************************************************************************************************
  // metodos para crear la home
@@ -707,34 +666,7 @@ private boolean checkLoginInterfaz(){
      */
     public void createHomePage() {
         try {
-//            InventoryServices.addProduct("MacBookAirM1", "Apple", "Ordenadores", 1500, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
-//            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o1);
-//            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o3);
-//            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o5);
-//            
-//                
-//    InventoryServices.addProduct("appleMacbookProM1", "Apple", "Ordenadores",3000, "Img/laptops/macbook/appleMacbookProM1.png", 10);
-//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
-//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
-//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o1);
-//    
-//    
-//    InventoryServices.addProduct("dellXps13", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o5);
-//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
-//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o3);
-//    
-//    
-//    InventoryServices.addProduct("dellXps132", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.addProduct("dellXps133", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.addProduct("dellXps134", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.addProduct("dellXps135", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.addProduct("dellXps136", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.addProduct("dellXps137", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.addProduct("dellXps138", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-            
-       
-            
+                
             if(listOfProductos.isEmpty() ) {
                                         this.listOfProductos=  InventoryServices.orderByStarts();
                                         SetNumberOfUserPagesToZero();
@@ -794,6 +726,7 @@ private boolean checkLoginInterfaz(){
 // ********************************************************************************************************************
     
   
+// ********************************************************************************************************************    
 /**
 * Nos permite mostrar los productos interfaz home con todos lo elementos necesarios de forma dinámica.
 * Estos productos están recogidos en un ArrayList Producto listOfProductos, mediante el parametro i mostraremos
@@ -801,115 +734,7 @@ private boolean checkLoginInterfaz(){
 * * @param i
 */  
 private void createHomePageProductos(int i){   
-    
-    
-        
-    
-//    i1.introducirProducto(p1, 4);
-//    i1.introducirProducto(p2, 4);
-//    i1.introducirProducto(p3, 4);
-    
-//    Producto p1 = new Producto("MacBookAirM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookAirM1.png", 1);
-//    Producto p2 = new Producto("MacBookProM1","Apple", "Portatiles",1000,"Img/laptops/macbook/appleMacbookProM1.png", 1);
-//    Producto p3 = new Producto("Dell XPS","Dell", "Portatiles",1000,"Img/laptops/dell/dellXps13.png", 1);   
 
-    
-    
-    
-//    
-//    InventoryServices.addProduct("appleMacbookProM1", "Apple", "Ordenadores",3000, "Img/laptops/macbook/appleMacbookProM1.png", 10);
-//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
-//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
-//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o1);
-//    
-//    
-//    InventoryServices.addProduct("dellXps13", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o5);
-//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o4);
-//    InventoryServices.getProducto("appleMacbookProM1").introducirOpinion(o3);
-//    
-//    
-//    InventoryServices.addProduct("dellXps132", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.addProduct("dellXps133", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.addProduct("dellXps134", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.addProduct("dellXps135", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.addProduct("dellXps136", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.addProduct("dellXps137", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-//    InventoryServices.addProduct("dellXps138", "dell", "Ordenadores", 2000, "Img/laptops/dell/dellXps13.png", 10);
-    
-
-            
-//    p1.introducirOpinion(o1);
-//    p1.introducirOpinion(o2);
-//    p1.introducirOpinion(o4);
-//    p1.introducirOpinion(o6);
-//    p2.introducirOpinion(o2);
-//    p2.introducirOpinion(o3);
-//    p2.introducirOpinion(o5);
-//    p2.introducirOpinion(o6);
-//    p3.introducirOpinion(o3);
-//    p3.introducirOpinion(o1);
-//    p3.introducirOpinion(o2);
-//    p3.introducirOpinion(o4);
-    //ArrayList<Producto> RandomProductsHome;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//    RandomProductsHome = new ArrayList<>();
-//    
-//    
-//    RandomProductsHome = RandomHomeProductos.seleccionarProductos(i1);
-//    //jTextFieldProducts1.setText(RandomProductsHome.get(0).getTitulo());
-//    javax.swing.JButton[] jButtonProductsArray = new javax.swing.JButton[]{jButtonProducts0,jButtonProducts1,jButtonProducts2,jButtonProducts3,jButtonProducts4,jButtonProducts5,jButtonProducts6,jButtonProducts7};
-//    javax.swing.JTextField[] jTextFieldProducts = new javax.swing.JTextField[]{jTextFieldProducts0,jTextFieldProducts1,jTextFieldProducts2,jTextFieldProducts3,jTextFieldProducts4,jTextFieldProducts5,jTextFieldProducts6,jTextFieldProducts7};
-//    javax.swing.JLabel[] jLabelFieldStarts = new javax.swing.JLabel[]{jLabelStars0,jLabelStars1,jLabelStars2,jLabelStars3,jLabelStars4,jLabelStars5,jLabelStars6,jLabelStars7};
-//    
-//     //System.out.println(RandomProductsHome);  
-//     //int i=0;
-//     for (javax.swing.JButton f : jButtonProductsArray  ) {
-//        f.setIcon(new javax.swing.ImageIcon(RandomProductsHome.get(i).getFotografia()));
-//        i++;
-//    }
-//     i=0;
-//       for (javax.swing.JTextField f : jTextFieldProducts  ) {
-//      
-//        f.setText(RandomProductsHome.get(i).getTitulo() + "-" +RandomProductsHome.get(i).getPrecio() + "€");
-//        i++;
-//    }
-//       i=0;
-//       for (javax.swing.JLabel f : jLabelFieldStarts  ) {
-//        //System.out.println(i);
-//        //System.out.println(RandomProductsHome.get(i).getTitulo());
-//        //f.setIcon(RandomProductsHome.get(i).getTitulo() + "-" +RandomProductsHome.get(i).getPrecio() + "€");
-//        int opcion = RandomProductsHome.get(i).getEstrella();
-//        switch (opcion) {
-//            case 0 : f.setIcon(new javax.swing.ImageIcon("Icons/png/zeroStars.png"));
-//                break;
-//            case 1 : f.setIcon(new javax.swing.ImageIcon("Icons/png/oneStars.png"));
-//                break;
-//            case 2 : f.setIcon(new javax.swing.ImageIcon("Icons/png/twoStars.png"));
-//                break;
-//            case 3: f.setIcon(new javax.swing.ImageIcon("Icons/png/threeStars.png"));
-//                break;
-//            case 4: f.setIcon(new javax.swing.ImageIcon("Icons/png/fourStars.png"));
-//                break;
-//            case 5: f.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
-//        break;
-//
-//                }
-//        
-//        i++;
-//    }
-    
     ////////////////////////////////////////////////NEW HOME
        
       //private void printUsers(int i){
@@ -943,8 +768,7 @@ private void createHomePageProductos(int i){
                 jLabelStars6.setVisible(false);
                 jLabelStars7.setVisible(false);
                 
-                
-                
+                          
                // UsersServices.TypeUser(user.getCorreo(), user.getClave());
            
                 //listOfProductos=  InventoryServices.orderByStarts("Ordenadores");
@@ -959,11 +783,15 @@ private void createHomePageProductos(int i){
                 case 0: 
                     try{
                         System.out.println("INFO: La tienda esta sin stock");
+                        if (user != null   && user.isAdministrador() ) {
+                             JOptionPane.showMessageDialog(null, "La tienda esta en modo iniciación, puede inicializarla como administrador desde el menu de administrador","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);    
+                        }
                         break;
                     }
                     catch (Exception e) {
                         System.out.println("INFO: No hay nada que mostrar " + e.toString()); 
                         SetNumberOfUserPagesToZero();
+                        
                         //System.out.println("Voy a poner los user a 0");
                         //createHomePageProductos(0);
                         
@@ -1112,8 +940,7 @@ private void createHomePageProductos(int i){
                         break;
                     }
                     
-                    
-                    
+                                      
                     
                     jButtonProducts2.setVisible(true);
                     jTextFieldProducts2.setVisible(true);
@@ -1236,9 +1063,7 @@ private void createHomePageProductos(int i){
                         case 5: jLabelStars3.setIcon(new javax.swing.ImageIcon("Icons/png/fiveStars.png"));
                         break;
                     }
-                    
-                    
-                    
+                                     
                     
                     }
                     catch (Exception e) {
@@ -1854,33 +1679,20 @@ private void createHomePageProductos(int i){
 }
 
 
+// ********************************************************************************************************************
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+ 
     
 //BOTONES Y CAJAS DE TEXTO
  // ********************************************************************************************************************
     private void jTextFieldSearchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSearchUserActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+// ********************************************************************************************************************    
     private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
   if (checkLogin()){
@@ -1894,12 +1706,20 @@ private void createHomePageProductos(int i){
         }
            
     }//GEN-LAST:event_jButtonMiCarritoActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+    
+// ********************************************************************************************************************
     private JFrame getFrame(){
      return this;
     }
+// ********************************************************************************************************************    
     
     
+    
+// ********************************************************************************************************************
     /// PRODUCTOS MOSTRADOS EN HOME
     
     private void jButtonProducts0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts0ActionPerformed
@@ -1909,58 +1729,86 @@ private void createHomePageProductos(int i){
         createHomePage();
         
     }//GEN-LAST:event_jButtonProducts0ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************
     private void jButtonProducts2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts2ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+2), user);
         //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts2ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+    
+// ********************************************************************************************************************   
     private void jButtonProducts3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts3ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+3), user);
         //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts3ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonProducts4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts4ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+4), user);
         //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts4ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonProducts6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts6ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+6), user);
         //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts6ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonProducts7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts7ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+7), user);
         //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts7ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts1ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+1), user);
         //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts1ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextFieldProducts0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProducts0ActionPerformed
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jTextFieldProducts0ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextFieldProducts2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProducts2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProducts2ActionPerformed
-
+// ********************************************************************************************************************
+    
+ // ********************************************************************************************************************   
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
         
@@ -1979,24 +1827,33 @@ private void createHomePageProductos(int i){
             }
             else {
                 WindowsLogin windowslogin = new WindowsLogin(this , user);
-                System.out.println("INFO: Vas a logarte");
+                System.out.println("INFO: El usuario se dirige a Login");
             }
          
     }//GEN-LAST:event_jButtonLoginActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonProducts5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts5ActionPerformed
         // TODO add your handling code here:
        WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+5), user);
         //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts5ActionPerformed
-
+// ********************************************************************************************************************
+    
+ 
+// ********************************************************************************************************************    
     private void jButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogOutActionPerformed
         // TODO add your handling code here:
         this.SetUsuario(null);
         createHomePage();
     }//GEN-LAST:event_jButtonLogOutActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminActionPerformed
         // TODO add your handling code here:
         System.out.println("INFO: Vas a entrar en la gestion, primero tengo que comprobar tu token");
@@ -2009,7 +1866,11 @@ private void createHomePageProductos(int i){
                 }
         
     }//GEN-LAST:event_jButtonAdminActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+ // ********************************************************************************************************************   
     private void jButtonHomeIconCustomSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconCustomSearchActionPerformed
         // TODO add your handling code here:
         if (jComboBoxSearchRelevancia.isVisible()) {
@@ -2021,20 +1882,26 @@ private void createHomePageProductos(int i){
             jComboBoxSearchCategoria.setVisible(true);
         }
     }//GEN-LAST:event_jButtonHomeIconCustomSearchActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
         // TODO add your handling code here:
-        createHomePageProductos(1);
-        
-        
-        
+        createHomePageProductos(1);      
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
+// ********************************************************************************************************************
+    
+ 
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
         // TODO add your handling code here:
         createHomePageProductos(-1);
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconSearchActionPerformed
         // TODO add your handling code here:
         //this.listOfProductos=  InventoryServices.orderByStarts("Ordenadores");
@@ -2110,15 +1977,7 @@ private void createHomePageProductos(int i){
                             } 
                       
                 }
-                
-//                else {
-//                    System.out.println("No han encontrado resultados");
-//                    //TODO poner el jpanel en visibel 
-//                    //jPanelUsersFound.setVisible(false);
-//                    System.out.println("No han encontrado resultados");
-//                }
-                
-                
+                    
                 }
             
             catch (Exception e){
@@ -2206,7 +2065,11 @@ private void createHomePageProductos(int i){
        
         
     }//GEN-LAST:event_jButtonHomeIconSearchActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
@@ -2218,7 +2081,9 @@ private void createHomePageProductos(int i){
     }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
 
  // ********************************************************************************************************************
-    
+
+
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      */
@@ -2253,7 +2118,9 @@ private void createHomePageProductos(int i){
             }
         });
     }
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButtonAdmin;
@@ -2313,3 +2180,4 @@ private void createHomePageProductos(int i){
     private javax.swing.JTextField jTextFieldSearchUser;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

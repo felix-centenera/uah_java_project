@@ -18,7 +18,8 @@ public class InventoryData {
     //Una instancia del objeto que va a existir
     private static  InventoryData  instance = null;
     HashMap<String, Producto> inventario = new HashMap<>();
-    
+
+// ********************************************************************************************************************     
     /**
      * 
      * @return  
@@ -29,11 +30,13 @@ public class InventoryData {
     public HashMap<String, Producto> getInventoryHashMap(){
        return inventario;
     }
+// ******************************************************************************************************************** 
+
+
     
-    
+// ********************************************************************************************************************     
     //Evitamos la instanciacón directa. Constructor vacío.
     private InventoryData(){}
-    
     /**
      *  Con este método obligamos a que cualquier servicio que requiera la intancia 
      * InventoryData, utilice únicamente una instancia que es común para todos.
@@ -48,9 +51,6 @@ public class InventoryData {
         }
         return instance;
     }
+// ******************************************************************************************************************** 
      
-     
-     
-     
-    
 }

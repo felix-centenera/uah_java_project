@@ -39,6 +39,7 @@ public abstract class Clientes extends Usuario{
         this.carritoCompra = new CarritoCompra();
     }
 
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el telefono asociado a un cliente.
      * @return
@@ -49,7 +50,10 @@ public abstract class Clientes extends Usuario{
     public String getTelefono() {
         return telefono;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer el telefono asociado a un cliente.
      * @param telefono
@@ -57,7 +61,10 @@ public abstract class Clientes extends Usuario{
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos devuelve la tarjetaDeCredito asociado a un cliente.
      * @return
@@ -68,7 +75,10 @@ public abstract class Clientes extends Usuario{
     public TarjetaDeCredito getTarjetaDeCredito() {
         return tarjetaDeCredito;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer la tarjetaDeCredito asociado a un cliente.
      * @param tarjetaDeCredito
@@ -76,7 +86,10 @@ public abstract class Clientes extends Usuario{
     public void setTarjetaDeCredito(TarjetaDeCredito tarjetaDeCredito) {
         this.tarjetaDeCredito = tarjetaDeCredito;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************    
     /**
      * Nos devuelve la Direccion asociado a un cliente.
      * @return
@@ -87,7 +100,10 @@ public abstract class Clientes extends Usuario{
     public Direccion getDireccion() {
         return direccion;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer la direccion asociada a un cliente.
      * @param direccion
@@ -95,7 +111,10 @@ public abstract class Clientes extends Usuario{
     public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }
+// ******************************************************************************************************************** 
 
+
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el CarritoCompra asociado a un cliente.
      * @return
@@ -106,7 +125,10 @@ public abstract class Clientes extends Usuario{
     public CarritoCompra getCarritoCompra() {
         return carritoCompra;
     }
-    
+// ******************************************************************************************************************** 
+
+
+// ********************************************************************************************************************     
     /**
      * Nos devuelve el nombre asociado a un cliente.
      * @return
@@ -117,7 +139,10 @@ public abstract class Clientes extends Usuario{
     public String getNombre() {
         return nombre;
     }
-
+// ******************************************************************************************************************** 
+    
+    
+// ********************************************************************************************************************     
     /**
      * Nos permite etablecer eñ nombre asociada a un cliente.
      * @param nombre
@@ -125,7 +150,10 @@ public abstract class Clientes extends Usuario{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************     
     /**
      *
      * @return
@@ -134,7 +162,7 @@ public abstract class Clientes extends Usuario{
     public String toString() {
         return super.toString()  + "Clientes{" + "nombre=" + nombre + ", carritoCompra=" + carritoCompra + ", direccion=" + direccion + ", tarjetaDeCredito=" + tarjetaDeCredito + ", telefono=" + telefono + '}';
     }
-
+// ******************************************************************************************************************** 
     
     
 }
