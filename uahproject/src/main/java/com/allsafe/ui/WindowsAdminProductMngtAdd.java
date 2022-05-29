@@ -695,7 +695,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             Logger.getLogger(WindowsAdminProductMngtAdd.class.getName()).log(Level.SEVERE, null, ex);
         }
         //((Number) jFormattedDireccionNumero.getValue()).intValue();
-        if(  (((Number) jFormattedUNitsProduct.getValue()).doubleValue()) == 1000.1    ) {
+        if(  (((Number) jFormattedUNitsProduct.getValue()).intValue()) == 1    ) {
             jFormattedUNitsProduct.setValue(0);
             jFormattedUNitsProduct.setForeground(Color.black);
         }
