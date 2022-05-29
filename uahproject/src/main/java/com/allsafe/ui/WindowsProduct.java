@@ -192,14 +192,14 @@ private boolean checkLogin(){
 //            return false;
 //        }
         //return true;
-        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+        System.out.println("INFO: No puedes realizar esa acción debes estar logado");
         return false;
     }
      else{
         operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
         if (operationAccepted == false){
-            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+            System.out.println("INFO: No puedes realizar esa acción debes estar logado");
             return false;
         }
         return true;
@@ -576,6 +576,11 @@ private boolean checkLoginInterfaz(){
         jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/home.png")); // NOI18N
         jButtonHomeIconsGround5.setBorderPainted(false);
         jButtonHomeIconsGround5.setContentAreaFilled(false);
+        jButtonHomeIconsGround5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround5ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 40, 40));
 
         jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/ArrowDown.png")); // NOI18N
@@ -611,6 +616,11 @@ private boolean checkLoginInterfaz(){
         jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/mail.png")); // NOI18N
         jButtonHomeIconsGround6.setBorderPainted(false);
         jButtonHomeIconsGround6.setContentAreaFilled(false);
+        jButtonHomeIconsGround6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround6ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, 40));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
@@ -794,6 +804,18 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private void jTextField2NameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2NameClientActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2NameClientActionPerformed
+
+    private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
+
+    private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

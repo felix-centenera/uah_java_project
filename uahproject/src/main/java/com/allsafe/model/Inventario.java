@@ -9,6 +9,8 @@ import java.util.ArrayList;
 /**
  *
  * @author felixcentenera
+ * @deprecated Este inventario puede utilizarse para pruebas, pero no debe usarse nunca como parte de la aplicación.
+ * El inventario usado es InventoryData.
  */
 public class Inventario {
     

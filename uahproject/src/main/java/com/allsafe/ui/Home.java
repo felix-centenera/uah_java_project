@@ -443,11 +443,21 @@ public class Home extends javax.swing.JFrame {
         jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/home.png")); // NOI18N
         jButtonHomeIconsGround5.setBorderPainted(false);
         jButtonHomeIconsGround5.setContentAreaFilled(false);
+        jButtonHomeIconsGround5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround5ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 40, 40));
 
         jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/mail.png")); // NOI18N
         jButtonHomeIconsGround6.setBorderPainted(false);
         jButtonHomeIconsGround6.setContentAreaFilled(false);
+        jButtonHomeIconsGround6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround6ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 40, 40));
 
         jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/ArrowDown.png")); // NOI18N
@@ -614,11 +624,11 @@ private boolean checkLogin(){
 //            return false;
 //        }
         //return true;
-        System.out.println("INFO: No puedes realizar esa acción debes logarte primero");
+        System.out.println("INFO: No puedes realizar esa acción, debes logarte primero");
         return false;
     }
      else{
-        System.out.println("INFO: Voy a comprobar el token");
+        System.out.println("INFO: Se va a comprobar el token");
         operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         if (operationAccepted == false){
             System.out.println("INFO: No puedes realizar esa acción debes logarte primero");
@@ -729,7 +739,7 @@ private boolean checkLoginInterfaz(){
                                         this.listOfProductos=  InventoryServices.orderByStarts();
                                         SetNumberOfUserPagesToZero();
                                         createHomePageProductos(0);
-                                        System.out.println(listOfProductos);
+                                        //System.out.println(listOfProductos);
 
             }  
           
@@ -745,15 +755,15 @@ private boolean checkLoginInterfaz(){
             
             if (checkLoginInterfaz()){
              
-                System.out.println("Vas a esta logado 1");
+                //System.out.println("Vas a esta logado 1");
                 
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             jButtonLogin.setText("Mi cuenta");
             jButtonLogOut.setVisible(true);
             
              if (user.isAdministrador()){
-                   System.out.println("Vas a esta logado 2");
-                 System.out.println("Eres un administrador");
+                   //System.out.println("Vas a esta logado 2");
+                 //System.out.println("Eres un administrador");
                  jButtonLogin.setVisible(false);
                  jButtonMiCarrito.setVisible(false);
                  jButtonAdmin.setVisible(true);
@@ -761,7 +771,7 @@ private boolean checkLoginInterfaz(){
             
             }
             else{
-              System.out.println("Vas a esta logado 3");    
+              //System.out.println("Vas a esta logado 3");    
             jButtonLogin.setVisible(true);
             jButtonMiCarrito.setVisible(true);    
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
@@ -939,18 +949,18 @@ private void createHomePageProductos(int i){
                 
                 int sizeProductData=listOfProductos.size();
                 numberOfProductPages = numberOfProductPages +i;
-                System.out.println("la lista tiene un tamño de: " + sizeProductData);
+                //System.out.println("la lista tiene un tamño de: " + sizeProductData);
                 
                
                 switch (sizeProductData) {
                 
                 case 0: 
                     try{
-                        System.out.println("La tienda esta sin stock");
+                        System.out.println("INFO: La tienda esta sin stock");
                         break;
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay nada que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay nada que mostrar " + e.toString()); 
                         SetNumberOfUserPagesToZero();
                         //System.out.println("Voy a poner los user a 0");
                         //createHomePageProductos(0);
@@ -959,7 +969,7 @@ private void createHomePageProductos(int i){
                     }
                 case 1 : 
                     try {
-                        System.out.println("caso1");
+                        //System.out.println("caso1");
                     jButtonProducts0.setVisible(true);
                     jTextFieldProducts0.setVisible(true);
                     jLabelStars0.setVisible(true);
@@ -988,7 +998,7 @@ private void createHomePageProductos(int i){
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPagesToZero();
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner los user a 0");
                         createHomePageProductos(0);
                         
                         //createWindowsProductPage();
@@ -996,7 +1006,7 @@ private void createHomePageProductos(int i){
                     break;
                 case 2 :
                     try {
-                        System.out.println("caso2");
+                        //System.out.println("caso2");
                     jButtonProducts0.setVisible(true);
                     jTextFieldProducts0.setVisible(true);
                     jLabelStars0.setVisible(true);
@@ -1046,7 +1056,7 @@ private void createHomePageProductos(int i){
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPagesToZero();
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner los user a 0");
                         createHomePageProductos(0);
                         //createWindowsProductPage();
                     }
@@ -1054,7 +1064,7 @@ private void createHomePageProductos(int i){
                     break;
                 case 3:
                     try {
-                        System.out.println("caso2");
+                        //System.out.println("caso2");
                     jButtonProducts0.setVisible(true);
                     jTextFieldProducts0.setVisible(true);
                     jLabelStars0.setVisible(true);
@@ -1128,14 +1138,14 @@ private void createHomePageProductos(int i){
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPagesToZero();
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner los user a 0");
                         createHomePageProductos(0);
                         //createWindowsProductPage();
                     }
                     break;
                 case 4:
                     try {
-                        System.out.println("caso2");
+                        //System.out.println("caso2");
                     jButtonProducts0.setVisible(true);
                     jTextFieldProducts0.setVisible(true);
                     jLabelStars0.setVisible(true);
@@ -1232,7 +1242,7 @@ private void createHomePageProductos(int i){
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPagesToZero();
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner los user a 0");
                         createHomePageProductos(0);
                         //createWindowsProductPage();
                     }
@@ -1240,7 +1250,7 @@ private void createHomePageProductos(int i){
                     break;
                 case 5:
                     try {
-                        System.out.println("caso2");
+                        //System.out.println("caso2");
                     jButtonProducts0.setVisible(true);
                     jTextFieldProducts0.setVisible(true);
                     jLabelStars0.setVisible(true);
@@ -1349,14 +1359,14 @@ private void createHomePageProductos(int i){
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPagesToZero();
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner los user a 0");
                         createHomePageProductos(0);
                         //createWindowsProductPage();
                     }
                     break;
                 case 6:
                     try {
-                        System.out.println("caso2");
+                        //System.out.println("caso2");
                     jButtonProducts0.setVisible(true);
                     jTextFieldProducts0.setVisible(true);
                     jLabelStars0.setVisible(true);
@@ -1487,14 +1497,14 @@ private void createHomePageProductos(int i){
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPagesToZero();
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner los user a 0");
                         createHomePageProductos(0);
                         //createWindowsProductPage();
                     }
                     break;
                 case 7:
                     try {
-                        System.out.println("caso2");
+                        //System.out.println("caso2");
                     jButtonProducts0.setVisible(true);
                     jTextFieldProducts0.setVisible(true);
                     jLabelStars0.setVisible(true);
@@ -1647,15 +1657,15 @@ private void createHomePageProductos(int i){
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPagesToZero();
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner los user a 0");
                         createHomePageProductos(0);
                         //createWindowsProductPage();
                     }
                     break;
                 default:
-                    System.out.println("somos 8 o mas elementos "  );    
+                    //System.out.println("somos 8 o mas elementos "  );    
                     try {
-                        System.out.println("caso2");
+                       //System.out.println("caso2");
                     jButtonProducts0.setVisible(true);
                     jTextFieldProducts0.setVisible(true);
                     jLabelStars0.setVisible(true);        
@@ -1828,7 +1838,7 @@ private void createHomePageProductos(int i){
                     catch (Exception e) {
                         System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPagesToZero();
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner los user a 0");
                         createHomePageProductos(0);
                         //createWindowsProductPage();
                     }
@@ -1877,7 +1887,7 @@ private void createHomePageProductos(int i){
         }
         else{
             System.out.println("INFO: Necesitas estar logado para ver tu carrito");
-            JOptionPane.showMessageDialog(null, "Necesitas estar logado para ver tu carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "INFO: Necesitas estar logado para ver tu carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             
         }
            
@@ -1893,7 +1903,7 @@ private void createHomePageProductos(int i){
     private void jButtonProducts0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts0ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages), user);
-        System.out.println("pagina" + numberOfProductPages);
+        //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
         
     }//GEN-LAST:event_jButtonProducts0ActionPerformed
@@ -1901,42 +1911,42 @@ private void createHomePageProductos(int i){
     private void jButtonProducts2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts2ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+2), user);
-        System.out.println("pagina" + numberOfProductPages);
+        //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts2ActionPerformed
 
     private void jButtonProducts3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts3ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+3), user);
-        System.out.println("pagina" + numberOfProductPages);
+        //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts3ActionPerformed
 
     private void jButtonProducts4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts4ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+4), user);
-        System.out.println("pagina" + numberOfProductPages);
+        //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts4ActionPerformed
 
     private void jButtonProducts6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts6ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+6), user);
-        System.out.println("pagina" + numberOfProductPages);
+        //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts6ActionPerformed
 
     private void jButtonProducts7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts7ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+7), user);
-        System.out.println("pagina" + numberOfProductPages);
+        //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts7ActionPerformed
 
     private void jButtonProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts1ActionPerformed
         // TODO add your handling code here:
         WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+1), user);
-        System.out.println("pagina" + numberOfProductPages);
+        //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts1ActionPerformed
 
@@ -1955,19 +1965,19 @@ private void createHomePageProductos(int i){
         //createHomePage();
          
             if (jButtonLogin.getText().equals("Mi cuenta") ){
-                System.out.println("Vas a entrar en tu cuenta primero tengo que comprobar tu token");
+                System.out.println("INFO: Vas a entrar en tu cuenta primero tengo que comprobar tu token");
                 if (checkLogin()){
-                     System.out.println("Vas a entrar en tu cuenta el token esta ok");
+                     System.out.println("INFO: Vas a entrar en tu cuenta el token esta ok");
                 WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , user);
                 }
                 else {
-                    System.out.println("No vas a entrar en tu cuenta el token esta KO");
+                    System.out.println("INFO: No vas a entrar en tu cuenta el token esta KO");
                     createHomePage();
                 }
             }
             else {
                 WindowsLogin windowslogin = new WindowsLogin(this , user);
-                System.out.println("vas a logarte");
+                System.out.println("INFO: Vas a logarte");
             }
          
     }//GEN-LAST:event_jButtonLoginActionPerformed
@@ -1975,7 +1985,7 @@ private void createHomePageProductos(int i){
     private void jButtonProducts5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProducts5ActionPerformed
         // TODO add your handling code here:
        WindowsProduct windowsproduct = new WindowsProduct(this , listOfProductos.get(numberOfProductPages+5), user);
-        System.out.println("pagina" + numberOfProductPages);
+        //System.out.println("pagina" + numberOfProductPages);
         createHomePage();
     }//GEN-LAST:event_jButtonProducts5ActionPerformed
 
@@ -1992,7 +2002,7 @@ private void createHomePageProductos(int i){
          WindowsAdmin windowsadmin = new WindowsAdmin(this ,  user);
         }
          else {
-                    System.out.println("No vas a entrar en la gestión,  el token esta KO");
+                    System.out.println("INFO: No vas a entrar en la gestión,  el token esta KO");
                     createHomePage();
                 }
         
@@ -2032,17 +2042,17 @@ private void createHomePageProductos(int i){
         SetNumberOfUserPagesToZero();
         
         listOfProductos.removeAll(listOfProductos);
-        System.out.println(listOfProductos);
+        //System.out.println(listOfProductos);
         
         if (jTextFieldSearchUser.getText().trim().isEmpty()) {
-            System.out.println("El usuario no ha añadido nada al campo de busqueda");
+            System.out.println("INFO: El usuario no ha añadido nada al campo de busqueda");
             
             try {
                 
                 //InventoryServices.orderByStarts();
                 if (!jComboBoxSearchRelevancia.isVisible()){
                     listOfProductos= InventoryServices.orderByStarts();
-                    System.out.println(listOfProductos);
+                    //System.out.println(listOfProductos);
                     SetNumberOfUserPagesToZero();
                     createHomePageProductos(0);
                 }
@@ -2055,13 +2065,13 @@ private void createHomePageProductos(int i){
                                 if(!listOfProductos.isEmpty() ) {
                                         SetNumberOfUserPagesToZero();
                                         createHomePageProductos(0);
-                                        System.out.println(listOfProductos);
+                                        //System.out.println(listOfProductos);
 
                                 }  
                                 else {
-                                    System.out.println("No han encontrado resultados");
-                                    JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-                                    System.out.println(listOfProductos);
+                                    System.out.println("INFO: No han encontrado resultados");
+                                    JOptionPane.showMessageDialog(null, "INFO: El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                                    //System.out.println(listOfProductos);
                                 } 
                             }
                     else if (jComboBoxSearchRelevancia.getSelectedItem().equals("precio mayor")) {
@@ -2070,12 +2080,12 @@ private void createHomePageProductos(int i){
                                 if(!listOfProductos.isEmpty() ) {
                                         SetNumberOfUserPagesToZero();
                                         createHomePageProductos(0);
-                                        System.out.println(listOfProductos);
+                                        //System.out.println(listOfProductos);
                                 }  
                                 else {
-                                    System.out.println("No han encontrado resultados");
-                                    JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-                                    System.out.println(listOfProductos);
+                                    System.out.println("INFO: No han encontrado resultados");
+                                    JOptionPane.showMessageDialog(null, "INFO: El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                                    //System.out.println(listOfProductos);
 
                                 }
                             } 
@@ -2086,14 +2096,14 @@ private void createHomePageProductos(int i){
                                 if(!listOfProductos.isEmpty() ) {
                                         SetNumberOfUserPagesToZero();
                                         createHomePageProductos(0);
-                                        System.out.println(listOfProductos);
+                                        //System.out.println(listOfProductos);
                                 }  
                                 else {
                                     //TODO poner el jpanel en visibel 
                                     //jPanelUsersFound.setVisible(false);
-                                    System.out.println("No han encontrado resultados");
-                                    JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-                                    System.out.println(listOfProductos);
+                                    System.out.println("INFO: No han encontrado resultados");
+                                    JOptionPane.showMessageDialog(null, "INFO: El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                                    //System.out.println(listOfProductos);
                                 }
                             } 
                       
@@ -2110,14 +2120,14 @@ private void createHomePageProductos(int i){
                 }
             
             catch (Exception e){
-                    System.out.println("Error: El producto no existe o no se ha encontrado en esa categoria: " + e.toString()); 
-                    JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                    System.out.println("INFO: El producto no existe o no se ha encontrado en esa categoria: " + e.toString()); 
+                    JOptionPane.showMessageDialog(null, "INFO: El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                     //jPanelUsersFound.setVisible(false);
             }
         }
         
         else {
-            System.out.println("El usuario SÏ ha añadido nada al campo de busqueda");
+            //System.out.println("INFO: El usuario Sí ha añadido nada al campo de busqueda");
             
             
             try {
@@ -2129,13 +2139,13 @@ private void createHomePageProductos(int i){
                     if(!listOfProductos.isEmpty() ) {
                             SetNumberOfUserPagesToZero();
                             createHomePageProductos(0);
-                            System.out.println(listOfProductos);
+                            //System.out.println(listOfProductos);
                     }  
                     else {
                          //TODO poner el jpanel en visibel 
                                 //jPanelUsersFound.setVisible(false);
-                                System.out.println("No han encontrado resultados");
-                                JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                                System.out.println("INFO: No han encontrado resultados");
+                                JOptionPane.showMessageDialog(null, "INFO: El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                     } 
                 }   
 
@@ -2145,16 +2155,16 @@ private void createHomePageProductos(int i){
                     if(!listOfProductos.isEmpty() ) {
                             SetNumberOfUserPagesToZero();
                             createHomePageProductos(0);
-                            System.out.println(listOfProductos);
+                            //System.out.println(listOfProductos);
                            
                     }  
                     else {
-                        System.out.println("No han encontrado resultados");
+                        System.out.println("INFO: No han encontrado resultados");
                          //TODO poner el jpanel en visibel 
                                 //jPanelUsersFound.setVisible(false);
-                                System.out.println("No han encontrado resultados");
+                                System.out.println("INFO: No han encontrado resultados");
                                 JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-                                System.out.println(listOfProductos);
+                                //System.out.println(listOfProductos);
                     }
                     
                     
@@ -2166,24 +2176,24 @@ private void createHomePageProductos(int i){
                     if(!listOfProductos.isEmpty() ) {
                             SetNumberOfUserPagesToZero();
                             createHomePageProductos(0);
-                            System.out.println(listOfProductos);
+                           // System.out.println(listOfProductos);
                            
                     }  
                     else {
                          //TODO poner el jpanel en visibel 
                                 //jPanelUsersFound.setVisible(false);
-                                System.out.println("No han encontrado resultados");
+                                System.out.println("INFO: No han encontrado resultados");
                                 JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
-                                System.out.println(listOfProductos);
+                                //System.out.println(listOfProductos);
                     }
                 }  
                 
             }
             catch (Exception e){
-                System.out.println("Error: El producto no existe: " + e.toString());
+                System.out.println("INFO: El producto no existe: " + e.toString());
                  //TODO poner el jpanel en visibel 
                                 //jPanelUsersFound.setVisible(false);
-                                System.out.println("No han encontrado resultados");
+                                System.out.println("INFO: No han encontrado resultados");
                                 JOptionPane.showMessageDialog(null, "El producto no existe o no se ha encontrado en esa categoria","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                                 
              }
@@ -2194,6 +2204,16 @@ private void createHomePageProductos(int i){
        
         
     }//GEN-LAST:event_jButtonHomeIconSearchActionPerformed
+
+    private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
+
+    private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
 
  // ********************************************************************************************************************
     

@@ -371,14 +371,22 @@ public class UsersServices {
     /**
      * Nos permite crear el usuario administrador en la plataforma.
      */
-     public static void createMockAdminUser() {         
-         Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
-         if (!UserData.getInstance().getUserHashMap().containsKey("admin@javacomp.com")) {
-            Usuario a1 = new Administrador("admin","admin",to1 );
-            a1.setAdministrador(true);
-            UserData.getInstance().getUserHashMap().put(a1.getCorreo(), a1);
+     public static void createMockAdminUser() {    
+         
+         if (existsUser("admin@javacomp.com")) {
+             Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
+             if (!UserData.getInstance().getUserHashMap().containsKey("admin@javacomp.com")) {
+                Usuario a1 = new Administrador("admin","admin@javacomp.com",to1 );
+                a1.setAdministrador(true);
+                UserData.getInstance().getUserHashMap().put(a1.getCorreo(), a1);
+                UsersServices.saveUserData();
+             }
          }
-    }
+         else {
+             System.out.println("INFO: El usuario admin ya exite, no lo creamos.");
+         }
+     
+     }
      
     /**
      * Nos permite obtener un usuario mediante la clave correo y el valor clave.
@@ -405,6 +413,25 @@ public class UsersServices {
     public static Usuario getUser(String correo){
        Usuario u1  = UserData.getInstance().getUserHashMap().get(correo);
        return u1;
+    }
+    
+    
+    /**
+     * Nos permite preguntar si existe un usario en la estructura de datos UserHashMap
+     * @param correo
+     * @return
+     * <ul>
+     * <li> True: Si el usuario exite.</li>
+     * <li> False: Si el usuario no exite.</li>
+     * </ul>
+     */
+    public static boolean existsUser(String correo){
+       if (UserData.getInstance().getUserHashMap().containsKey(correo)) {
+        return true;
+       }
+       else {
+           return false;
+       }
     }
     
     /**
