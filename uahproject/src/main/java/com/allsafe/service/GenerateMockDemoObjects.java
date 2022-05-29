@@ -236,7 +236,16 @@ public class GenerateMockDemoObjects {
             InventoryServices.getProducto("XboxSeriesX").introducirOpinion(o4);
             InventoryServices.getProducto("XboxSeriesX").introducirOpinion(o3);
 
-            
+            // Generate Ventas
+            //c1.getCarritoCompra().
+            c1.getCarritoCompra().addToProducto(InventoryServices.getProducto("SamsungGalaxy"));
+            c2.getCarritoCompra().addToProducto(InventoryServices.getProducto("XboxSeriesX"));
+            c2.getCarritoCompra().addToProducto(InventoryServices.getProducto("MSI"));
+            c3.getCarritoCompra().addToProducto(InventoryServices.getProducto("LGTv"));
+            c3.getCarritoCompra().addToProducto(InventoryServices.getProducto("MacBookAirM1"));
+            SalesDataService.Sales(c1);
+            SalesDataService.Sales(c2);
+            SalesDataService.Sales(c3);
     } 
 
 // ********************************************************************************************************************     

@@ -69,22 +69,6 @@ public class WindowsProductManagingInfo extends javax.swing.JFrame  {
             jButtonHomeIconsGround9.setIcon(new javax.swing.ImageIcon("Icons/png/back.png"));
             
             
-//            if ("Componentes".equals(producto.getCategoria() )) {
-//                 jComboBoxCategoria.setSelectedIndex(0);
-//            }
-//            else if ("Ordenadores".equals(producto.getCategoria() )) {
-//                 jComboBoxCategoria.setSelectedIndex(1);
-//            }
-//            else if ("Móviles y telefonía".equals(producto.getCategoria() )) {
-//                 jComboBoxCategoria.setSelectedIndex(2);
-//            }
-//            else if ("TV, audio y foto".equals(producto.getCategoria() )) {
-//                 jComboBoxCategoria.setSelectedIndex(1);
-//            }
-//            else if ("Consolas y videoguego".equals(producto.getCategoria() )) {
-//                 jComboBoxCategoria.setSelectedIndex(1);
-//            }
-            
             String categoriaProducto = producto.getCategoria();
             switch (categoriaProducto) {
                 case  "Componentes": jComboBoxCategoria.setSelectedIndex(0);
@@ -95,7 +79,7 @@ public class WindowsProductManagingInfo extends javax.swing.JFrame  {
                     break;
                 case  "TV, audio y foto": jComboBoxCategoria.setSelectedIndex(3);
                     break;
-                case  "Consolas y videoguego": jComboBoxCategoria.setSelectedIndex(4);
+                case  "Consolas y videojuegos": jComboBoxCategoria.setSelectedIndex(4);
                 break;
                 }
             
@@ -476,11 +460,12 @@ private boolean checkLoginInterfaz(){
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3Product, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
+                        .addGap(122, 122, 122)
+                        .addComponent(jLabel3Product, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(168, 168, 168)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
