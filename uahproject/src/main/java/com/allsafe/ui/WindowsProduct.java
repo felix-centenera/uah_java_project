@@ -18,6 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,15 +32,10 @@ public class WindowsProduct extends javax.swing.JFrame  {
     private Usuario user;
     private int opinion=0;
     Login miservicioDeLogin = Login.getInstance();
-    /**
-     * Creates new form Home
-     */
-//    public WindowsProduct() {
-//        initComponents();
-//        createHomePageProductos();
-//        createHomePage();
-//    }
-    
+  
+
+
+// ********************************************************************************************************************    
     /** Creates new form WindowProduct */
     public WindowsProduct(Home ventana, Producto producto, Usuario u) {
         //Ocultamos la ventana principal
@@ -52,7 +48,13 @@ public class WindowsProduct extends javax.swing.JFrame  {
         createWindowsProductPage();
         
     }
-    
+// ********************************************************************************************************************
+
+
+// ********************************************************************************************************************    
+/**
+* Nos permite crear la interfaz createWindowsProductPage con todos lo elementos necesarios de forma dinámica.
+*/ 
    public void createWindowsProductPage() {
         try {
             //jLabelImg.setSize(130, 100);
@@ -65,11 +67,12 @@ public class WindowsProduct extends javax.swing.JFrame  {
             jButtonLogin.setIcon(new javax.swing.ImageIcon("Icons/png/user.png"));
             jButtonLogin.setText("Mi cuenta");
              if (user.isAdministrador()){
-                 System.out.println("Eres un administrador");
+                 System.out.println("INFO: Eres un administrador");
                    jButtonMiCarrito.setVisible(false);
                    jButtonLogin.setVisible(false);
                    jButton1Opinar.setVisible(false);
                    jButton1AnadirCarrito.setVisible(false);
+                   jSpinnerUnits.setVisible(false);
 //                 jButtonLogin.jButtonMiCarrito(false);
 //                 jButtonMiCarrito.setVisible(false);
 //                 jButtonAdmin.setVisible(true);
@@ -92,10 +95,15 @@ public class WindowsProduct extends javax.swing.JFrame  {
             jButton1AnadirCarrito.setIcon(new javax.swing.ImageIcon("Icons/png/shopping-cart.png"));
             jButton1Opinar.setIcon(new javax.swing.ImageIcon("Icons/png/opinar.png"));
             
-            
-            
             // Set image of the producto
-            jLabel3Product.setSize(300,180);
+            if ("Ordenadores".equals(producto.getCategoria()) || "TV, audio y foto".equals(producto.getCategoria())  ){
+                //jLabel3Product.setSize(200,160);
+                jLabel3Product.setSize(300,180);
+            }
+            else {
+                jLabel3Product.setSize(180,180);
+            
+            }
             //ImageIcon imagen = new ImageIcon(principal.RandomProductsHome.get(0).getFotografia());
             ImageIcon imagen = new ImageIcon(producto.getFotografia());
             ImageIcon   imgRedimensionada = new ImageIcon(imagen.getImage().getScaledInstance(jLabel3Product.getWidth(),jLabel3Product.getHeight(), 1));
@@ -142,32 +150,22 @@ public class WindowsProduct extends javax.swing.JFrame  {
         }
     }
 
-    // ********************************************************************************************************************
+// ********************************************************************************************************************
 
 
-//método comprobar login. Método antiguo te devuelve a la home si no has hecho login.
-//private boolean checkLogin(){
-//    boolean operationAccepted=false;
-//    if (user == null){
-//        this.dispose();
-//        principal.setVisible(true);
-//        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//        return false;
-//    }
-//     else{
-//        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
-//        System.out.println("INFO: Voy a comprobar el token");
-//        if (operationAccepted == false){
-//            this.dispose();
-//            principal.setVisible(true);
-//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//            return false;
-//        }
-//        return true;
-//    }
-//}
-    
+
+// ********************************************************************************************************************    
  //método comprobar login
+/**
+ * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
+ * del método checkLoginInterfaz para evolucionen de forma independiente, con el objetivo de que 
+ * este método solo compruebe el login del usuario asociado.
+ * @return
+ * <ul>
+ * <li> True: Si el usuario esta logado.</li>
+ * <li> False: Si el usuario no  esta logado.</li>
+ * </ul>
+ */
 private boolean checkLogin(){
     boolean operationAccepted=false;
     if (user == null){
@@ -177,32 +175,45 @@ private boolean checkLogin(){
 //            return false;
 //        }
         //return true;
-        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+        System.out.println("INFO: No puedes realizar esa acción debes estar logado");
         return false;
     }
      else{
-        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
         if (operationAccepted == false){
-            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+            System.out.println("INFO: No puedes realizar esa acción debes estar logado");
             return false;
         }
         return true;
     }
 }
+// ********************************************************************************************************************
 
 
+// ********************************************************************************************************************
+/**
+ * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
+ * del método checkLogin para evolucionen de forma independiente, con el objetivo de que 
+ * este método compruebe el login del usuario y permite la relación interfaces basadas en la 
+ * autenticación y autorización.
+ * @return
+ * <ul>
+ * <li> True: Si el usuario esta logado.</li>
+ * <li> False: Si el usuario no  esta logado.</li>
+ * </ul>
+ */
 private boolean checkLoginInterfaz(){
     boolean operationAccepted=false;
     if (user == null){
-        System.out.println("INFO: No hay  devuelvo falso para que pintes interfaz de usuario visitante");
+        System.out.println("INFO: No hay un usuario asociado devuelvo falso para que pintes interfaz de usuario visitante");
         return false;
     }
      else{
-        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
+        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         if (operationAccepted == false){
-            System.out.println("INFO: No hay  devuelvo treu para que pintes interfaz de usuario registrado");
+            System.out.println("INFO: Alguno de los siguientes campos, token, correo o clave  no son correctos, devuelvo falso para que pintes interfaz de usuario visitante");
             return false;
         }
         return true;
@@ -216,7 +227,7 @@ private boolean checkLoginInterfaz(){
  // ********************************************************************************************************************
  
 
-    
+// ********************************************************************************************************************    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -250,6 +261,7 @@ private boolean checkLoginInterfaz(){
         jButton1Opinar = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jButton1AnadirCarrito = new javax.swing.JButton();
+        jSpinnerUnits = new javax.swing.JSpinner();
         jPanel3 = new javax.swing.JPanel();
         jLabelHomeIcon4 = new javax.swing.JLabel();
         jButtonMiCarrito = new javax.swing.JButton();
@@ -275,6 +287,7 @@ private boolean checkLoginInterfaz(){
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldProductoTitulo2.setEditable(false);
         jTextFieldProductoTitulo2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jTextFieldProductoTitulo2.setBorder(null);
         jTextFieldProductoTitulo2.addActionListener(new java.awt.event.ActionListener() {
@@ -283,6 +296,7 @@ private boolean checkLoginInterfaz(){
             }
         });
 
+        jTextFieldProductoCaracteristicas3.setEditable(false);
         jTextFieldProductoCaracteristicas3.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jTextFieldProductoCaracteristicas3.setBorder(null);
         jTextFieldProductoCaracteristicas3.addActionListener(new java.awt.event.ActionListener() {
@@ -291,9 +305,11 @@ private boolean checkLoginInterfaz(){
             }
         });
 
+        jTextFieldProductoCategoria5.setEditable(false);
         jTextFieldProductoCategoria5.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jTextFieldProductoCategoria5.setBorder(null);
 
+        jFormattedTextFieldProductoPrecio1.setEditable(false);
         jFormattedTextFieldProductoPrecio1.setBorder(null);
         jFormattedTextFieldProductoPrecio1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
         jFormattedTextFieldProductoPrecio1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
@@ -303,6 +319,7 @@ private boolean checkLoginInterfaz(){
 
         jLabel1Calificacion.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
 
+        jTextField2NameClient.setEditable(false);
         jTextField2NameClient.setText("jTextField2");
         jTextField2NameClient.setBorder(null);
         jTextField2NameClient.addActionListener(new java.awt.event.ActionListener() {
@@ -311,11 +328,13 @@ private boolean checkLoginInterfaz(){
             }
         });
 
+        jTextArea2Comentarios.setEditable(false);
         jTextArea2Comentarios.setColumns(20);
         jTextArea2Comentarios.setLineWrap(true);
         jTextArea2Comentarios.setRows(5);
         jScrollPane2.setViewportView(jTextArea2Comentarios);
 
+        jTextFieldFechaCom.setEditable(false);
         jTextFieldFechaCom.setText("jTextField2");
         jTextFieldFechaCom.setBorder(null);
 
@@ -355,12 +374,12 @@ private boolean checkLoginInterfaz(){
                 .addGap(37, 37, 37)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldProductoCaracteristicas3, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldProductoCategoria5, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldProductoTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldProductoPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(84, Short.MAX_VALUE))
+                    .addComponent(jFormattedTextFieldProductoPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldProductoCategoria5, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldProductoCaracteristicas3, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,8 +391,8 @@ private boolean checkLoginInterfaz(){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldProductoCaracteristicas3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldProductoCategoria5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addComponent(jTextFieldProductoCategoria5, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jFormattedTextFieldProductoPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -426,6 +445,8 @@ private boolean checkLoginInterfaz(){
             }
         });
 
+        jSpinnerUnits.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -433,13 +454,17 @@ private boolean checkLoginInterfaz(){
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jButton1AnadirCarrito)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSpinnerUnits, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jButton1AnadirCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1AnadirCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinnerUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -456,8 +481,8 @@ private boolean checkLoginInterfaz(){
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(120, 120, 120)
-                        .addComponent(jLabel3Product, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addComponent(jLabel3Product, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,7 +503,7 @@ private boolean checkLoginInterfaz(){
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
@@ -543,6 +568,11 @@ private boolean checkLoginInterfaz(){
         jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/home.png")); // NOI18N
         jButtonHomeIconsGround5.setBorderPainted(false);
         jButtonHomeIconsGround5.setContentAreaFilled(false);
+        jButtonHomeIconsGround5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround5ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 40, 40));
 
         jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/ArrowDown.png")); // NOI18N
@@ -578,17 +608,22 @@ private boolean checkLoginInterfaz(){
         jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/mail.png")); // NOI18N
         jButtonHomeIconsGround6.setBorderPainted(false);
         jButtonHomeIconsGround6.setContentAreaFilled(false);
+        jButtonHomeIconsGround6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround6ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, 40));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
 
 
-
-
+// ********************************************************************************************************************
     private void jButtonMiCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMiCarritoActionPerformed
         // TODO add your handling code here:
         //System.out.println("Estas entrando en el carrito");
@@ -598,90 +633,129 @@ private boolean checkLoginInterfaz(){
         }
         else{
             System.out.println("INFO: Necesitas estar logado para ver tu carrito");
+            JOptionPane.showMessageDialog(null, "Necesitas estar logado para ver tu carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             
-        }
-        
-        
-        
+        }    
     }//GEN-LAST:event_jButtonMiCarritoActionPerformed
 
+    
+// ********************************************************************************************************************    
     private JFrame getFrame(){
      return this;
     }
-    
+// ********************************************************************************************************************
+
+
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        principal.setVisible(true);
-       
-        
-      
+        principal.setVisible(true);    
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      */
-
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     // TODO add your handling code here:
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
     private void jTextFieldProductoTitulo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProductoTitulo2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProductoTitulo2ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
         ///TODO Execptio!!!!!
             opinion= opinion+1;
             createWindowsProductPage();
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
         // TODO add your handling code here:
         opinion= opinion-1;
         createWindowsProductPage();
         //TODO Execptio!!!!!
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jButton1AnadirCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1AnadirCarritoActionPerformed
         // TODO add your handling code here:
+        // jSpinnerUnits
+        
         if (checkLogin()){
             System.out.println("INFO: Estas añadiendo un producto a tu carrito");
+            int units= (int) jSpinnerUnits.getValue();
+            
             //user.
             //user.getClass().getSimpleName()
-            String clase = user.getClass().getSimpleName();
-            if (  clase.equals("ClienteParticular")){
-                ClienteParticular c1 = (ClienteParticular) user;
-                if (c1.getCarritoCompra().addToProducto(producto)){
-                    System.out.println("INFO: Se ha añadido correctamente el producto a el carrito");
-                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                if (units < producto.getStock() || units == producto.getStock() ) {
+                        String clase = user.getClass().getSimpleName();
+                        if (  clase.equals("ClienteParticular")){
+                            ClienteParticular c1 = (ClienteParticular) user;
+                                for (int i=1; i <= units; i++) {
+                                    if (c1.getCarritoCompra().addToProducto(producto)){
+                                        System.out.println("INFO: Se ha añadido correctamente el producto a el carrito");
+                                        
+                                        if (i==units) {
+                                            JOptionPane.showMessageDialog(null, "Se ha añadido correctamente el producto a el carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                                        }
+                                        
+                                        System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                                    }
+                                    else {
+                                        System.out.println("ERROR: No se ha añadido correctamente el producto a el carrito");
+                                        JOptionPane.showMessageDialog(null, "No se ha añadido correctamente el producto a el carrito, contacte con nosotros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                                        System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                                         }
+                                }
+                        }
+                        else if (clase.equals("ClienteEmpresa")){
+                            ClienteEmpresa c1 = (ClienteEmpresa) user;
+                            //c1.getCarritoCompra().addToProducto(producto);
+                                for (int i=1; i <= units; i++) {
+                                    if (c1.getCarritoCompra().addToProducto(producto)){
+                                        System.out.println("INFO: Se ha añadido correctamente el producto a el carrito");
+                                        if (i==units) {
+                                            JOptionPane.showMessageDialog(null, "Se ha añadido correctamente el producto a el carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                                        }
+                                        System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                                    }
+                                    else {
+                                        System.out.println("ERROR: No se ha añadido correctamente el producto a el carrito");
+                                        JOptionPane.showMessageDialog(null, "No se ha añadido correctamente el producto a el carrito, contacte con nosotros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                                        System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
+                                         }
+                                }
+                        }
+                    }
+                else{
+                    System.out.println("INFO: No hay suficiente stock");
+                    JOptionPane.showMessageDialog(null, "Actualmente no tenemos ese stock" ,"Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                 }
-                else {
-                    System.out.println("ERROR: No se ha añadido correctamente el producto a el carrito");
-                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
-                     }
-            }
-            else if (clase.equals("ClienteEmpresa")){
-                ClienteEmpresa c1 = (ClienteEmpresa) user;
-                //c1.getCarritoCompra().addToProducto(producto);
-                if (c1.getCarritoCompra().addToProducto(producto)){
-                    System.out.println("INFO: Se ha añadido correctamente el producto a el carrito");
-                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
-                }
-                else {
-                    System.out.println("ERROR: No se ha añadido correctamente el producto a el carrito");
-                    System.out.println("INFO: Carrito de la compra del usuario"+ c1.getCorreo() + c1.getCarritoCompra());
-                     }   
-            }
+        
         }
         else{
-            System.out.println("INFO: Necesitas estar logado para añadir productos a tu carrito");
-            
-        }
-        
+                System.out.println("INFO: Necesitas estar logado para añadir productos a tu carrito");
+                JOptionPane.showMessageDialog(null, "Necesitas estar logado para añadir productos a tu carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+            }
     }//GEN-LAST:event_jButton1AnadirCarritoActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButton1OpinarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1OpinarActionPerformed
         // TODO add your handling code here:
          if (checkLogin()){
@@ -691,52 +765,69 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
         else{
             System.out.println("INFO: Necesita estar logado para opinar");
-            
+            JOptionPane.showMessageDialog(null, "Necesita estar logado para opinar","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);        
         }
     }//GEN-LAST:event_jButton1OpinarActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextFieldProductoCaracteristicas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProductoCaracteristicas3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProductoCaracteristicas3ActionPerformed
-
+// ********************************************************************************************************************
+  
+    
+// ********************************************************************************************************************    
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
         //WindowsLogin windowslogin = new WindowsLogin(this , user, principal);
         
         if (jButtonLogin.getText().equals("Mi cuenta") ){
-            System.out.println("Vas a entrar en tu cuenta primero tengo que comprobar tu token");
+            System.out.println("INFO: Vas a entrar en tu cuenta, primero tengo que comprobar tu token");
             if (checkLogin()){
-                System.out.println("Vas a entrar en tu cuenta el token esta ok");
+                System.out.println("INFO: Vas a entrar en tu cuenta, el token esta ok");
             WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , user);
             }
             else {
-                    System.out.println("No vas a entrar en tu cuenta el token esta KO");
+                    System.out.println("INFO: No vas a entrar en tu cuenta el, token esta KO");
                     createWindowsProductPage();
                 
                 }
         }
         else {
             WindowsLogin windowslogin = new WindowsLogin(this , user, principal);
-            System.out.println("vas a logarte");
-        }
-        
-        
-        
-        
-        
-        
-//        createWindowsProductPage(); principal
-
-//        
-
-       
+            System.out.println("INFO: Vas a logarte");
+        }   
     }//GEN-LAST:event_jButtonLoginActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextField2NameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2NameClientActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2NameClientActionPerformed
-
+// ********************************************************************************************************************
     
+// ********************************************************************************************************************    
+    private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
+    private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -769,6 +860,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSpinner jSpinnerUnits;
     private javax.swing.JTextArea jTextArea2Comentarios;
     private javax.swing.JTextField jTextField2NameClient;
     private javax.swing.JTextField jTextFieldFechaCom;
@@ -777,3 +869,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JTextField jTextFieldProductoTitulo2;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

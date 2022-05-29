@@ -25,6 +25,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 
 /**
@@ -39,21 +40,12 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
     private  Producto producto;
     private Usuario user;
     private Usuario userMgmt;
-    //private int opinion=0;
     private int numberOfUserPages=0;
     Login miservicioDeLogin = Login.getInstance();
-    // just for mock delete after test:
     UserData userData = UserData.getInstance();
     
-    /**
-     * Creates new form Home
-     */
-//    public WindowsProduct() {
-//        initComponents();
-//        createHomePageProductos();
-//        createHomePage();
-//    }
     
+// ********************************************************************************************************************    
     /** Creates new form WindowProduct */
     public WindowsAdminUserMngt(WindowsAdmin ventana, Usuario u) {
         //Ocultamos la ventana principal
@@ -66,19 +58,14 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
         createWindowsProductPage();
         
     }
+  // ********************************************************************************************************************
     
-//     public WindowsAdminUserMngt(WindowsProduct ventana2, Usuario u, Home ventana1) {
-//        //Ocultamos la ventana principal
-//        secundariaProductos = ventana2;
-//        principal = ventana1;
-//        secundariaProductos.setVisible(false);
-//        user = u;
-//        initComponents();
-//        this.setVisible(true);
-//        createWindowsProductPage();
-//    }
-//    
-
+    
+    
+// ********************************************************************************************************************
+/**
+* Nos permite crear la interfaz createWindowsProductPage con todos lo elementos necesarios de forma dinámica.
+*/
     private void createWindowsProductPage() {
         try {
             //jLabelImg.setSize(130, 100);
@@ -105,9 +92,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
             jButtonUser7.setVisible(false);
             jButtonUser8.setVisible(false);
             jPanelUsersFound.setVisible(false);
-        
-            
-            
+           
             //SET BOTTON HOME PAGE.
          
         } 
@@ -117,13 +102,23 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
             createWindowsProductPage();
         }
     }
-    
+ 
+// ********************************************************************************************************************
+
+// ********************************************************************************************************************    
     public  void  SetNumberOfUserPages0() {
         this.numberOfUserPages = 0;
  }
+// ********************************************************************************************************************    
     
-    
-    
+  
+// ********************************************************************************************************************    
+ /**
+* Nos permite mostrar los usuarios en la interfaz  con todos lo elementos necesarios de forma dinámica.
+* Estos usuarios están recogidos en un ArrayList,con las claves (key) de los Usuarios, listOfKeys, mediante el parametro i mostraremos
+* los productos que comiencen en la posición i.
+* * @param i
+*/    
     private void printUsers(int i){
                 jPanelUsersFound.setVisible(true);
                 jButtonUser1.setVisible(false);        
@@ -137,21 +132,21 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
            
                 ArrayList<String> listOfKeys  = UsersServices.getUser();
                 int sizeUserData=listOfKeys.size();
-                System.out.println(numberOfUserPages);
+                //System.out.println(numberOfUserPages);
                 numberOfUserPages = numberOfUserPages +i;
-                System.out.println(numberOfUserPages);
+                //System.out.println(numberOfUserPages);
                 jPanelUsersFound.setVisible(true);
                 switch (sizeUserData) {
                 case 1 : 
                     try {
-                        System.out.println("caso1");
+                        //System.out.println("caso1");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner el recorrido de los usuarios a 0");
                         printUsers(0);
                         
                         //createWindowsProductPage();
@@ -159,15 +154,15 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     break;
                 case 2 :
                     try {
-                        System.out.println("caso2");
+                        //System.out.println("caso2");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
                     jButtonUser2.setText(listOfKeys.get(numberOfUserPages+1));
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: Voy a poner el recorrido de los usuarios a 0");
                         SetNumberOfUserPages0();
                         printUsers(0);
                         //createWindowsProductPage();
@@ -176,7 +171,7 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     break;
                 case 3:
                     try {
-                        System.out.println("caso3");
+                        //System.out.println("caso3");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
@@ -185,16 +180,16 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     jButtonUser3.setText(listOfKeys.get(numberOfUserPages+2));
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner el recorrido de los usuarios a 0");
                         //createWindowsProductPage();
                     }
                     break;
                 case 4:
                     try {
-                        System.out.println("caso4");
+                        //System.out.println("caso4");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
@@ -205,17 +200,17 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     jButtonUser4.setText(listOfKeys.get(numberOfUserPages+3));
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner el recorrido de los usuarios a 0");
                         //createWindowsProductPage();
                     }
                     
                     break;
                 case 5:
                     try {
-                        System.out.println("caso5");
+                        //System.out.println("caso5");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
@@ -228,15 +223,16 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     jButtonUser5.setText(listOfKeys.get(numberOfUserPages+4));
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
+                        System.out.println("INFO: Voy a poner el recorrido de los usuarios a 0");
                         //createWindowsProductPage();
                     }
                     break;
                 case 6:
                     try {
-                        System.out.println("caso6");
+                        //System.out.println("caso6");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
@@ -251,15 +247,16 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     jButtonUser6.setText(listOfKeys.get(numberOfUserPages+5));
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
+                        System.out.println("INFO: Voy a poner el recorrido de los usuarios a 0");
                         //createWindowsProductPage();
                     }
                     break;
                 case 7:
                     try {
-                        System.out.println("caso7");
+                        //System.out.println("caso7");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
@@ -276,19 +273,20 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     jButtonUser7.setText(listOfKeys.get(numberOfUserPages+6));
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
+                        System.out.println("INFO: Voy a poner el recorrido de los usuarios a 0");
                         //createWindowsProductPage();
                     }
                     break;
                 default:
-                    System.out.println("somos 8 o mas  "  );   
+                    //System.out.println("Hay 8 o mas usuarios  "  );   
                     try {
-                            System.out.println("caso8");
-                            System.out.println("somos 8 o mas  y estamos haciendolo bien"  );   
-                            System.out.println("la i es: " + i + "y i +1 es= " + i +1 ); 
-                            System.out.println(listOfKeys);
+                            //System.out.println("caso8");
+                            //System.out.println("Hay 8 o mas"  );   
+                            //System.out.println("la i es: " + i + "y i +1 es= " + i +1 ); 
+                            //System.out.println(listOfKeys);
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser2.setVisible(true);
@@ -307,52 +305,26 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
                     jButtonUser8.setText(listOfKeys.get(numberOfUserPages+7));
                     }
                     catch (Exception e) {
-                         System.out.println("somos 8 o mas  y estamos dando error"  );       
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        //System.out.println("Hay 8 o mas  y estamos dando error"  );       
+                        System.out.println("INFO: No hay mas usuarios que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
                         //createWindowsProductPage();
                         printUsers(0);
+                        System.out.println("INFO: Voy a poner el recorrido de los usuarios a 0");
                     }
                     break;
                 }
     }
 
-    // ********************************************************************************************************************
+// ********************************************************************************************************************
 
-
-//método comprobar login
-//private boolean checkLogin(){
-//    boolean operationAccepted=false;
-//    if (user == null){
-//        this.dispose();
-//        principal.setVisible(true);
-//        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//        return false;
-//    }
-//     else{
-//        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
-//        System.out.println("INFO: Voy a comprobar el token");
-//        if (operationAccepted == false){
-//            this.dispose();
-//            principal.setVisible(true);
-//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//            return false;
-//        }
-//        return true;
-//    }
-//}
-
-// public  void  SetUsuario(Usuario user) {
-//        this.user = user;
-//        
-// }
- // ********************************************************************************************************************
- 
+// ********************************************************************************************************************
 private JFrame getFrame(){
      return this;
     }
-
-    
+// ********************************************************************************************************************
+ 
+// ********************************************************************************************************************
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -772,6 +744,11 @@ private JFrame getFrame(){
         jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/home.png")); // NOI18N
         jButtonHomeIconsGround5.setBorderPainted(false);
         jButtonHomeIconsGround5.setContentAreaFilled(false);
+        jButtonHomeIconsGround5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround5ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 40, 40));
 
         jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/ArrowDown.png")); // NOI18N
@@ -807,21 +784,22 @@ private JFrame getFrame(){
         jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/mail.png")); // NOI18N
         jButtonHomeIconsGround6.setBorderPainted(false);
         jButtonHomeIconsGround6.setContentAreaFilled(false);
+        jButtonHomeIconsGround6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround6ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, 40));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
 
 
-
-
-//    private JFrame getFrame(){
-//     return this;
-//    }
-    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -834,23 +812,32 @@ private JFrame getFrame(){
           secundariaProductos.setVisible(true);
         }
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
-
+// ********************************************************************************************************************
+   
+    
+    
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      */
-
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     // TODO add your handling code here:
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
         ///TODO Execptio!!!!!
             //opinion= opinion+1;
             //createWindowsProductPage();
             printUsers(-1);
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
         // TODO add your handling code here:
         //opinion= opinion-1;
@@ -858,25 +845,33 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         //TODO Execptio!!!!!
         printUsers(1);
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if( !jTextFieldUserMail.getText().equals("Ingrese su nombre de usuario") && !jTextFieldUserMail.getText().equals("")   ){
             UsersServices.addAdmin(jPasswordUserPass.getText(), jTextFieldUserMail.getText()); 
             jPasswordUserPass.setText("");
             jTextFieldUserMail.setText("");
-            //TO TEST DELETE both prints
-            System.out.println("Usuarios pedidos directamente:" + UsersServices.getUser());
-            System.out.println("Usuarios pedidos por servicio:" + UsersServices.getUser());
+            //SAVE USER DATA:
+            UsersServices.saveUserData();
+            
+//            System.out.println("Usuarios pedidos directamente:" + UsersServices.getUser());
+//            System.out.println("Usuarios pedidos por servicio:" + UsersServices.getUser());
         }
         else {
             System.out.println("INFO: DEBE Añadir un usuario");
+            JOptionPane.showMessageDialog(null, "Debe Añadir un nombre de usuario","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         
         }
         jPanelUsersFound.setVisible(false);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+// ********************************************************************************************************************    
     private void jPasswordUserPassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordUserPassMousePressed
         // TODO add your handling code here:
         if(String.valueOf(jPasswordUserPass.getPassword()).equals("********")){
@@ -889,7 +884,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             jTextFieldUserMail.setForeground(Color.gray);
         }
     }//GEN-LAST:event_jPasswordUserPassMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextFieldUserMailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUserMailMousePressed
         // TODO add your handling code here:
         if(jTextFieldUserMail.getText().equals("Ingrese su nombre de usuario")){
@@ -899,14 +897,20 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         if(String.valueOf(jPasswordUserPass.getPassword()).isEmpty()){
             jPasswordUserPass.setText("********");
             jPasswordUserPass.setForeground(Color.gray);
-
         }
     }//GEN-LAST:event_jTextFieldUserMailMousePressed
+// ********************************************************************************************************************
 
+    
+// ********************************************************************************************************************    
     private void jTextFieldUserMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserMailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUserMailActionPerformed
 
+// ********************************************************************************************************************    
+ 
+    
+// ********************************************************************************************************************    
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
         // TODO add your handling code here:
         //jTextFieldSearchUser.getText(); ||  (jTextFieldSearchUser.getText().contains(""))
@@ -921,7 +925,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             }
             catch (Exception e){
                 System.out.println("Error: No se ha podido realizar la accion: " + e.toString()); 
-
             }
         }
         else {
@@ -930,13 +933,18 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             userMgmt =  UsersServices.getUser(jTextFieldSearchUser.getText());
             jTextFieldSearchUser.setText("Ingrese su nombre de usuario");
             jLabelMailUser.setText(userMgmt.getCorreo());
+            JOptionPane.showMessageDialog(null, "Se ha encontrado y seleccionado al usuario buscado","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             }
             catch (Exception e){
-                System.out.println("Error: El usuario no existe: " + e.toString()); 
+                System.out.println("INFO: El usuario no existe: " + e.toString());
+                JOptionPane.showMessageDialog(null, "No se ha encontrado al usuario buscado","Información para el usuario", JOptionPane.WARNING_MESSAGE);
             }
         }     
     }//GEN-LAST:event_jButtonSearchActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUserInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserInfoActionPerformed
         // TODO add your handling code here:
         if (jLabelMailUser.getText() != "mail"){
@@ -950,59 +958,97 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             }
         }
         else {
-            System.out.println("INFO: No se ha seleeccionado ningún usuario");
+            System.out.println("INFO: No se ha seleccionado ningún usuario");
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún usuario","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButtonUserInfoActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser1ActionPerformed
         // TODO add your handling code here:
         userMgmt =  UsersServices.getUser(jButtonUser1.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
+        JOptionPane.showMessageDialog(null, "Se ha seleccionado un usuario, puede comprobar su información o eliminarlo","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);  
         
     }//GEN-LAST:event_jButtonUser1ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************     
     private void jButtonUser2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser2ActionPerformed
         // TODO add your handling code here:
         userMgmt =  UsersServices.getUser(jButtonUser2.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
+        JOptionPane.showMessageDialog(null, "Se ha seleccionado un usuario, puede comprobar su información o eliminarlo","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);  
     }//GEN-LAST:event_jButtonUser2ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser3ActionPerformed
         // TODO add your handling code here:
         userMgmt =  UsersServices.getUser(jButtonUser3.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
+        JOptionPane.showMessageDialog(null, "Se ha seleccionado un usuario, puede comprobar su información o eliminarlo","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);  
     }//GEN-LAST:event_jButtonUser3ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser4ActionPerformed
         // TODO add your handling code here:
         userMgmt =  UsersServices.getUser(jButtonUser4.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
+        JOptionPane.showMessageDialog(null, "Se ha seleccionado un usuario, puede comprobar su información o eliminarlo","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);  
     }//GEN-LAST:event_jButtonUser4ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser5ActionPerformed
         // TODO add your handling code here:
         userMgmt =  UsersServices.getUser(jButtonUser5.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
+        JOptionPane.showMessageDialog(null, "Se ha seleccionado un usuario, puede comprobar su información o eliminarlo","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);  
     }//GEN-LAST:event_jButtonUser5ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************
     private void jButtonUser6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser6ActionPerformed
         // TODO add your handling code here:
         userMgmt =  UsersServices.getUser(jButtonUser6.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
+        JOptionPane.showMessageDialog(null, "Se ha seleccionado un usuario, puede comprobar su información o eliminarlo","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);  
     }//GEN-LAST:event_jButtonUser6ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+ // ********************************************************************************************************************   
     private void jButtonUser7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser7ActionPerformed
         // TODO add your handling code here:
         userMgmt =  UsersServices.getUser(jButtonUser7.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
+        JOptionPane.showMessageDialog(null, "Se ha seleccionado un usuario, puede comprobar su información o eliminarlo","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);  
     }//GEN-LAST:event_jButtonUser7ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser8ActionPerformed
         // TODO add your handling code here:
         userMgmt =  UsersServices.getUser(jButtonUser8.getText());
         jLabelMailUser.setText(userMgmt.getCorreo());
+        JOptionPane.showMessageDialog(null, "Se ha seleccionado un usuario, puede comprobar su información o eliminarlo","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);  
     }//GEN-LAST:event_jButtonUser8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextFieldSearchUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserMousePressed
         // TODO add your handling code here:
         if(jTextFieldSearchUser.getText().equals("Ingrese su nombre de usuario")){
@@ -1010,31 +1056,61 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             jTextFieldSearchUser.setForeground(Color.black);
         }
     }//GEN-LAST:event_jTextFieldSearchUserMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextFieldSearchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSearchUserActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserDeleteActionPerformed
         // TODO add your handling code here:
          if (jLabelMailUser.getText() != "mail"){
              if (UsersServices.deleteUser(jLabelMailUser.getText())) {
+                 //SAVE USER DATA:
+                 UsersServices.saveUserData();
                  System.out.println("INFO: El usuario se ha eliminado con exito");
-             
+                 JOptionPane.showMessageDialog(null, "El usuario se ha eliminado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);             
              }
              else {
-                 System.out.println("El usuario no ha podido ser eliminado");
+                 System.out.println("INFO: El usuario no ha podido ser eliminado");
+                 JOptionPane.showMessageDialog(null, "El usuario no ha podido ser eliminado, contacte con nosostros","Información para el usuario", JOptionPane.WARNING_MESSAGE);
              }
          }
         else {
-            System.out.println("INFO: No se ha seleeccionado ningún usuario");
+            System.out.println("INFO: No se ha seleccionado ningún usuario");
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún usuario","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         }
         jLabelMailUser.setText("mail");
         jPanelUsersFound.setVisible(false);
            
     }//GEN-LAST:event_jButtonUserDeleteActionPerformed
-
+// ********************************************************************************************************************
     
+    
+// ********************************************************************************************************************    
+    private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
+    private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
+// ********************************************************************************************************************
+ 
+    
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -1084,3 +1160,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JTextField jTextFieldUserMail;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

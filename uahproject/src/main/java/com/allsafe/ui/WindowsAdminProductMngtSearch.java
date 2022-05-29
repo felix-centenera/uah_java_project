@@ -26,6 +26,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 
 /**
@@ -44,32 +45,21 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
     private int numberOfUserPages=0;
     Login miservicioDeLogin = Login.getInstance();
     // just for mock delete after test:
-    UserData userData = UserData.getInstance();
-    
-    
+    UserData userData = UserData.getInstance();  
     ArrayList<Producto> listOfProductos;
     
-    /**
-     * Creates new form Home
-     */
-//    public WindowsProduct() {
-//        initComponents();
-//        createHomePageProductos();
-//        createHomePage();
-//    }
     
-    
-    
+// ********************************************************************************************************************
      public  void  SetlistOfProductos(ArrayList<Producto> listOfProductos) {
         this.listOfProductos = listOfProductos;
         
  }
+// ********************************************************************************************************************
  
-//  public  Usuario  GetUsuario() {
-//        return  user;  
-// }
-    
-    /** Creates new form WindowProduct */
+
+// ********************************************************************************************************************    
+    /** Creates new form WindowProduct
+     * @param ventana */
     public WindowsAdminProductMngtSearch(WindowsAdminProductMngt ventana) {
         //Ocultamos la ventana principal
         principal = ventana;
@@ -78,22 +68,15 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
         //this.producto =producto;
         initComponents();
         this.setVisible(true);
-        createWindowsProductPage();
-        
+        createWindowsProductPage();     
     }
+// ********************************************************************************************************************
     
-//     public WindowsAdminUserMngt(WindowsProduct ventana2, Usuario u, Home ventana1) {
-//        //Ocultamos la ventana principal
-//        secundariaProductos = ventana2;
-//        principal = ventana1;
-//        secundariaProductos.setVisible(false);
-//        user = u;
-//        initComponents();
-//        this.setVisible(true);
-//        createWindowsProductPage();
-//    }
-//    
-
+  
+// ********************************************************************************************************************
+    /**
+     * Nos permite crear la interfaz home con todos lo elementos necesarios de forma dinámica.
+     */
     private void createWindowsProductPage() {
         try {
             //jLabelImg.setSize(130, 100);
@@ -121,9 +104,7 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
             jButtonUser8.setVisible(false);
             jPanelUsersFound.setVisible(false);
             jLabelProductSelected.setVisible(false);
-        
-            
-            
+                    
             //SET BOTTON HOME PAGE.
          
         } 
@@ -134,12 +115,24 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
         }
     }
     
+    
+    // ********************************************************************************************************************
+    /**
+     *
+     */
     public  void  SetNumberOfUserPages0() {
         this.numberOfUserPages = 0;
  }
+ // ********************************************************************************************************************
     
     
-    
+// ********************************************************************************************************************    
+/**
+* Nos permite mostrar los usuario en la interfaz  con todos lo elementos necesarios de forma dinámica.
+* Estos usuarios están recogidos en un ArrayList usuario listOfProductos, mediante el parametro i mostraremos
+* los usuario que comiencen en la posición i.
+* * @param i
+*/ 
     private void printUsers(int i){
                 jPanelUsersFound.setVisible(true);
                 jButtonUser1.setVisible(false);        
@@ -157,26 +150,23 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
                 
                 
                 int sizeProductData=listOfProductos.size();
-                
-                
-                
-                
-                System.out.println(numberOfUserPages);
+                    
+                //System.out.println(numberOfUserPages);
                 numberOfUserPages = numberOfUserPages +i;
-                System.out.println(numberOfUserPages);
+                //System.out.println(numberOfUserPages);
                 jPanelUsersFound.setVisible(true);
                 switch (sizeProductData) {
                 case 1 : 
                     try {
-                        System.out.println("caso1");
+                        //System.out.println("caso1");
                     jButtonUser1.setVisible(true);
                    // jButtonUser1.setText(listOfKeys.get(numberOfUserPages));
                     jButtonUser1.setText(listOfProductos.get(numberOfUserPages).getTitulo());
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas productos que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas productos que mostrar " + e.toString()); 
                         SetNumberOfUserPages0();
-                        System.out.println("Voy a poner los productos a 0");
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         printUsers(0);
                         
                         //createWindowsProductPage();
@@ -184,15 +174,15 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
                     break;
                 case 2 :
                     try {
-                        System.out.println("caso2");
+                        //System.out.println("caso2");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfProductos.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
                     jButtonUser2.setText(listOfProductos.get(numberOfUserPages + 1).getTitulo());
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas producto que mostrar " + e.toString()); 
-                        System.out.println("Voy a poner los producto a 0");
+                        System.out.println("INFO: No hay mas productos que mostrar " + e.toString()); 
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         SetNumberOfUserPages0();
                         printUsers(0);
                         //createWindowsProductPage();
@@ -201,7 +191,7 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
                     break;
                 case 3:
                     try {
-                        System.out.println("caso3");
+                        //System.out.println("caso3");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfProductos.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
@@ -210,16 +200,16 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
                     jButtonUser3.setText(listOfProductos.get(numberOfUserPages + 2 ).getTitulo());
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas productos que mostrar" + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         //createWindowsProductPage();
                     }
                     break;
                 case 4:
                     try {
-                        System.out.println("caso4");
+                        //System.out.println("caso4");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfProductos.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
@@ -230,17 +220,17 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
                     jButtonUser4.setText(listOfProductos.get(numberOfUserPages + 3).getTitulo());
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas productos que mostrar" + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
-                        System.out.println("Voy a poner los user a 0");
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         //createWindowsProductPage();
                     }
                     
                     break;
                 case 5:
                     try {
-                        System.out.println("caso5");
+                        //System.out.println("caso5");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfProductos.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
@@ -253,15 +243,16 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
                     jButtonUser5.setText(listOfProductos.get(numberOfUserPages + 4 ).getTitulo());
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas productos que mostrar" + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         //createWindowsProductPage();
                     }
                     break;
                 case 6:
                     try {
-                        System.out.println("caso6");
+                        //System.out.println("caso6");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfProductos.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
@@ -276,15 +267,16 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
                     jButtonUser6.setText(listOfProductos.get(numberOfUserPages + 5 ).getTitulo());
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas productos que mostrar" + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         //createWindowsProductPage();
                     }
                     break;
                 case 7:
                     try {
-                        System.out.println("caso7");
+                        //System.out.println("caso7");
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfProductos.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
@@ -301,19 +293,20 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
                     jButtonUser7.setText(listOfProductos.get(numberOfUserPages + 6).getTitulo());
                     }
                     catch (Exception e) {
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        System.out.println("INFO: No hay mas productos que mostrar" + e.toString()); 
                         SetNumberOfUserPages0();
                         printUsers(0);
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");
                         //createWindowsProductPage();
                     }
                     break;
                 default:
-                    System.out.println("somos 8 o mas  "  );   
+                    //System.out.println("somos 8 o mas  "  );   
                     try {
-                            System.out.println("caso8");
-                            System.out.println("somos 8 o mas  y estamos haciendolo bien"  );   
-                            System.out.println("la i es: " + i + "y i +1 es= " + i +1 ); 
-                            System.out.println(numberOfUserPages);
+                            //System.out.println("caso8");
+                            //System.out.println("Son 8 o mas  y estamos haciendolo bien"  );   
+                            //System.out.println("la i es: " + i + "y i +1 es= " + i +1 ); 
+                            //System.out.println(numberOfUserPages);
                     jButtonUser1.setVisible(true);
                     jButtonUser1.setText(listOfProductos.get(numberOfUserPages).getTitulo());
                     jButtonUser2.setVisible(true);
@@ -332,52 +325,27 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
                     jButtonUser8.setText(listOfProductos.get(numberOfUserPages + 7).getTitulo());
                     }
                     catch (Exception e) {
-                         System.out.println("somos 8 o mas  y estamos dando error"  );       
-                        System.out.println("Error: No hay mas usuarios que mostrar " + e.toString()); 
+                        //System.out.println("Son 8 o mas  y estamos dando error"  );       
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0" + e.toString()); 
                         SetNumberOfUserPages0();
                         //createWindowsProductPage();
                         printUsers(0);
+                        System.out.println("INFO: Voy a poner el recorrido de los productos a 0");    
                     }
                     break;
                 }
     }
 
-    // ********************************************************************************************************************
+// ********************************************************************************************************************
 
-
-//método comprobar login
-//private boolean checkLogin(){
-//    boolean operationAccepted=false;
-//    if (user == null){
-//        this.dispose();
-//        principal.setVisible(true);
-//        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//        return false;
-//    }
-//     else{
-//        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
-//        System.out.println("INFO: Voy a comprobar el token");
-//        if (operationAccepted == false){
-//            this.dispose();
-//            principal.setVisible(true);
-//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//            return false;
-//        }
-//        return true;
-//    }
-//}
-
-// public  void  SetUsuario(Usuario user) {
-//        this.user = user;
-//        
-// }
- // ********************************************************************************************************************
- 
+// ********************************************************************************************************************
 private JFrame getFrame(){
      return this;
     }
+// ********************************************************************************************************************
+ 
 
-    
+// ********************************************************************************************************************
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -406,7 +374,6 @@ private JFrame getFrame(){
         jSeparator2 = new javax.swing.JSeparator();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBoxCategoria = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
         jPanelUsersFound = new javax.swing.JPanel();
         jButtonUser1 = new javax.swing.JButton();
         jButtonUser2 = new javax.swing.JButton();
@@ -554,8 +521,6 @@ private JFrame getFrame(){
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jLabel3.setText("Buscar Producto");
-
         jPanelUsersFound.setBackground(new java.awt.Color(255, 255, 255));
         jPanelUsersFound.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
 
@@ -670,13 +635,9 @@ private JFrame getFrame(){
                 .addGap(391, 391, 391))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addGap(562, 562, 562)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                            .addGap(24, 24, 24)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(215, 215, 215)
                         .addComponent(jLabelProductSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -691,9 +652,7 @@ private JFrame getFrame(){
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -734,6 +693,11 @@ private JFrame getFrame(){
         jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/home.png")); // NOI18N
         jButtonHomeIconsGround5.setBorderPainted(false);
         jButtonHomeIconsGround5.setContentAreaFilled(false);
+        jButtonHomeIconsGround5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround5ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 40, 40));
 
         jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/ArrowDown.png")); // NOI18N
@@ -769,21 +733,24 @@ private JFrame getFrame(){
         jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/mail.png")); // NOI18N
         jButtonHomeIconsGround6.setBorderPainted(false);
         jButtonHomeIconsGround6.setContentAreaFilled(false);
+        jButtonHomeIconsGround6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround6ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, 40));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
 
 
 
 
-//    private JFrame getFrame(){
-//     return this;
-//    }
-    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -796,23 +763,31 @@ private JFrame getFrame(){
           secundariaProductos.setVisible(true);
         }
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
+// ********************************************************************************************************************
+    
 
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      */
-
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     // TODO add your handling code here:
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
         ///TODO Execptio!!!!!
             //opinion= opinion+1;
             //createWindowsProductPage();
             printUsers(-1);
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+ // ********************************************************************************************************************   
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
         // TODO add your handling code here:
         //opinion= opinion-1;
@@ -820,21 +795,15 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         //TODO Execptio!!!!!
         printUsers(1);
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
         // TODO add your handling code here:
         jLabelProductSelected.setVisible(false);
         //jTextFieldSearchUser.getText(); ||  (jTextFieldSearchUser.getText().contains(""))
-        // InventoryServices.orderByStarts();
-        
-        
-        //System.out.println(InventoryServices.orderByStarts().get(0) + "que voy");
-        
-//        System.out.println(InventoryServices.orderByStarts());
-//        System.out.println(InventoryServices.orderByPrice());   jComboBoxCategoria
-//        
-        //
-        
+        // InventoryServices.orderByStarts();  
         if (jTextFieldSearchUser.getText().contains("Ingrese el titulo del producto")) {
             
             try {
@@ -848,7 +817,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                             printUsers(0);
                     }  
                     else {
-                        System.out.println("No han encontrado resultados");
+                        System.out.println("INFO: No se han encontrado resultados");
+                        JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                         jPanelUsersFound.setVisible(false);
                     } 
                 }   
@@ -861,7 +831,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                             printUsers(0);
                     }  
                     else {
-                        System.out.println("No han encontrado resultados");
+                        System.out.println("INFO: No han encontrado resultados");
+                        JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                         jPanelUsersFound.setVisible(false);
                     }
                 }  
@@ -874,14 +845,16 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                             printUsers(0);
                     }  
                     else {
-                        System.out.println("No han encontrado resultados");
+                        System.out.println("INFO: No han encontrado resultados");
+                        JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                         jPanelUsersFound.setVisible(false);
                     }
                 }  
                 
             }
             catch (Exception e){
-                System.out.println("Error: El producto no existe: " + e.toString()); 
+                System.out.println("INFO: El producto no existe: " + e.toString()); 
+                JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                 jPanelUsersFound.setVisible(false);
              }
         }
@@ -899,7 +872,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                             printUsers(0);
                     }  
                     else {
-                        System.out.println("No han encontrado resultados");
+                        System.out.println("INFO: No han encontrado resultados");
+                        JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                         jPanelUsersFound.setVisible(false);
                     } 
                 }   
@@ -912,7 +886,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                             printUsers(0);
                     }  
                     else {
-                        System.out.println("No han encontrado resultados");
+                        System.out.println("INFO: No han encontrado resultados");
+                        JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                         jPanelUsersFound.setVisible(false);
                     }
                     
@@ -927,47 +902,24 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
                             printUsers(0);
                     }  
                     else {
-                        System.out.println("No han encontrado resultados");
+                        System.out.println("INFO: No han encontrado resultados");
+                        JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                         jPanelUsersFound.setVisible(false);
                     }
                 }  
                 
             }
             catch (Exception e){
-                System.out.println("Error: El producto no existe: " + e.toString());
+                System.out.println("INFO: El producto no existe: " + e.toString());
+                JOptionPane.showMessageDialog(null, "No se han encontrado resultados, pruebe en otra categoría","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
                 jPanelUsersFound.setVisible(false);
-             }
-        
-        
-        
-        
-        }        
-//        if (jTextFieldSearchUser.getText().contains("Ingrese su nombre de usuario")  ){
-//            try {
-//             //if null 
-//             jLabelMailUser.setText("mail");
-//             SetNumberOfUserPages0();
-//             printUsers(0);
-//               
-//            }
-//            catch (Exception e){
-//                System.out.println("Error: No se ha podido realizar la accion: " + e.toString()); 
-//
-//            }
-//        }
-//        else {
-//         try {
-//            jPanelUsersFound.setVisible(false); 
-//            productMgmt =  UsersServices.getUser(jTextFieldSearchUser.getText());
-//            jTextFieldSearchUser.setText("Ingrese su nombre de usuario");
-//            jLabelMailUser.setText(productMgmt.getCorreo());
-//            }
-//            catch (Exception e){
-//                System.out.println("Error: El usuario no existe: " + e.toString()); 
-//            }
-//        }     
+             } 
+        }           
     }//GEN-LAST:event_jButtonSearchActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************   
     private void jButtonUserInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserInfoActionPerformed
         // TODO add your handling code here:
           if (jLabelProduct.getText() != "Producto"){
@@ -977,26 +929,16 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
          }
         else {
             System.out.println("INFO: No se ha seleeccionado ningún producto");
+            JOptionPane.showMessageDialog(null, "No se ha seleeccionado ningún producto","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         }
         jLabelProduct.setText("Producto");
         jPanelUsersFound.setVisible(false);
-       
-        
-//        if (jLabelMailUser.getText() != "mail"){
-//            if(!productMgmt.isAdministrador()){
-//                WindowsMyAccount windowsMyAccount = new WindowsMyAccount(this , productMgmt);
-//                jLabelMailUser.setText("mail");
-//            }
-//            else {
-//                WindowsMyAccountAdmin windowsMyAccountAdmin = new WindowsMyAccountAdmin(this , productMgmt);
-//                jLabelMailUser.setText("mail");
-//            }
-//        }
-//        else {
-//            System.out.println("INFO: No se ha seleeccionado ningún usuario");
-//        }
     }//GEN-LAST:event_jButtonUserInfoActionPerformed
-
+// ********************************************************************************************************************
+    
+   
+    
+// ********************************************************************************************************************    
     private void jButtonUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser1ActionPerformed
         // TODO add your handling code here:
         // jButtonUser1.setText(listOfProductos.get(numberOfUserPages).getTitulo());
@@ -1007,34 +949,35 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         jLabelProductSelected.setIcon(new javax.swing.ImageIcon(productMgmt.getFotografia()));
         
     }//GEN-LAST:event_jButtonUser1ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+    
     private void jButtonUser2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser2ActionPerformed
         // TODO add your handling code here:
-//        productMgmt =  UsersServices.getUser(jButtonUser2.getText());
-//        jLabelProduct.setText(productMgmt.getCorreo());
-        
-        
         productMgmt = InventoryServices.getProducto(jButtonUser2.getText());
         jLabelProduct.setText(productMgmt.getTitulo());
         jLabelProductSelected.setVisible(true);
-        jLabelProductSelected.setIcon(new javax.swing.ImageIcon(productMgmt.getFotografia()));
-        
-        
-        
-        
+        jLabelProductSelected.setIcon(new javax.swing.ImageIcon(productMgmt.getFotografia()));    
     }//GEN-LAST:event_jButtonUser2ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser3ActionPerformed
         // TODO add your handling code here:
 //        productMgmt =  UsersServices.getUser(jButtonUser3.getText());
 //        jLabelProduct.setText(productMgmt.getCorreo());
-
         productMgmt = InventoryServices.getProducto(jButtonUser3.getText());
         jLabelProduct.setText(productMgmt.getTitulo());
         jLabelProductSelected.setVisible(true);
         jLabelProductSelected.setIcon(new javax.swing.ImageIcon(productMgmt.getFotografia()));
     }//GEN-LAST:event_jButtonUser3ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser4ActionPerformed
         // TODO add your handling code here:
 //        productMgmt =  UsersServices.getUser(jButtonUser4.getText());
@@ -1044,10 +987,12 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         productMgmt = InventoryServices.getProducto(jButtonUser4.getText());
         jLabelProduct.setText(productMgmt.getTitulo());
         jLabelProductSelected.setVisible(true);
-        jLabelProductSelected.setIcon(new javax.swing.ImageIcon(productMgmt.getFotografia()));
-        
+        jLabelProductSelected.setIcon(new javax.swing.ImageIcon(productMgmt.getFotografia()));    
     }//GEN-LAST:event_jButtonUser4ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser5ActionPerformed
         // TODO add your handling code here:
          productMgmt = InventoryServices.getProducto(jButtonUser5.getText());
@@ -1055,7 +1000,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         jLabelProductSelected.setVisible(true);
         jLabelProductSelected.setIcon(new javax.swing.ImageIcon(productMgmt.getFotografia()));
     }//GEN-LAST:event_jButtonUser5ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser6ActionPerformed
         // TODO add your handling code here:
          productMgmt = InventoryServices.getProducto(jButtonUser6.getText());
@@ -1063,7 +1011,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         jLabelProductSelected.setVisible(true);
         jLabelProductSelected.setIcon(new javax.swing.ImageIcon(productMgmt.getFotografia()));
     }//GEN-LAST:event_jButtonUser6ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser7ActionPerformed
         // TODO add your handling code here:
          productMgmt = InventoryServices.getProducto(jButtonUser7.getText());
@@ -1071,7 +1022,11 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         jLabelProductSelected.setVisible(true);
         jLabelProductSelected.setIcon(new javax.swing.ImageIcon(productMgmt.getFotografia()));
     }//GEN-LAST:event_jButtonUser7ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUser8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUser8ActionPerformed
         // TODO add your handling code here:
          productMgmt = InventoryServices.getProducto(jButtonUser8.getText());
@@ -1079,54 +1034,85 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         jLabelProductSelected.setVisible(true);
         jLabelProductSelected.setIcon(new javax.swing.ImageIcon(productMgmt.getFotografia()));
     }//GEN-LAST:event_jButtonUser8ActionPerformed
-
+// ********************************************************************************************************************
     
-    
+// ********************************************************************************************************************    
     private void jTextFieldSearchUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserMousePressed
         // TODO add your handling code here:
-        if(jTextFieldSearchUser.getText().equals("Ingrese el situtlo del producto")){
+        if(jTextFieldSearchUser.getText().equals("Ingrese el titulo del producto")){
             jTextFieldSearchUser.setText("");
             jTextFieldSearchUser.setForeground(Color.black);
         }
     }//GEN-LAST:event_jTextFieldSearchUserMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextFieldSearchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSearchUserActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonUserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUserDeleteActionPerformed
         // TODO add your handling code here:
-        
          if (jLabelProduct.getText() != "Producto"){
              if (InventoryServices.deleteProduct(jLabelProduct.getText())) {
+                 //SAVE INVENTORY DATA
+                 InventoryServices.saveInventoryData();
                  System.out.println("INFO: El producto se ha eliminado del inventario");
+                 JOptionPane.showMessageDialog(null, "El producto se ha eliminado del inventario","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
              
              }
              else {
-                 System.out.println("El producto no se ha eliminado del inventario");
+                 System.out.println("INFO: El producto no se ha eliminado del inventario");
+                 JOptionPane.showMessageDialog(null, " El producto no se ha eliminado del inventario, contacte con nosotros","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
              }
          }
         else {
-            System.out.println("INFO: No se ha seleeccionado ningún producto");
+            System.out.println("INFO: No se ha seleccionado ningún producto");
+            JOptionPane.showMessageDialog(null, " No se ha seleccionado ningún producto","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         }
         jLabelProduct.setText("Producto");
         jPanelUsersFound.setVisible(false);
-        jLabelProductSelected.setVisible(false);
-           
- 
-        
-        
+        jLabelProductSelected.setVisible(false);  
     }//GEN-LAST:event_jButtonUserDeleteActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+ // ********************************************************************************************************************   
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxCategoriaActionPerformed
-
+// ********************************************************************************************************************
     
+    
+// ********************************************************************************************************************    
+    private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
+    private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
+// ********************************************************************************************************************
+ 
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -1152,7 +1138,6 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JComboBox<String> jComboBoxCategoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2UserMail1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelHomeIcon4;
     private javax.swing.JLabel jLabelProduct;
     private javax.swing.JLabel jLabelProductSelected;
@@ -1171,3 +1156,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JTextField jTextFieldSearchUser;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

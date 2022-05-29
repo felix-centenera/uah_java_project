@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,14 +33,7 @@ public class WindowsProductCreateOpinion extends javax.swing.JFrame  {
     private Usuario user;
     private int opinion=0;
     Login miservicioDeLogin = Login.getInstance();
-    /**
-     * Creates new form Home
-     */
-//    public WindowsProduct() {
-//        initComponents();
-//        createHomePageProductos();
-//        createHomePage();
-//    }
+    
     
     /** Creates new form WindowProduct */
     public WindowsProductCreateOpinion(WindowsProduct ventana, Producto producto, Usuario u) {
@@ -53,7 +47,12 @@ public class WindowsProductCreateOpinion extends javax.swing.JFrame  {
         createWindowsProductPage();
         
     }
-    
+
+
+// ********************************************************************************************************************    
+/**
+* Nos permite crear la interfaz createWindowsProductPage con todos lo elementos necesarios de forma dinámica.
+*/ 
    public void createWindowsProductPage() {
         try {
             //jLabelImg.setSize(130, 100);
@@ -65,11 +64,10 @@ public class WindowsProductCreateOpinion extends javax.swing.JFrame  {
             if (checkLoginInterfaz()){
        
              if (user.isAdministrador()){
-                 System.out.println("Eres un administrador");
+                 System.out.println("INFO: Eres un administrador");
                  
                
-                   jButton1Opinar.setVisible(false);
-               
+                   jButton1Opinar.setVisible(false);              
 //                 jButtonLogin.jButtonMiCarrito(false);
 //                 jButtonMiCarrito.setVisible(false);
 //                 jButtonAdmin.setVisible(true);
@@ -90,9 +88,7 @@ public class WindowsProductCreateOpinion extends javax.swing.JFrame  {
             
            
             jButton1Opinar.setIcon(new javax.swing.ImageIcon("Icons/png/opinar.png"));
-            
-            
-            
+
             // Set image of the producto
             jLabel3Product.setSize(300,180);
             //ImageIcon imagen = new ImageIcon(principal.RandomProductsHome.get(0).getFotografia());
@@ -104,12 +100,7 @@ public class WindowsProductCreateOpinion extends javax.swing.JFrame  {
             jTextFieldProductoTitulo2.setText(producto.getTitulo());
             // Set   the Caracteristicas of the product
           
-            jTextFieldVasACrearOpinion.setText("Hola " + user.getCorreo() + " vas a registrar una opinión.");
-      
-     
-            
-            
-            
+            jTextFieldVasACrearOpinion.setText("Hola " + user.getCorreo() + " vas a registrar una opinión.");    
         } 
         catch (Exception e) {
             System.out.println("Error: " + e.toString()); 
@@ -118,32 +109,21 @@ public class WindowsProductCreateOpinion extends javax.swing.JFrame  {
         }
     }
 
-    // ********************************************************************************************************************
+// ********************************************************************************************************************
 
 
-//método comprobar login. Método antiguo te devuelve a la home si no has hecho login.
-//private boolean checkLogin(){
-//    boolean operationAccepted=false;
-//    if (user == null){
-//        this.dispose();
-//        principal.setVisible(true);
-//        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//        return false;
-//    }
-//     else{
-//        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
-//        System.out.println("INFO: Voy a comprobar el token");
-//        if (operationAccepted == false){
-//            this.dispose();
-//            principal.setVisible(true);
-//            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
-//            return false;
-//        }
-//        return true;
-//    }
-//}
-    
+// ********************************************************************************************************************
  //método comprobar login
+/**
+ * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
+ * del método checkLoginInterfaz para evolucionen de forma independiente, con el objetivo de que 
+ * este método solo compruebe el login del usuario asociado.
+ * @return
+ * <ul>
+ * <li> True: Si el usuario esta logado.</li>
+ * <li> False: Si el usuario no  esta logado.</li>
+ * </ul>
+ */
 private boolean checkLogin(){
     boolean operationAccepted=false;
     if (user == null){
@@ -153,46 +133,61 @@ private boolean checkLogin(){
 //            return false;
 //        }
         //return true;
-        System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+        System.out.println("INFO: No puedes realizar esa acción, debes estar logado");
         return false;
     }
      else{
-        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
         if (operationAccepted == false){
-            System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
+            System.out.println("INFO: No puedes realizar esa acción, debes estar logado");
             return false;
         }
         return true;
     }
 }
+// ********************************************************************************************************************
 
 
+// ********************************************************************************************************************
+/**
+ * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
+ * del método checkLogin para evolucionen de forma independiente, con el objetivo de que 
+ * este método compruebe el login del usuario y permite la relación interfaces basadas en la 
+ * autenticación y autorización.
+ * @return
+ * <ul>
+ * <li> True: Si el usuario esta logado.</li>
+ * <li> False: Si el usuario no  esta logado.</li>
+ * </ul>
+ */
 private boolean checkLoginInterfaz(){
     boolean operationAccepted=false;
     if (user == null){
-        System.out.println("INFO: No hay  devuelvo falso para que pintes interfaz de usuario visitante");
+        System.out.println("INFO: No hay un usuario asociado devuelvo falso para que pintes interfaz de usuario visitante");
         return false;
     }
      else{
-        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
         if (operationAccepted == false){
-            System.out.println("INFO: No hay  devuelvo treu para que pintes interfaz de usuario registrado");
+            System.out.println("INFO: Alguno de los siguientes campos, token, correo o clave  no son correctos, devuelvo falso para que pintes interfaz de usuario visitante");
             return false;
         }
         return true;
     }
 }
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
  public  void  SetUsuario(Usuario user) {
-        this.user = user;
-        
+        this.user = user;      
  }
  // ********************************************************************************************************************
  
 
-    
+   // ******************************************************************************************************************** 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -246,6 +241,7 @@ private boolean checkLoginInterfaz(){
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldProductoTitulo2.setEditable(false);
         jTextFieldProductoTitulo2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jTextFieldProductoTitulo2.setBorder(null);
         jTextFieldProductoTitulo2.addActionListener(new java.awt.event.ActionListener() {
@@ -413,6 +409,11 @@ private boolean checkLoginInterfaz(){
         jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/home.png")); // NOI18N
         jButtonHomeIconsGround5.setBorderPainted(false);
         jButtonHomeIconsGround5.setContentAreaFilled(false);
+        jButtonHomeIconsGround5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround5ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 40, 40));
 
         jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/ArrowDown.png")); // NOI18N
@@ -448,85 +449,130 @@ private boolean checkLoginInterfaz(){
         jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/mail.png")); // NOI18N
         jButtonHomeIconsGround6.setBorderPainted(false);
         jButtonHomeIconsGround6.setContentAreaFilled(false);
+        jButtonHomeIconsGround6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround6ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, 40));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
-
-
-
-
+// ********************************************************************************************************************
     private JFrame getFrame(){
      return this;
     }
+ // ********************************************************************************************************************
     
+    
+ // ********************************************************************************************************************   
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        principal.setVisible(true);
-       
-       
+        principal.setVisible(true);   
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      */
-
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     // TODO add your handling code here:
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
     private void jTextFieldProductoTitulo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProductoTitulo2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProductoTitulo2ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
         ///TODO Execptio!!!!!
             opinion= opinion+1;
             createWindowsProductPage();
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
         // TODO add your handling code here:
         opinion= opinion-1;
         createWindowsProductPage();
         //TODO Execptio!!!!!
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButton1OpinarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1OpinarActionPerformed
         // TODO add your handling code here:
          if (checkLogin()){
-            System.out.println("INFO: Vas a crear una opnión");
+            System.out.println("INFO: Vas a crear una opinión");
             //sString titulo, int calificacion, String comentario, String cliente
             //jTextFieldProductoTitulo2.getText()
             //int hola = (int) jComboBoxStarts.getSelectedItem();
             if(InventoryServices.addOpinionToAProducto(jTextFieldProductoTitulo2.getText(),Integer.parseInt( jComboBoxStarts.getSelectedItem().toString().substring(0, 1)), jTextAreaOpinion.getText(), user.getCorreo())) {
+                //SAVE INVENTORY DATA
+                 InventoryServices.saveInventoryData();
                 System.out.println("INFO: Se ha registrado correctamente la opinión");
+                JOptionPane.showMessageDialog(null, "Se ha registrado correctamente la opinión","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                
             }
             else{
-                System.out.println("INFO: No se ha podido registrar la opnión");
-            }
-            
+                System.out.println("ERROR: No se ha podido registrar la opnión");
+                JOptionPane.showMessageDialog(null, "No se ha podido registrar la opnión","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+            }  
         }
         else{
             System.out.println("INFO: Necesita estar logado para opinar");
+            JOptionPane.showMessageDialog(null, "Necesita estar logado para opinar","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
-            principal.setVisible(true);
-            
+            principal.setVisible(true);     
         }
         this.dispose();
         principal.setVisible(true);
     }//GEN-LAST:event_jButton1OpinarActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jTextFieldVasACrearOpinionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVasACrearOpinionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldVasACrearOpinionActionPerformed
-
+// ********************************************************************************************************************
     
+    
+// ********************************************************************************************************************    
+    private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
+    private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
+// ********************************************************************************************************************
+ 
+    
+    
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -562,3 +608,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JTextField jTextFieldVasACrearOpinion;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

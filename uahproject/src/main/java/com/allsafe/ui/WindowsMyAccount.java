@@ -25,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,15 +40,7 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
     //Creamos la referencia a nuestro servio de login
     UserData usuariosMock = UserData.getInstance(); 
     private Usuario user;
-//    Login miservicioDeLogin = Login.getInstance();
-    /**
-     * Creates new form Home
-     */
-//    public WindowsProduct() {
-//        initComponents();
-//        createHomePageProductos();
-//        createHomePage();
-//    }
+
     
     /** Creates new form WindowProduct */
     public WindowsMyAccount(Home ventana, Usuario u) {
@@ -84,8 +77,10 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
     }
     
     
-    
-
+// ********************************************************************************************************************    
+/**
+* Nos permite crear la interfaz createWindowsCreateUserPage con todos lo elementos necesarios de forma dinámica.
+*/
     private void createWindowsCreateUserPage() {
         try {
             //jLabelImg.setSize(130, 100);
@@ -101,23 +96,17 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
             jButtonHomeIconsGround9.setIcon(new javax.swing.ImageIcon("Icons/png/back.png"));
             jLabelTittle.setText("Cuenta de: "+ user.getCorreo());
-            jPanel13.setVisible(false);
-            
-            
-            //SET BOTTON HOME PAGE.
-         
+            jPanel13.setVisible(false);                    
         } 
         catch (Exception e) {
             System.out.println("Error: " + e.toString()); 
             createWindowsCreateUserPage();
         }
     }
-
-    // ********************************************************************************************************************
-
+// ********************************************************************************************************************
 
 
-    
+// ********************************************************************************************************************    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -664,6 +653,11 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
                 jFormattedTCNumeroMousePressed(evt);
             }
         });
+        jFormattedTCNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTCNumeroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -696,6 +690,16 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jFormattedTextTCFechaCaducidad.setBorder(null);
         jFormattedTextTCFechaCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         jFormattedTextTCFechaCaducidad.setText("30/4/22");
+        jFormattedTextTCFechaCaducidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jFormattedTextTCFechaCaducidadMouseClicked(evt);
+            }
+        });
+        jFormattedTextTCFechaCaducidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextTCFechaCaducidadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -769,7 +773,7 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
                     .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -811,9 +815,9 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
                             .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
+                        .addGap(152, 152, 152)
                         .addComponent(jButtonRegistarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -840,9 +844,9 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)
                         .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonRegistarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 1180, 500));
@@ -882,6 +886,11 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/home.png")); // NOI18N
         jButtonHomeIconsGround5.setBorderPainted(false);
         jButtonHomeIconsGround5.setContentAreaFilled(false);
+        jButtonHomeIconsGround5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround5ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 40, 40));
 
         jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/ArrowDown.png")); // NOI18N
@@ -917,25 +926,32 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/mail.png")); // NOI18N
         jButtonHomeIconsGround6.setBorderPainted(false);
         jButtonHomeIconsGround6.setContentAreaFilled(false);
+        jButtonHomeIconsGround6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeIconsGround6ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButtonHomeIconsGround6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, 40));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 760, 1240, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+// ********************************************************************************************************************
 
 
 
-
-
+// ********************************************************************************************************************
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
+// ********************************************************************************************************************
+    
+  
+// ********************************************************************************************************************    
 //    private JFrame getFrame(){
 //     return this;
 //    }
-    
     private void jButtonHomeIconsGround9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround9ActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -949,46 +965,55 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
         
         else if (secundariaWindowsAdminUserMngt != null){
           secundariaWindowsAdminUserMngt.setVisible(true);
-        }
-         
-        
+        }     
     }//GEN-LAST:event_jButtonHomeIconsGround9ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     /**
      * @param args the command line arguments
      */
-
 private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
     // TODO add your handling code here:
     principal.setVisible(true);
 }//GEN-LAST:event_formWindowClosed
+// ********************************************************************************************************************
 
+
+// ********************************************************************************************************************
     private void jButtonHomeIconsGround8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround8ActionPerformed
         ///TODO Execptio!!!!
         //TODO en esta pantalla posiblemente no tenga sentido este botón
             createWindowsCreateUserPage();
     }//GEN-LAST:event_jButtonHomeIconsGround8ActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jButtonHomeIconsGround7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround7ActionPerformed
         // TODO add your handling code here:
          //TODO en esta pantalla posiblemente no tenga sentido este botón
         createWindowsCreateUserPage();
         //TODO Execptio!!!!!
     }//GEN-LAST:event_jButtonHomeIconsGround7ActionPerformed
+// ********************************************************************************************************************
+    
+    
+    
 
-//    // TODO ADAPTAR A ESTA PÄGINA
     private void JTextFieldUserMailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserMailMousePressed
         // TODO add your handling code here:
-//        if(JTextFieldUserMail.getText().equals("Ingrese su nombre de usuario.")){
-//            JTextFieldUserMail.setText("");
-//            JTextFieldUserMail.setForeground(Color.black);
-//        }
     }//GEN-LAST:event_JTextFieldUserMailMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserMailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserMailActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jPasswordFieldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldMousePressed
         // TODO add your handling code here:
         if(String.valueOf(jPasswordField.getPassword()).equals("********")){
@@ -1000,15 +1025,15 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             JTextFieldUserMail.setText("Ingrese su nombre de usuario");
             JTextFieldUserMail.setForeground(Color.gray);
         }
-
     }//GEN-LAST:event_jPasswordFieldMousePressed
-
-    //TODO TIENEN SENTIDO LO SIGUIENTE MËTODOS
+// ********************************************************************************************************************
     
+  
+
+// ********************************************************************************************************************    
     private void recogerDatosDeUsuarioYpintarEnPantalla(){
         String clase = user.getClass().getSimpleName();
         if (clase.equals("ClienteParticular")){
-            //System.out.println("hola");
             ClienteParticular c1 = (ClienteParticular) user;
             //usuariosMock.addUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())
             JTextFieldUserDNI.setText(c1.getDni());
@@ -1054,70 +1079,120 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
     
     }
-    
-    
+// ********************************************************************************************************************    
+ 
+
+// ********************************************************************************************************************    
     private void jButtonRegistarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarUsuarioActionPerformed
-        // TODO add your handling code here: UserMail
-    
-//        System.out.println(jFormattedTextTCFechaCaducidad.getValue());
+        
+        // TODO add your handling code here: UserMail            
+        // System.out.println(jFormattedTextTCFechaCaducidad.getValue());
+        
         String fecha1txt = (String) jFormattedTextTCFechaCaducidad.getText();
-        System.out.println(fecha1txt);
+        //System.out.println(fecha1txt);
         String[] partes = fecha1txt.split("/");     
         int d1 = Integer.parseInt(partes[0]);
         int m1 = Integer.parseInt(partes[1]);
         int a1 = Integer.parseInt(partes[2]);
-        LocalDate fecha = LocalDate.of(Integer.parseInt(partes[2]), Integer.parseInt(partes[1]), Integer.parseInt(partes[0])); 
+        
+        if (partes[2].length() == 2) {
+            int firstTwoDigitsOfYear = (LocalDate.now().getYear()) /100 ;
+            partes[2] = String.valueOf(firstTwoDigitsOfYear) + partes[2];
+        }
+        //String a = String.valueOf(firstTwoDigitsOfYear);
+        //LocalDate fecha = LocalDate.of(Integer.parseInt(partes[2]), Integer.parseInt(partes[1]), Integer.parseInt(partes[0])); 
+        LocalDate fecha = LocalDate.of(Integer.parseInt(  partes[2]), Integer.parseInt(partes[1]), Integer.parseInt( partes[0])); 
         String clase = user.getClass().getSimpleName();
         
-        
         if(clase.equals("ClienteParticular")) {
-            if (UsersServices.setUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
-                System.out.println("INFO: El usuario se ha sido modificado con exito");
-                this.dispose();
-                
-                if (principal !=null) {
-                    principal.setVisible(true);
-                }
-                else if (secundariaProductos != null){
-                    secundariaProductos.setVisible(true);
-                }
-                else if (secundariaWindowsAdminUserMngt != null){
-                    secundariaWindowsAdminUserMngt.setVisible(true);
-                }
-                //principal.setVisible(true);  
-            }
-            else{
-                System.out.println("ERROR: El usuario no ha podido ser modificado");
+            if (jFormattedTCNumero.getText().length() == 16   && UsersServices.checkDNI(JTextFieldUserDNI.getText())  &&  fecha.isAfter(LocalDate.now()) ){
+                    if (UsersServices.setUser(JTextFieldUserDNI.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).longValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                        //SAVE USER DATA:
+                         UsersServices.saveUserData();
+                        System.out.println("INFO: El usuario se ha sido modificado con exito");
+                        JOptionPane.showMessageDialog(null, "INFO: El usuario se ha sido modificado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                        this.dispose();
 
+                        if (principal !=null) {
+                            principal.setVisible(true);
+                        }
+                        else if (secundariaProductos != null){
+                            secundariaProductos.setVisible(true);
+                        }
+                        else if (secundariaWindowsAdminUserMngt != null){
+                            secundariaWindowsAdminUserMngt.setVisible(true);
+                        }
+                        //principal.setVisible(true);  
+                    }
+                    else{
+                        System.out.println("ERROR: El usuario no ha podido ser modificado");
+                        JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser modificado","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+
+                    }
             }
+            else {
+                            System.out.println("INFO: Hay algun campo mal generado");
+                            if (jFormattedTCNumero.getText().length() != 16){
+                                JOptionPane.showMessageDialog(null, "La tarjeta de credito debe tener 16 dígitos","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+
+                            else if( !UsersServices.checkDNI(JTextFieldUserDNI.getText())) {
+                                JOptionPane.showMessageDialog(null, "El DNI proporcionado no es correcto","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                            
+                            else if( fecha.isBefore(LocalDate.now()) || fecha.isEqual(LocalDate.now()) ) {
+                                JOptionPane.showMessageDialog(null, "La tarjeta de crédito esta caducada, añada otra por favor","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                                
+                    }
         }
         
         else {
-            if (UsersServices.setUser(JTextFieldUserDNI.getText(), JTextFieldUserWeb.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).intValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
-                System.out.println("INFO: El usuario se ha sido modificado con exito");
-                this.dispose();
-                
-                if (principal !=null) {
-                    principal.setVisible(true);
-                }
-                else if (secundariaProductos != null){
-                    secundariaProductos.setVisible(true);
-                }
-                else if (secundariaWindowsAdminUserMngt != null){
-                    secundariaWindowsAdminUserMngt.setVisible(true);
-                }
-               // principal.setVisible(true);  
-            }
-            else{
-                System.out.println("ERROR: El usuario no ha podido ser modificado");
+            
+            if (jFormattedTCNumero.getText().length() == 16    &&  fecha.isAfter(LocalDate.now())){
+                    if (UsersServices.setUser(JTextFieldUserDNI.getText(), JTextFieldUserWeb.getText(), JTextFieldUserName.getText(), JTextFieldUserDireccionCalle.getText(),JTextFieldUserDireccionCiudad.getText(),((Number) jFormattedDireccionNumero.getValue()).intValue(),((Number) jFormattedTextDireccionCP.getValue()).intValue(),(((Number) jFormattedTCNumero.getValue()).longValue()),jFormattedTCTitular.getText(), fecha, JTextFieldUserTelefono.getText(),jPasswordField.getText(),JTextFieldUserMail.getText())) {
+                        //SAVE USER DATA:
+                         UsersServices.saveUserData();
+                        System.out.println("INFO: El usuario se ha sido modificado con exito");
+                        JOptionPane.showMessageDialog(null, "INFO: El usuario se ha sido modificado con exito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                        this.dispose();
 
+                        if (principal !=null) {
+                            principal.setVisible(true);
+                        }
+                        else if (secundariaProductos != null){
+                            secundariaProductos.setVisible(true);
+                        }
+                        else if (secundariaWindowsAdminUserMngt != null){
+                            secundariaWindowsAdminUserMngt.setVisible(true);
+                        }
+                       // principal.setVisible(true);  
+                    }
+                    else{
+                        System.out.println("ERROR: El usuario no ha podido ser modificado");
+                        JOptionPane.showMessageDialog(null, "INFO: El usuario no ha podido ser modificado","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+
+                    }
             }
+            else {
+                            System.out.println("INFO: Hay algun campo mal generado");
+                            if (jFormattedTCNumero.getText().length() != 16){
+                                JOptionPane.showMessageDialog(null, "La tarjeta de credito debe tener 16 dígitos","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                            else if( fecha.isBefore(LocalDate.now())  || fecha.isEqual(LocalDate.now()) ) {
+                                JOptionPane.showMessageDialog(null, "La tarjeta de crédito esta caducada, añada otra por favor","Información para el usuario", JOptionPane.WARNING_MESSAGE);
+                            }
+                                
+                        }
         }
         
            
         
     }//GEN-LAST:event_jButtonRegistarUsuarioActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserTelefonoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserTelefonoMousePressed
         // TODO add your handling code here:
         if(JTextFieldUserTelefono.getText().equals("Ingrese su teléfono.")){
@@ -1125,11 +1200,17 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             JTextFieldUserTelefono.setForeground(Color.black);
         }
     }//GEN-LAST:event_JTextFieldUserTelefonoMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserTelefonoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserTelefonoActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+    
+ // ********************************************************************************************************************   
     private void JTextFieldUserNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserNameMousePressed
         // TODO add your handling code here:
         if(JTextFieldUserName.getText().equals("Ingrese su nombre.")){
@@ -1138,22 +1219,33 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
          
     }//GEN-LAST:event_JTextFieldUserNameMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserNameActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserDNIMousePressed
         if(JTextFieldUserDNI.getText().equals("Ingrese su DNI / CIF.")){
             JTextFieldUserDNI.setText("");
             JTextFieldUserDNI.setForeground(Color.black);
         }
     }//GEN-LAST:event_JTextFieldUserDNIMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserDNIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserDNIActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserWebMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserWebMousePressed
         // TODO add your handling code here:
         if(JTextFieldUserWeb.getText().equals("Ingrese su dirección web.")){
@@ -1161,11 +1253,16 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             JTextFieldUserWeb.setForeground(Color.black);
         }
     }//GEN-LAST:event_JTextFieldUserWebMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserWebActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserWebActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserDireccionCalleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCalleMousePressed
         // TODO add your handling code here:
         if(JTextFieldUserDireccionCalle.getText().equals("Ingrese la calle de dirección.")){
@@ -1174,43 +1271,58 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
         
     }//GEN-LAST:event_JTextFieldUserDireccionCalleMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserDireccionCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCalleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserDireccionCalleActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserDireccionCiudadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCiudadMousePressed
         // TODO add your handling code here:
         if(JTextFieldUserDireccionCiudad.getText().equals("Ingrese el nombre de su ciudad.")){
             JTextFieldUserDireccionCiudad.setText("");
             JTextFieldUserDireccionCiudad.setForeground(Color.black);
-        }
-        
-        
+        }      
     }//GEN-LAST:event_JTextFieldUserDireccionCiudadMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void JTextFieldUserDireccionCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldUserDireccionCiudadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldUserDireccionCiudadActionPerformed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jFormattedTCTitularMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTCTitularMousePressed
         // TODO add your handling code here:
         //jFormattedTCTitular
         if(jFormattedTCTitular.getText().equals("Ingrese el nombre que aparece en su tarjeta.")){
             jFormattedTCTitular.setText("");
             jFormattedTCTitular.setForeground(Color.black);
-        }
-        
+        }    
     }//GEN-LAST:event_jFormattedTCTitularMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jFormattedTCTitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTCTitularActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTCTitularActionPerformed
+// ********************************************************************************************************************
+    
 
+// ********************************************************************************************************************    
     private void jFormattedDireccionNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedDireccionNumeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedDireccionNumeroActionPerformed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jFormattedDireccionNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedDireccionNumeroMousePressed
         try {
             // TODO add your handling code here:
@@ -1222,11 +1334,11 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         if(  (((Number) jFormattedDireccionNumero.getValue()).intValue()) == 24    ) {
             jFormattedDireccionNumero.setValue(0);
             jFormattedDireccionNumero.setForeground(Color.black);
-        }
-        
-        
+        }    
     }//GEN-LAST:event_jFormattedDireccionNumeroMousePressed
-
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
     private void jFormattedTextDireccionCPMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextDireccionCPMousePressed
         // TODO add your handling code here:
          try {
@@ -1241,7 +1353,10 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             jFormattedTextDireccionCP.setForeground(Color.black);
         }
     }//GEN-LAST:event_jFormattedTextDireccionCPMousePressed
-
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
     private void jFormattedTCNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTCNumeroMousePressed
         // TODO add your handling code here:
         try {
@@ -1256,8 +1371,46 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             jFormattedTCNumero.setForeground(Color.black);
         }
     }//GEN-LAST:event_jFormattedTCNumeroMousePressed
-
+// ********************************************************************************************************************
     
+    
+// ********************************************************************************************************************    
+    private void jFormattedTextTCFechaCaducidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextTCFechaCaducidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextTCFechaCaducidadActionPerformed
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
+    private void jFormattedTextTCFechaCaducidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextTCFechaCaducidadMouseClicked
+        // TODO add your handling code here:
+        jFormattedTextTCFechaCaducidad.setText("26/2/23");    
+    }//GEN-LAST:event_jFormattedTextTCFechaCaducidadMouseClicked
+// ********************************************************************************************************************
+    
+// ********************************************************************************************************************    
+    private void jFormattedTCNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTCNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTCNumeroActionPerformed
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
+    private void jButtonHomeIconsGround5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround5ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros en el 900-123-123, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButtonHomeIconsGround5ActionPerformed
+// ********************************************************************************************************************
+    
+    
+// ********************************************************************************************************************    
+    private void jButtonHomeIconsGround6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeIconsGround6ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Si lo necesita, puede ponerse en contacto con nosotros por mail escribiendo a supportAllSafe@allsafe.com, estaremos encantados de atenderle.","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButtonHomeIconsGround6ActionPerformed
+// ********************************************************************************************************************
+  
+    
+// ********************************************************************************************************************    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTextFieldUserDNI;
     private javax.swing.JTextField JTextFieldUserDireccionCalle;
@@ -1325,3 +1478,4 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
+// ********************************************************************************************************************

@@ -1,6 +1,7 @@
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsProductReportingInfo.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/CarritoCompra.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Opinion.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminSalesSearch.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsProduct.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Direccion.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsMyAccount.java
@@ -16,11 +17,15 @@
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/Login.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/UsersServices.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/mock/InventoryData.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Venta.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/InventoryServices.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsProductManagingInfo.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminSalesShowAllProducts.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Inventario.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/SalesDataService.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminProductMngtSearch.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/TarjetaDeCredito.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/GenerateMockDemoObjects.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsMyAccountAdmin.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Administrador.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/RadomGenerator.java
@@ -28,9 +33,9 @@
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminProductMngtAdd.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/mock/UserData.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Token.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/prueba.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdmin.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/model/Usuario.java
-/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/prueba.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/mock/SalesData.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminUserMngt.java
 /Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/service/RandomHomeProductos.java
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/com/allsafe/ui/WindowsAdminSalesShowOneSale.java

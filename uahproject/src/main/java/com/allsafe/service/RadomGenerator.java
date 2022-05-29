@@ -11,7 +11,17 @@ import java.util.Random;
  * @author felixcentenera
  */
 public class RadomGenerator {
-    
+  
+// ********************************************************************************************************************     
+    /**
+     * Nos devuelve un cadena de caracteres utilizada aleatoria de un número determinado por el 
+     * parametro enviado.
+     * @param len
+     * @return
+     * <ul>
+     * <li> String generateRandomPassword.</li>
+     * </ul>
+     */
     public static String generateRandomPassword(int len) {
 		String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%&";
 		Random rnd = new Random();
@@ -20,4 +30,6 @@ public class RadomGenerator {
 			sb.append(chars.charAt(rnd.nextInt(chars.length())));
 		return sb.toString();
 	}
+// ******************************************************************************************************************** 
+    
 }
