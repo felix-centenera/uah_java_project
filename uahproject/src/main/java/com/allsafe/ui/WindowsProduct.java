@@ -96,15 +96,12 @@ public class WindowsProduct extends javax.swing.JFrame  {
             jButton1Opinar.setIcon(new javax.swing.ImageIcon("Icons/png/opinar.png"));
             
             // Set image of the producto
-            //jLabel3Product.setSize(300,180);
             if ("Ordenadores".equals(producto.getCategoria()) || "TV, audio y foto".equals(producto.getCategoria())  ){
                 //jLabel3Product.setSize(200,160);
                 jLabel3Product.setSize(300,180);
-                System.out.println("SOY UN ORDENADOR");
             }
             else {
                 jLabel3Product.setSize(180,180);
-                System.out.println("NO SOY UN ORDENADOR");
             
             }
             //ImageIcon imagen = new ImageIcon(principal.RandomProductsHome.get(0).getFotografia());

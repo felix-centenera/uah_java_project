@@ -69,7 +69,16 @@ public class WindowsProductReportingInfo extends javax.swing.JFrame  {
             //SET BOTTON HOME PAGE.
 
             // Set image of the producto
-            jLabel3Product.setSize(300,180);
+            if ("Ordenadores".equals(producto.getCategoria()) || "TV, audio y foto".equals(producto.getCategoria())  ){
+                //jLabel3Product.setSize(200,160);
+                jLabel3Product.setSize(300,180);
+            }
+            else {
+                jLabel3Product.setSize(180,180);
+            
+            }
+            
+            
             //ImageIcon imagen = new ImageIcon(principal.RandomProductsHome.get(0).getFotografia());
             ImageIcon imagen = new ImageIcon(producto.getFotografia());
             ImageIcon   imgRedimensionada = new ImageIcon(imagen.getImage().getScaledInstance(jLabel3Product.getWidth(),jLabel3Product.getHeight(), 1));
@@ -93,6 +102,7 @@ public class WindowsProductReportingInfo extends javax.swing.JFrame  {
             else {
             jTextFieldProductoStock.setVisible(false);
             }
+            
          
             
             // Set title of the producto 

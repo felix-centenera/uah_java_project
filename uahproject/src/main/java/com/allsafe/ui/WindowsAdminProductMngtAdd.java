@@ -338,7 +338,7 @@ public class WindowsAdminProductMngtAdd extends javax.swing.JFrame  {
         jFormattedPriceProduct.setBorder(null);
         jFormattedPriceProduct.setForeground(new java.awt.Color(204, 204, 204));
         jFormattedPriceProduct.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        jFormattedPriceProduct.setText("1000.00");
+        jFormattedPriceProduct.setText("1000.01");
         jFormattedPriceProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jFormattedPriceProductMousePressed(evt);
@@ -695,7 +695,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             Logger.getLogger(WindowsAdminProductMngtAdd.class.getName()).log(Level.SEVERE, null, ex);
         }
         //((Number) jFormattedDireccionNumero.getValue()).intValue();
-        if(  (((Number) jFormattedUNitsProduct.getValue()).intValue()) == 1    ) {
+        if(  (((Number) jFormattedUNitsProduct.getValue()).doubleValue()) == 1000.1    ) {
             jFormattedUNitsProduct.setValue(0);
             jFormattedUNitsProduct.setForeground(Color.black);
         }
@@ -727,7 +727,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
     private void jFormattedPathPhotoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedPathPhotoMousePressed
         // TODO add your handling code here:
         //jFormattedTCTitular
-        if(jFormattedPathPhoto.getText().equals("Ingrese el nombre del archivo.")){
+        if(jFormattedPathPhoto.getText().equals("Ingrese el nombre del fichero png.")){
             jFormattedPathPhoto.setText("");
             jFormattedPathPhoto.setForeground(Color.black);
         }

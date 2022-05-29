@@ -68,10 +68,50 @@ public class WindowsProductManagingInfo extends javax.swing.JFrame  {
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
             jButtonHomeIconsGround9.setIcon(new javax.swing.ImageIcon("Icons/png/back.png"));
             
+            
+//            if ("Componentes".equals(producto.getCategoria() )) {
+//                 jComboBoxCategoria.setSelectedIndex(0);
+//            }
+//            else if ("Ordenadores".equals(producto.getCategoria() )) {
+//                 jComboBoxCategoria.setSelectedIndex(1);
+//            }
+//            else if ("Móviles y telefonía".equals(producto.getCategoria() )) {
+//                 jComboBoxCategoria.setSelectedIndex(2);
+//            }
+//            else if ("TV, audio y foto".equals(producto.getCategoria() )) {
+//                 jComboBoxCategoria.setSelectedIndex(1);
+//            }
+//            else if ("Consolas y videoguego".equals(producto.getCategoria() )) {
+//                 jComboBoxCategoria.setSelectedIndex(1);
+//            }
+            
+            String categoriaProducto = producto.getCategoria();
+            switch (categoriaProducto) {
+                case  "Componentes": jComboBoxCategoria.setSelectedIndex(0);
+                    break;
+                case  "Ordenadores": jComboBoxCategoria.setSelectedIndex(1);
+                    break;
+                case  "Móviles y telefonía": jComboBoxCategoria.setSelectedIndex(2);
+                    break;
+                case  "TV, audio y foto": jComboBoxCategoria.setSelectedIndex(3);
+                    break;
+                case  "Consolas y videoguego": jComboBoxCategoria.setSelectedIndex(4);
+                break;
+                }
+            
+            
             //SET BOTTON HOME PAGE.
 
             // Set image of the producto
-            jLabel3Product.setSize(250,180);
+            //jLabel3Product.setSize(250,180);
+            if ("Ordenadores".equals(producto.getCategoria()) || "TV, audio y foto".equals(producto.getCategoria())  ){
+                //jLabel3Product.setSize(200,160);
+                jLabel3Product.setSize(300,180);
+            }
+            else {
+                jLabel3Product.setSize(180,180);
+            
+            }
             //ImageIcon imagen = new ImageIcon(principal.RandomProductsHome.get(0).getFotografia());
             ImageIcon imagen = new ImageIcon(producto.getFotografia());
             ImageIcon   imgRedimensionada = new ImageIcon(imagen.getImage().getScaledInstance(jLabel3Product.getWidth(),jLabel3Product.getHeight(), 1));
