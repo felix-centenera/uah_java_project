@@ -96,7 +96,17 @@ public class WindowsProduct extends javax.swing.JFrame  {
             jButton1Opinar.setIcon(new javax.swing.ImageIcon("Icons/png/opinar.png"));
             
             // Set image of the producto
-            jLabel3Product.setSize(300,180);
+            //jLabel3Product.setSize(300,180);
+            if ("Ordenadores".equals(producto.getCategoria()) || "TV, audio y foto".equals(producto.getCategoria())  ){
+                //jLabel3Product.setSize(200,160);
+                jLabel3Product.setSize(300,180);
+                System.out.println("SOY UN ORDENADOR");
+            }
+            else {
+                jLabel3Product.setSize(180,180);
+                System.out.println("NO SOY UN ORDENADOR");
+            
+            }
             //ImageIcon imagen = new ImageIcon(principal.RandomProductsHome.get(0).getFotografia());
             ImageIcon imagen = new ImageIcon(producto.getFotografia());
             ImageIcon   imgRedimensionada = new ImageIcon(imagen.getImage().getScaledInstance(jLabel3Product.getWidth(),jLabel3Product.getHeight(), 1));
@@ -280,6 +290,7 @@ private boolean checkLoginInterfaz(){
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldProductoTitulo2.setEditable(false);
         jTextFieldProductoTitulo2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jTextFieldProductoTitulo2.setBorder(null);
         jTextFieldProductoTitulo2.addActionListener(new java.awt.event.ActionListener() {
@@ -288,6 +299,7 @@ private boolean checkLoginInterfaz(){
             }
         });
 
+        jTextFieldProductoCaracteristicas3.setEditable(false);
         jTextFieldProductoCaracteristicas3.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jTextFieldProductoCaracteristicas3.setBorder(null);
         jTextFieldProductoCaracteristicas3.addActionListener(new java.awt.event.ActionListener() {
@@ -296,9 +308,11 @@ private boolean checkLoginInterfaz(){
             }
         });
 
+        jTextFieldProductoCategoria5.setEditable(false);
         jTextFieldProductoCategoria5.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jTextFieldProductoCategoria5.setBorder(null);
 
+        jFormattedTextFieldProductoPrecio1.setEditable(false);
         jFormattedTextFieldProductoPrecio1.setBorder(null);
         jFormattedTextFieldProductoPrecio1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
         jFormattedTextFieldProductoPrecio1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
@@ -308,6 +322,7 @@ private boolean checkLoginInterfaz(){
 
         jLabel1Calificacion.setIcon(new javax.swing.ImageIcon("/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/Icons/png/zeroStars.png")); // NOI18N
 
+        jTextField2NameClient.setEditable(false);
         jTextField2NameClient.setText("jTextField2");
         jTextField2NameClient.setBorder(null);
         jTextField2NameClient.addActionListener(new java.awt.event.ActionListener() {
@@ -316,11 +331,13 @@ private boolean checkLoginInterfaz(){
             }
         });
 
+        jTextArea2Comentarios.setEditable(false);
         jTextArea2Comentarios.setColumns(20);
         jTextArea2Comentarios.setLineWrap(true);
         jTextArea2Comentarios.setRows(5);
         jScrollPane2.setViewportView(jTextArea2Comentarios);
 
+        jTextFieldFechaCom.setEditable(false);
         jTextFieldFechaCom.setText("jTextField2");
         jTextFieldFechaCom.setBorder(null);
 

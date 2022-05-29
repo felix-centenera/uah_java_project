@@ -118,20 +118,20 @@ public class GenerateMockDemoObjects {
             InventoryServices.getProducto("dellXps13").introducirOpinion(o3);
 
             
-            InventoryServices.addProduct("hpPavilion", "Intel Core i7-10700F/16GB/1TB+512GB SSD/RTX 3060Ti", "Ordenadores", 1350, "Img/shop/hpPavilion.png", 10);
-            InventoryServices.getProducto("hpPavilion").introducirOpinion(o5);
-            InventoryServices.getProducto("hpPavilion").introducirOpinion(o4);
-            InventoryServices.getProducto("hpPavilion").introducirOpinion(o3);
+            InventoryServices.addProduct("HPVictus", "HP Victus 16-e0090ns AMD Ryzen 7 ", "Ordenadores", 500, "Img/shop/HPVictus.png", 10);
+            InventoryServices.getProducto("HPVictus").introducirOpinion(o5);
+            InventoryServices.getProducto("HPVictus").introducirOpinion(o4);
+            InventoryServices.getProducto("HPVictus").introducirOpinion(o3);
             
-            InventoryServices.addProduct("PcComGOldi5", "PcCom Gold Intel Core i5 12600K/16GB/1TB SSD/RTX3060Ti", "Ordenadores", 1879, "Img/shop/PcComGOldi5.png", 10);
-            InventoryServices.getProducto("PcComGOldi5").introducirOpinion(o5);
-            InventoryServices.getProducto("PcComGOldi5").introducirOpinion(o4);
-            InventoryServices.getProducto("PcComGOldi5").introducirOpinion(o3);
+            InventoryServices.addProduct("MSI", "MSI WS63 8SL-013ES Vpro Intel Core i7", "Ordenadores", 4557, "Img/shop/MSI.png", 10);
+            InventoryServices.getProducto("MSI").introducirOpinion(o5);
+            InventoryServices.getProducto("MSI").introducirOpinion(o4);
+            InventoryServices.getProducto("MSI").introducirOpinion(o3);
             
-            InventoryServices.addProduct("HpOmeni7", "HP OMEN 45L GT22-0019ns Intel Core i9-12900K/32GB/2TB+1TB SSD/RTX 3080", "Ordenadores", 2999, "Img/shop/HpOmeni7.png", 10);
-            InventoryServices.getProducto("HpOmeni7").introducirOpinion(o5);
-            InventoryServices.getProducto("HpOmeni7").introducirOpinion(o4);
-            InventoryServices.getProducto("HpOmeni7").introducirOpinion(o3);
+            InventoryServices.addProduct("AcerNitro", "Acer Nitro 5 AN515-45-R4CS AMD Ryzen 5 ", "Ordenadores", 1098, "Img/shop/AcerNitro.png", 10);
+            InventoryServices.getProducto("AcerNitro").introducirOpinion(o5);
+            InventoryServices.getProducto("AcerNitro").introducirOpinion(o4);
+            InventoryServices.getProducto("AcerNitro").introducirOpinion(o3);
             
             
             InventoryServices.addProduct("SurfaceGoi5", "Surface Laptop Go Intel Core i5-1035G1/8GB/128GB SSD/12.4\" Táctil", "Ordenadores", 619, "Img/shop/SurfaceGoi5.png", 10);

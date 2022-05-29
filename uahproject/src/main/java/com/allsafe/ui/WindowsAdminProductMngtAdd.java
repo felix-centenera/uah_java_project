@@ -337,8 +337,8 @@ public class WindowsAdminProductMngtAdd extends javax.swing.JFrame  {
 
         jFormattedPriceProduct.setBorder(null);
         jFormattedPriceProduct.setForeground(new java.awt.Color(204, 204, 204));
-        jFormattedPriceProduct.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        jFormattedPriceProduct.setText("1000");
+        jFormattedPriceProduct.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        jFormattedPriceProduct.setText("1000.00");
         jFormattedPriceProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jFormattedPriceProductMousePressed(evt);
@@ -629,7 +629,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         // TODO add your handling code here:
         
          String rutaFotoCompleta = "Img/shop/" +jFormattedPathPhoto.getText()  ;
-         if ( InventoryServices.addProduct(JTextFieldProductName.getText(), JTextFieldDescriptionProduct.getText(), (String) jComboBoxCategoriaProduct.getSelectedItem(), ((Number) jFormattedPriceProduct.getValue()).intValue(), rutaFotoCompleta, ( (Number) jFormattedUNitsProduct.getValue()).intValue()) ) {
+         if ( InventoryServices.addProduct(JTextFieldProductName.getText(), JTextFieldDescriptionProduct.getText(), (String) jComboBoxCategoriaProduct.getSelectedItem(), ((Number) jFormattedPriceProduct.getValue()).doubleValue(), rutaFotoCompleta, ( (Number) jFormattedUNitsProduct.getValue()).intValue()) ) {
              //SAVE INVENTORY DATA
              InventoryServices.saveInventoryData();
              System.out.println("INFO :EL productos se ha creado correctamente");
@@ -678,7 +678,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
             Logger.getLogger(WindowsAdminProductMngtAdd.class.getName()).log(Level.SEVERE, null, ex);
         }
         //((Number) jFormattedDireccionNumero.getValue()).intValue();
-        if(  (((Number) jFormattedPriceProduct.getValue()).intValue()) == 1000    ) {
+        if(  (((Number) jFormattedPriceProduct.getValue()).doubleValue()) == 1000.00 ) {
             jFormattedPriceProduct.setValue(0);
             jFormattedPriceProduct.setForeground(Color.black);
         }    

@@ -61,7 +61,7 @@ public class InventoryServices {
      * <li> False: Si el producto no se ha añadido correctamente al inventario.</li>
      * </ul>
      */
-    public static boolean addProduct(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int unidades) {
+    public static boolean addProduct(String titulo, String caracteristicas, String categoria, double precio, String fotografia, int unidades) {
         try {
             //Mirar si podemos annadir algun producto que no este repetido
             if ( !InventoryData.getInstance().getInventoryHashMap().containsKey(titulo) ) {
@@ -313,7 +313,7 @@ public class InventoryServices {
         
         ArrayList<Producto> ordenadro = (ArrayList<Producto>) arrayCacheFiltradoNombre
                 .stream()
-                .sorted(Comparator.comparingInt(Producto::getPrecio))
+                .sorted(Comparator.comparingDouble(Producto::getPrecio))
                 .collect(Collectors.toList());
                 
         return ordenadro;
@@ -341,7 +341,7 @@ public class InventoryServices {
         
         ArrayList<Producto> ordenadro = (ArrayList<Producto>) arrayCacheFiltradoCategoria
                 .stream()
-                .sorted(Comparator.comparingInt(Producto::getPrecio))
+                .sorted(Comparator.comparingDouble(Producto::getPrecio))
                 .collect(Collectors.toList());
                 
         return ordenadro;
@@ -372,7 +372,7 @@ public class InventoryServices {
         
         ArrayList<Producto> ordenadro = (ArrayList<Producto>) arrayCacheFiltradoNombre
                 .stream()
-                .sorted(Comparator.comparingInt(Producto::getPrecio).reversed())
+                .sorted(Comparator.comparingDouble(Producto::getPrecio).reversed())
                 .collect(Collectors.toList());
          
         
@@ -400,7 +400,7 @@ public class InventoryServices {
       
         ArrayList<Producto> ordenadro = (ArrayList<Producto>) arrayCacheFiltradoCategoria
                 .stream()
-                .sorted(Comparator.comparingInt(Producto::getPrecio).reversed())
+                .sorted(Comparator.comparingDouble(Producto::getPrecio).reversed())
                 .collect(Collectors.toList());
          
         
@@ -425,7 +425,7 @@ public class InventoryServices {
      * <li> False: Si el producto no se ha modificad correctamente en el inventario.</li>
      * </ul>
      */
-    public static boolean setProduct(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock) {
+    public static boolean setProduct(String titulo, String caracteristicas, String categoria, double precio, String fotografia, int stock) {
             if (  InventoryData.getInstance().getInventoryHashMap().containsKey(titulo)) {
             try {
                 
@@ -559,8 +559,8 @@ public class InventoryServices {
 
             for (int j = 0; j < ArrayCache.size() - 1; j++) {
 
-                int elemAct = ArrayCache.get(j).getPrecio();
-                int elemSig = ArrayCache.get(j + 1).getPrecio();
+                int elemAct = (int) ArrayCache.get(j).getPrecio();
+                int elemSig = (int) ArrayCache.get(j + 1).getPrecio();
 
                 if (elemAct > elemSig) {
 

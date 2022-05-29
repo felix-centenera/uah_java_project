@@ -263,13 +263,13 @@ public class SalesDataService {
      * @return
      * int total + GASTOS_DE_ENVIO 
      */
-    public static int SumTotal(ArrayList<Producto> listaProductos){
-        int total = 0;
+    public static double SumTotal(ArrayList<Producto> listaProductos){
+        double total = 0;
         for (Producto p : listaProductos) {
             total+= p.getPrecio();
         }
         // Se añaden 5 euros de gastos de envío
-        int GASTOS_DE_ENVIO =5;
+        double GASTOS_DE_ENVIO =5;
         return total + GASTOS_DE_ENVIO;
     }
 // ********************************************************************************************************************
@@ -372,7 +372,7 @@ public class SalesDataService {
             for (int i = 0; i < listOfProducts.size(); i++) {
                 ProductList[i]= listOfProducts.get(i).getTitulo();
             } 
-            int total= SumTotal(listOfProducts);
+            double total= SumTotal(listOfProducts);
             
             if (SalesInventoryDepart (user)){
                         if ((UsersServices.TypeUser(user.getCorreo(),user.getClave())).equals("ClienteParticular")) {

@@ -184,6 +184,8 @@ public class WindowsAdminSalesShowOneSale extends javax.swing.JFrame  {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        IDCompra.setEditable(false);
+
         jLabel1.setText("Usuario que realizo la Compra:");
 
         jLabel2.setText("Fecha de Confirmacion de la Compra:");
@@ -194,6 +196,11 @@ public class WindowsAdminSalesShowOneSale extends javax.swing.JFrame  {
 
         jLabel6.setText("Productos comprados");
 
+        JTextUserName.setEditable(false);
+
+        jTextTotalCompra.setEditable(false);
+
+        jTextFieldDate.setEditable(false);
         jTextFieldDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDateActionPerformed(evt);
@@ -201,6 +208,8 @@ public class WindowsAdminSalesShowOneSale extends javax.swing.JFrame  {
         });
 
         jLabel7.setText("Targeta de Credito");
+
+        JTextTarget.setEditable(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

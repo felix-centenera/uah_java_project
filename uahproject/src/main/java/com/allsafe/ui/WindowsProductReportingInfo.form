@@ -148,6 +148,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextField" name="jTextFieldProductoTitulo2">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Lucida Grande" size="18" style="1"/>
                     </Property>
@@ -164,6 +165,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldProductoCaracteristicas3">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Lucida Grande" size="14" style="0"/>
                     </Property>
@@ -178,6 +180,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldProductoCategoria5">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Lucida Grande" size="14" style="0"/>
                     </Property>
@@ -260,6 +263,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField2NameClient">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="text" type="java.lang.String" value="jTextField2"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="null"/>
@@ -284,6 +288,7 @@
                     </Container>
                     <Component class="javax.swing.JTextField" name="jTextFieldFechaCom">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="text" type="java.lang.String" value="jTextField2"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="null"/>
@@ -294,6 +299,7 @@
                 </Container>
                 <Component class="javax.swing.JTextField" name="jTextFieldProductoStock">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="text" type="java.lang.String" value="Agotado"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>

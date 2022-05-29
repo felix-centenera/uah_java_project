@@ -20,7 +20,7 @@ public class Producto implements Serializable{
     
     private String categoria;
     
-    private int precio;
+    private double precio;
     
     private String fotografia;
     
@@ -41,7 +41,7 @@ public class Producto implements Serializable{
      * @param fotografia
      * @param stock
      */
-    public Producto(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock) {
+    public Producto(String titulo, String caracteristicas, String categoria, double precio, String fotografia, int stock) {
         this.titulo = titulo;
         this.caracteristicas = caracteristicas;
         this.categoria = categoria;
@@ -118,10 +118,10 @@ public class Producto implements Serializable{
      * Nos devuelve el precio  atributo del producto.
      * @return
      * <ul>
-     * <li> int precio: precio atributo del producto.</li>
+     * <li> double precio: precio atributo del producto.</li>
      * </ul>
      */
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 // ******************************************************************************************************************** 
@@ -131,7 +131,7 @@ public class Producto implements Serializable{
      * Nos permite etablecer el precio atributo de un producto.
      * @param precio
      */
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 // ******************************************************************************************************************** 

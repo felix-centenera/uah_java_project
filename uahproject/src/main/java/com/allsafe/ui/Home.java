@@ -129,6 +129,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanelProducts0.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldProducts0.setEditable(false);
         jTextFieldProducts0.setText("jTextField2");
         jTextFieldProducts0.setBorder(null);
         jTextFieldProducts0.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +156,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanelProducts1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldProducts1.setEditable(false);
         jTextFieldProducts1.setText("jTextField2");
         jTextFieldProducts1.setBorder(null);
         jPanelProducts1.add(jTextFieldProducts1);
@@ -175,6 +177,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanelProducts2.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldProducts2.setEditable(false);
         jTextFieldProducts2.setText("jTextField2");
         jTextFieldProducts2.setBorder(null);
         jTextFieldProducts2.addActionListener(new java.awt.event.ActionListener() {
@@ -200,6 +203,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanelProducts3.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldProducts3.setEditable(false);
         jTextFieldProducts3.setText("jTextField2");
         jTextFieldProducts3.setBorder(null);
         jPanelProducts3.add(jTextFieldProducts3);
@@ -222,6 +226,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanelProducts4.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldProducts4.setEditable(false);
         jTextFieldProducts4.setText("jTextField2");
         jTextFieldProducts4.setBorder(null);
         jPanelProducts4.add(jTextFieldProducts4);
@@ -245,6 +250,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanelProducts6.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldProducts6.setEditable(false);
         jTextFieldProducts6.setText("jTextField2");
         jTextFieldProducts6.setBorder(null);
         jPanelProducts6.add(jTextFieldProducts6);
@@ -266,6 +272,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanelProducts5.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldProducts5.setEditable(false);
         jTextFieldProducts5.setText("sdvsdvsdv");
         jTextFieldProducts5.setBorder(null);
         jPanelProducts5.add(jTextFieldProducts5);
@@ -286,6 +293,7 @@ public class Home extends javax.swing.JFrame {
 
         jPanelProducts7.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldProducts7.setEditable(false);
         jTextFieldProducts7.setText("jTextField2");
         jTextFieldProducts7.setBorder(null);
         jPanelProducts7.add(jTextFieldProducts7);
