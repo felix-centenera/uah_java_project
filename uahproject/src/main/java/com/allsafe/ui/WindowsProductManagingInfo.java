@@ -376,6 +376,7 @@ private boolean checkLoginInterfaz(){
             }
         });
 
+        jTextFieldProductoCategoria.setEditable(false);
         jTextFieldProductoCategoria.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jTextFieldProductoCategoria.setText("Categoria");
         jTextFieldProductoCategoria.setBorder(null);
