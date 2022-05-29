@@ -1,0 +1,52 @@
+@options
+@packages
+-classpath
+'/Users/felixcentenera/.m2/repository/org/netbeans/external/AbsoluteLayout/RELEASE126/AbsoluteLayout-RELEASE126.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'uahproject 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'uahproject 1.0-SNAPSHOT API'
+com.allsafe.ui
+com.allsafe.mock
+com.allsafe.model
+com.allsafe.service
+/Users/felixcentenera/.m2/repository/org/netbeans/external/AbsoluteLayout/RELEASE126/AbsoluteLayout-RELEASE126.jar = 1650822041223
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java/.DS_Store = 1651264797125
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/src/main/java = 1651264797124
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/tag-search-index.js = 1653856114719
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/overview-tree.html = 1653856114630
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/module-search-index.js = 1653856114712
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/index.html = 1653856114642
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/package-search-index.js = 1653856114713
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/jquery-ui.overrides.css = 1653856114870
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/serialized-form.html = 1653856114341
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/index-all.html = 1653856114801
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/allpackages-index.html = 1653856114711
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/deprecated-list.html = 1653856114637
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/member-search-index.js = 1653856114717
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/script.js = 1653856114838
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/stylesheet.css = 1653856114835
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/overview-summary.html = 1653856114825
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/help-doc.html = 1653856114832
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/element-list = 1653856114032
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/allclasses-index.html = 1653856114706
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/type-search-index.js = 1653856114714
+/Users/felixcentenera/Documents/Learning/GISI/2ºCuatrimestre/Programación/uah_java_project/uahproject/target/site/apidocs/search.js = 1653856114842
