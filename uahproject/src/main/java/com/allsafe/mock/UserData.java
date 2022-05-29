@@ -29,6 +29,13 @@ public class UserData implements Serializable{
     private static  UserData  instance = null;
     HashMap<String, Usuario> usuarios = new HashMap<>();
     
+    /**
+     *
+     * @return
+     * <ul>
+     * <li> UserData  HashMap: Un HashMap cuya clave es el correo del usuario y el usuarip como valor</li>
+     * </ul>
+     */
     public HashMap<String, Usuario> getUserHashMap(){
        return usuarios;
     }
@@ -37,7 +44,14 @@ public class UserData implements Serializable{
     //Evitamos la instanciacón directa. Constructor vacío.
     private UserData(){}
     
-     public static UserData getInstance(){
+    /**
+     *  Con este método obligamos a que cualquier servicio que requiera la intancia UserData, utilice únicamente una instancia que es común para todos.
+     * @return
+     *  <ul>
+     *  <li> Instancia de la clase UserData: En caso de no existir, el método intancia la clase y se devuelve la misma generada.</li>
+     *  </ul>
+     */
+    public static UserData getInstance(){
         if (instance ==null) {
             instance = new UserData();
         }

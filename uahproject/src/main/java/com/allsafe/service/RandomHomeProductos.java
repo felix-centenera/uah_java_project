@@ -12,15 +12,21 @@ import java.util.Random;
 /**
  *
  * @author felixcentenera
+ *  @deprecated Esta clase ya no es utilizada para generar los productos que
+ * se utilizan en la home. Ha sido sustituido por los métodos de InventoryServices,
+ * los cuales buscan en el nuevo inventario. No utilizar
  */
 public class RandomHomeProductos {
     
     private RandomHomeProductos() {
     }
     
-
-    
-     public static ArrayList<Producto> seleccionarProductos(Inventario i){
+    /**
+     * 
+     * @param i
+     * @return
+     */
+    public static ArrayList<Producto> seleccionarProductos(Inventario i){
         ArrayList<Producto> RandomProductsHome;
         RandomProductsHome = new ArrayList<>();
         

@@ -80,6 +80,9 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
 //    }
 //    
 
+/**
+* Nos permite crear la interfaz createWindowsProductPage con todos lo elementos necesarios de forma dinámica.
+*/
     private void createWindowsProductPage() {
         try {
             //jLabelImg.setSize(130, 100);
@@ -124,7 +127,12 @@ public class WindowsAdminUserMngt extends javax.swing.JFrame  {
  }
     
     
-    
+ /**
+* Nos permite mostrar los usuarios en la interfaz  con todos lo elementos necesarios de forma dinámica.
+* Estos usuarios están recogidos en un ArrayList,con las claves (key) de los Usuarios, listOfKeys, mediante el parametro i mostraremos
+* los productos que comiencen en la posición i.
+* * @param i
+*/    
     private void printUsers(int i){
                 jPanelUsersFound.setVisible(true);
                 jButtonUser1.setVisible(false);        
@@ -958,7 +966,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
         else {
             System.out.println("INFO: No se ha seleeccionado ningún usuario");
-            JOptionPane.showMessageDialog(null, "No se ha seleeccionado ningún usuario","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún usuario","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButtonUserInfoActionPerformed
 

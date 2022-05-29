@@ -60,7 +60,9 @@ public class WindowsCreateUser extends javax.swing.JFrame  {
         createWindowsCreateUserPage();
     }
     
-
+/**
+* Nos permite crear la interfaz createWindowsCreateUserPage con todos lo elementos necesarios de forma dinámica.
+*/
     private void createWindowsCreateUserPage() {
         try {
             //jLabelImg.setSize(130, 100);

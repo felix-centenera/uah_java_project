@@ -28,14 +28,36 @@ import java.util.stream.Collectors;
  */
 public class InventoryServices {
     
-    
-    
+    /**
+     * Nos devuelve un producto a partir de un su clave título.
+     * @param titulo
+     * @return
+     */
     public static Producto getProducto(String titulo){
        Producto p1  = InventoryData.getInstance().getInventoryHashMap().get(titulo);
        return p1;
     }
     
     // Método para añadir producto:
+
+    /**
+     * Nos permite añadir un producto al inventario, para ello se deben enviar los atributos que forman parte de un producto,
+     * el producto se construirá y se añadira al inventario. Si el producto no existe actualmente en inventario, se 
+     * incrementa el stock del producto.
+     * Si se introduce correctamente el producto devuelve True, de lo contrario devuelva false.
+     * 
+     * @param titulo
+     * @param caracteristicas
+     * @param categoria
+     * @param precio
+     * @param fotografia
+     * @param unidades
+     * @return
+     * <ul>
+     * <li> True: Si el producto se ha añadido correctamente al inventario.</li>
+     * <li> False: Si el producto no se ha añadido correctamente al inventario.</li>
+     * </ul>
+     */
     public static boolean addProduct(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int unidades) {
         try {
             //Mirar si podemos annadir algun producto que no este repetido
@@ -64,6 +86,18 @@ public class InventoryServices {
     
     
     // metodo borrar:
+
+    /**
+     * Nos permite borrar un producto del inventario, el producto ha borrar se identica por su clave título,
+     * el cual es esperado por el método.
+     * @param titulo
+     * @return
+     * <ul>
+     * <li> True: Si el producto se ha borrado correctamente al inventario.</li>
+     * <li> False: Si el producto no se ha borrado correctamente al inventario.</li>
+     * </ul>
+     * 
+     */
     public static boolean deleteProduct(String titulo){
         //Eliminar producto teniendo la Key
         //inv.getInventario().remove(titulo);
@@ -86,6 +120,18 @@ public class InventoryServices {
     
     
     // metodo borrar:
+
+    /**
+     * Nos permite recortar el stock de un producto dado por clave título. La cantidad de unidades
+     * a recortar son esperadas como parametro del método.
+     * @param titulo
+     * @param stock
+     * @return
+     * <ul>
+     * <li> True: Si el stock del producto se ha recortado correctamente.</li>
+     * <li> False: Si el stock del producto no se ha recortado correctamente.</li>
+     * </ul>
+     */
     public static boolean deleteStockProduct(String titulo, int stock){
         //Eliminar producto teniendo la Key
         //inv.getInventario().remove(titulo);
@@ -108,10 +154,19 @@ public class InventoryServices {
        }
     }
     
-    
-    
-    
-    
+    /**
+     * NOs permite añadir una opinión aun producto. Para ello se espera la clave titulo del producto, la calificación, comentario
+     * y clave cliente para contruir la opinión y asociarla al producto.
+     * @param titulo
+     * @param calificacion
+     * @param comentario
+     * @param cliente
+     * @return
+     * <ul>
+     * <li> True: Si la opinón se ha añadido correctamente al  producto.</li>
+     * <li> False: Si la opinón no se ha añadido correctamente al  producto.</li>
+     * </ul>
+     */
     public static boolean addOpinionToAProducto(String titulo, int calificacion, String comentario, String cliente) {
             System.out.println("hola");
             
@@ -135,8 +190,17 @@ public class InventoryServices {
            
     }
   
-  
-     public static ArrayList<Producto>  orderByStarts(String titulo, String categoria) {
+    /**
+     * Nos permite ordenar el inventario por la calificacion de estrellas de mayor puntuación a menor puntuación en función de una categoría,
+     * atributo del producto y una clave título del producto que se usará para buscar coincidencias.
+     * @param titulo
+     * @param categoria
+     * @return
+     * <ul>
+     * <li> ArrayList Producto: Nos devuelve el inventario en forma de arraylist de productos pertenecientes a una categoría.</li>
+     * </ul>
+     */
+    public static ArrayList<Producto>  orderByStarts(String titulo, String categoria) {
         HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
         ArrayList<Producto> ArrayCache = new ArrayList<>(inv.values());
         
@@ -160,7 +224,15 @@ public class InventoryServices {
         return ordenadro;
      }
      
-     public static ArrayList<Producto>  orderByStarts() {
+    /**
+     * Nos permite ordenar el inventario por la calificacion de estrellas de mayor puntuación a menor puntuación.
+     * atributo del producto.
+     * @return
+     * <ul>
+     * <li> ArrayList Producto: Nos devuelve el inventario en forma de arraylist de productos.</li>
+     * </ul>
+     */
+    public static ArrayList<Producto>  orderByStarts() {
         HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
         ArrayList<Producto> ArrayCache = new ArrayList<>(inv.values());
         
@@ -172,9 +244,16 @@ public class InventoryServices {
         return ordenadro;
      }
      
-     
-     
-     public static ArrayList<Producto>  orderByStarts(String categoria) {
+    /**
+     * Nos permite ordenar el inventario por la calificacion de estrellas de mayor puntuación a menor puntuación en función de una categoría,
+     * atributo del producto.
+     * @param categoria
+     * @return
+     * <ul>
+     * <li> ArrayList Producto: Nos devuelve el inventario en forma de arraylist de productos pertenecientes a una categoría.</li>
+     * </ul>
+     */
+    public static ArrayList<Producto>  orderByStarts(String categoria) {
         HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
         ArrayList<Producto> ArrayCache = new ArrayList<>(inv.values());
         
@@ -192,9 +271,17 @@ public class InventoryServices {
         return ordenadro;
      }
  
-  
-  
-     public static ArrayList<Producto>  orderByLowtPrice(String titulo,String categoria) {
+    /**
+     * Nos permite ordenar el inventario por precio, de menor precio a mayor precio en función de una categoría,
+     * atributo del producto y una clave título del producto que se usará para buscar coincidencias.
+     * @param titulo
+     * @param categoria
+     * @return
+     * <ul>
+     * <li> ArrayList Producto: Nos devuelve el inventario en forma de arraylist de productos pertenecientes a una categoría.</li>
+     * </ul>
+     */
+    public static ArrayList<Producto>  orderByLowtPrice(String titulo,String categoria) {
         HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
         ArrayList<Producto> ArrayCache = new ArrayList<>(inv.values());
         
@@ -213,8 +300,16 @@ public class InventoryServices {
         return ordenadro;
      }
      
-     
-     public static ArrayList<Producto>  orderByLowtPrice(String categoria) {
+    /**
+     * Nos permite ordenar el inventario por precio, de menor precio a mayor precio en función de una categoría,
+     * atributo del producto.
+     * @param categoria
+     * @return
+     * <ul>
+     * <li> ArrayList Producto: Nos devuelve el inventario en forma de arraylist de productos pertenecientes a una categoría.</li>
+     * </ul>
+     */
+    public static ArrayList<Producto>  orderByLowtPrice(String categoria) {
         HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
         ArrayList<Producto> ArrayCache = new ArrayList<>(inv.values());
         
@@ -230,9 +325,17 @@ public class InventoryServices {
         return ordenadro;
      }
      
-     
-     
-     public static ArrayList<Producto>  orderByHighPrice(String titulo,String categoria) {
+    /**
+     * Nos permite ordenar el inventario por precio, de mayor precio a menor precio en función de una categoría,
+     * atributo del producto y una clave título del producto que se usará para buscar coincidencias.
+     * @param titulo
+     * @param categoria
+     * @return
+     * <ul>
+     * <li> ArrayList Producto: Nos devuelve el inventario en forma de arraylist de productos pertenecientes a una categoría.</li>
+     * </ul>
+     */
+    public static ArrayList<Producto>  orderByHighPrice(String titulo,String categoria) {
         HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
         ArrayList<Producto> ArrayCache = new ArrayList<>(inv.values());
         
@@ -251,7 +354,16 @@ public class InventoryServices {
         return ordenadro;
      }
      
-      public static ArrayList<Producto>  orderByHighPrice(String categoria) {
+    /**
+     * Nos permite ordenar el inventario por precio, de mayor precio a menor precio en función de una categoría,
+     * atributo del producto.
+     * @param categoria
+     * @return
+     * <ul>
+     * <li> ArrayList Producto: Nos devuelve el inventario en forma de arraylist de productos pertenecientes a una categoría.</li>
+     * </ul>
+     */
+    public static ArrayList<Producto>  orderByHighPrice(String categoria) {
         HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
         ArrayList<Producto> ArrayCache = new ArrayList<>(inv.values());
         
@@ -267,12 +379,22 @@ public class InventoryServices {
         return ordenadro;
      }
      
-     
-     
-     
-     
-     
-     public static boolean setProduct(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock) {
+    /**
+     * Nos permite modificar la información de un producto del inventario. La clave título será 
+     * utilizada para indentificar el producto a modificar.
+     * @param titulo
+     * @param caracteristicas
+     * @param categoria
+     * @param precio
+     * @param fotografia
+     * @param stock
+     * @return
+     * <ul>
+     * <li> True: Si el producto se ha modificad correctamente en el inventario.</li>
+     * <li> False: Si el producto no se ha modificad correctamente en el inventario.</li>
+     * </ul>
+     */
+    public static boolean setProduct(String titulo, String caracteristicas, String categoria, int precio, String fotografia, int stock) {
             if (  InventoryData.getInstance().getInventoryHashMap().containsKey(titulo)) {
             try {
                 
@@ -301,9 +423,8 @@ public class InventoryServices {
      
      
      /**
-     * SERIALIZACION DE LOS ARCHIVOS
+     * SERIALIZACION DE LOS ARCHIVOS. Los inventario se guardará en un fichero para su futura recuperación
      */
-    
     public static void saveInventoryData() {
     //Vamos a Serializar el objeto SalesData en memoria no Volatil.
     /**
@@ -325,7 +446,9 @@ public class InventoryServices {
             }
     } 
     
-    
+    /**
+     * Nos permite recuperar la información del inventario desde un archivo local.
+     */
     public static void initInventoryDataMock() {
         try {      
             FileInputStream fileInput = new FileInputStream("localDataMock/InventoryDataLocal.dat");
@@ -348,25 +471,14 @@ public class InventoryServices {
      
      
      
-     
-     
-    
-    
-    
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
     
     // ORDENADO POR PRECIO MENOR NO SE UTILIZA. Se deja por historico en caso de que se quieran hacer pruebas con este algoritmo.
+
+    /**
+     *
+     * @return
+     * @deprecated Estos métodos han sido deprecados a favor de métodos mas eficientes.
+     */
     public static ArrayList productsWithCheaperPrice() {
         //HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
         ArrayList<Producto> arrayProductCheaper = bubbleAlgorithmPrice();
@@ -374,6 +486,11 @@ public class InventoryServices {
         return (arrayProductCheaper);
     }
     
+    /**
+     *
+     * @return
+     * @deprecated Estos métodos han sido deprecados a favor de métodos mas eficientes.
+     */
     public static ArrayList productsWithHightPrice() {
         //HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();
         ArrayList<Producto> arrayProductCheaper = bubbleAlgorithmPrice();
@@ -382,6 +499,12 @@ public class InventoryServices {
     
     
     // ORDENADO POR PRECIO MAYOR
+
+    /**
+     *
+     * @return
+     * @deprecated Estos métodos han sido deprecados a favor de métodos mas eficientes.
+     */
     public static ArrayList bubbleAlgorithmPrice() {
         
         HashMap<String, Producto> inv  = InventoryData.getInstance().getInventoryHashMap();

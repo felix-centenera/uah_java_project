@@ -53,7 +53,11 @@ public class WindowsProductReportingInfo extends javax.swing.JFrame  {
         createWindowsProductPage();
         
     }
-    
+  
+     
+/**
+* Nos permite crear la interfaz createWindowsProductPage con todos lo elementos necesarios de forma dinámica.
+*/ 
    public void createWindowsProductPage() {
         try {
             //jLabelImg.setSize(130, 100);
@@ -155,6 +159,16 @@ public class WindowsProductReportingInfo extends javax.swing.JFrame  {
 //}
     
  //método comprobar login
+/**
+ * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
+ * del método checkLoginInterfaz para evolucionen de forma independiente, con el objetivo de que 
+ * este método solo compruebe el login del usuario asociado.
+ * @return
+ * <ul>
+ * <li> True: Si el usuario esta logado.</li>
+ * <li> False: Si el usuario no  esta logado.</li>
+ * </ul>
+ */
 private boolean checkLogin(){
     boolean operationAccepted=false;
     if (user == null){
@@ -168,7 +182,7 @@ private boolean checkLogin(){
         return false;
     }
      else{
-        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
         if (operationAccepted == false){
             System.out.println("INFO: No puedes realizar esa acción te mando al login TODO MANDAR AL LOGIN");
@@ -178,7 +192,17 @@ private boolean checkLogin(){
     }
 }
 
-
+/**
+ * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
+ * del método checkLogin para evolucionen de forma independiente, con el objetivo de que 
+ * este método compruebe el login del usuario y permite la relación interfaces basadas en la 
+ * autenticación y autorización.
+ * @return
+ * <ul>
+ * <li> True: Si el usuario esta logado.</li>
+ * <li> False: Si el usuario no  esta logado.</li>
+ * </ul>
+ */
 private boolean checkLoginInterfaz(){
     boolean operationAccepted=false;
     if (user == null){
@@ -186,7 +210,7 @@ private boolean checkLoginInterfaz(){
         return false;
     }
      else{
-        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         System.out.println("INFO: Voy a comprobar el token");
         if (operationAccepted == false){
             System.out.println("INFO: No hay  devuelvo treu para que pintes interfaz de usuario registrado");

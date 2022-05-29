@@ -23,7 +23,10 @@ import java.time.LocalDateTime;
  */
 public class GenerateMockDemoObjects {
     
-    
+    /**
+     * Nos permite iniciar la tienda en modo Demo, se crearan  ClientesParticulares, ClientesEmpresa, Productos
+     * opiniones de productos con proposito de poder hacer una demostración de la aplicación.
+     */
     public static void  generateDemoData(){
         
         //Fecha prueba.

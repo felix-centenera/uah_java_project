@@ -44,7 +44,9 @@ public class WindowsAdminProductMngt extends javax.swing.JFrame  {
 //        createHomePage();
 //    }
     
-    /** Creates new form WindowProduct */
+    /** Creates new form WindowProduct
+     * @param ventana
+     * @param u */
        public WindowsAdminProductMngt (WindowsAdmin ventana, Usuario u) {
         //Ocultamos la ventana principal
         principal = ventana;
@@ -57,7 +59,9 @@ public class WindowsAdminProductMngt extends javax.swing.JFrame  {
         
     }
     
-
+/**
+* Nos permite crear la interfaz home con todos lo elementos necesarios de forma dinámica.
+*/
     private void createWindowsProductPage() {
         try {
             //jLabelImg.setSize(130, 100);

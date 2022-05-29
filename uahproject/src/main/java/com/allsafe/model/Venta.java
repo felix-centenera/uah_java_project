@@ -38,10 +38,10 @@ public class Venta implements Serializable {
      * Nos parece un gasto innecesario de memoria almacenar los productos en un arrayList o alguna estructura de datos debido a
      * que esto solo se va a leer para hacer la consulta de venta si realizar modificacion
      * 
-     * @param DateConfirmedSale
      * @param ProductList
      * @param user
      * @param Total
+     * @param TarjetaCredito
      */
     
     
@@ -56,42 +56,108 @@ public class Venta implements Serializable {
         this.TarjetaCredito = TarjetaCredito;
     }
 
+    /**
+     * Nos devuelve el ID  atributo de la venta. 
+     * @return
+     * <ul>
+     * <li> String ID: ID atributo de la venta.</li>
+     * </ul>
+     */
     public String getID() {
         return ID;
     }
 
+    /**
+     * Nos permite etablecer el ID  atributo de Venta.
+     * @param ID
+     */
     public void setID(String ID) {
         this.ID = ID;
     }
 
+    /**
+     * Nos devuelve el DateConfirmedSale  atributo de la venta. 
+     * @return
+     * <ul>
+     * <li> LocalDateTime DateConfirmedSale: DateConfirmedSale atributo de la venta.</li>
+     * </ul>
+     */
     public LocalDateTime getDateConfirmedSale() {
         return DateConfirmedSale;
     }
 
+    /**
+     * Nos permite etablecer el DateConfirmedSale  atributo de Venta.
+     * @param DateConfirmedSale
+     */
     public void setDateConfirmedSale(LocalDateTime DateConfirmedSale) {
         this.DateConfirmedSale = DateConfirmedSale;
     }
+
+    /**
+     * Nos permite etablecer el Total  atributo de Venta.
+     * @param Total
+     */
     public void setTotal(double Total){
         this.Total = Total;
     }
+
+    /**
+     * Nos devuelve el Total  atributo de la venta. 
+     * @return
+     * <ul>
+     * <li> double Total: Total atributo de la venta.</li>
+     * </ul>
+     */
     public double getTotal(){
         return(Total);
     }
 
+    /**
+     * Nos devuelve el user  atributo de la venta. 
+     * @return
+     * <ul>
+     * <li> String user: user atributo de la venta.</li>
+     * </ul>
+     */
     public String getUser() {
         return user;
     }
+
+    /**
+     * Nos devuelve el user  atributo de la venta. 
+     * @param user
+     */
     public void setUser(String user) {
         this.user = user;
     }
 
+    /**
+     * Nos devuelve el ProductList  atributo de la venta. 
+     * @return
+     * <ul>
+     * <li> String[] ProductList: ProductList atributo de la venta.</li>
+     * </ul>
+     */
     public String[] getProductList() {
         return ProductList;
     }
 
+    /**
+     * 
+     * @param ProductList
+     */
     public void setProductList(String[] ProductList) {
         this.ProductList = ProductList;
     }
+
+    /**
+     * Nos devuelve la TarjetaCredito  atributo de la venta. 
+     * @return
+     * <ul>
+     * <li> long TarjetaCredito: TarjetaCredito atributo de la venta.</li>
+     * </ul>
+     */
     public long getTarjetaCredito() {
         return TarjetaCredito;
     }
@@ -116,6 +182,11 @@ public class Venta implements Serializable {
 //
 //    }
 //    
+
+    /**
+     *
+     * @return
+     */
  
 
     @Override

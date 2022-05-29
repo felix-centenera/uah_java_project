@@ -86,7 +86,9 @@ public class WindowsMyAccount extends javax.swing.JFrame  {
     
     
     
-
+/**
+* Nos permite crear la interfaz createWindowsCreateUserPage con todos lo elementos necesarios de forma dinámica.
+*/
     private void createWindowsCreateUserPage() {
         try {
             //jLabelImg.setSize(130, 100);

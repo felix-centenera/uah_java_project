@@ -47,7 +47,8 @@ public class WindowsAdminProductMngtAdd extends javax.swing.JFrame  {
 //        createHomePage();
 //    }
     
-    /** Creates new form WindowProduct */
+    /** Creates new form WindowProduct
+     * @param ventana */
     public WindowsAdminProductMngtAdd(WindowsAdminProductMngt ventana) {
         //Ocultamos la ventana principal
         secundariaLogin = ventana;
@@ -57,7 +58,9 @@ public class WindowsAdminProductMngtAdd extends javax.swing.JFrame  {
         createWindowsCreateUserPage();
     }
     
-
+/**
+* Nos permite crear la interfaz home con todos lo elementos necesarios de forma dinámica.
+*/
     private void createWindowsCreateUserPage() {
         try {
             //jLabelImg.setSize(130, 100);
@@ -605,7 +608,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
              //SAVE INVENTORY DATA
              InventoryServices.saveInventoryData();
              System.out.println("INFO :EL productos se ha creado correctamente");
-             JOptionPane.showMessageDialog(null, "EL productos se ha creado correctamente","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+             JOptionPane.showMessageDialog(null, "El producto se ha creado correctamente","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
              
          }
          

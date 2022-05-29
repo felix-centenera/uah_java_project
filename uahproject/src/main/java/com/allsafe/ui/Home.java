@@ -574,7 +574,11 @@ Login miservicioDeLogin = Login.getInstance();
 //}
 
 
-
+/**
+ * Mediante distintos servicios recupera los usuarios, inventario y venta, de los ficheros
+ * localdes donde se almacena la informacón de forma permanente.
+ * Generamos el usuario administrador.
+ */
 private void initDataMock(){
     UsersServices.initUserDataMock();
     InventoryServices.initInventoryDataMock();
@@ -591,6 +595,16 @@ private void initDataMock(){
 
 
 //método comprobar login
+/**
+ * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
+ * del método checkLoginInterfaz para evolucionen de forma independiente, con el objetivo de que 
+ * este método solo compruebe el login del usuario asociado.
+ * @return
+ * <ul>
+ * <li> True: Si el usuario esta logado.</li>
+ * <li> False: Si el usuario no  esta logado.</li>
+ * </ul>
+ */
 private boolean checkLogin(){
     boolean operationAccepted=false;
     if (user == null){
@@ -605,7 +619,7 @@ private boolean checkLogin(){
     }
      else{
         System.out.println("INFO: Voy a comprobar el token");
-        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         if (operationAccepted == false){
             System.out.println("INFO: No puedes realizar esa acción debes logarte primero");
             return false;
@@ -614,6 +628,17 @@ private boolean checkLogin(){
     }
 }
 
+/**
+ * Método que permite si el usuario atributo del JFrame esta logado en la plataforma. Se separa 
+ * del método checkLogin para evolucionen de forma independiente, con el objetivo de que 
+ * este método compruebe el login del usuario y permite la relación interfaces basadas en la 
+ * autenticación y autorización.
+ * @return
+ * <ul>
+ * <li> True: Si el usuario esta logado.</li>
+ * <li> False: Si el usuario no  esta logado.</li>
+ * </ul>
+ */
 private boolean checkLoginInterfaz(){
     boolean operationAccepted=false;
     if (user == null){
@@ -622,7 +647,7 @@ private boolean checkLoginInterfaz(){
     }
      else{
         System.out.println("INFO: Voy a comprobar el token");
-        operationAccepted=miservicioDeLogin.checkLogin(user.getClave(),user.getCorreo(),user.getToken()); 
+        operationAccepted=miservicioDeLogin.checkLogin(user.getCorreo(),user.getClave(),user.getToken()); 
         if (operationAccepted == false){
             System.out.println("INFO: El token no es correcto, devuelvo falso para que pintes interfaz de usuario visitante ");
             return false;
@@ -632,12 +657,23 @@ private boolean checkLoginInterfaz(){
     }
 }
 
- public  void  SetUsuario(Usuario user) {
+    /**
+     * Permite modificar el usuario al JFrame. 
+     * @param user
+     */
+    public  void  SetUsuario(Usuario user) {
         this.user = user;
         
  }
  
-  public  Usuario  GetUsuario() {
+    /**
+     * Nos devuelve el usuario asociado al JFrame.
+     * @return
+     * <ul>
+     * <li> Usuario user, atributo del JFrame</li>
+     * </ul>
+     */
+    public  Usuario  GetUsuario() {
         return  user;  
  }
  
@@ -646,14 +682,20 @@ private boolean checkLoginInterfaz(){
  
 // ********************************************************************************************************************
  // metodos para crear la home
-  
+
+
+/**
+ * Método para generar la lista de productos visualizados en la home empezando desde
+ * el producto 0 de dicha lista.
+ */  
  public  void  SetNumberOfUserPagesToZero() {
         this.numberOfProductPages = 0;
  } 
  
-
- 
- public void createHomePage() {
+    /**
+     * Nos permite crear la interfaz home con todos lo elementos necesarios de forma dinámica.
+     */
+    public void createHomePage() {
         try {
 //            InventoryServices.addProduct("MacBookAirM1", "Apple", "Ordenadores", 1500, "Img/laptops/macbook/appleMacbookAirM1.png", 1);
 //            InventoryServices.getProducto("MacBookAirM1").introducirOpinion(o1);
@@ -740,7 +782,12 @@ private boolean checkLoginInterfaz(){
 // ********************************************************************************************************************
     
   
-  
+/**
+* Nos permite mostrar los productos interfaz home con todos lo elementos necesarios de forma dinámica.
+* Estos productos están recogidos en un ArrayList Producto listOfProductos, mediante el parametro i mostraremos
+* los productos que comiencen en la posición i.
+* * @param i
+*/  
 private void createHomePageProductos(int i){   
     
     

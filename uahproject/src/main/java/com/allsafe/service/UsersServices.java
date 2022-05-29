@@ -35,8 +35,12 @@ import javax.swing.JOptionPane;
  */
 public class UsersServices {
     
-    
-    
+    /**
+     *
+     * @param correo
+     * @param clave
+     * @return
+     */
     public  static boolean checkUser(String correo,String clave) {
        //System.out.println("HOLA SOY USERDATA" + usuarios.get(correo).getClave());
         System.out.println(correo);
@@ -60,6 +64,28 @@ public class UsersServices {
     
     
     // Método para añadir usuarios clientes particulares.
+
+    /**
+     * Nos permite añadir un nuevo usuario de tipo clienteParticular al sistema. El usuario se creará y añadirá a
+     * la estructura de datos que contiene a todos los usuarios.
+     * @param dni
+     * @param nombre
+     * @param direccionCalle
+     * @param direccionCiudad
+     * @param direccionNumero
+     * @param direccionCP
+     * @param tarjetaDeCreditoNumero
+     * @param tarjetaDeCreditoTitular
+     * @param tarjetaDeCreditoCaducidad
+     * @param telefono
+     * @param clave
+     * @param correo
+     * @return
+     * <ul>
+     * <li> True: Si el usuario se ha añadido correctamente.</li>
+     * <li> False: Si el usuario no se ha añadido correctamente.</li>
+     * </ul>
+     */
     public static boolean addUser(String dni, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
         if (!UserData.getInstance().getUserHashMap().containsKey(correo)){
         try{
@@ -86,7 +112,18 @@ public class UsersServices {
         }
     }
     
-    
+    /**
+     *
+     * Nos permite añadir un nuevo usuario de tipo administrador al sistema. El usuario se creará y añadirá a
+     * la estructura de datos que contiene a todos los usuarios.
+     * @param clave
+     * @param correo
+     * @return
+     * <ul>
+     * <li> True: Si el usuario se ha añadido correctamente.</li>
+     * <li> False: Si el usuario no se ha añadido correctamente.</li>
+     * </ul>
+     */
     public static boolean addAdmin(String clave, String correo){
         if (!UserData.getInstance().getUserHashMap().containsKey(correo)){
         try{
@@ -112,7 +149,29 @@ public class UsersServices {
     }
     
     
-     // Método para añadir usuarios clientes particulares.
+     // Método para modificar usuarios clientes particulares.
+
+    /**
+     * Nos permite modificar la informacón de usuario de tipo cliente particular a partir
+     * de la información prevista como método.
+     * @param dni
+     * @param nombre
+     * @param direccionCalle
+     * @param direccionCiudad
+     * @param direccionNumero
+     * @param direccionCP
+     * @param tarjetaDeCreditoNumero
+     * @param tarjetaDeCreditoTitular
+     * @param tarjetaDeCreditoCaducidad
+     * @param telefono
+     * @param clave
+     * @param correo
+     * @return
+     * <ul>
+     * <li> True: Si el usuario se ha modificado correctamente.</li>
+     * <li> False: Si el usuario no se ha modificado correctamente.</li>
+     * </ul>
+     */
     public static boolean setUser(String dni, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
         if (UserData.getInstance().getUserHashMap().containsKey(correo)){
         try{
@@ -151,7 +210,28 @@ public class UsersServices {
         }
     }
     
-    
+    /**
+     * Nos permite modificar la informacón de usuario de tipo cliente Empresa a partir
+     * de la información prevista como método.
+     * @param cif
+     * @param web
+     * @param nombre
+     * @param direccionCalle
+     * @param direccionCiudad
+     * @param direccionNumero
+     * @param direccionCP
+     * @param tarjetaDeCreditoNumero
+     * @param tarjetaDeCreditoTitular
+     * @param tarjetaDeCreditoCaducidad
+     * @param telefono
+     * @param clave
+     * @param correo
+     * @return
+     * <ul>
+     * <li> True: Si el usuario se ha modificado correctamente.</li>
+     * <li> False: Si el usuario no se ha modificado correctamente.</li>
+     * </ul>
+     */
     public static boolean setUser(String cif,String web, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
         if (UserData.getInstance().getUserHashMap().containsKey(correo)){
         try{
@@ -191,6 +271,16 @@ public class UsersServices {
         }
     }
     
+    /**
+     * Nos permite modificar la clave de un usuario.
+     * @param clave
+     * @param correo
+     * @return
+     * <ul>
+     * <li> True: Si la clave  del usuario se ha modificdo correctamente.</li>
+     * <li> False: Si la clave  del usuario no se ha modificdo correctamente..</li>
+     * </ul>
+     */
     public static boolean setUser(String clave, String correo){
         if (UserData.getInstance().getUserHashMap().containsKey(correo)){
         try{
@@ -217,6 +307,29 @@ public class UsersServices {
     }
     
     // Método para añadir usuarios clientes empresa. String cif, String web
+
+    /**
+     * Nos permite añadir un nuevo usuario de tipo clienteParticular al sistema. El usuario se creará y añadirá a
+     * la estructura de datos que contiene a todos los usuarios.
+     * @param cif
+     * @param web
+     * @param nombre
+     * @param direccionCalle
+     * @param direccionCiudad
+     * @param direccionNumero
+     * @param direccionCP
+     * @param tarjetaDeCreditoNumero
+     * @param tarjetaDeCreditoTitular
+     * @param tarjetaDeCreditoCaducidad
+     * @param telefono
+     * @param clave
+     * @param correo
+     * @return
+     * <ul>
+     * <li> True: Si el usuario se ha añadido correctamente.</li>
+     * <li> False: Si el usuario no se ha añadido correctamente.</li>
+     * </ul>
+     */
     public static boolean addUser(String cif, String web, String nombre, String direccionCalle,String direccionCiudad,int direccionNumero,int direccionCP,long tarjetaDeCreditoNumero,String tarjetaDeCreditoTitular,LocalDate tarjetaDeCreditoCaducidad ,String telefono, String clave, String correo){
         
         if (!UserData.getInstance().getUserHashMap().containsKey(correo)){
@@ -254,7 +367,10 @@ public class UsersServices {
 //         ClienteParticular c1 = new ClienteParticular("20120000-F", "Felix", d1,t1,"91-2240234","pass","felix@uah.es",to1);
 //         UserData.getInstance().getUserHashMap().put("felix@uah.es", c1);
 //    }
-     
+
+    /**
+     * Nos permite crear el usuario administrador en la plataforma.
+     */
      public static void createMockAdminUser() {         
          Token to1 = new Token(RadomGenerator.generateRandomPassword(20), LocalDateTime.now().plusMinutes(4));
          if (!UserData.getInstance().getUserHashMap().containsKey("admin@javacomp.com")) {
@@ -264,16 +380,44 @@ public class UsersServices {
          }
     }
      
+    /**
+     * Nos permite obtener un usuario mediante la clave correo y el valor clave.
+     * @param correo
+     * @param clave
+     * @return
+     * <ul>
+     * <li> Usuario u1</li>
+     * </ul>
+     */
     public static Usuario getUser(String correo,String clave){
        Usuario u1  = UserData.getInstance().getUserHashMap().get(correo);
        return u1;
     }
     
+    /**
+     * Nos permite obtener un usuario mediante el la clave correo.
+     * @param correo
+     * @return
+     * <ul>
+     * <li> Usuario u1</li>
+     * </ul>
+     */
     public static Usuario getUser(String correo){
        Usuario u1  = UserData.getInstance().getUserHashMap().get(correo);
        return u1;
     }
     
+    /**
+     * Nos permite borrar un usuario de la estrutura de datos UserHashMap mediante 
+     * el paso de un String correo que se utilizará como clave para la busqueda y
+     * eliminación dicho usuario.
+     * @param correo
+     * @return
+     * <ul>
+     * <li> True: Si el usuario se ha eliminad correctamente.</li>
+     * <li> False: Si el usuario no se ha eliminad correctamente.</li>
+     * </ul>
+     */
     public static boolean deleteUser(String correo){
        if (UserData.getInstance().getUserHashMap().containsKey(correo)){
             try {
@@ -290,11 +434,29 @@ public class UsersServices {
        }
     }
     
+    /**
+     * Nos permite recuperar un ArrayList String con todas las claves "keys" de los 
+     * usuarios de las estructura de datos 
+     * UserHashMap.
+     * @return
+     * <ul>
+     * <li> ArrayList String claves usuarios</li>
+     * </ul>
+     */
     public static ArrayList<String> getUser(){
          ArrayList<String> listOfKeys = UserData.getInstance().getUserHashMap().keySet().stream().collect(Collectors.toCollection(ArrayList::new));
          return listOfKeys;
     }
     
+    /**
+     * NOs permite obtener un ArrayList de productos, con todos los productos 
+     * de un usuario proporcionado.
+     * @param u
+     * @return
+     * <ul>
+     * <li> ArrayList Productos productos de un  usuario</li>
+     * </ul>
+     */
     public static ArrayList<Producto> getObjectShoppingCart(Usuario u){
         if ((UsersServices.TypeUser(u.getCorreo(),u.getClave())).equals("ClienteParticular")) {
             ClienteParticular c1 = (ClienteParticular) u;
@@ -306,7 +468,16 @@ public class UsersServices {
         }
 }
     
-    
+    /**
+     * Nos permite borrar un articulo del carrito de un usuario proporcionado.
+     * @param u
+     * @param producto
+     * @return
+     * <ul>
+     * <li> True: Si el producto se ha borrado correctamente del carrito del usuario proporcionado.</li>
+     * <li> False: Si el producto no se ha borrado correctamente del carrito del usuario proporcionado.</li>
+     * </ul>
+     */
     public static boolean deleteObjectShoppingCart(Usuario u, Producto producto){
         if ((UsersServices.TypeUser(u.getCorreo(),u.getClave())).equals("ClienteParticular")) {
             ClienteParticular c1 = (ClienteParticular) u;
@@ -344,7 +515,15 @@ public class UsersServices {
         }
     }
     
-    
+    /**
+     * Permite quitar todos los productos del carrito de un usuario proporcionado.
+     * @param u
+     * @return
+     * <ul>
+     * <li> True: Si se han eliminado correctamente los productos  del carrito del usuario proporcionado.</li>
+     * <li> False: Si no se han eliminado correctamente los productos  del carrito del usuario proporcionado.</li>
+     * </ul>
+     */
     public static boolean cleanShoppingCart(Usuario u){
         if ((UsersServices.TypeUser(u.getCorreo(),u.getClave())).equals("ClienteParticular")) {
             ClienteParticular c1 = (ClienteParticular) u;
@@ -374,6 +553,17 @@ public class UsersServices {
 //    public static ArrayList<String>  getUser(){
 //         return UserData.getInstance().getUserHashMap().keySet().stream().collect(Collectors.toCollection(ArrayList::new));
 //    }
+
+    /**
+     * Nos permite conocer el tipo de usuario metiante el paso de la clave (key) correo
+     * el valor clave de un usuario.
+     * @param correo
+     * @param clave
+     * @return
+     * <ul>
+     * <li> clase del usuario solicitado.</li>
+     * </ul>
+     */
     
     public static String TypeUser(String correo,String clave){
         Usuario u1  = UserData.getInstance().getUserHashMap().get(correo);
@@ -389,6 +579,8 @@ public class UsersServices {
     public static void saveUserData() {
     //Vamos a Serializar el objeto SalesData en memoria no Volatil.
     /**
+     * Nos permite exportar toda la información de la estuctura de datos UserHashMap
+     * a un fichero local para su futura recuperación.
      * Se nos obliga a meter una exception
      */
     //UserData userDat = UserData.getInstance();
@@ -407,7 +599,9 @@ public class UsersServices {
             }
     } 
     
-    
+    /**
+     * Nos permite recuperar de un fichero local toda la información para de la estuctura de datos UserHashMap
+     */
     public static void initUserDataMock() {
         try {      
             FileInputStream fileInput = new FileInputStream("localDataMock/UserDataLocal.dat");
@@ -428,7 +622,15 @@ public class UsersServices {
             }
 }
     
-    
+    /**
+     * Nos pemite verificar que el DNI proporcionado tiene la composición apropiada
+     * @param DNI
+     * @return
+     * <ul>
+     * <li> True: Si el DNI proporcionado es correcto. </li>
+     * <li> False: Si el DNI proporcionado no es correcto.</li>
+     * </ul>
+     */
     public static boolean checkDNI(String DNI){
         try{
             if (DNI.charAt(DNI.length() -1 ) == letterDNI(DNI) ){
@@ -454,8 +656,16 @@ public class UsersServices {
         return lettersDNI[dniNumber];
     }
     
-    
-    
+    /**
+     * Nos permite saber si la tarjeta de crédito, de un usuario proporcionado,
+     * ha caducado o sigue vigente.
+     * @param u
+     * @return
+     * <ul>
+     * <li> True: Si la tarjeta de crédito no ha caducada. </li>
+     * <li> False: Si la tarjeta de crédito  ha caducada.</li>
+     * </ul>
+     */
     public static boolean checkDateCreditCard(Usuario u){
         if ((UsersServices.TypeUser(u.getCorreo(),u.getClave())).equals("ClienteParticular")) {
             ClienteParticular c1 = (ClienteParticular) u;

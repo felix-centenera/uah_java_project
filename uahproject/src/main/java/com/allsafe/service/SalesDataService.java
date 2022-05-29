@@ -54,6 +54,12 @@ public class SalesDataService {
         return(coleccion.stream().anyMatch(x -> x.getDateConfirmedSale().equals(loc)));
     }
     
+    /**
+     * Nos devuelve la ventas encontradas HashMap de ventas que la fecha de las mismas
+     * sea posterior a la indicada como parámetro de entrada.
+     * @param loc
+     * @return
+     */
     public static  ArrayList getSalesFounded(LocalDateTime loc){
             //DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yyyy:HH:mm");
             ArrayList<Venta> OrderedArray = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().values());
@@ -83,12 +89,22 @@ public class SalesDataService {
 
 
     }
+
+    /**
+     * Nos devuelve todas las ventas del HashMap de ventas.
+     * @return
+     */
     public static ArrayList<String> getAllSales(){
         ArrayList<String> arr = new ArrayList<>(SalesData.getInstance().getSalesDataHashMap().keySet());
         System.out.println(arr.toString());
         return(arr);
     }
     
+    /**
+     *
+     * @param ProductList
+     * @return
+     */
     public static String[] SplittingProductList(String ProductList){
         
         return(ProductList.split("/"));
@@ -96,6 +112,11 @@ public class SalesDataService {
     
     }
     
+    /**
+     * Nos permite guardar en un fichero local SalesData para su posterior recuperación.
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public static void SerializateSalesData() throws FileNotFoundException, IOException{
         //Vamos a Serializar el objeto SalesData en memoria no Volatil.
         /**
@@ -108,12 +129,25 @@ public class SalesDataService {
     
     }
     
+    /**
+     * Nos permite recuperar desde un fichero local toda la información de ventas.
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static SalesData bringSalesSata() throws FileNotFoundException, IOException, ClassNotFoundException{
         ObjectInputStream readingDat = new ObjectInputStream(new FileInputStream("src/main/java/com/allsafe/localData/SalesDataLocal.dat"));
         SalesData sales = (SalesData) readingDat.readObject();
         return(sales);
     }
     
+    /**
+     * Nos permite generar un documento de venta o factura a partir de una calve
+     * Id de la venta.
+     * @param id
+     * @throws IOException
+     */
     public static void generateSaleDocument(String id) throws IOException{
         //Generate document .txt
         
@@ -191,6 +225,11 @@ public class SalesDataService {
         SaleFacture.close();
     }
     
+    /**
+     *
+     * @param numero
+     * @return
+     */
     public static String StringCreator(int numero){
        String chart = "";
        for(int i = 0; i < numero; i++){
@@ -199,6 +238,13 @@ public class SalesDataService {
        return(chart);
     }
     
+    /**
+     * Permite la cuantía total de un ArrayList de productos añadiendo gastos de envío a
+     * dicha cuantía.
+     * @param listaProductos
+     * @return
+     * int total + GASTOS_DE_ENVIO 
+     */
     public static int SumTotal(ArrayList<Producto> listaProductos){
         int total = 0;
         for (Producto p : listaProductos) {
@@ -209,7 +255,16 @@ public class SalesDataService {
         return total + GASTOS_DE_ENVIO;
     }
     
-    
+    /**
+     * Nos premite comprobar si de productos alojados el carrito de un  usuario recibio 
+     * por parámetro, hay el suficiente stock en el inventario.
+     * @param user
+     * @return
+     * <ul>
+     * <li> True: Si el inventario contiene el stock suficiente de cada uno de los productos.</li>
+     * <li> False: Si el inventario no contiene el stock suficiente de cada uno de los productos.</li>
+     * </ul>
+     */
     public static boolean CheckInventoryForSales(Usuario user){
         
         ArrayList<Producto> listOfProducts  = UsersServices.getObjectShoppingCart(user);
@@ -232,6 +287,16 @@ public class SalesDataService {
         return true; 
     }
 
+    /**
+     * Nos permite reducir el stock  del inventario de todos los productos que un usuario 
+     * contiene en su carrito en función de las unidades solicitadas de cada producto.
+     * @param user
+     * @return
+     * <ul>
+     * <li> True: Si se ha recudizo correctamente el stock de cada producto en el inventario</li>
+     * <li> False: Si no se ha recudizo correctamente el stock de cada producto en el inventario</li>
+     * </ul>
+     */
     public static boolean SalesInventoryDepart(Usuario user){
         
         ArrayList<Producto> listOfProducts  = UsersServices.getObjectShoppingCart(user);
@@ -256,7 +321,17 @@ public class SalesDataService {
         return true; 
     } 
     
-
+    /**
+     * Nos permite gestionar la venta de un usuario, mediante el uso de otro métodos, comprobará
+     * que hay stock suficiente para la venta, reducirá el stock del inventario en función de la venta, generará una venta 
+     * añadiendola al Hashmap de ventas.
+     * @param user
+     * @return
+     * <ul>
+     * <li> True: Si todo el proceso de venta se ha realizado correctamente.</li>
+     * <li> False: Si todo el proceso de venta no se ha realizado correctamente</li>
+     * </ul>
+     */
     public static boolean Sales(Usuario user){
         
         if ( CheckInventoryForSales(user)) { 
@@ -318,8 +393,9 @@ public class SalesDataService {
     
     /**
      * SERIALIZACION DE LOS ARCHIVOS
+     *  Permite la escritura en un fichero local para su futura recuperación de los datos
+     * recogidos en el SalesDataHashMap
      */
-    
     public static void saveSalesData() {
     //Vamos a Serializar el objeto SalesData en memoria no Volatil.
     /**
@@ -341,7 +417,9 @@ public class SalesDataService {
             }
     } 
     
-    
+    /**
+     * Permite la recuperación de datos desde un fichero local.
+     */
     public static void initSalesDataMock() {
         try {      
             FileInputStream fileInput = new FileInputStream("localDataMock/SalesDataLocal.dat");

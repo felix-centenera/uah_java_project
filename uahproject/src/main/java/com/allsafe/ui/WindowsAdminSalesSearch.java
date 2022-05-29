@@ -51,7 +51,9 @@ public class WindowsAdminSalesSearch extends javax.swing.JFrame  {
     
     }
     
-
+/**
+* Nos permite crear la interfaz WindowsProductPage con todos lo elementos necesarios de forma dinámica.
+*/
     private void createWindowsProductPage() {
         try {
             jLabelHomeIcon4.setIcon(new javax.swing.ImageIcon("Icons/png/AllSafe.png"));

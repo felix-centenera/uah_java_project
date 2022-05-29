@@ -99,6 +99,9 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
 //    }
 //    
 
+/**
+* Nos permite crear la interfaz createWindowsProductPage con todos lo elementos necesarios de forma dinámica.
+*/ 
     private void createWindowsProductPage() {
         try {
             //jLabelImg.setSize(130, 100);
@@ -151,7 +154,12 @@ public class WindowsUserShoppingCart extends javax.swing.JFrame  {
  }
     
     
-    
+/**
+* Nos permite mostrar los productos interfaz  con todos lo elementos necesarios de forma dinámica.
+* Estos productos están recogidos en un ArrayList Producto listOfKeys, mediante el parametro i mostraremos
+* los productos que comiencen en la posición i.
+* * @param i
+*/  
     private void printUsers(int i){
         
                 jPanelUsersFound.setVisible(true);

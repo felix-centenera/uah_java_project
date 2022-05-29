@@ -60,7 +60,9 @@ public class WindowsAdminSalesShowOneSale extends javax.swing.JFrame  {
         createWindowsProductPage();
     }
     
-
+/**
+* Nos permite crear la interfaz createWindowsProductPage con todos lo elementos necesarios de forma dinámica.
+*/
     private void createWindowsProductPage() {
         try {
             //jLabelImg.setSize(130, 100);

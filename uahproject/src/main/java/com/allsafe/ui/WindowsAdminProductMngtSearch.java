@@ -52,6 +52,7 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
     
     /**
      * Creates new form Home
+     * @param listOfProductos
      */
 //    public WindowsProduct() {
 //        initComponents();
@@ -70,7 +71,8 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
 //        return  user;  
 // }
     
-    /** Creates new form WindowProduct */
+    /** Creates new form WindowProduct
+     * @param ventana */
     public WindowsAdminProductMngtSearch(WindowsAdminProductMngt ventana) {
         //Ocultamos la ventana principal
         principal = ventana;
@@ -95,6 +97,9 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
 //    }
 //    
 
+    /**
+     * Nos permite crear la interfaz home con todos lo elementos necesarios de forma dinámica.
+     */
     private void createWindowsProductPage() {
         try {
             //jLabelImg.setSize(130, 100);
@@ -135,12 +140,20 @@ public class WindowsAdminProductMngtSearch extends javax.swing.JFrame  {
         }
     }
     
+    /**
+     *
+     */
     public  void  SetNumberOfUserPages0() {
         this.numberOfUserPages = 0;
  }
     
     
-    
+/**
+* Nos permite mostrar los usuario en la interfaz  con todos lo elementos necesarios de forma dinámica.
+* Estos usuarios están recogidos en un ArrayList usuario listOfProductos, mediante el parametro i mostraremos
+* los usuario que comiencen en la posición i.
+* * @param i
+*/ 
     private void printUsers(int i){
                 jPanelUsersFound.setVisible(true);
                 jButtonUser1.setVisible(false);        
