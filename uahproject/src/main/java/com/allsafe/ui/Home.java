@@ -784,6 +784,8 @@ private boolean checkLoginInterfaz(){
             jButtonHomeIconsGround7.setIcon(new javax.swing.ImageIcon("Icons/png/ArrowDown.png"));
             jButtonHomeIconsGround5.setIcon(new javax.swing.ImageIcon("Icons/png/home.png"));
             jButtonHomeIconsGround6.setIcon(new javax.swing.ImageIcon("Icons/png/mail.png"));
+            jButtonLogOut.setIcon(new javax.swing.ImageIcon("Icons/png/LogOut.png"));
+            jButtonAdmin.setIcon(new javax.swing.ImageIcon("Icons/png/admin.png"));
         } 
         catch (Exception e) {
             System.out.println("Error: " + e.toString()); }
