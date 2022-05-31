@@ -1,4 +1,4 @@
 .DS_Store
 .SalesInvoice
-.uahproject/SalesInvoice
-.uahproject/localDataMock
+.uahproject/SalesInvoice/*
+.uahproject/localDataMock/*
