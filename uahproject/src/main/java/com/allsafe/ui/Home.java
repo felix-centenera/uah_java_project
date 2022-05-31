@@ -1710,6 +1710,7 @@ private void createHomePageProductos(int i){
         else{
             System.out.println("INFO: Necesitas estar logado para ver tu carrito");
             JOptionPane.showMessageDialog(null, "INFO: Necesitas estar logado para ver tu carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+            createHomePage();
             
         }
            
