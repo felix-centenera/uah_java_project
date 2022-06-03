@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.allsafe.mock"},{"l":"com.allsafe.model"},{"l":"com.allsafe.service"},{"l":"com.allsafe.ui"}];updateSearchResults();
