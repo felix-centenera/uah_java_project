@@ -1,6 +1,13 @@
 # uah_java_project
 
-<h1> Proyecto JAVA UAH </h1>
+
+* Universidad: Alcala de Henares.
+* Grado: Grado en Ingeniería en Sistemas de la información.
+* Asignatura: Programación
+* Lenguaje: Java
+* Biblioteca gráfica: Java Swing
+* IDE: NetBeans
+
 
 1. UML Diagrama de clases
 
