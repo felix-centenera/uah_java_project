@@ -634,6 +634,8 @@ private boolean checkLoginInterfaz(){
         else{
             System.out.println("INFO: Necesitas estar logado para ver tu carrito");
             JOptionPane.showMessageDialog(null, "Necesitas estar logado para ver tu carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+            createWindowsProductPage();
+            
             
         }    
     }//GEN-LAST:event_jButtonMiCarritoActionPerformed
@@ -750,6 +752,7 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         else{
                 System.out.println("INFO: Necesitas estar logado para añadir productos a tu carrito");
                 JOptionPane.showMessageDialog(null, "Necesitas estar logado para añadir productos a tu carrito","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+                createWindowsProductPage();
             }
     }//GEN-LAST:event_jButton1AnadirCarritoActionPerformed
 // ********************************************************************************************************************
@@ -765,7 +768,8 @@ private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event
         }
         else{
             System.out.println("INFO: Necesita estar logado para opinar");
-            JOptionPane.showMessageDialog(null, "Necesita estar logado para opinar","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);        
+            JOptionPane.showMessageDialog(null, "Necesita estar logado para opinar","Información para el usuario", JOptionPane.INFORMATION_MESSAGE);
+            createWindowsProductPage();
         }
     }//GEN-LAST:event_jButton1OpinarActionPerformed
 // ********************************************************************************************************************

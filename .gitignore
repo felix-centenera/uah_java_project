@@ -1,2 +1,5 @@
 .DS_Store
-.SalesInvoice
+
+
+uahproject/localDataMock/*.dat
+uahproject/SalesInvoice/*.txt
