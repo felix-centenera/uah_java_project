@@ -13,6 +13,6 @@
 
 ![alt text](https://github.com/felix-centenera/uah_java_project/blob/main/UML/DiagramPNG/umlDiagram.png)
 
-2. ULM Diagrama de casos de uso
+2. UML Diagrama de casos de uso
 
 ![alt text](https://github.com/felix-centenera/uah_java_project/blob/main/UmlCasoDeUso/DiagramPNG/umlCasoDeUso.png)
